@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'FrutigerLight';
+    src: local('FrutigerLight'), url('../assets/fonts/Frutiger-Light.otf') format('truetype');
+}
+@font-face {
+    font-family: 'FrutigerBlackItalic';
+    src: local('FrutigerBlackItalic'), url('../assets/fonts/Frutiger-BlackItalic.otf') format('truetype');
+}
+@font-face {
+    font-family: 'FrutigerBlack';
+    src: local('FrutigerBlack'), url('../assets/fonts/Frutiger-Black.otf') format('truetype');
+}
+@font-face {
+    font-family: 'FrutigerBold';
+    src: local('FrutigerBold'), url('../assets/fonts/Frutiger-Bold.otf') format('truetype');
+}
+@font-face {
+    font-family: 'FrutigerBoldCn';
+    src: local('FrutigerBoldCn'), url('../assets/fonts/Frutiger-BoldCn.otf') format('truetype');
+}
+
+.header {
+    padding-top: '20px';
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
+}
+.label-header-not-selected {
+    font-family: FrutigerLight;
+    font-size: 16;
+    color:black;
+    cursor: pointer;
+
+    
+}
+
+.label-header-selected {
+    font-family: FrutigerBold;
+    font-size: 16px;
+    color:black;
+    cursor: pointer;
+}
+.timeTitle {
+    font-family: 'FrutigerBlack';
+    font-size: 56px;
+    color: white;
+}
+
+.timeValue {
+    font-family: 'FrutigerBlack';
+    font-size: 90px;
+    margin-top: -10px;
+    color: white;
+}
+
+.timeValueLabel {
+    font-family: 'FrutigerLight';
+    font-size: 16px;
+    margin-top: -30px;
+    text-align: center;
+    color: white;
+}
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: #eee;
+  }
+  
+  .no-outline:focus {
+    outline: none;
+  }
+/* span.carousel-control-next-icon {
+    background-image : url('../assets/up_red.png')
+
+} */
+
+

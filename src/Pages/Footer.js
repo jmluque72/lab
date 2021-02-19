@@ -1,0 +1,142 @@
+import React from "react";
+import PropTypes from "prop-types";
+import './Main.css';
+import Grid from '@material-ui/core/Grid';
+import { colors } from '../utils'
+
+const styles = {
+    justificado: {
+        textAlign: 'justify',
+        lineHeight: 1.5,
+        color: 'black',
+        fontSize: 16,
+        marginTop: 30
+    },
+    title: {
+        color: 'black',
+        fontSize: 18,
+        fontWeight: 'bold',
+        letterSpacing: 2,
+        marginTop: 50
+    },
+    titleTable: {
+        color: 'black',
+        fontSize: 14,
+        fontWeight: 'bold',
+        letterSpacing: 1.5,
+        lineHeight: 1.2,
+        marginLeft: 5
+    },
+    textTable: {
+        color: 'black',
+        marginLeft: 5,
+        lineHeight: 1.2
+    },
+
+    table: { borderWidth: 1, borderStyle: 'solid', borderColor: 'black' }
+};
+class Footer extends React.Component {
+    constructor(props) {
+        super(props);
+        // we use this to make the card to appear after the page has been rendered
+        this.state = {
+            days: 0,
+            hours: 0,
+            min: 0,
+            sec: 0,
+            seconds: 639234
+        }
+
+    }
+
+    timer = () => {
+        var seconds = this.state.seconds;
+
+        var days        = Math.floor(seconds/24/60/60);
+        var hoursLeft   = Math.floor((seconds) - (days*86400));
+        var hours       = Math.floor(hoursLeft/3600);
+        var minutesLeft = Math.floor((hoursLeft) - (hours*3600));
+        var minutes     = Math.floor(minutesLeft/60);
+        var remainingSeconds = seconds % 60;
+        
+        //document.getElementById('countdown').innerHTML = pad(days) + ":" + pad(hours) + ":" + pad(minutes) + ":" + pad(remainingSeconds);
+        this.setState({
+            days: days,
+            min: minutes,
+            hours: hours,
+            sec: remainingSeconds
+        });
+        if (seconds == 0) {
+          this.stop();
+        } else {
+          seconds--;
+          this.setState({
+              seconds: seconds
+          })
+        }
+    }
+    pad = (n) => {
+        return (n < 10 ? "0" + n : n);
+      }
+
+    componentDidMount() {
+        
+        this.interval = setInterval(() => {
+            const date = this.timer();
+        }, 1000);
+    }
+
+
+    stop() {
+        clearInterval(this.interval);
+
+    }
+
+    render() {
+        const countDown = this.state;
+        return (
+            <div style={{ position: 'absolute', left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
+                <Grid container style={{ alignItems: 'center', height: '100%', justifyContent: 'center' }}>
+                    <Grid xs={12} sm={3}>
+                        <Grid container alignItems='center' direction='column'>
+                            <div className='timeTitle'>FALTAN</div>
+                        </Grid>
+                    </Grid>
+                    <Grid xs={3} sm={1} >
+                        <Grid container alignItems='center' direction='column'>
+                            <div className='timeValue' id='days'>{this.state.days}</div>
+                            <div className='timeValueLabel'>Días</div>
+                        </Grid>
+                    </Grid>
+                    <Grid xs={3} sm={1} >
+                        <Grid container alignItems='center' direction='column'>
+                            <div className='timeValue' id={'hours'}>{this.state.hours}</div>
+                            <div className='timeValueLabel'>Horas</div>
+                        </Grid>
+                    </Grid>
+                    <Grid xs={3} sm={1}>
+                        <Grid container alignItems='center' direction='column'>
+                            <div className='timeValue' id={'minutes'}>{this.state.min}</div>
+                            <div className='timeValueLabel'>Minutos</div>
+                        </Grid>
+                    </Grid>
+                    <Grid xs={3} sm={1} >
+                        <Grid container alignItems='center' direction='column'>
+                            <div className='timeValue' id={'seconds'}>{this.state.sec}</div>
+                            <div className='timeValueLabel'>Segundos</div>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </div>
+        );
+    }
+}
+
+Footer.propTypes = {
+    classes: PropTypes.object.isRequired
+};
+Footer.defaultProps = {
+    date: new Date()
+};
+
+export default Footer;
