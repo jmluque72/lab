@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/items",
+            "lambdaFunction": "get_data",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/items"
+        }
+    ],
+    "resourceName": "lab",
+    "apiName": "lab",
+    "functionArns": [
+        {
+            "lambdaFunction": "get_data"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-lab-dev-163715-authRole",
+        "unAuthRoleName": "amplify-lab-dev-163715-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "get_data",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
