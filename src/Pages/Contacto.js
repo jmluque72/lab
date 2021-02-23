@@ -7,6 +7,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import {Grid,Button} from '@material-ui/core';
 import './Main.css'
 import Background from '../assets/background_contact.png'
+import BackgroundMin from '../assets/background_consulta.png'
+
+
 import { colors } from "../utils/index.js";
 
 
@@ -20,8 +23,13 @@ class Contacto extends React.Component {
 
     render() {
         const min = window.innerWidth >= 1000
+        var background = Background;
+        if (!min) {
+            background = BackgroundMin;
+        }
+
         return (
-            <div style={{ width: '100%',  flexDirection: 'row', height:window.innerHeight-100,backgroundImage:`url(${Background})`,backgroundSize:'cover'}}>
+            <div style={{ width: '100%',  flexDirection: 'row', height:window.innerHeight-100,backgroundImage:`url(${background})`,backgroundSize:'cover'}}>
                     <Grid item xs={12} style={{ height:'100%',width:'100%'}}>
                         <Grid container direction='row' style={{ width:'100%',height:'100%'}}>
                             <Grid item sm={5} style={{ }}>
@@ -35,9 +43,9 @@ class Contacto extends React.Component {
                                             <div style={{width:150,height:20,backgroundColor:'white'}}></div>
                                         </div>
                                         <div style={{ display:'flex',flexDirection:'column',marginLeft:'25%',marginTop:30}}>
-                                            <p style={{ fontFamily:'FrutigerLight',fontSize:14,color:'white'}}>www.novonordisk.com.ar</p>
-                                            <p style={{ fontFamily:'FrutigerLight',fontSize:14,color:'white',marginTop:30}}>Servicio de Atención al Cliente 0-800-345-NOVO (6686)</p>
-                                            <p style={{ fontFamily:'FrutigerLight',fontSize:14,color:'white'}}>Mail: atencioncli@novonordisk.com</p>
+                                            <p style={{ fontFamily:'FrutigerLight',fontSize:16,color:'white'}}>www.novonordisk.com.ar</p>
+                                            <p style={{ fontFamily:'FrutigerLight',fontSize:16,color:'white',marginTop:30}}>Servicio de Atención al Cliente 0-800-345-NOVO (6686)</p>
+                                            <p style={{ fontFamily:'FrutigerLight',fontSize:16,color:'white'}}>Mail: atencioncli@novonordisk.com</p>
                                         </div>
                                         <div style={{ display:'flex',flexDirection:'column',marginLeft:'25%'}}>
 

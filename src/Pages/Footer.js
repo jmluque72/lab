@@ -118,7 +118,7 @@ class Footer extends React.Component {
                             <div className='timeValueLabel'>Horas</div>
                         </Grid>
                     </Grid>
-                    <Grid xs={3} sm={2}>
+                    <Grid xs={3} sm={1}>
                         <Grid container alignItems='center' direction='column'>
                             <div className='timeValue' id={'minutes'}>{this.state.min}</div>
                             <div className='timeValueLabel'>Minutos</div>

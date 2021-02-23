@@ -26,7 +26,7 @@ class Evento extends React.Component {
             <div style={{ height:window.innerHeight-100}}>
                     <Grid item xs={12} style={{}}>
                         <Grid container direction='row' style={{ width:'100%',height:'100%'}}>
-                            <Grid item sm={6} xs={12} style={{ display:'flex',justifyContent:min ? 'flex-end' : 'center',alignItems:'center'}}>
+                            <Grid item sm={6} xs={12} style={{marginTop: 50, display:'flex',justifyContent:min ? 'flex-end' : 'center',alignItems:'center'}}>
                                 <div style={{width:'70%'}}>
                                     <img src={logoEvent} style={{ width:'100%',height:'auto'}}></img>
                                 </div>
