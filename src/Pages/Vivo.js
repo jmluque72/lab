@@ -7,6 +7,11 @@ import LogoOzempicHeader from '../assets/logo_white.png'
 import up_white from '../assets/up_white.png'
 import {colors} from '../utils' 
 import './Main.css'
+
+import { w3cwebsocket as W3CWebSocket } from "websocket";
+
+var client = new W3CWebSocket('wss://n7bj7eh9le.execute-api.sa-east-1.amazonaws.com/production');
+
 class Vivo extends React.Component {
     
     constructor(props) {
@@ -16,6 +21,22 @@ class Vivo extends React.Component {
 
         };
     }
+    componentDidMount() {
+
+        client.onopen = () => {
+            console.log('WebSocket Client Connected');
+        };
+        client.onmessage = (message) => {
+            console.log(message);
+        };   
+        client.onclose = () => {
+            console.log('WebSocket Client CLOSE');
+            client = new W3CWebSocket('wss://n7bj7eh9le.execute-api.sa-east-1.amazonaws.com/production');
+        } 
+
+    }
+
+
     upRotate(){
         if(!this.state.idiomaButton){
             return `rotate(180deg)`
@@ -32,7 +53,7 @@ class Vivo extends React.Component {
         return (
             <div style={{width: '100%', flexDirection: 'row'}}>
                     <img style={{width: '100%',height:'100%',position:'fixed',top:0,left:0}} src={Background} />
-                    <Grid item xs={12} style={{ height:window.innerHeight-100,position:'absolute',top:0,left:0,width:'100%',marginTop:100,paddingBottom:50}}>
+                    <Grid item xs={12} style={{ height:window.innerHeight-100,position:'absolute',top:0,left:0,width:'100%',paddingBottom:50}}>
                         <Grid container direction='column'>
                             <Grid xs={12} style={{ padding:10}}></Grid>
                                 <Grid container direction='row' justify='space-between' style={{ height:70,paddingRight:15,paddingLeft:15}}>
@@ -61,7 +82,7 @@ class Vivo extends React.Component {
                             <Grid xs={12} style={{ width:'100%',padding:10}}>
                                 <Grid container justify='center' alignItems='center'>
                                     <div style={{ width:'90%',height:400,padding:2,backgroundColor:'white'}}>
-                                        <iframe  src="https://www.youtube.com/embed/wrAoswsvHwg" style={{ width:'100%',height:'100%'}} ></iframe>
+                                        {/* <iframe  src="https://www.youtube.com/embed/wrAoswsvHwg" style={{ width:'100%',height:'100%'}} ></iframe> */}
                                     </div>
 
                                 </Grid>
@@ -77,16 +98,26 @@ class Vivo extends React.Component {
                                             </Grid>
                                             <Grid sm={3} xs={12} style={{ height:80}}>
                                                 <div style={{ width:'100%',height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                                                    <Button style={{ height:'50%',width:'70%',background:colors.degrade_orange,borderWidth:1,borderStyle:'solid',borderColor:'white',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                    {/* NORMAL */}
+                                                    <Button style={{ height:'50%',width:'70%',background:colors.degrade_orange,borderWidth:1,borderStyle:'solid',borderColor:'white',display:'flex',justifyContent:'center',alignItems:'center',position:'relative'}}>
                                                         <p style={{ fontFamily:'FrutigerBold',color:"white",margin:0,fontSize:20}}>VERDADERO</p>
-                                                    </Button>   
+                                                    </Button>    
+                                                    {/* <Button style={{ height:'50%',width:'70%',background:colors.degrade_orange,borderWidth:1,borderStyle:'solid',borderColor:'white',display:'flex',justifyContent:'center',alignItems:'center',position:'relative'}}>
+                                                        <p style={{ fontFamily:'FrutigerBold',color:"white",margin:0,fontSize:20}}>VERDADERO</p>
+                                                        <div style={{ height:24,width:24,position:'absolute',top:8,right:-10,backgroundColor:'red',display:'flex',justifyContent:'center',alignItems:'center'}}></div>
+                                                    </Button>    */}
                                                 </div>
                                             </Grid>
                                             <Grid sm={3} xs={12} style={{ height:80}}>
                                                 <div style={{ width:'100%',height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                                                    <Button style={{ height:'50%',width:'70%',background:colors.degrade_orange,borderWidth:1,borderStyle:'solid',borderColor:'white',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                    <Button style={{ height:'50%',width:'70%',background:colors.degrade_orange,borderWidth:1,borderStyle:'solid',borderColor:'white',display:'flex',justifyContent:'center',alignItems:'center',position:'relative'}}>
                                                         <p style={{ fontFamily:'FrutigerBold',color:"white",margin:0,fontSize:20}}>FALSO</p>
                                                     </Button>   
+                                                    {/* METERLE COLOR Y LOGO */}
+                                                    {/* <Button style={{ height:'50%',width:'70%',background:colors.degrade_orange,borderWidth:1,borderStyle:'solid',borderColor:'white',display:'flex',justifyContent:'center',alignItems:'center',position:'relative'}}>
+                                                        <p style={{ fontFamily:'FrutigerBold',color:"white",margin:0,fontSize:20}}>FALSO</p>
+                                                        <div style={{ height:24,width:24,position:'absolute',top:8,right:-10,backgroundColor:'red',display:'flex',justifyContent:'center',alignItems:'center'}}></div>
+                                                    </Button>    */}
                                                 </div>
                                             </Grid>
                                         </Grid>
@@ -95,7 +126,6 @@ class Vivo extends React.Component {
                             </Grid>
                         
                     </Grid>
-                <Header state='agenda'></Header>
             </div>
         );
     }

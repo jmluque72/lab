@@ -23,15 +23,15 @@ class Evento extends React.Component {
     render() {
         const min = window.innerWidth >= 1000
         return (
-            <div>
-                    <Grid item xs={12} style={{ position:'absolute',top:0,left:0,width:'100%',marginTop:100}}>
+            <div style={{ height:window.innerHeight-100}}>
+                    <Grid item xs={12} style={{}}>
                         <Grid container direction='row' style={{ width:'100%',height:'100%'}}>
                             <Grid item sm={6} xs={12} style={{ display:'flex',justifyContent:min ? 'flex-end' : 'center',alignItems:'center'}}>
                                 <div style={{width:'70%'}}>
                                     <img src={logoEvent} style={{ width:'100%',height:'auto'}}></img>
                                 </div>
                             </Grid>
-                            <Grid item sm={6} xs={12} style={{ }}>
+                            <Grid item sm={6} xs={12} style={{ marginTop: min ? '' : 20}}>
                                 <Grid container direction='column' justify={ min ? 'center' :'' }alignItems={ min ? 'flex-start' : 'center' }style={{ height:'100%'}}>
                                     <p style={{ fontFamily:'FrutigerBlack',fontSize:18,color:'black',textAlign:min ? 'left' : 'center',lineHeight:1,width:'60%',marginLeft: min ? '10%' : '', }}>¿Cómo ingresar a ver el evento? </p>
                                     <ol style={{ fontFamily:'FrutigerBlack',fontSize:14,color:colors.gray,marginLeft: min ? '10%' : '',lineHeight:1.4 }}>

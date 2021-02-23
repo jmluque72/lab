@@ -42,13 +42,13 @@
 }
 .timeTitle {
     font-family: 'FrutigerBlack';
-    font-size: 56px;
+    font-size: 50px;
     color: white;
 }
 
 .timeValue {
     font-family: 'FrutigerBlack';
-    font-size: 90px;
+    font-size: 80px;
     margin-top: -10px;
     color: white;
 }

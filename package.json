@@ -11,16 +11,20 @@
     "aws-amplify-react": "^4.2.22",
     "bootstrap": "^4.6.0",
     "history": "^5.0.0",
+    "node-ws": "0.0.4",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.0",
     "react-cookie": "^4.0.3",
     "react-dom": "^17.0.1",
     "react-img-carousel": "^2.0.0",
     "react-responsive-carousel": "^3.2.12",
+    "react-responsive-masonry": "^2.1.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
+    "react-use-websocket": "^2.5.0",
     "sockette": "^2.0.6",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "websocket": "^1.0.33"
   },
   "scripts": {
     "start": "react-scripts start",

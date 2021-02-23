@@ -44,7 +44,7 @@ class Footer extends React.Component {
             hours: 0,
             min: 0,
             sec: 0,
-            seconds: 639234
+            seconds: 1369234
         }
 
     }
@@ -94,10 +94,14 @@ class Footer extends React.Component {
 
     render() {
         const countDown = this.state;
+        var display = "block"
+        if (window.scrollY > 0) {
+            display = "none";
+        }
         return (
-            <div style={{ position: 'absolute', left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
+            <div style={{display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
                 <Grid container style={{ alignItems: 'center', height: '100%', justifyContent: 'center' }}>
-                    <Grid xs={12} sm={3}>
+                    <Grid xs={12} sm={2}>
                         <Grid container alignItems='center' direction='column'>
                             <div className='timeTitle'>FALTAN</div>
                         </Grid>
@@ -114,7 +118,7 @@ class Footer extends React.Component {
                             <div className='timeValueLabel'>Horas</div>
                         </Grid>
                     </Grid>
-                    <Grid xs={3} sm={1}>
+                    <Grid xs={3} sm={2}>
                         <Grid container alignItems='center' direction='column'>
                             <div className='timeValue' id={'minutes'}>{this.state.min}</div>
                             <div className='timeValueLabel'>Minutos</div>

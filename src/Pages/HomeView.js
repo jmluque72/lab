@@ -27,6 +27,8 @@ class HomeView extends React.Component {
         this.scrollDivOradores = React.createRef();
         this.scrollDivConsultas = React.createRef();
         this.scrollDivContacto = React.createRef();
+
+        
     }
 
     redirect = (name) => {
@@ -44,7 +46,7 @@ class HomeView extends React.Component {
             window.scrollTo(0, this.scrollDivOradores.current.offsetTop-100);
         }
         if (name == 'Evento') {
-            this.setState({visible: 'eventos'});
+            this.setState({visible: 'evento'});
             window.scrollTo(0, this.scrollDivEvento.current.offsetTop-100);
         }
         if (name == 'Consultas') {
@@ -57,27 +59,34 @@ class HomeView extends React.Component {
         }
     }
 
+    componentDidMount() {
+        window.addEventListener('scroll', (event) => {
+            
+        });
+    }
+
     render() {
         return (
             <div style={{flexDirection: 'row'}}>
                 <div id='home' ref={this.scrollDivHome}>
                     <SliderHome />
                 </div>
-                <div id='agenda' style={{position: 'absolute', width: '100%', top: window.innerHeight, left:0, height: window.innerHeight }} ref={this.scrollDivAgenda}>
+                 <div id='agenda' ref={this.scrollDivAgenda}>
                     <Agenda/>
                 </div>
-                <div id='oradores'  style={{position: 'absolute', top: window.innerHeight*2, height: window.innerHeight, width: '100%'}} ref={this.scrollDivOradores}>
+                <div id='oradores'   ref={this.scrollDivOradores}>
                     <Oradores/>
                 </div>
-                <div id='evento' style={{position: 'absolute', top: window.innerHeight*3, height: window.innerHeight, width: '100%'}} ref={this.scrollDivEvento}>
+                <div id='evento' style={{ marginTop:50}}  ref={this.scrollDivEvento}>
                     <Evento/>
                 </div>
-                <div id='consultas' style={{position: 'absolute', top: window.innerHeight*4, height: window.innerHeight, width: '100%'}} ref={this.scrollDivConsultas}>
+                <div id='consultas' style={{ marginTop:50, marginBottom: 50}}  ref={this.scrollDivConsultas}>
+                    <div></div>
                     <Consultas/>
                 </div>
-                <div id='contacto' style={{position: 'absolute', top: window.innerHeight*5, height: window.innerHeight, width: '100%'}} ref={this.scrollDivContacto}>
+              <div id='contacto'ref={this.scrollDivContacto}>
                     <Contacto/>
-                </div>
+                </div>  
                 <Header state={this.state.visible} style={{position: 'absolute', top: window.innerHeight*6, height: window.innerHeight, width: '100%'}} redirect={this.redirect} />
 
             </div>

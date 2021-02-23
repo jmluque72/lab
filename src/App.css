@@ -50,5 +50,10 @@
   }
 }
 .carousel-control-next-icon{
-  background-image: none;
+  background-image: url('../src/assets/next.png');
+  background-size: contain;
+}
+.carousel-control-prev-icon{
+  background-image: url('../src/assets/prev.png');
+  background-size: contain;
 }

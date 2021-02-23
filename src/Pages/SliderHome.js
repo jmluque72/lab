@@ -3,9 +3,13 @@ import PropTypes from "prop-types";
 import Grid from '@material-ui/core/Grid';
 import './Main.css'
 import Carousel from 'react-bootstrap/Carousel'
-import image_1 from '../assets/CarouselHome/image_1.png'
+import image_1 from '../assets/CarouselHome/image_1.jpg'
+import image_2 from '../assets/CarouselHome/image_2.jpg'
+import image_3 from '../assets/CarouselHome/image_3.jpg'
 import logoHeader from '../assets/logo_ozempic_header.png'
 import Footer from './Footer.js'
+import next from '../assets/next.png'
+import prev from '../assets/prev.png'
 
 class SliderHome extends React.Component {
     constructor(props) {
@@ -16,52 +20,58 @@ class SliderHome extends React.Component {
         };
     }
 
+    next = () => {
+
+    }
+
+    prev = () => {
+        
+    }
+
     render() {
         return (
-            <div style={{ width:'100%',height:window.innerHeight,marginTop:80}}>
-                <Grid item xs={12} sm={12} style={{ height: window.innerHeight}}>
+            <div style={{ width:'100%', height: window.innerHeight, justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
+                <Grid item xs={12} sm={12}>
                     <Carousel style={{ zIndex:10}}>
                         <Carousel.Item>
                                 <div style={{display:'flex',flexDirection:'row'}}>
-                                    <Grid item xs={1} sm={1} ></Grid>
-                                    <Grid item xs={6} sm={6}>
+                                    <Grid item xs={12} sm={12}>
                                         <Grid container justify='center' alignItems='center'>
-                                            <div style={{ maxHeight:window.innerHeight}}>
+                                            <div style={{  maxHeight:window.innerHeight}}>
                                                 <img src={image_1} style={{ width:'100%',height:'100%'}}></img>
                                             </div>
                                             
                                         </Grid>
                                     </Grid>  
-                                    <Grid item xs={4} sm={4} >
-                                        <Grid container direction='column' justify='center' alignItems='center'  style={{ height:'100%'}}>
-                                            <img src={logoHeader} style={{ width:'100%',height:'auto'}}></img>
-                                        </Grid>
-                                    </Grid>  
-                                    <Grid item xs={1} sm={1} ></Grid>
+                                  
                                 </div>
                         </Carousel.Item>
-    
                         <Carousel.Item>
                                 <div style={{display:'flex',flexDirection:'row'}}>
-                                    <Grid item xs={1} sm={1} ></Grid>
-                                    <Grid item xs={6} sm={6}>
+                                    <Grid item xs={12} sm={12}>
                                         <Grid container justify='center' alignItems='center'>
-                                            <div style={{ maxHeight:420}}>
-                                                <img src={image_1} style={{ width:'100%',height:'100%'}}></img>
-
+                                            <div style={{  maxHeight:window.innerHeight}}>
+                                                <img src={image_2} style={{ width:'100%',height:'100%'}}></img>
                                             </div>
                                             
                                         </Grid>
                                     </Grid>  
-                                    <Grid item xs={4} sm={4} >
-                                        <Grid container direction='column' justify='center' alignItems='center'  style={{ height:'100%'}}>
-                                            <img src={logoHeader} style={{ width:'100%',height:'auto'}}></img>
-                                        </Grid>
-                                    </Grid>  
-                                    <Grid item xs={1} sm={1} ></Grid>
+                                  
                                 </div>
                         </Carousel.Item>
-    
+                        <Carousel.Item>
+                                <div style={{display:'flex',flexDirection:'row'}}>
+                                    <Grid item xs={12} sm={12}>
+                                        <Grid container justify='center' alignItems='center'>
+                                            <div style={{  maxHeight:window.innerHeight}}>
+                                                <img src={image_3} style={{ width:'100%',height:'100%'}}></img>
+                                            </div>
+                                            
+                                        </Grid>
+                                    </Grid>  
+                                  
+                                </div>
+                        </Carousel.Item>
                     </Carousel>
                 </Grid>
                 <Footer />
