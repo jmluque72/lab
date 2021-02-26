@@ -15,6 +15,12 @@ import orRD from '../assets/oradores/Dr.RafaelDiaz.png'
 import orCL from '../assets/oradores/Dra.CeciliaLuquez.png'
 import orAP2 from '../assets/oradores/Dr.AdrianProietti.png'
 import orDA from '../assets/oradores/Dr.DanielAlbertoSiniawski.png'
+
+import orLL from '../assets/oradores/orLL.png'
+import orDP from '../assets/oradores/orDP.png'
+import orJL from '../assets/oradores/orJL.png'
+
+
 import Masonry from "react-responsive-masonry"
 class Oradores extends React.Component {
     constructor(props) {
@@ -32,6 +38,9 @@ class Oradores extends React.Component {
                 { type:1,name: 'Dra. Cecilia Luquez', img: orCL, inf: ['Médica especialista en clínica médica', 'Especialista en diabetología'],extra : ['Astra Zeneca', 'Novo Nordisk', ]},
                 { type:1,name: 'Dr. Adrian Proietti', img: orAP2, inf: ['Médico especialista en medicina interna y endocrinología', 'Director del Instituto Integral de Diabetes y Tecnología Aplicada (IDTA)','Director del curso de Tecnología de la SAD'],extra : ['Abbot', 'Aegerium','Astra Zeneca','Boehringer','Eli Lilly', 'Medtronic', 'Novo Nordisk','Sanofi','Servier' ]},
                 { type:2,name: 'Dr. Daniel Alberto Siniawski', img: orDA, inf: ['Médico cardiólogo. Especialista en lípidos', 'Sección Prevención Cardiovascular Hospital Italiano. ','Fundador y coordinador de la Clínica de Lípidos y aféresis de colesterol'],extra : ['Speaker: Laboratorios MSD, Sanofi Aventis y Novo Nordisk.', 'Advisory Board: Laboratorios MSD, Sanofi Aventis, Novo Nordisk y Amgen.', 'Investigación: Kowa Research Institute, Novo Nordisk A/S.']},
+                { type:3,name: 'Dr. Lawrence A. Leiter', img: orLL, inf: ['Director de la Clínica de Lípidos;Director Asociado del Centro de Modificación de Factores de Riesgo y Nutrición Clínica; y científico asociado, Li Ka Shing Knowledge Institute del St. Michaels Hospital en Toronto, donde también fue Jefe de la División de Endocrinología y Metabolismo de 2000 a 2010. Prof. en Deptos de Medicina y Ciencias de la Nutrición de la Univ. de Toronto. Investigador en muchos de los ensayos de diabetes más importantes, incluidos DCCT, ACCORD y ADVANCE. Tiene más de 680 publicaciones. Ex presidente de la Sociedad Canadiense de Endocrinología y Metabolismo (CSEM) y ex presidente de la Sección Clínica y Científica de la Asociación Canadiense de Diabetes (CDA).']},
+                { type:3,name: 'Dr. Jack Lawson', img: orJL, inf: ['Director de la Clínica de Lípidos;Director Asociado del Centro de Modificación de Factores de Riesgo y Nutrición Clínica; y científico asociado, Li Ka Shing Knowledge Institute del St. Michaels Hospital en Toronto, donde también fue Jefe de la División de Endocrinología y Metabolismo de 2000 a 2010. Prof. en Deptos de Medicina y Ciencias de la Nutrición de la Univ. de Toronto. Investigador en muchos de los ensayos de diabetes más importantes, incluidos DCCT, ACCORD y ADVANCE. Tiene más de 680 publicaciones. Ex presidente de la Sociedad Canadiense de Endocrinología y Metabolismo (CSEM) y ex presidente de la Sección Clínica y Científica de la Asociación Canadiense de Diabetes (CDA).']},
+                { type:3,name: 'Dr. Daniel Piskorz', img: orDP, inf: ['Médico especialista en cardiología Director del Centro de Investigaciones Cardiovasculares del Sanatorio Británico SA Médico de Planta del Instituto de Cardiología del Sanatorio Británico SRL Presidente de la Federación Argentina de Cardiología – Año 2017 Presidente de la Sociedad Argentina de Hipertensión Arterial – Año 2011 – 2013 Miembro International Society of Hypertension Miembro Honorario Central America and Caribbean Society of Hypertension and Cardiovascular Prevention Miembro American College of Cardiology Miembro Sociedad Interamericana de Cardiología Miembro de Honor de Sociedad Española de Cardiología Ultramar Member British and Irish Hypertension Society Miembro del Directorio de la Sociedad Latinoamericana de Hipertensión']},
             ]
         };
     }
@@ -46,6 +55,10 @@ class Oradores extends React.Component {
     render() {
         const gray = colors.gray
         const min = window.innerWidth >= 1000
+        var avatarSize = 240;
+        if (!min) {
+            avatarSize = 170;
+        }
         return (
             <div>
                 <div  style={{display:'flex',alignItems:'center',flexDirection:'column'}}>
@@ -63,7 +76,7 @@ class Oradores extends React.Component {
                                             case 2:
                                                 return(
                                                     <div style={{width:'100%',display:'flex',alignItems:'center',flexDirection:'column'}}>
-                                                        <div style={{ width:240,height:240,borderRadius:240/2,display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                        <div style={{ width:avatarSize,height:avatarSize,borderRadius:avatarSize/2,display:'flex',justifyContent:'center',alignItems:'center'}}>
                                                                 <img style={{ width:'100%'}} src={item.img}>
                                                                 </img>
                                                         </div>
@@ -82,6 +95,7 @@ class Oradores extends React.Component {
                                                                         )
                                                                     })}
                                                                 </ul>
+                                                                
                                                                 <p style={{ fontFamily:'FrutigerBlack',margin:0}}>Conflictos de interés</p>
                                                                 <div style={{ display:'flex',flexDirection:'column'}}>
                                                                     {item.extra.map((i) => {
@@ -102,7 +116,7 @@ class Oradores extends React.Component {
                                                     // var values = Object.values(item.extra[0])
                                                     return(
                                                         <div style={{ width:'100%',display:'flex',alignItems:'center',flexDirection:'column',justifyContent:'center'}}>
-                                                            <div style={{ width:240,height:240,borderRadius:240/2,display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                            <div style={{ width:avatarSize,height:avatarSize,borderRadius:avatarSize/2,display:'flex',justifyContent:'center',alignItems:'center'}}>
                                                                     <img style={{ width:'100%'}} src={item.img}>
                                                                     </img>
                                                             </div>

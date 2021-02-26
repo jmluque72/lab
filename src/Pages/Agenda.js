@@ -19,7 +19,8 @@ class Agenda extends React.Component {
         };
     }
     pdf(){
-        alert('PDF AGENDA')
+        window.open('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/OZEMPIC_+LA+GRAN+OPORTUNIDAD+EN+DIABETES+TIPO+2.pdf', '_blank');
+
     }
 
     render() {
@@ -31,7 +32,7 @@ class Agenda extends React.Component {
                         <Grid container direction='row' style={{ width:'100%',height:'100%'}}>
                             <Grid item sm={6} xs={12} style={{ }}>
                                 <Grid container direction='column' justify='center' alignItems={ min ? 'flex-end' : 'center' }style={{ height:'100%'}}>
-                                    <p style={{ fontFamily:'FrutigerBlack',fontSize:min ? 72 : 45,color:'white',textAlign: min ? 'right' : 'center',lineHeight:1,marginLeft: min ? 'auto' : 'none',width:'100%'}}>Ozempic: La Gran Oportunidad en diabetes tipo 2</p>
+                                    <p style={{ fontFamily:'FrutigerBlack',fontSize:min ? 72 : 45,color:'white',textAlign: min ? 'right' : 'center',lineHeight:1,marginLeft: min ? 'auto' : 'none',width:'100%'}}>Ozempic <span style={{fontSize: 30, marginLeft: -20, marginRight: 20,  verticalAlign: 'top'}}>®️</span>: La Gran Oportunidad en diabetes tipo 2</p>
                                     <div style={{width:150,height:20,backgroundColor:'white'}}></div>
                                 </Grid>
                             </Grid>

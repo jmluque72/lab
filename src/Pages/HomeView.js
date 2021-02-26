@@ -61,9 +61,38 @@ class HomeView extends React.Component {
 
     componentDidMount() {
         window.addEventListener('scroll', (event) => {
-            
+            var current = "home";
+            var offset = window.pageYOffset + 200;
+            console.log(offset);
+            console.log(document.getElementById("contacto").offsetTop);
+            console.log(document.getElementById("contacto").offsetTop > offset);
+            if (document.getElementById("home").offsetTop < offset) current = "home";
+            if (document.getElementById("agenda").offsetTop < offset) current = "agenda";
+            if (document.getElementById("oradores").offsetTop < offset) current = "oradores";
+            if (document.getElementById("evento").offsetTop < offset) current = "evento";
+            if (document.getElementById("consultas").offsetTop < offset) current = "consultas";
+            if (document.getElementById("contacto").offsetTop < offset) current = "contacto";
+
+            console.log(current);
+            this.setState({visible: current});
+
+            //console.log(this.isScrolledIntoView())
         });
     }
+
+    
+
+    isScrolledIntoView = (el) => {
+        var rect = el.getBoundingClientRect();
+        var elemTop = rect.top;
+        var elemBottom = rect.bottom;
+        // Only completely visible elements return true:
+        var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+        // Partially visible elements return true:
+        //isVisible = elemTop < window.innerHeight && elemBottom >= 0;
+        return isVisible;
+    }
+    
 
     render() {
         return (
