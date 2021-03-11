@@ -37,10 +37,20 @@ class Vivo extends React.Component {
         this.state.client.send("hell");
     };
 
+
+    intervalClose = () => {
+        this.setState({
+            question: null
+        })
+        clearInterval(this.state.intervalClose);
+
+    };
     componentDidMount() {
 
         this.interval = setInterval(this.timer, 60000);
         this.setState({ intervalFive: this.interval })
+
+
 
         this.state.client.onopen = () => {
             console.log('WebSocket Client Connected');
@@ -58,6 +68,9 @@ class Vivo extends React.Component {
                     this.setState({
                         question: {pause: false, title: d[1] + ":", responseServer: d[2] }, pause: false
                     });
+                    this.intervalClose = setInterval(this.intervalClose, 30000);
+                    this.setState({ intervalClose: this.intervalClose })
+            
                 }
             } catch (e) {
             }
@@ -116,6 +129,17 @@ class Vivo extends React.Component {
     render() {
         const min = window.innerWidth >= 1000
 
+
+        var widthVideo = '60%';
+        var widthChat = '30%';
+        var marginLeft = '3%';
+        var fontSize = 24;
+        if (!min) {
+            widthVideo = '100%';
+            widthChat = '100%';
+            marginLeft = '0%';
+            fontSize= 20;
+        }
    
         var display = "block";
         if (this.state.pause) {
@@ -155,31 +179,30 @@ class Vivo extends React.Component {
                                         </div>
                                     </div>
                                 )}
-
                             </div>
                         </Grid>
                     </Grid>
                     <Grid xs={12} justify='center' className='container' style={{ width: '100%', padding: 10 }}>
                         <Grid container >
-                            <div className='left' style={{ marginLeft: '5%', width: '60%', height: 500, padding: 2, backgroundColor: 'white' }}>
+                            <div className='left' style={{ marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: 500, padding: 2, backgroundColor: 'white' }}>
                                 <iframe src={url_video} style={{ width: '100%', height: '100%' }} ></iframe>
                             </div>
-                            <div className='left' style={{ width: '30%', marginLeft: 30, height: 500, padding: 2, backgroundColor: 'white' }}>
+                            <div className='left' style={{marginLeft: marginLeft, width: widthChat, height: 500, padding: 2, backgroundColor: 'white' }}>
                                 <iframe src={url_chat} style={{ width: '100%', height: '100%' }} ></iframe>
                             </div>
 
                         </Grid>
                     </Grid>
 
-                    <Grid xs={12} style={{display: display ,position: 'fixed', left: 0, right: 0, bottom: 10, height: 80 }}>
+                    <Grid xs={12} style={{display: display ,position: 'fixed', left: 0, right: 0, bottom: 10, height: 'auto' }}>
                         <Grid container justify='center' alignItems='center'>
                             <Grid xs={10} style={{ width: '80%', backgroundColor: colors.gray, borderRadius: 10, borderWidth: 2, borderStyle: 'solid', borderColor: 'white' }}>
 
                                 {this.state.question ?
                                     <Grid container style={{ display: 'flex ', flexDirection: 'row' }}>
-                                        <Grid sm={6} xs={12} style={{ height: 80 }}>
+                                        <Grid sm={6} xs={12} style={{ height: 'auto' }}>
                                             <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: 22, lineHeight: 1 }}>{this.state.question.title}</p>
+                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: fontSize, lineHeight: 1, marginTop: 10}}>{this.state.question.title}</p>
                                             </div>
                                         </Grid>
                                         {this.state.question.responseServer == null ?
@@ -201,13 +224,11 @@ class Vivo extends React.Component {
                                             </Grid>
                                             :
 
-                                            <Grid sm={4} xs={12} style={{ display: 'flex ', flexDirection: 'row' }}>
-                                                <Grid sm={4} xs={6} style={{ display: 'flex ', flexDirection: 'column' }}>
-
+                                            <Grid justify='center' alignItems='center' sm={4} xs={12} style={{width: '100%', display: 'flex ', flexDirection: 'row' }}>
+                                                <Grid sm={4} xs={6} style={{ display: 'flex ', flexDirection: 'column', width: '100%' }}>
                                                     {this.state.question.responseServer && this.state.question.responseServer == 0 &&
-
                                                         <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                            <Button style={{ height: '50%', width: '70%', background: colors.degrade_orange, borderWidth: 1, borderStyle: 'solid', borderColor: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
+                                                            <Button disabled={true} style={{ height: '50%', width: '70%', background: colors.degrade_orange, borderWidth: 1, borderStyle: 'solid', borderColor: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
                                                                 <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: 20 }}>VERDADERO</p>
                                                             </Button>
                                                         </div>
@@ -216,8 +237,8 @@ class Vivo extends React.Component {
                                                 <Grid sm={4} xs={6} style={{ height: 80 }}>
                                                     {this.state.question.responseServer && this.state.question.responseServer == 1 &&
                                                         <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                            <Button  style={{ height: '50%', width: '70%', background: colors.degrade_orange, borderWidth: 1, borderStyle: 'solid', borderColor: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
-                                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: 20 }}>FALSE</p>
+                                                            <Button  disabled={true}  style={{ height: '50%', width: '70%', background: colors.degrade_orange, borderWidth: 1, borderStyle: 'solid', borderColor: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
+                                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: 20 }}>FALSO</p>
                                                             </Button>
                                                         </div>
                                                     }
@@ -235,8 +256,8 @@ class Vivo extends React.Component {
                                         
                                     <Grid container style={{ display: 'flex ', flexDirection: 'row' }}>
                                         <Grid sm={12} xs={12} style={{ height: 80 }}>
-                                            <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: 30, lineHeight: 1 }}>Gracias por responder, en minutos develaremos la respuesta correcta.</p>
+                                            <div style={{ width: '100%', marginTop: 5, height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: fontSize, lineHeight: 1 }}>Gracias por responder, en minutos develaremos la respuesta correcta.</p>
                                             </div>
                                         </Grid>
 
