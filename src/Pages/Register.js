@@ -192,7 +192,7 @@ class Register extends React.Component {
                                                     </div>
                                                     <div style={{ width: '100%', display: 'flex', flexDirection: 'column', marginTop: 5 }}>
                                                         <Grid style={{ width: '100%' }} style={{ display: 'flex' }}>
-                                                            <p style={{ fontFamily: 'FrutigerBold', fontSize: 12, color: '#465658', margin: 0, textAlign: 'left' }}>En una palabra, te invitamos a dejarnos tu expectava por el lanzamiento de Ozempic® en Argentina</p>
+                                                            <p style={{ fontFamily: 'FrutigerBold', fontSize: 12, color: '#465658', margin: 0, textAlign: 'left' }}>En una palabra, te invitamos a dejarnos tus expectativas por el lanzamiento de Ozempic® en Argentina</p>
                                                         </Grid>
                                                         <Grid style={{ width: '100%', height: 30, marginTop: 5, borderRadius: 8, borderColor: colors.gray, borderWidth: 1, borderStyle: 'solid', }}>
                                                             <input

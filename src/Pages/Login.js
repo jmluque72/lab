@@ -94,29 +94,29 @@ class Login extends React.Component {
                             <img style={{width:118*0.7,height:84*0.7, position:'absolute',bottom:10,right:10}} src={logoNovo}></img>
                             <Grid container alignItems='space-around' direction='row' justify='center'  style={{ width:'100%'}}>
                               <Grid item  xs={12} sm={6} style={{ marginTop:50  ,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',background:colors.degrade_orange,borderRadius:20,paddingTop:40,paddingBottom:40}}>
-                                  <div style={{ width:'80%',  display:'flex',flexDirection:'row'}}>
-                                        <Grid item sm={4} xs={4} style={{ width:'30%',height:'100%',display:'flex',alignItems:'center'}}>
+                                  <div style={{ width:'90%',  display:'flex',flexDirection:'row'}}>
+                                        <Grid item sm={4} xs={4} style={{ width:'35%',height:'100%',display:'flex',alignItems:'center'}}>
                                             <p style={{ fontFamily:'FrutigerBold',fontSize:18,color:'white',margin:0,lineHeight:1.2}}>Usuario (e-mail): </p>
                                         </Grid>
-                                        <Grid item sm={8} xs={8} style={{ width:'65%',marginLeft:'5%',height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                        <Grid item sm={10} xs={10} style={{ width:'65%',marginLeft:'5%',height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
                                             <input
                                             className='no-outline'
                                             type='email'
                                             placeholder={'ej.: ejemplo@gmail.com'}
-                                            style={{width:'100%',height:'100%',borderStyle:'none',borderRadius:5}}
+                                            style={{marginLeft: 5, paddingTop: 5, paddingBottom: 5, width:'100%',height:'100%',borderStyle:'none',borderRadius:5}}
                                             onChange={(event)=> this.setState({ email : event.target.value})}>
                                             </input>
                                         </Grid>
                                   </div>
                                   <div style={{ width:'80%',  display:'flex',flexDirection:'row',marginTop:30}}>
-                                        <Grid item sm={3} xs={4} style={{ width:'20%',height:'100%',display:'flex',alignItems:'center'}}>
+                                        <Grid item sm={3} xs={4} style={{ width:'30%',height:'100%',display:'flex',alignItems:'center'}}>
                                             <p style={{ fontFamily:'FrutigerBold',fontSize:18,color:'white',margin:0}}>Contraseña:</p>
                                         </Grid>
                                         <Grid item sm={9} xs={8}  style={{ width:'75%',marginLeft:'5%',height:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
                                             <input
                                              className='no-outline'
                                             type='password'
-                                            style={{width:'100%',height:'100%',borderStyle:'none',borderRadius:5}}
+                                            style={{marginLeft: 5, paddingTop: 5, paddingBottom: 5, width:'100%',height:'100%',borderStyle:'none',borderRadius:5}}
                                             onChange={(event)=> this.setState({ pass : event.target.value})}>
                                             </input>
                                         </Grid>

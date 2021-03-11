@@ -44,43 +44,50 @@ class Footer extends React.Component {
             hours: 0,
             min: 0,
             sec: 0,
-            seconds: 1369234
+            seconds: (new Date(1615932000000).getTime() - new Date().getTime()) / 1000
         }
-
     }
 
     timer = () => {
         var seconds = this.state.seconds;
 
-        var days        = Math.floor(seconds/24/60/60);
-        var hoursLeft   = Math.floor((seconds) - (days*86400));
-        var hours       = Math.floor(hoursLeft/3600);
-        var minutesLeft = Math.floor((hoursLeft) - (hours*3600));
-        var minutes     = Math.floor(minutesLeft/60);
+        var days = Math.floor(seconds / 24 / 60 / 60);
+        var hoursLeft = Math.floor((seconds) - (days * 86400));
+        var hours = Math.floor(hoursLeft / 3600);
+        var minutesLeft = Math.floor((hoursLeft) - (hours * 3600));
+        var minutes = Math.floor(minutesLeft / 60);
         var remainingSeconds = seconds % 60;
-        
+
         //document.getElementById('countdown').innerHTML = pad(days) + ":" + pad(hours) + ":" + pad(minutes) + ":" + pad(remainingSeconds);
+           this.setState({
+               days: days,
+               min: minutes,
+               hours: hours,
+               sec: parseInt(remainingSeconds)
+           });
+  /*
         this.setState({
-            days: days,
-            min: minutes,
-            hours: hours,
-            sec: remainingSeconds
+            days: 0,
+            min: 0,
+            hours: 0,
+            sec: 0
         });
+        */
         if (seconds == 0) {
-          this.stop();
+            this.stop();
         } else {
-          seconds--;
-          this.setState({
-              seconds: seconds
-          })
+            seconds--;
+            this.setState({
+                seconds: seconds
+            })
         }
     }
     pad = (n) => {
         return (n < 10 ? "0" + n : n);
-      }
+    }
 
     componentDidMount() {
-        
+
         this.interval = setInterval(() => {
             const date = this.timer();
         }, 1000);
@@ -92,14 +99,39 @@ class Footer extends React.Component {
 
     }
 
+    goToVivo = () => {
+        document.location.href = "/Vivo";
+    }
+
+    /*
+     <Grid container style={{ alignItems: 'center', height: '100%', justifyContent: 'center' }}>
+                        <Grid xs={12} sm={12}>
+                            <Grid container alignItems='center' direction='column'>
+                                <div className='timeTitle'>ENTRAR AL EVENTO    <a  onClick={() => this.goToVivo()} className={''} >AGENDA</a></div>
+
+                            </Grid>
+                        </Grid>
+                        
+                    </Grid>
+                    */
+
     render() {
         const countDown = this.state;
         var display = "block"
         if (window.scrollY > 0) {
             display = "none";
         }
+        if (this.state.days <= 0 && this.state.hours <= 0 && this.state.min <= 0 && this.state.sec <= 0) {
+            return (
+                <div style={{ display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
+                   
+                </div>
+
+            )
+
+        }
         return (
-            <div style={{display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
+            <div style={{ display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
                 <Grid container style={{ alignItems: 'center', height: '100%', justifyContent: 'center' }}>
                     <Grid xs={12} sm={2}>
                         <Grid container alignItems='center' direction='column'>
