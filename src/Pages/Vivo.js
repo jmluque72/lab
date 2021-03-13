@@ -21,20 +21,62 @@ class Vivo extends React.Component {
             lang: "ESPAÑOL",
             response: -1,
             pause: true,
-            url_video_es: "",
-            url_video_en: "",
-            url_chat_es: "",
-            url_chat_en: "",
-            client: new W3CWebSocket('wss://n7bj7eh9le.execute-api.sa-east-1.amazonaws.com/production')
+            hasResponse: false,
+            question_process: null,
+            url_video_es: "https://vimeo.com/event/789315/embed",
+            url_video_en: "https://vimeo.com/event/789348/embed",
+            url_chat_es: "https://vimeo.com/event/789315/chat/",
+            url_chat_en: "https://vimeo.com/event/789348/chat/",
+            client: null,
+            loading: false
         };
     }
 
     componentWillUnmount = () => {
-        clearInterval(this.state.intervalFive);
+
+    }
+
+    timer2 = () => {
+        this.getQuestion();
+        this.getResponse();
     }
 
     timer = () => {
-        this.state.client.send("hell");
+        if (this.state.client) {
+            console.log(this.state.client.readyState);
+        }
+        if (this.state.client == null || this.state.client.readyState != 1) {
+
+            console.log('WebSocket Client RECONNECT');
+            var clientv = new W3CWebSocket('wss://n7bj7eh9le.execute-api.sa-east-1.amazonaws.com/production');
+            this.setState({
+                client: clientv
+            })
+
+            clientv.onopen = () => {
+                console.log('WebSocket Client Connected');
+            };
+            clientv.onmessage = (message) => {
+                try {
+                    console.log(message.data)
+                    var data = message.data.replaceAll('"', '');
+                    var d = data.split("|")
+                    if (d[0] == "question") {
+                        this.setState({
+                            question: { title: d[1], responseServer: null }, pause: false
+                        });
+                    } else if (d[0] == "response") {
+                        this.setState({
+                            question: { pause: false, title: d[1] + ":", responseServer: d[2] }, pause: false
+                        });
+                        this.intervalClose = setInterval(this.intervalClose, 30000);
+                        this.setState({ intervalClose: this.intervalClose })
+
+                    }
+                } catch (e) {
+                }
+            };
+        }
     };
 
 
@@ -46,45 +88,9 @@ class Vivo extends React.Component {
 
     };
     componentDidMount() {
-
-        this.interval = setInterval(this.timer, 60000);
+        this.interval = setInterval(this.timer2, 10000);
         this.setState({ intervalFive: this.interval })
-
-
-
-        this.state.client.onopen = () => {
-            console.log('WebSocket Client Connected');
-        };
-        this.state.client.onmessage = (message) => {
-            try {
-                console.log(message.data)
-                var data = message.data.replaceAll('"', '');
-                var d = data.split("|")
-                if (d[0] == "question") {
-                    this.setState({
-                        question: {title: d[1], responseServer: null }, pause: false
-                    });
-                } else if (d[0] == "response") {
-                    this.setState({
-                        question: {pause: false, title: d[1] + ":", responseServer: d[2] }, pause: false
-                    });
-                    this.intervalClose = setInterval(this.intervalClose, 30000);
-                    this.setState({ intervalClose: this.intervalClose })
-            
-                }
-            } catch (e) {
-            }
-        };
-        this.state.client.onclose = () => {
-            console.log('WebSocket Client CLOSE');
-            var clientv = new W3CWebSocket('wss://n7bj7eh9le.execute-api.sa-east-1.amazonaws.com/production');
-            this.setState({
-                client: clientv
-            })
-        }
     }
-
-
 
     upRotate() {
         if (!this.state.idiomaButton) {
@@ -93,6 +99,73 @@ class Vivo extends React.Component {
             return `rotate(0deg)`
         }
     }
+
+    getQuestion = () => {
+        this.setState({ loading: true, error: null });
+        if (this.state.hasResponse) {
+            return;
+        }
+        const body = {
+        }
+     
+        var response = fetch("https://4swa57ilx6.execute-api.sa-east-1.amazonaws.com/prod/get_question", {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then((response) => {
+                if (response.status == 200) {
+                    return response.json();
+                } else {
+                    this.setState({ error: response })
+                }
+            })
+            .then((response) => {
+                if (response.question) {
+                    this.setState({ question_process: true, question: { title: response.question, responseServer: null }, pause: false });
+                }
+            })
+            .catch(error => {
+                this.setState({ loading: true, error: error })
+            });
+    }
+
+    getResponse = () => {
+
+        this.setState({ loading: true, error: null });
+        const body = {
+        }
+        var response = fetch("https://4swa57ilx6.execute-api.sa-east-1.amazonaws.com/prod/get_response", {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then((response) => {
+                if (response.status == 200) {
+                    return response.json();
+                } else {
+                    this.setState({ error: response })
+                }
+            })
+            .then((response) => {
+                if (response.response) {
+                    var responseValid = this.responseValid(response.response);
+                    this.setState({ question: { title: response.response, responseServer: responseValid }, hasResponse: false, pause: false });
+                } else {
+                    this.setState({ question_process: false, question: null, responseServer: null, pause: false });
+                }
+            })
+            .catch(error => {
+                this.setState({ loading: true, error: error })
+            });
+    }
+
+    responseValid = () => {
+        return 1;
+    }
+
 
     setResponse = (value) => {
         this.setState({ error: null });
@@ -118,10 +191,9 @@ class Vivo extends React.Component {
                 }
             })
             .then((response) => {
-                this.setState({ question: null });
+                this.setState({hasResponse: true, question: null });
             })
             .catch(error => {
-                alert(error);
                 this.setState({ error: error })
             });
     }
@@ -138,9 +210,9 @@ class Vivo extends React.Component {
             widthVideo = '100%';
             widthChat = '100%';
             marginLeft = '0%';
-            fontSize= 20;
+            fontSize = 20;
         }
-   
+
         var display = "block";
         if (this.state.pause) {
             display = "none";
@@ -153,8 +225,16 @@ class Vivo extends React.Component {
         } else {
             url_video = this.state.url_video_en;
             url_chat = this.state.url_chat_en;
-
         }
+        var width = 0;
+        if (this.state.question || this.state.hasResponse) {
+            width = 2;
+        }
+        var valueResponse = "Falso"
+        if (this.state.question && this.state.question.responseServer == 1) {
+            valueResponse = "Verdadero";
+        }
+        console.log(this.state.question);
         return (
             <div style={{ width: '100%', flexDirection: 'row' }}>
                 <img style={{ width: '100%', height: '100%', position: 'fixed', top: 0, left: 0 }} src={Background} />
@@ -184,25 +264,24 @@ class Vivo extends React.Component {
                     </Grid>
                     <Grid xs={12} justify='center' className='container' style={{ width: '100%', padding: 10 }}>
                         <Grid container >
-                            <div className='left' style={{ marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: 500, padding: 2, backgroundColor: 'white' }}>
-                                <iframe src={url_video} style={{ width: '100%', height: '100%' }} ></iframe>
+                            <div className='left' style={{ marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '500', padding: 2 }}>
+                                <div style={{ width: '100%', height: '100%' }}><iframe src={url_video} frameborder="0" width='100%' height='100%' allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
                             </div>
-                            <div className='left' style={{marginLeft: marginLeft, width: widthChat, height: 500, padding: 2, backgroundColor: 'white' }}>
-                                <iframe src={url_chat} style={{ width: '100%', height: '100%' }} ></iframe>
+                            <div className='left' style={{ marginLeft: marginLeft, width: widthChat, height: 500, padding: 2, backgroundColor: 'white' }}>
+                                <iframe src={url_chat} width="100%" height="100%" frameborder="0"></iframe>
                             </div>
-
                         </Grid>
                     </Grid>
 
-                    <Grid xs={12} style={{display: display ,position: 'fixed', left: 0, right: 0, bottom: 10, height: 'auto' }}>
+                    <Grid xs={12} style={{ display: display, position: 'fixed', left: 0, right: 0, bottom: 10, height: 'auto' }}>
                         <Grid container justify='center' alignItems='center'>
-                            <Grid xs={10} style={{ width: '80%', backgroundColor: colors.gray, borderRadius: 10, borderWidth: 2, borderStyle: 'solid', borderColor: 'white' }}>
+                            <Grid xs={10} style={{ width: '80%', backgroundColor: colors.gray, borderRadius: 10, borderWidth: width, borderStyle: 'solid', borderColor: 'white' }}>
 
                                 {this.state.question ?
                                     <Grid container style={{ display: 'flex ', flexDirection: 'row' }}>
                                         <Grid sm={6} xs={12} style={{ height: 'auto' }}>
                                             <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: fontSize, lineHeight: 1, marginTop: 10}}>{this.state.question.title}</p>
+                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: fontSize, lineHeight: 1, marginTop: 10 }}>{this.state.question.title}</p>
                                             </div>
                                         </Grid>
                                         {this.state.question.responseServer == null ?
@@ -224,47 +303,37 @@ class Vivo extends React.Component {
                                             </Grid>
                                             :
 
-                                            <Grid justify='center' alignItems='center' sm={4} xs={12} style={{width: '100%', display: 'flex ', flexDirection: 'row' }}>
+                                            <Grid justify='center' alignItems='center' sm={4} xs={12} style={{ width: '100%', display: 'flex ', flexDirection: 'row' }}>
                                                 <Grid sm={4} xs={6} style={{ display: 'flex ', flexDirection: 'column', width: '100%' }}>
-                                                    {this.state.question.responseServer && this.state.question.responseServer == 0 &&
-                                                        <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                            <Button disabled={true} style={{ height: '50%', width: '70%', background: colors.degrade_orange, borderWidth: 1, borderStyle: 'solid', borderColor: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
-                                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: 20 }}>VERDADERO</p>
-                                                            </Button>
-                                                        </div>
-                                                    }
+                                                    <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: 14, lineHeight: 1, marginTop: 10 }}>Respuesta correcta:</p>
                                                 </Grid>
-                                                <Grid sm={4} xs={6} style={{ height: 80 }}>
-                                                    {this.state.question.responseServer && this.state.question.responseServer == 1 &&
+                                                <Grid sm={6} xs={6} style={{ height: 80 }}>
+                                                    {this.state.question.responseServer &&
                                                         <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                            <Button  disabled={true}  style={{ height: '50%', width: '70%', background: colors.degrade_orange, borderWidth: 1, borderStyle: 'solid', borderColor: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
-                                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: 20 }}>FALSO</p>
+                                                            <Button disabled={true} style={{ height: '50%', width: '70%', borderWidth: 1, borderStyle: 'solid', borderColor: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
+                                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 10, fontSize: 20 }}>{valueResponse}</p>
                                                             </Button>
                                                         </div>
                                                     }
-
                                                 </Grid>
                                             </Grid>
-
-
 
 
                                         }
                                     </Grid>
 
                                     :
+                                        this.state.hasResponse &&
+                                            <Grid container style={{ display: 'flex ', flexDirection: 'row' }}>
+                                                <Grid sm={12} xs={12} style={{ height: 80 }}>
+                                                    <div style={{ width: '100%', marginTop: 5, height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                                        <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: fontSize, lineHeight: 1 }}>Gracias por responder, en minutos develaremos la respuesta correcta.</p>
+                                                    </div>
+                                                </Grid>
+
+                                            </Grid>
                                         
-                                    <Grid container style={{ display: 'flex ', flexDirection: 'row' }}>
-                                        <Grid sm={12} xs={12} style={{ height: 80 }}>
-                                            <div style={{ width: '100%', marginTop: 5, height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: fontSize, lineHeight: 1 }}>Gracias por responder, en minutos develaremos la respuesta correcta.</p>
-                                            </div>
-                                        </Grid>
-
-                                    </Grid>
-
-
-                                }
+                                    }
 
                             </Grid>
                         </Grid>

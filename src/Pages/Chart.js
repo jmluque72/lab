@@ -9,6 +9,11 @@ import { colors } from '../utils'
 import './Main.css'
 import { PieChart } from 'react-minimal-pie-chart';
 
+
+const defaultLabelStyle = {
+    fontSize: '4px',
+  };
+
 class Chart extends React.Component {
 
     constructor(props) {
@@ -18,7 +23,9 @@ class Chart extends React.Component {
             lang: "ESPAÑOL",
             response: -1,
             responseServer: null,
-            currentTitle: "Pregunta 1",
+            ttrue: 0,
+            tfalse: 0,
+            question: "",
         };
     }
 
@@ -47,6 +54,8 @@ class Chart extends React.Component {
         }
     }
 
+
+
     getResponse = (value) => {
         this.setState({ error: null });
         
@@ -57,7 +66,6 @@ class Chart extends React.Component {
             }
         })
             .then((response) => {
-                alert(response);
                 if (response.status == 200) {
                     return response.json();
                 } else {
@@ -66,42 +74,52 @@ class Chart extends React.Component {
             })
             .then((response) => {
                 if (!response.error) {
+                    this.setState({
+                        question: response.question,
+                        ttrue: Math.round(response.ttrue * 100) / 100,
+                        tfalse: response.tfalse,
+                    })
                 } else {
                     this.setState({ error: response.error })
                 }
             })
             .catch(error => {
-                alert(error);
                 this.setState({ error: error })
             });
     }
 
     render() {
         const min = window.innerWidth >= 1000
+        var value = this.state.ttrue + this.state.tfalse;
         return (
             <div style={{ width: '100%', flexDirection: 'row' }}>
                 <Grid justify='center' item xs={12} style={{ height: window.innerHeight - 100, position: 'absolute', top: 0, left: 0, width: '100%', flexDirection: 'column', paddingBottom: 50 }}>
-                    <Grid container direction='column' style={{alignContent: 'center', justifyContent: 'center', background: 'blue'}} >
-                        <Grid container direction='row' justify='space-between' style={{ height: 70, paddingRight: 15, paddingLeft: 15 }}>
+                    <Grid container direction='column' style={{alignContent: 'center', justifyContent: 'center'}} >
+                        <Grid container direction='row' justify='center' style={{  paddingRight: 15, paddingLeft: 15 }}>
                             <div style={{  height: '100%', flexDirection: 'column', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <p style={{textAlign:'center', color: 'black', fontSize: 60, margin: 0, fontFamily: 'FrutigerLight', letterSpacing: 1 }}>{this.state.currentTitle}</p>
+                                    <p style={{paddingTop: 10, textAlign:'center', color: 'black', fontSize: 40,  fontFamily: 'FrutigerLight', letterSpacing: 1 }}>{this.state.question}</p>
                             </div>
                         </Grid>
                     </Grid>
-                    <Grid item xs={12} direction='column' style={{background: 'red', width: '35%', textAlign: 'center', justifyItems: 'center'}} >
-
+                    <Grid item sm={12} xs={12} justify='center' direction='column' style={{width: '100%', textAlign: 'center', justifyItems: 'center'}} >
+                        {value == 0 ?
+                            <p style={{paddingTop: 10, textAlign:'center', color: 'black', fontSize: 40,  fontFamily: 'FrutigerLight', letterSpacing: 1 }}>NO HAY DATOS</p>
+                        :
                         <PieChart
-                            style={{textAlign: 'center'}}
+                            style={{textAlign: 'center', width: '35%', marginTop: 70}}
                             paddingAngle={10}
                             label={(dataEntry) => {
-                                return dataEntry.dataEntry.title + "(" + dataEntry.dataEntry.percentage + "%)";
+                                return dataEntry.dataEntry.title + "(" + Math.round(dataEntry.dataEntry.percentage*100)/100 + "%)";
                             }}
-
+                            labelStyle={{
+                                ...defaultLabelStyle,
+                              }}
                             data={[
-                                { title: 'Verdadero', value: 40, color: '#E38627' },
-                                { title: 'False', value: 60, color: '#C13C37' },
+                                { title: 'Verdadero', value: Math.round(this.state.ttrue * 100) / 100, color: '#099107' },
+                                { title: 'Falso', value: Math.round(this.state.tfalse * 100) / 100, color: '#076391' },
                             ]}
-                        />;
+                        />
+                    }
 
                     </Grid>
 
