@@ -281,7 +281,7 @@ class Vivo extends React.Component {
                                     <Grid container style={{ display: 'flex ', flexDirection: 'row' }}>
                                         <Grid sm={6} xs={12} style={{ height: 'auto' }}>
                                             <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: fontSize, lineHeight: 1, marginTop: 10 }}>{this.state.question.title}</p>
+                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 10, fontSize: fontSize, lineHeight: 1, marginTop: 10 }}>{this.state.question.title}</p>
                                             </div>
                                         </Grid>
                                         {this.state.question.responseServer == null ?
@@ -327,7 +327,7 @@ class Vivo extends React.Component {
                                             <Grid container style={{ display: 'flex ', flexDirection: 'row' }}>
                                                 <Grid sm={12} xs={12} style={{ height: 80 }}>
                                                     <div style={{ width: '100%', marginTop: 5, height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                        <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: fontSize, lineHeight: 1 }}>Gracias por responder, en minutos develaremos la respuesta correcta.</p>
+                                                        <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 10, fontSize: fontSize, lineHeight: 1 }}>Gracias por responder, en minutos develaremos la respuesta correcta.</p>
                                                     </div>
                                                 </Grid>
 

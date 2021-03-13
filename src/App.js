@@ -6,6 +6,7 @@ import Register from './Pages/Register.js'
 import Vivo from './Pages/Vivo.js'
 import Chart from './Pages/Chart.js'
 import SendQuestions from './Pages/SendQuestions.js'
+import Form from './Pages/Form.js'
 
 import React from 'react'
 import { Cookies } from 'react-cookie';
@@ -15,6 +16,12 @@ function App() {
   const cookies = new Cookies();
   var is_reg = cookies.get('username')
   var goto = <HomeView />
+  
+  if (document.location.href.endsWith('Form')) {
+    return (
+      <Form/>
+    )
+  }
   if (document.location.href.endsWith('Register')) {
     goto = <Register/>
   } else if (document.location.href.endsWith('Vivo')) {
