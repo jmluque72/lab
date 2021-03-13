@@ -1,22 +1,22 @@
 @font-face {
     font-family: 'FrutigerLight';
-    src: local('FrutigerLight'), url('../assets/fonts/Frutiger-Light.otf') format('truetype');
+    src: local('FrutigerLight'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/FrutigerLight.otf') format('truetype');
 }
 @font-face {
     font-family: 'FrutigerBlackItalic';
-    src: local('FrutigerBlackItalic'), url('../assets/fonts/Frutiger-BlackItalic.otf') format('truetype');
+    src: local('FrutigerBlackItalic'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/FrutigerBlackItalic.otf') format('truetype');
 }
 @font-face {
     font-family: 'FrutigerBlack';
-    src: local('FrutigerBlack'), url('../assets/fonts/Frutiger-Black.otf') format('truetype');
+    src: local('FrutigerBlack'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/FrutigerBlack.otf') format('truetype');
 }
 @font-face {
     font-family: 'FrutigerBold';
-    src: local('FrutigerBold'), url('../assets/fonts/Frutiger-Bold.otf') format('truetype');
+    src: local('FrutigerBold'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/FrutigerBold.otf') format('truetype');
 }
 @font-face {
     font-family: 'FrutigerBoldCn';
-    src: local('FrutigerBoldCn'), url('../assets/fonts/Frutiger-BoldCn.otf') format('truetype');
+    src: local('FrutigerBoldCn'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/FrutigerBold.otf') format('truetype');
 }
 
 .header {
