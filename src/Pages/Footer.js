@@ -66,12 +66,7 @@ class Footer extends React.Component {
             sec: parseInt(remainingSeconds)
         });
 
-        this.setState({
-            days: 0,
-            min: 14,
-            hours: 0,
-            sec: 2
-        });
+     
         if (seconds == 0) {
             this.stop();
         } else {

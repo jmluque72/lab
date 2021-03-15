@@ -167,7 +167,7 @@ class Vivo extends React.Component {
             return 0;
         } else if (response == '2. Semaglutida siempre se debe iniciar con la dosis de 0,25mg/semana') {
             return 1;
-        } else if (response == '3. La dosis de mantenimiento de semaglutida es  1mg/semana') {
+        } else if (response == '3. La dosis de mantenimiento de semaglutida es 1mg/semana') {
             return 0;
         } else if (response == '4. El evento adverso más frecuente con semaglutida es la pancreatitis') {
             return 1;
@@ -255,7 +255,7 @@ class Vivo extends React.Component {
         if (this.state.question && this.state.question.responseServer == 1) {
             valueResponse = "Verdadero";
         }
-        console.log(this.state.question);
+        console.log(valueResponse);
         return (
             <div style={{ width: '100%', flexDirection: 'row' }}>
                 <img style={{ width: '100%', height: '100%', position: 'fixed', top: 0, left: 0 }} src={Background} />
@@ -329,12 +329,13 @@ class Vivo extends React.Component {
                                                     <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: 14, lineHeight: 1, marginTop: 10 }}>Respuesta correcta:</p>
                                                 </Grid>
                                                 <Grid sm={6} xs={6} style={{ height: 80 }}>
-                                                    {this.state.question.responseServer &&
+                                                    {this.state.question.responseServer != null ?
                                                         <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                                             <Button disabled={true} style={{ height: '50%', width: '70%', borderWidth: 1, borderStyle: 'solid', borderColor: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
                                                                 <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 10, fontSize: 20 }}>{valueResponse}</p>
                                                             </Button>
                                                         </div>
+                                                        :<div/>
                                                     }
                                                 </Grid>
                                             </Grid>

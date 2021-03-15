@@ -247,7 +247,7 @@ class Form extends React.Component {
                                 padding:5}}
                                 placeholder='Su respuesta'
                                 className='no-outline'
-                                onChange={(event) => this.setState({ mensaje : event.target.value})}
+                                onChange={(event) => this.setState({ message : event.target.value})}
 
                             >
                             </input>
