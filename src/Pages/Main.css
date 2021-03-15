@@ -46,6 +46,15 @@
     color: white;
 }
 
+.timeTitle_ing {
+    font-family: 'FrutigerBlack';
+    font-size: 50px;
+    padding: 20px;
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .timeValue {
     font-family: 'FrutigerBlack';
     font-size: 80px;

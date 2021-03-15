@@ -11,8 +11,9 @@ import { PieChart } from 'react-minimal-pie-chart';
 
 
 const defaultLabelStyle = {
-    fontSize: '4px',
-  };
+    fontSize: '5px',
+    fill: '#FFFFFF'
+};
 
 class Chart extends React.Component {
 
@@ -58,7 +59,7 @@ class Chart extends React.Component {
 
     getResponse = (value) => {
         this.setState({ error: null });
-        
+
         var response = fetch("https://4swa57ilx6.execute-api.sa-east-1.amazonaws.com/prod/chart", {
             method: 'GET',
             headers: {
@@ -92,40 +93,41 @@ class Chart extends React.Component {
         const min = window.innerWidth >= 1000
         var value = this.state.ttrue + this.state.tfalse;
         return (
-            <div style={{ width: '100%', flexDirection: 'row' }}>
+            <Grid item xs={12} style={{ height: window.innerHeight, backgroundImage: `url(${Background})`, backgroundSize: 'cover' }}>
                 <Grid justify='center' item xs={12} style={{ height: window.innerHeight - 100, position: 'absolute', top: 0, left: 0, width: '100%', flexDirection: 'column', paddingBottom: 50 }}>
-                    <Grid container direction='column' style={{alignContent: 'center', justifyContent: 'center'}} >
-                        <Grid container direction='row' justify='center' style={{  paddingRight: 15, paddingLeft: 15 }}>
-                            <div style={{  height: '100%', flexDirection: 'column', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <p style={{paddingTop: 10, textAlign:'center', color: 'black', fontSize: 40,  fontFamily: 'FrutigerLight', letterSpacing: 1 }}>{this.state.question}</p>
+                    <Grid container direction='column' style={{ alignContent: 'center', justifyContent: 'center' }} >
+                        <Grid container direction='row' justify='center' style={{ paddingRight: 15, paddingLeft: 15 }}>
+                            <div style={{ height: '100%', flexDirection: 'column', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <p style={{ paddingTop: 10, textAlign: 'center', color: 'white', fontSize: 40, fontFamily: 'FrutigerLight', letterSpacing: 1 }}>{this.state.question}</p>
                             </div>
                         </Grid>
                     </Grid>
-                    <Grid item sm={12} xs={12} justify='center' direction='column' style={{width: '100%', textAlign: 'center', justifyItems: 'center'}} >
+                    <Grid item sm={12} xs={12} justify='center' direction='column' style={{ width: '100%', textAlign: 'center', justifyItems: 'center' }} >
                         {value == 0 ?
-                            <p style={{paddingTop: 10, textAlign:'center', color: 'black', fontSize: 40,  fontFamily: 'FrutigerLight', letterSpacing: 1 }}>NO HAY DATOS</p>
-                        :
-                        <PieChart
-                            style={{textAlign: 'center', width: '35%', marginTop: 70}}
-                            paddingAngle={10}
-                            label={(dataEntry) => {
-                                return dataEntry.dataEntry.title + "(" + Math.round(dataEntry.dataEntry.percentage*100)/100 + "%)";
-                            }}
-                            labelStyle={{
-                                ...defaultLabelStyle,
-                              }}
-                            data={[
-                                { title: 'Verdadero', value: Math.round(this.state.ttrue * 100) / 100, color: '#099107' },
-                                { title: 'Falso', value: Math.round(this.state.tfalse * 100) / 100, color: '#076391' },
-                            ]}
-                        />
-                    }
+                            <p style={{ paddingTop: 10, textAlign: 'center', color: 'white', fontSize: 40, fontFamily: 'FrutigerLight', letterSpacing: 1 }}>NO HAY DATOS</p>
+                            :
+                            <PieChart
+                                style={{color: 'white', textAlign: 'center', width: '35%', marginTop: 70 }}
+                                paddingAngle={10}
+                                label={(dataEntry) => {
+                                    return dataEntry.dataEntry.title + "(" + Math.round(dataEntry.dataEntry.percentage * 100) / 100 + "%)";
+                                }}
+                                labelStyle={{
+                                    ...defaultLabelStyle,
+                                }}
+                                data={[
+                                    { title: 'Verdadero', value: Math.round(this.state.ttrue * 100) / 100, color: '#099107' },
+                                    { title: 'Falso', value: Math.round(this.state.tfalse * 100) / 100, color: '#076391' },
+                                ]}
+                            />
+                        }
 
+                        
                     </Grid>
 
 
                 </Grid>
-            </div >
+            </Grid >
         );
     }
 }

@@ -13,29 +13,125 @@ class Form extends React.Component {
         super(props);
         // we use this to make the card to appear after the page has been rendered
         this.state = {
-            disertantes: ['Augusto Lavalle Cobo','Guillermo Dieuzeide', 'Jack Lawson', 'Joaquín Gonzalez','Esteban Jodar','Hugo Sanabria','Lawrence Leiter','Rafael Diaz', 'Daniel Piskorz','Alejandro Dain','Cecilia Luquez','Adrián Proietti', 'Daniel Siniawski' ]
+            disertantes: [
+                'Augusto Lavalle Cobo',
+                'Guillermo Dieuzeide', 
+                'Jack Lawson', 
+                'Joaquín Gonzalez',
+                'Esteban Jodar',
+                'Hugo Sanabria',
+                'Lawrence Leiter',
+                'Rafael Diaz', 
+                'Daniel Piskorz',
+                'Alejandro Dain',
+                'Cecilia Luquez',
+                'Adrián Proietti', 
+                'Daniel Siniawski' 
+            ],
+            "meet_evaluate":0,
+            "compare_other": 0,
+            "message":"",
+            "temaSelect1":0,
+            "temaSelect2":0,
+            "temaSelect3":0,
+            "temaSelect4":0,
+            "temaSelect5":0,
+            "orador_1":0,
+            "orador_2":0,
+            "orador_3":0,
+            "orador_4":0,
+            "orador_5":0,
+            "orador_6":0,
+            "orador_7":0,
+            "orador_8":0,
+            "orador_9":0,
+            "orador_10":0,
+            "orador_11":0,
+            "orador_12":0,
+            "orador_13":0,
+            "practica_diaria":0
         };
     }
 
-    typeClick(){
-        this.setState({ send : true})
-        const body = [];
-        body['calificacion_general'] = this.state.calificacionSelect
-        body['comparacion'] = this.state.eventoSelect
-        body['mensaje'] = this.state.mensaje
-        body['tema'] = this.state.temaSelect
-        body['conocimientos'] = this.state.conocSelect
-        const dis = []
-        this.state.disertantes.map((item) => {
-            dis[item] = this.state[item]
+    send_form() {
+        this.setState({error: null});
+        var body = this.state
+        const context = {
+            "meet_evaluate":body['calificacionSelect'],
+            "compare_other": body['eventoSelect'],
+            "compare_text":body['message'],
+            "question_a":body['temaSelect1'],
+            "question_b":body['temaSelect2'],
+            "question_c":body['temaSelect3'],
+            "question_d":body['temaSelect4'],
+            "question_e":body['temaSelect5'],
+            "orador_1":body['orador_1'],
+            "orador_2":body['orador_2'],
+            "orador_3":body['orador_3'],
+            "orador_4":body['orador_4'],
+            "orador_5":body['orador_5'],
+            "orador_6":body['orador_6'],
+            "orador_7":body['orador_7'],
+            "orador_8":body['orador_8'],
+            "orador_9":body['orador_9'],
+            "orador_10":body['orador_10'],
+            "orador_11":body['orador_11'],
+            "orador_12":body['orador_12'],
+            "orador_13":body['orador_13'],
+            "practica_diaria":body['conocSelect']
+        }
+        var response = fetch("https://4swa57ilx6.execute-api.sa-east-1.amazonaws.com/prod/send_form", {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(context)
         })
-        body['disertantes'] = dis
+            .then((response) => {
+                if (response.status == 200) {
+                    return response.json();
+                } else {
+                    this.setState({ error: response })
+                }
+            })
+            .then((response) => {
+                if (!response.error) {
+                    this.setState({send: true})
+                } else {
+                    this.setState({error: response.error})
+                }
+            })
+            .catch(error => {
+                this.setState({ error: error })
+            });
+    }    
 
-        console.log(body)
-    }
+
+
     render() {
         const min = window.innerWidth >= 1000
         const gray = '#c7c7c7'
+
+        var disabled = false;
+        if (this.state.calificacionSelect == 0 ||
+            this.state.eventoSelect == 0 ||
+            this.state.orador_1 == 0 ||
+            this.state.orador_2 == 0 ||
+            this.state.orador_3 == 0 ||
+            this.state.orador_4 == 0 ||
+            this.state.orador_5 == 0 ||
+            this.state.orador_6 == 0 ||
+            this.state.orador_7 == 0 ||
+            this.state.orador_8 == 0 ||
+            this.state.orador_9 == 0 ||
+            this.state.orador_10 == 0 ||
+            this.state.orador_11 == 0 ||
+            this.state.orador_12 == 0 ||
+            this.state.orador_13 == 0 ||
+            this.state.conocSelect == 0) {
+            disabled = true;
+        }
+
         return (
             <div style={{ height:window.innerHeight-100}}>
                 <div style={{height:'100%',width:22,position:'fixed',top:0,left:0,background:colors.degrade_orange}}></div>
@@ -98,7 +194,6 @@ class Form extends React.Component {
                                         </div>
                                     </Grid>
                                 </Grid>
-
                             </Grid>
                             <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:colors.degrade_orange,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
 
@@ -235,13 +330,14 @@ class Form extends React.Component {
                                                 <th style={{width:'12%',color:'white'}}>5</th>
                                             </tr>
                                            
-                                            {this.state.disertantes.map((item) => {
+                                            {this.state.disertantes.map((item, index) => {
+                                                var key = "orador_" + (index+1);
                                                 return(
                                                     <tr > 
                                                         <td style={{width:'40%',textAlign:'left',fontFamily:'FrutigerBlack',fontSize:14,padding:5}}>{item}</td>
                                                         <th style={{width:'12%'}}>
                                                             <div style={{display:'flex',justifyContent:'center',width:'100%'}}>
-                                                                <div onClick={() => this.setState({ [item] : 1})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                                <div onClick={() => this.setState({[key]: 1, [item] : 1})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
                                                                     {this.state[item] == 1 && (
                                                                         <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
                                                                     )}
@@ -250,7 +346,7 @@ class Form extends React.Component {
                                                         </th>
                                                         <th style={{width:'12%'}}>
                                                             <div style={{display:'flex',justifyContent:'center',width:'100%'}}>
-                                                                <div onClick={() => this.setState({ [item]  : 2})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                                <div onClick={() => this.setState({[key]: 2, [item]  : 2})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
                                                                     {this.state[item] == 2 && (
                                                                         <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
                                                                     )}
@@ -259,7 +355,7 @@ class Form extends React.Component {
                                                         </th>
                                                         <th style={{width:'12%'}}>
                                                             <div style={{display:'flex',justifyContent:'center',width:'100%'}}>
-                                                                <div onClick={() => this.setState({ [item]  : 3})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                                <div onClick={() => this.setState({[key]: 3, [item]  : 3})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
                                                                     {this.state[item] == 3 && (
                                                                         <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
                                                                     )}
@@ -268,7 +364,7 @@ class Form extends React.Component {
                                                         </th>
                                                         <th style={{width:'12%'}}>
                                                             <div style={{display:'flex',justifyContent:'center',width:'100%'}}>
-                                                                <div onClick={() => this.setState({ [item]  : 4})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                                <div onClick={() => this.setState({[key]: 4, [item]  : 4})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
                                                                     {this.state[item] == 4 && (
                                                                         <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
                                                                     )}
@@ -277,7 +373,7 @@ class Form extends React.Component {
                                                         </th>
                                                         <th style={{width:'12%'}}>
                                                             <div style={{display:'flex',justifyContent:'center',width:'100%'}}>
-                                                                <div onClick={() => this.setState({ [item]  : 5})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                                <div onClick={() => this.setState({[key]: 5, [item]  : 5})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
                                                                     {this.state[item] == 5 && (
                                                                         <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
                                                                     )}
@@ -342,11 +438,11 @@ class Form extends React.Component {
                     </Grid> 
                     <div style={{width:'100%',display:'flex',justifyContent:'center'}}>
                         {this.state.send ? 
-                        <p style={{color:colors.gray,fontFamily:'FrutigerBlack',fontSize:min ? 18 :30 ,marginTop:20,textAlign:'center'}}>¡Muchas gracias por su participación!</p>
+                            <p style={{color:colors.gray,fontFamily:'FrutigerBlack',fontSize:min ? 18 :30 ,marginTop:20,textAlign:'center'}}>¡Muchas gracias por su participación!</p>
                         :
-                        <div onClick={() => this.typeClick()} style={{ cursor:'pointer',paddingBottom:5,paddingTop:5,paddingLeft:15,paddingRight:15,background:colors.degrade_orange,borderRadius:10,marginTop:20}}>
+                        <Button disabled={disabled} onClick={() => this.send_form()} style={{ cursor:'pointer',paddingBottom:5,paddingTop:5,paddingLeft:15,paddingRight:15,background:colors.degrade_orange,borderRadius:10,marginTop:20}}>
                             <p style={{color:'white',fontFamily:'FrutigerBlack',fontSize:16,margin:0,textAlign:'center'}}>Enviar</p>
-                        </div>
+                        </Button>
                         }
                        
                     </div>

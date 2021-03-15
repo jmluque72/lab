@@ -162,7 +162,28 @@ class Vivo extends React.Component {
             });
     }
 
-    responseValid = () => {
+    responseValid = (response) => {
+        if (response == '1. Semaglutida es de administración diaria y titulación semanal') {
+            return 0;
+        } else if (response == '2. Semaglutida siempre se debe iniciar con la dosis de 0,25mg/semana') {
+            return 1;
+        } else if (response == '3. La dosis de mantenimiento de semaglutida es  1mg/semana') {
+            return 0;
+        } else if (response == '4. El evento adverso más frecuente con semaglutida es la pancreatitis') {
+            return 1;
+        } else if (response == '5. El tratamiento con semaglutida produce más intolerancia digestiva que otros arGLP1') {
+            return 0;
+        } else if (response == '6. Durante el tratamiento no se puede modificar el día de aplicación de semaglutida.') {
+            return 0;
+        } else if (response == '7. Al iniciar con semaglutida debe ajustar la dosis de metformina.') {
+            return 0;
+        } else if (response == '8.Una paciente embarazada o en periodo de lactancia no debe usar semaglutida') {
+            return 1;
+        } else if (response == '9. El tratamiento con semalutida no es seguro en adultos mayores') {
+            return 0;
+        } else if (response == '10. Semaglutida puede indicarse en pacientes con insuficiencia renal leve, moderada y severa.') {
+            return 1;
+        }
         return 1;
     }
 

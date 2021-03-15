@@ -59,20 +59,19 @@ class Footer extends React.Component {
         var remainingSeconds = seconds % 60;
 
         //document.getElementById('countdown').innerHTML = pad(days) + ":" + pad(hours) + ":" + pad(minutes) + ":" + pad(remainingSeconds);
-           this.setState({
-               days: days,
-               min: minutes,
-               hours: hours,
-               sec: parseInt(remainingSeconds)
-           });
-  /*
+        this.setState({
+            days: days,
+            min: minutes,
+            hours: hours,
+            sec: parseInt(remainingSeconds)
+        });
+
         this.setState({
             days: 0,
-            min: 0,
+            min: 14,
             hours: 0,
-            sec: 0
+            sec: 2
         });
-        */
         if (seconds == 0) {
             this.stop();
         } else {
@@ -103,6 +102,8 @@ class Footer extends React.Component {
         document.location.href = "/Vivo";
     }
 
+
+
     /*
      <Grid container style={{ alignItems: 'center', height: '100%', justifyContent: 'center' }}>
                         <Grid xs={12} sm={12}>
@@ -121,14 +122,12 @@ class Footer extends React.Component {
         if (window.scrollY > 0) {
             display = "none";
         }
-        if (this.state.days <= 0 && this.state.hours <= 0 && this.state.min <= 0 && this.state.sec <= 0) {
+        if (this.state.days <= 0 && this.state.hours <= 0 && this.state.min <= 15) {
             return (
-                <div style={{ display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
-                   
+                <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
+                    <p className='timeTitle_ing' onClick={this.goToVivo}>Ingresar al evento en vivo</p>
                 </div>
-
             )
-
         }
         return (
             <div style={{ display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
