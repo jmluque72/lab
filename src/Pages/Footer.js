@@ -129,10 +129,11 @@ class Footer extends React.Component {
 
         if (true) {
             return (
-                    <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
-                        <p className='timeTitle_ing' onClick={this.goToVivo}>Ingresar al evento</p>
-                    </div>
-                )
+            <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
+                <p className='timeTitle_gracias'>Gracias por participar</p>
+                <p className='timeTitle_gracias_link' onClick={this.goToForm}>Por favor complete la encuenta</p>
+
+            </div>);
         }
         return (
             <div style={{ display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
