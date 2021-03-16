@@ -132,6 +132,7 @@ class Form extends React.Component {
             disabled = true;
         }
 
+
         return (
             <div style={{ height:window.innerHeight-100}}>
                 <div style={{height:'100%',width:22,position:'fixed',top:0,left:0,background:colors.degrade_orange}}></div>
@@ -145,12 +146,12 @@ class Form extends React.Component {
                         <p style={{color:colors.gray,fontFamily:'FrutigerBlack',fontSize:14,textAlign:'center'}}>Muchas gracias por participar en nuestro evento “La Gran Oportunidad en Diabetes Tipo 2”.</p>
                         <p style={{color:colors.gray,fontFamily:'FrutigerBlack',fontSize:14,textAlign:'center',width:'80%'}}>A continuación, encontrará una serie de preguntas para comprender aquellos elementos que más valor le aportan a Ud. De esta manera continuaremos diseñando eventos de educación médica que cumplan todas sus expectativas.</p>
                         <div style={{ width:'90%',height:2,background:colors.gray}}></div>
-                        <div style={{ width:'70%',background:gray,position:'relative',borderRadius:12,marginTop:20,paddingLeft:'2.5%',paddingRight:'2.5%',paddingTop:20,paddingBottom:20}}>
+                        <div style={{width:'70%',background:gray,position:'relative',borderRadius:12,marginTop:20,paddingLeft:'2.5%',paddingRight:'2.5%',paddingTop:20,paddingBottom:20}}>
                             <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:colors.degrade_orange,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
                             <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                 <div style={{ width:'100%'}}>
-                                    <p style={{color:'black',fontFamily:'FrutigerBlack',textAlign:'left',fontSize:14,margin:0}}>1. Calificación general de la reunión </p>
-                                    <p style={{color:'black',fontFamily:'FrutigerLight',textAlign:'left',fontSize:14,margin:0}}>(De 1 a 5, donde 1 pobre, 2 regular, 3 bueno, 4 muy bueno y 5 excelente) </p>
+                                    <p style={{color:'black',fontFamily:'FrutigerBlack',textAlign:'left',fontSize:14,margin:0, marginLeft: 5}}>1. Calificación general de la reunión </p>
+                                    <p style={{color:'black',fontFamily:'FrutigerLight',textAlign:'left',fontSize:14,margin:0, marginLeft: 5}}>(De 1 a 5, donde 1 pobre, 2 regular, 3 bueno, 4 muy bueno y 5 excelente) </p>
                                 </div>
                                 <Grid container direction={!min? 'column' : 'row'} >
                                     <Grid item sm={1} style={{marginTop:10,display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
@@ -202,9 +203,9 @@ class Form extends React.Component {
                             <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:colors.degrade_orange,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
                             <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                 <div style={{ width:'100%'}}>
-                                    <p style={{color:'black',fontFamily:'FrutigerBlack',textAlign:'left',fontSize:14,margin:0}}>2. En comparación con otros eventos de la industria, ¿cómo calificaría este evento?</p>
+                                    <p style={{color:'black',fontFamily:'FrutigerBlack',textAlign:'left',fontSize:14,margin:0, marginLeft: 5}}>2. En comparación con otros eventos de la industria, ¿cómo calificaría este evento?</p>
                                 </div>
-                                <Grid container direction={'column'} >
+                                <Grid container direction={'column'} style={{marginLeft: 5}}>
                                     <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
                                         <div onClick={() => this.setState({ eventoSelect : 1})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
                                             {this.state.eventoSelect == 1 && (
@@ -232,8 +233,8 @@ class Form extends React.Component {
                                 </Grid>
                             </Grid>
                             <div style={{ width:'100%',height:15,borderBottomStyle:'dotted',borderWidth:2}}></div>
-                            <div style={{ width:'100%',marginTop:20}}>
-                                <p style={{color:'black',fontFamily:'FrutigerBlack',textAlign:'left',fontSize:14,margin:0}}>¿Qué mejoraría?</p>
+                            <div    style={{ width:'100%',marginTop:20}}>
+                                <p style={{color:'black',fontFamily:'FrutigerBlack',textAlign:'left',fontSize:14,margin:0, marginLeft: 5}}>¿Qué mejoraría?</p>
                             </div>
                             <input
                                 style={{ backgroundColor:'transparent',
@@ -256,9 +257,9 @@ class Form extends React.Component {
                             <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:colors.degrade_orange,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
                             <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                 <div style={{ width:'100%'}}>
-                                    <p style={{color:'black',fontFamily:'FrutigerBlack',textAlign:'left',fontSize:14,margin:0}}>3. ¿Cuál fue el tema de la agenda que le resultó más atractivo? </p>
+                                    <p style={{color:'black',fontFamily:'FrutigerBlack',textAlign:'left',fontSize:14,margin:0, marginLeft: 5}}>3. ¿Cuál fue el tema de la agenda que le resultó más atractivo? </p>
                                 </div>
-                                <Grid container direction={'column' } >
+                                <Grid container direction={'column' } style={{marginLeft: 5}}>
                                     <Grid item sm={12} style={{marginTop:5,display:'flex',flexDirection:'row',alignItems:'center'}}>
                                         <div onClick={() => this.setState({ temaSelect1 : !this.state.temaSelect1})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
                                             {this.state.temaSelect1 && (
@@ -313,9 +314,9 @@ class Form extends React.Component {
                         </div>
                         <div style={{ width:'70%',background:gray,position:'relative',borderRadius:12,marginTop:20,paddingLeft:'2.5%',paddingRight:'2.5%',paddingTop:20,paddingBottom:20}}>
                             <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:colors.degrade_orange,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
-                            <Grid container direction='column' style={{width:'100%',height:'100%'}}>
+                            <Grid container direction='column' style={{width:'100%',height:'100%',marginLeft: 5}}>
                                 <div style={{ width:'100%'}}>
-                                    <p style={{color:'black',fontFamily:'FrutigerBlack',textAlign:'left',fontSize:14,margin:0}}>4. Calificación general del disertante</p>
+                                    <p style={{color:'black',fontFamily:'FrutigerBlack',textAlign:'left',fontSize:14,margin:0, marginLeft: 5}}>4. Calificación general del disertante</p>
                                     <p style={{color:'black',fontFamily:'FrutigerLight',textAlign:'left',fontSize:14,margin:0}}>(De 1 a 5, donde 1 pobre, 2 regular, 3 bueno, 4 muy bueno y 5 excelente) </p>
                                 </div>
                                 <div style={{ width:'100%',display:'flex',justifyContent:'center',marginTop:20}}>
@@ -397,9 +398,9 @@ class Form extends React.Component {
                             <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:colors.degrade_orange,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
                             <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                 <div style={{ width:'100%'}}>
-                                    <p style={{color:'black',fontFamily:'FrutigerBlack',textAlign:'left',fontSize:14,margin:0}}>5. El haber participado de esta actividad, ¿contribuyó a su conocimiento y/práctica diaria?</p>
+                                    <p style={{color:'black',fontFamily:'FrutigerBlack',textAlign:'left',fontSize:14,margin:0, marginLeft: 5}}>5. El haber participado de esta actividad, ¿contribuyó a su conocimiento y/práctica diaria?</p>
                                 </div>
-                                <Grid container direction={'column'} >
+                                <Grid container direction={'column'} style={{marginLeft: 5}}>
                                     <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
                                         <div onClick={() => this.setState({ conocSelect : 1})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
                                             {this.state.conocSelect == 1 && (
