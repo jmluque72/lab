@@ -108,7 +108,6 @@ class Chart extends React.Component {
                             :
                             <PieChart
                                 style={{color: 'white', textAlign: 'center', width: '35%', marginTop: 70 }}
-                                paddingAngle={10}
                                 label={(dataEntry) => {
                                     return dataEntry.dataEntry.title + "(" + Math.round(dataEntry.dataEntry.percentage * 100) / 100 + "%)";
                                 }}
