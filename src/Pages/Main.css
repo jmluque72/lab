@@ -46,6 +46,21 @@
     color: white;
 }
 
+.timeTitle_gracias {
+    font-family: 'FrutigerBlack';
+    font-size: 50px;
+    color: white;
+}
+
+.timeTitle_gracias_link {
+    font-family: 'FrutigerBlack';
+    font-size: 30px;
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+
+}
+
 .timeTitle_ing {
     font-family: 'FrutigerBlack';
     font-size: 50px;

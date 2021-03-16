@@ -98,31 +98,41 @@ class Footer extends React.Component {
     }
 
 
-
+    goToForm = () => {
+        document.location.href = "/Form";
+    }
     /*
-     <Grid container style={{ alignItems: 'center', height: '100%', justifyContent: 'center' }}>
-                        <Grid xs={12} sm={12}>
-                            <Grid container alignItems='center' direction='column'>
-                                <div className='timeTitle'>ENTRAR AL EVENTO    <a  onClick={() => this.goToVivo()} className={''} >AGENDA</a></div>
 
-                            </Grid>
-                        </Grid>
-                        
-                    </Grid>
-                    */
+ return (
+                <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
+                    <p className='timeTitle_ing' onClick={this.goToVivo}>Ingresar al evento</p>
+                </div>
+            )
+    */
+    /*
 
+            return (
+                <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
+                    <p className='timeTitle_gracias'>Gracias por participar</p>
+                    <p className='timeTitle_gracias_link' onClick={this.goToForm}>Por favor complete la encuenta</p>
+
+                </div>
+            )
+                */
     render() {
         const countDown = this.state;
         var display = "block"
         if (window.scrollY > 0) {
             display = "none";
         }
+        //        if (this.state.days <= 0 && this.state.hours <= 0 && this.state.min <= 15) {
+
         if (this.state.days <= 0 && this.state.hours <= 0 && this.state.min <= 15) {
             return (
-                <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
-                    <p className='timeTitle_ing' onClick={this.goToVivo}>Ingresar al evento en vivo</p>
-                </div>
-            )
+                    <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
+                        <p className='timeTitle_ing' onClick={this.goToVivo}>Ingresar al evento</p>
+                    </div>
+                )
         }
         return (
             <div style={{ display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
