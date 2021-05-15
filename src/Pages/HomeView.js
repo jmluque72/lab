@@ -95,6 +95,12 @@ class HomeView extends React.Component {
     
 
     render() {
+
+        return (
+            <div/>
+        )
+
+
         return (
             <div style={{flexDirection: 'row'}}>
                 <div id='home' ref={this.scrollDivHome}>

@@ -3,7 +3,7 @@ import './App.css';
 import HomeView from './Pages/HomeView.js'
 import Login from './Pages/Login.js'
 import Register from './Pages/Register.js'
-import Vivo from './Pages/Vivo.js'
+import Cargando from './Pages/Cargando.js'
 import Chart from './Pages/Chart.js'
 import SendQuestions from './Pages/SendQuestions.js'
 import Form from './Pages/Form.js'
@@ -15,7 +15,7 @@ function App() {
 
   const cookies = new Cookies();
   var is_reg = cookies.get('username')
-  var goto = <HomeView />
+  var goto = <Cargando />
   
   if (document.location.href.endsWith('Form')) {
     return (
@@ -24,8 +24,6 @@ function App() {
   }
   if (document.location.href.endsWith('Register')) {
     goto = <Register/>
-  } else if (document.location.href.endsWith('Vivo')) {
-    goto = <Vivo />
   } else if (document.location.href.endsWith('Chart')) {
     goto = <Chart />
   } else if (document.location.href.endsWith('SendQuestions')) {
