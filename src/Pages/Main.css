@@ -122,6 +122,12 @@ input {
     color: #12326E;
     margin: 0; 
 }
+.textFormError{
+    font-family: 'FrutigerBold';
+    font-size: 10px;
+    color: #FF0000;
+    margin: 0; 
+}
 .textTerm{
     font-family: 'FrutigerBold';
     font-size: 10px;

@@ -49,7 +49,6 @@ class Login extends React.Component {
                 }
             })
             .then((response) => {
-                alert(JSON.stringify(response));
                 if (!response.error) {
                     const cookies = new Cookies();
                     cookies.set("username", this.state.email);

@@ -15,6 +15,7 @@ import Registrarse from '../assets/registrarse.png'
 import './Main.css'
 import TILDE from '../assets/TILDE.png'
 import Loader from "react-loader-spinner";
+import moment from 'moment';
 
 class Register extends React.Component {
     constructor(props) {
@@ -36,13 +37,41 @@ class Register extends React.Component {
             register: false,
             terms: false,
             loading: false,
+            send: false,
         };
     }
     register() {
+        const email = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+
+        var d = moment({ year: this.state.year, month: this.state.mounth, day: this.state.day});
+        if (d == null) {
+            this.setState({
+                error: "Fecha de nacimiento inválida"
+            })
+            return;
+        }
+        this.setState({send: true});
+        if (
+            this.state.mail === "" ||
+            this.state.name === "" ||
+            this.state.city === "" ||
+            this.state.country === "" ||
+            this.state.question1 === "" ||
+            this.state.question2 === "" ||
+            this.state.mod === "" ||
+            this.state.address === "" ||
+            this.state.addressNumber === "" ||
+            this.state.phone === "" ||
+            this.state.terms === false ||
+            email.test(this.state.mail) === false
+        ) {
+            return;
+        }
         this.setState({
             error: null,
             loading: true
         })
+
         const body = {
             name : this.state.name,
             day: this.state.day,
@@ -60,7 +89,6 @@ class Register extends React.Component {
             question1 : this.state.question1,
             question2 : this.state.question2
         }
-        alert(JSON.stringify(body));
         var response = fetch("https://4swa57ilx6.execute-api.sa-east-1.amazonaws.com/prod/register", {
             method: 'POST',
             headers: {
@@ -69,7 +97,6 @@ class Register extends React.Component {
             body: JSON.stringify(body)
         })
             .then((response) => {
-                alert(JSON.stringify(response));
                 if (response.status == 200) {
                     return response.json();
                 } else {
@@ -77,7 +104,6 @@ class Register extends React.Component {
                 }
             })
             .then((response) => {
-                alert(JSON.stringify(response));
 
                 if (response) {
                     if (!response.error) {
@@ -106,25 +132,7 @@ class Register extends React.Component {
         const email = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
         const width = window.innerWidth < 1000
 
-        if (
-            this.state.mail === "" ||
-            this.state.name === "" ||
-            this.state.city === "" ||
-            this.state.country === "" ||
-            this.state.question1 === "" ||
-            this.state.question2 === "" ||
-            this.state.mod === "" ||
-            this.state.address === "" ||
-            this.state.addressNumber === "" ||
-            this.state.depto === "" ||
-            this.state.phone === "" ||
-
-
-            this.state.terms === false ||
-            email.test(this.state.mail) === false
-        ) {
-            disabledbutton = true;
-        }
+        disabledbutton = false;
         var header =  <Grid item  xs={12} sm={3} md={4} lg={5} style={{ height: '100%', display: 'flex' }} >
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%'}}>
                 <img height='auto' width='100%' style={{ maxWidth:500}} src={logoGridoGrande} />
@@ -155,8 +163,9 @@ class Register extends React.Component {
                                                 <p className='titleForm'>REGISTRATE</p>
                                             </div>
                                             <Grid container direction='row' alignItems='center'  style={{  marginTop: 10}}>
-                                                <Grid item xs={12} sm={4} style={{ display: 'flex' }}>
+                                                <Grid item xs={12} sm={4} style={{alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
                                                     <p className='textForm'> Nombre y Apellido</p>
+                                                    <p className='textFormError'>{this.state.name == '' && this.state.send ? "Campo requerido" : ""}</p>
                                                 </Grid>
                                                 <Grid item xs={12} sm={8} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 0, borderStyle: 'solid', }}>
                                                     <input
@@ -169,14 +178,15 @@ class Register extends React.Component {
                                                         type='text'
                                                         required
                                                         className='no-outline'
-                                                        onChange={(event) => this.setState({ name: event.target.value })}
+                                                        onChange={(event) => this.setState({send:false, name: event.target.value })}
                                                     >
                                                     </input>
                                                 </Grid>
                                             </Grid>
                                             <Grid container direction='row' alignItems='center' style={{ marginTop:10 }}>
-                                                <Grid item  xs={12} sm={4} style={{display:'flex',justifyContent:'flex-start', marginTop:width&&(10) }}>
+                                                <Grid item  xs={12} sm={4} style={{flexDirection: 'column', alignItems: 'start',display:'flex',justifyContent:'flex-start', marginTop:width&&(10) }}>
                                                     <p  className='textForm' >Fecha de nacimiento</p>
+                                                    <p className='textFormError'>{this.state.name == '' && this.state.send ? "Campo requerido" : ""}</p>
                                                 </Grid>
                                                 <Grid item xs={2} sm={1} style={{display:'flex',justifyContent:'flex-end',paddingRight:10 }}>
                                                     <p className='textForm'>Día</p>
@@ -188,7 +198,7 @@ class Register extends React.Component {
                                                         required
                                                         min={1}
                                                         max={31}
-                                                        onChange={(event) => this.setState({ day: event.target.value })}
+                                                        onChange={(event) => this.setState({send:false, day: event.target.value })}
                                                     >
                                                     </input>
                                                 </Grid>
@@ -203,7 +213,7 @@ class Register extends React.Component {
                                                         required
                                                         min={1}
                                                         max={12}
-                                                        onChange={(event) => this.setState({ mounth: event.target.value })}
+                                                        onChange={(event) => this.setState({ send:false,mounth: event.target.value })}
                                                     >
                                                     </input>
                                                 </Grid>
@@ -216,17 +226,19 @@ class Register extends React.Component {
                                                         className="boxForm"
                                                         type='number'
                                                         required
-                                                        onChange={(event) => this.setState({ year: event.target.value })}
+                                                        onChange={(event) => this.setState({send:false, year: event.target.value })}
                                                     >
                                                     </input>
                                                 </Grid>
 
                                             </Grid>
                                             <div style={{ width: '100%',  display: 'flex', flexDirection: 'row', marginTop: 10, alignItems: 'center' }}>
-                                                <Grid item xs={2} sm={1} style={{ display: 'flex' }}>
+                                                <Grid item xs={3} sm={3} style={{ flexDirection: 'column', alignItems: 'start', display: 'flex' }}>
                                                     <p  className='textForm'>D.N.I.</p>
+                                                    <p className='textFormError'>{this.state.name == '' && this.state.send ? "Campo requerido" : ""}</p>
+
                                                 </Grid>
-                                                <Grid item xs={10} sm={11} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 0, borderStyle: 'solid', }}>
+                                                <Grid item xs={9} sm={9} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 0, borderStyle: 'solid', }}>
                                                     <input
                                                         style={{
                                                             backgroundColor: '#CDCDCD',
@@ -235,16 +247,19 @@ class Register extends React.Component {
                                                             border: 'none',
                                                         }}
                                                         type='text'
+                                                        required
                                                         className='no-outline'
-                                                        onChange={(event) => this.setState({ dni: event.target.value })}
+                                                        onChange={(event) => this.setState({send:false, dni: event.target.value })}
                                                     >
                                                     </input>
                                                 </Grid>
 
                                             </div>
                                             <Grid container direction='row' alignItems='center' style={{  marginTop: 10}}>
-                                                <Grid item xs={2} sm={1} style={{ display: 'flex' }}>
+                                                <Grid item xs={2} sm={1} style={{ display: 'flex',flexDirection: 'column', alignItems: 'start' }}>
                                                     <p className='textForm'>Calle</p>
+                                                    <p className='textFormError'>{this.state.name == '' && this.state.send ? "Campo requerido" : ""}</p>
+
                                                 </Grid>
                                                 <Grid item xs={10} sm={5} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 0, borderStyle: 'solid', }}>
                                                     <input
@@ -255,13 +270,15 @@ class Register extends React.Component {
                                                             border: 'none',
                                                         }}
                                                         type='text'
+                                                        required
                                                         className='no-outline'
-                                                        onChange={(event) => this.setState({ address: event.target.value })}
+                                                        onChange={(event) => this.setState({send:false, address: event.target.value })}
                                                     >
                                                     </input>
                                                 </Grid>
                                                 <Grid item xs={2} sm={1} style={{ display: 'flex',justifyContent:'center' , marginTop:width&&(10)}}>
                                                     <p className='textForm'>Nro.</p>
+
                                                 </Grid>
                                                 <Grid item xs={10} sm={2} style={{marginTop:width&&(10)  }}>
                                                     <input
@@ -273,7 +290,8 @@ class Register extends React.Component {
                                                         }}
                                                         type='text'
                                                         className='no-outline'
-                                                        onChange={(event) => this.setState({ addressNumber: event.target.value })}
+                                                        required
+                                                        onChange={(event) => this.setState({send:false, addressNumber: event.target.value })}
                                                     >
                                                     </input>
                                                 </Grid>
@@ -289,15 +307,18 @@ class Register extends React.Component {
                                                             border: 'none',
                                                         }}
                                                         type='text'
+                                                        
                                                         className='no-outline'
-                                                        onChange={(event) => this.setState({ depto: event.target.value })}
+                                                        onChange={(event) => this.setState({send:false, depto: event.target.value })}
                                                     >
                                                     </input>
                                                 </Grid>
                                             </Grid>
                                             <Grid container direction='row' alignItems='center' style={{ marginTop: 10}}>
-                                                <Grid item xs={4} sm={2} style={{ display: 'flex' }}>
+                                                <Grid item xs={4} sm={2} style={{ flexDirection: 'column', alignItems: 'start',display: 'flex' }}>
                                                     <p className='textForm'>Localidad</p>
+                                                    <p className='textFormError'>{this.state.name == '' && this.state.send ? "Campo requerido" : ""}</p>
+
                                                 </Grid>
                                                 <Grid item xs={8} sm={4} style={{ }}>
                                                     <input
@@ -308,13 +329,15 @@ class Register extends React.Component {
                                                             border: 'none',
                                                         }}
                                                         type='text'
+                                                        required
                                                         className='no-outline'
-                                                        onChange={(event) => this.setState({ city: event.target.value })}
+                                                        onChange={(event) => this.setState({send:false, city: event.target.value })}
                                                     >
                                                     </input>
                                                 </Grid>
-                                                <Grid item xs={4} sm={1} style={{ display: 'flex',justifyContent:!width ? 'flex-end' : '', marginTop:width && 10, }}>
+                                                <Grid item xs={4} sm={1} style={{flexDirection: 'column', alignItems: 'center', display: 'flex',justifyContent:!width ? 'flex-end' : '', marginTop:width && 10, }}>
                                                     <p className='textForm' >Pais</p>
+
                                                 </Grid>
                                                 <Grid item xs={8} sm={5} style={{paddingLeft:!width&&(10) , marginTop:width && 10,}}>
                                                     <input
@@ -325,15 +348,18 @@ class Register extends React.Component {
                                                             border: 'none',
                                                         }}
                                                         type='text'
+                                                        required
                                                         className='no-outline'
-                                                        onChange={(event) => this.setState({ country: event.target.value })}
+                                                        onChange={(event) => this.setState({send:false, country: event.target.value })}
                                                     >
                                                     </input>
                                                 </Grid>
                                             </Grid>
                                             <Grid container direction='row'  alignItems='center' style={{  marginTop: 10, }}>
-                                                <Grid item xs={3} sm={2} style={{ display: 'flex' }}>
+                                                <Grid item xs={3} sm={2} style={{flexDirection: 'column', alignItems: 'start', display: 'flex' }}>
                                                     <p className='textForm'>Telefono</p>
+                                                    <p className='textFormError'>{this.state.name == '' && this.state.send ? "Campo requerido" : ""}</p>
+
                                                 </Grid>
                                                 <Grid item xs={9} sm={4} style={{ }}>
                                                     <input
@@ -344,13 +370,16 @@ class Register extends React.Component {
                                                             border: 'none',
                                                         }}
                                                         type='text'
+                                                        required
                                                         className='no-outline'
-                                                        onChange={(event) => this.setState({ phone: event.target.value })}
+                                                        onChange={(event) => this.setState({send:false, phone: event.target.value })}
                                                     >
                                                     </input>
                                                 </Grid>
-                                                <Grid item xs={3} sm={1} style={{ display: 'flex', justifyContent:!width ? 'flex-end' : '', marginTop: width&&(10)}}>
+                                                <Grid item xs={3} sm={1} style={{paddingLeft:10, flexDirection: 'column', alignItems: 'start', display: 'flex', justifyContent:!width ? 'flex-end' : '', marginTop: width&&(10)}}>
                                                     <p className='textForm'>Email</p>
+                                                    <p className='textFormError'>{(this.state.mail == '' || !email.test(this.state.mail)) && this.state.send ? "Campo requerido" : ""}</p>
+
                                                 </Grid>
                                                 <Grid item xs={9} sm={5} style={{paddingLeft:!width&&(10), marginTop: width&&(10)}}>
                                                     <input
@@ -361,21 +390,24 @@ class Register extends React.Component {
                                                             border: 'none',
                                                         }}
                                                         type='text'
+                                                        required
                                                         className='no-outline'
-                                                        onChange={(event) => this.setState({ mail: event.target.value })}
+                                                        onChange={(event) => this.setState({send:false, mail: event.target.value })}
                                                     >
                                                     </input>
                                                 </Grid>
                                             </Grid>
                                             <Grid container direction='row' alignItems='center' style={{  width:'100%',marginTop:10,borderTop:'solid  1px #CDCDCD', borderBottom:'solid 1px #CDCDCD',paddingBottom:10,paddingTop:10}}>
-                                                <Grid item  xs={12} sm={3} style={{marginTop: width && 10}}>
+                                                <Grid item  xs={12} sm={3} style={{flexDirection: 'column', alignItems: 'start', marginTop: width && 10}}>
                                                     <p className='textForm'>Modalidad de trabajo</p>
+                                                    <p className='textFormError'>{this.state.mod == '' && this.state.send ? "Campo requerido" : ""}</p>
+
                                                 </Grid>
                                                 <Grid item  xs={3} sm={2} style={{display:'flex',justifyContent:'flex-end',marginTop: width && 10}}>
                                                     <p className='textForm'>Presencial</p>
                                                 </Grid>
                                                 <Grid item xs={3} sm={1} style={{ borderRight:'solid  1px #CDCDCD',display:'flex',justifyContent:'center',marginTop: width && 10}}>
-                                                    <div onClick={() => this.setState({ mod: 'Presencial' })} style={{ cursor: 'pointer', width: 16, height: 16, borderStyle: 'solid', borderWidth: 0, borderColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: ' 0 1px 4px 0 #000000' }}>
+                                                    <div onClick={() => this.setState({send:false, mod: 'Presencial' })} style={{ cursor: 'pointer', width: 16, height: 16, borderStyle: 'solid', borderWidth: 0, borderColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: ' 0 1px 4px 0 #000000' }}>
                                                         {this.state.mod === 'Presencial' && (
                                                             <img src={check} style={{ width: '100%',}}></img>
                                                         )}
@@ -385,7 +417,7 @@ class Register extends React.Component {
                                                     <p className='textForm'>Remoto</p>
                                                 </Grid>
                                                 <Grid item  xs={3} sm={1} style={{ borderRight:'solid  1px #CDCDCD',display:'flex',justifyContent:'center'}}>
-                                                    <div onClick={() => this.setState({ mod: 'Remoto' })} style={{ cursor: 'pointer', width: 16, height: 16, borderStyle: 'solid', borderWidth: 0, borderColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: ' 0 1px 4px 0 #000000' }}>
+                                                    <div onClick={() => this.setState({send:false, mod: 'Remoto' })} style={{ cursor: 'pointer', width: 16, height: 16, borderStyle: 'solid', borderWidth: 0, borderColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: ' 0 1px 4px 0 #000000' }}>
                                                         {this.state.mod === 'Remoto' && (
                                                             <img src={check} style={{ width: '100%',}}></img>
                                                         )}
@@ -395,7 +427,7 @@ class Register extends React.Component {
                                                     <p className='textForm'>Mixto</p>
                                                 </Grid>
                                                 <Grid item  xs={6} sm={1} style={{display:'flex',justifyContent:'center',marginTop: width && 10}}>
-                                                    <div onClick={() => this.setState({ mod: 'Mixto' })} style={{ cursor: 'pointer', width: 16, height: 16, borderStyle: 'solid', borderWidth: 0, borderColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: ' 0 1px 4px 0 #000000' }}>
+                                                    <div onClick={() => this.setState({send:false, mod: 'Mixto' })} style={{ cursor: 'pointer', width: 16, height: 16, borderStyle: 'solid', borderWidth: 0, borderColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: ' 0 1px 4px 0 #000000' }}>
                                                         {this.state.mod === 'Mixto' && (
                                                             <img src={check} style={{ width: '100%',}}></img>
                                                         )}
@@ -403,8 +435,10 @@ class Register extends React.Component {
                                                 </Grid>
                                             </Grid>
                                             <div style={{ width: '100%',  display: 'flex', flexDirection: 'row', marginTop: 10, alignItems: 'center' }}>
-                                                <Grid item xs={12} sm={12} style={{ display: 'flex' }}>
+                                                <Grid item xs={12} sm={12} style={{ display: 'flex',flexDirection: 'column', alignItems: 'start' }}>
                                                     <p className='textForm'>Contanos en UNA frase cuáles son tus espectativas para este “EC21”</p>
+                                                    <p className='textFormError'>{this.state.name == '' && this.state.send ? "Campo requerido" : ""}</p>
+
                                                 </Grid>
                                             </div>
                                             <div style={{ width: '100%',  display: 'flex', flexDirection: 'row', marginTop: 10, alignItems: 'center' }}>
@@ -417,15 +451,18 @@ class Register extends React.Component {
                                                             border: 'none',
                                                         }}
                                                         type='text'
+                                                        required
                                                         className='no-outline'
-                                                        onChange={(event) => this.setState({ question1: event.target.value })}
+                                                        onChange={(event) => this.setState({send:false, question1: event.target.value })}
                                                     >
                                                     </input>
                                                 </Grid>
                                             </div>
-                                            <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 10, alignItems: 'center' }}>
-                                                <Grid item xs={12} sm={12} style={{ display: 'flex' }}>
+                                            <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 10, alignItems: 'center',  }}>
+                                                <Grid item xs={12} sm={12} style={{ display: 'flex',flexDirection: 'column', alignItems: 'start' }}>
                                                     <p  className='textForm' >¿Con quién vas a compartir este evento?</p>
+                                                    <p className='textFormError'>{this.state.name == '' && this.state.send ? "Campo requerido" : ""}</p>
+
                                                 </Grid>
                                             </div>
                                             <div style={{ width: '100%',  display: 'flex', flexDirection: 'row', marginTop: 10, alignItems: 'center' }}>
@@ -438,8 +475,9 @@ class Register extends React.Component {
                                                             border: 'none',
                                                         }}
                                                         type='text'
+                                                        required
                                                         className='no-outline'
-                                                        onChange={(event) => this.setState({ question2: event.target.value })}
+                                                        onChange={(event) => this.setState({send:false, question2: event.target.value })}
                                                     >
                                                     </input>
                                                 </Grid>

@@ -11,6 +11,7 @@
     "aws-amplify-react": "^4.2.22",
     "bootstrap": "^4.6.0",
     "history": "^5.0.0",
+    "moment": "^2.29.1",
     "node-ws": "0.0.4",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.0",
