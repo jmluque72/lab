@@ -340,7 +340,7 @@ class Register extends React.Component {
                                                     </input>
                                                 </Grid>
                                                 <Grid item xs={4} sm={1} style={{ flexDirection: 'column', alignItems: 'center', display: 'flex', justifyContent: !width ? 'flex-end' : '', marginTop: width && 10, }}>
-                                                    <p className='textForm' >Pais</p>
+                                                    <p className='textForm' >País</p>
 
                                                 </Grid>
                                                 <Grid item xs={8} sm={5} style={{ paddingLeft: !width && (10), marginTop: width && 10, }}>
@@ -361,7 +361,7 @@ class Register extends React.Component {
                                             </Grid>
                                             <Grid container direction='row' alignItems='center' style={{ marginTop: 10, }}>
                                                 <Grid item xs={3} sm={2} style={{ flexDirection: 'column', alignItems: 'start', display: 'flex' }}>
-                                                    <p className='textForm'>Telefono</p>
+                                                    <p className='textForm'>Teléfono</p>
                                                     <p className='textFormError'>{this.state.name == '' && this.state.send ? "Campo requerido" : ""}</p>
 
                                                 </Grid>
@@ -440,7 +440,7 @@ class Register extends React.Component {
                                             </Grid>
                                             <Grid container direction='row' alignItems='center' style={{ width: '100%', marginTop: 10,  borderBottom: 'solid 1px #CDCDCD', paddingBottom: 10, paddingTop: 10 }}>
                                                 <Grid item xs={12} sm={8} style={{ flexDirection: 'column', alignItems: 'start', marginTop: width && 10 }}>
-                                                    <p className='textForm'>Tenés algún hábito alimentario (Ej. vegetariano/a;vegano/a)?</p>
+                                                    <p className='textForm'>Tenés algún hábito alimentario (Ej. vegetariano/a; vegano/a)?</p>
                                                     <p className='textFormError'>{this.state.mod == '' && this.state.send ? "Campo requerido" : ""}</p>
 
                                                 </Grid>
