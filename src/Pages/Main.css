@@ -18,6 +18,14 @@
     font-family: 'FrutigerBoldCn';
     src: local('FrutigerBoldCn'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/FrutigerBold.otf') format('truetype');
 }
+@font-face {
+    font-family: 'FrutigerBoldCn';
+    src: local('FrutigerBoldCn'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/FrutigerBold.otf') format('truetype');
+}
+@font-face {
+    font-family: 'GothamRndBold';
+    src: local('GothamRndBold'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/GothamRnd-Bold.otf') format('truetype');
+}
 
 .header {
     padding-top: '20px';
@@ -143,6 +151,15 @@ input {
     margin: 0; 
     text-align: left;
 }
+
+.titleFormTitle{
+    font-family: 'GothamRndBold';
+    font-size: 36px;
+    color: #12326E;
+    margin: 0; 
+    text-align: left;
+}
+
 .boxForm    {
     background-color: #CDCDCD;
     width: 50px;
