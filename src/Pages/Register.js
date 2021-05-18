@@ -69,6 +69,9 @@ class Register extends React.Component {
         ) {
             return;
         }
+        if (this.state.habito == 'Si' && this.state.otherhabito == '') {
+            return;
+        }
         this.setState({
             error: null,
             loading: true
@@ -192,7 +195,7 @@ class Register extends React.Component {
                                                 </Grid>
                                             </Grid>
                                             <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
-                                                <Grid item xs={12} sm={4} style={{ flexDirection: 'column', alignItems: 'start', display: 'flex', justifyContent: 'flex-start', marginTop: width && (10) }}>
+                                                <Grid item xs={12} sm={3} style={{ flexDirection: 'column', alignItems: 'start', display: 'flex', justifyContent: 'flex-start', marginTop: width && (10) }}>
                                                     <p className='textForm' >Fecha de nacimiento</p>
                                                     <p className='textFormError'>{this.state.name == '' && this.state.send ? "Campo requerido" : ""}</p>
                                                 </Grid>
@@ -225,11 +228,11 @@ class Register extends React.Component {
                                                     >
                                                     </input>
                                                 </Grid>
-                                                <Grid item xs={2} sm={2} style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 10 }}>
+                                                <Grid item xs={2} sm={1} style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 10 }}>
                                                     <p className='textForm' >Año</p>
                                                 </Grid>
 
-                                                <Grid item xs={2} sm={1} style={{}}>
+                                                <Grid item xs={2} sm={2} style={{}}>
                                                     <input
                                                         className="boxForm"
                                                         type='number'
@@ -558,7 +561,9 @@ class Register extends React.Component {
                                                     </div>
                                                 </Grid>
                                                 <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 10, alignItems: 'center' }}>
+
                                                 <Grid item xs={12} sm={12} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 0, borderStyle: 'solid', }}>
+                                                    <p className='textFormError'>{this.state.habito == 'Si' && this.state.otherhabito == '' && this.state.send ? "Campo requerido" : ""}</p>
                                                     <input
                                                         style={{
                                                             backgroundColor: '#CDCDCD',
@@ -567,7 +572,6 @@ class Register extends React.Component {
                                                             border: 'none',
                                                         }}
                                                         type='text'
-                                                        required
                                                         className='no-outline'
                                                         onChange={(event) => this.setState({ send: false, otherhabito: event.target.value })}
                                                     >
