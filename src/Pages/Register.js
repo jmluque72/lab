@@ -77,13 +77,11 @@ class Register extends React.Component {
             error: null,
             loading: true
         })
-
         const body = {
             name: this.state.name,
             day: this.state.day,
             month: this.state.mounth,
             year: this.state.year,
-
             street: this.state.address,
             street_number: this.state.addressNumber,
             street_dpto: this.state.depto,
@@ -99,7 +97,8 @@ class Register extends React.Component {
             manzana: this.state.manzana,
             barrio: this.state.barrio,
             lote: this.state.lote,
-            zipcode: this.state.zipcode
+            zipcode: this.state.zipcode,
+            dni: this.state.dni
         }
         var response = fetch("https://4swa57ilx6.execute-api.sa-east-1.amazonaws.com/prod/register", {
             method: 'POST',
@@ -147,7 +146,7 @@ class Register extends React.Component {
         disabledbutton = false;
         var header = <Grid item xs={12} sm={3} md={4} lg={5} style={{ height: '100%', display: 'flex' }} >
             <div style={{flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
-                <img height='auto' width='100%' style={{ maxWidth: 500 }} src={logoGridoGrande} />
+                <img height='auto' width='100%' style={{marginTop:-50, maxWidth: 500 }} src={logoGridoGrande} />
             </div>
         </Grid>
 
