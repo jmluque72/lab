@@ -536,7 +536,7 @@ class Register extends React.Component {
                                             </Grid>
                                             <Grid container direction='row' alignItems='center' style={{ width: '100%', marginTop: 10,  borderBottom: 'solid 1px #CDCDCD', paddingBottom: 10, paddingTop: 10 }}>
                                                 <Grid item xs={12} sm={8} style={{ flexDirection: 'column', alignItems: 'start', marginTop: width && 10 }}>
-                                                    <p className='textForm'><span>Tenés algún hábito/regimen alimentario (Ej. vegetariano/a; vegano/a)?</span><span style={{color:'#CDCDCD'}}>Si la respuesta es "Si", especificar cual</span> </p>
+                                                    <p className='textForm'><span>Tenés algún hábito/regimen alimentario (Ej. vegetariano/a; vegano/a)?&nbsp;</span><span style={{color:'#CDCDCD'}}>Si la respuesta es "Si", especificar cual</span> </p>
                                                     <p className='textFormError'>{this.state.mod == '' && this.state.send ? "Campo requerido" : ""}</p>
 
                                                 </Grid>
