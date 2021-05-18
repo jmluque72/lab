@@ -164,7 +164,7 @@ class Register extends React.Component {
             return (
                 <form onSubmit={(event) => this.onSubmit(event)}>
                     <div style={{ display: 'flex' }}>
-                        <div style={{ display: 'flex', justifyContent: 'center', backgroundImage: `url(${Background})`, height: height, width: '100%', backgroundSize: 'cover' }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', backgroundImage: `url(${Background})`, height: 'auto', width: '100%', backgroundSize: 'cover' }}>
                             <Grid container direction='row' styl={{ height: '100%' }}>
                                 {header}
                                 <Grid item xs={12} sm={9} md={8} lg={7} tyle={{}} >
