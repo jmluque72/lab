@@ -5,7 +5,8 @@ import { Grid, Button } from '@material-ui/core';
 import Background from '../assets/backgroundRegister.png'
 import Background2 from '../assets/background_event_program.png'
 import backgroundCheck from '../assets/backgroundCheck.png'
-import logoGridoGrande from '../assets/logoEC21.png'
+import logoGridoGrande from '../assets/EC21_register.png'
+
 import logoHeader from '../assets/logo_ozempic_header.png'
 import logoNovo from '../assets/logoGrido.png'
 import check from '../assets/check.png'
@@ -145,7 +146,7 @@ class Register extends React.Component {
 
         disabledbutton = false;
         var header = <Grid item xs={12} sm={3} md={4} lg={5} style={{ height: '100%', display: 'flex' }} >
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
+            <div style={{flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
                 <img height='auto' width='100%' style={{ maxWidth: 500 }} src={logoGridoGrande} />
             </div>
         </Grid>
@@ -164,7 +165,7 @@ class Register extends React.Component {
             return (
                 <form onSubmit={(event) => this.onSubmit(event)}>
                     <div style={{ display: 'flex' }}>
-                        <div style={{ display: 'flex', justifyContent: 'center', backgroundImage: `url(${Background})`, height: 'auto', width: '100%', backgroundSize: 'cover' }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', backgroundImage: `url(${Background})`, height: '100%', width: '100%', backgroundSize: 'cover' }}>
                             <Grid container direction='row' styl={{ height: '100%' }}>
                                 {header}
                                 <Grid item xs={12} sm={9} md={8} lg={7} tyle={{}} >
