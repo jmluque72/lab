@@ -91,7 +91,11 @@ class Register extends React.Component {
             question1: this.state.question1,
             question2: this.state.question2,
             otherhabito: this.state.otherhabito,
-            habito: this.state.habito
+            habito: this.state.habito,
+            manzana: this.state.manzana,
+            barrio: this.state.barrio,
+            lote: this.state.lote,
+            zipcode: this.state.zipcode
         }
         var response = fetch("https://4swa57ilx6.execute-api.sa-east-1.amazonaws.com/prod/register", {
             method: 'POST',
@@ -318,6 +322,95 @@ class Register extends React.Component {
                                                     </input>
                                                 </Grid>
                                             </Grid>
+                                            
+
+
+                                            <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
+                                                <Grid item xs={4} sm={1} style={{ flexDirection: 'column', alignItems: 'start', display: 'flex' }}>
+                                                    <p className='textForm'>Manz.</p>
+                                                    <p className='textFormError'>{this.state.name == '' && this.state.send ? "Campo requerido" : ""}</p>
+                                                </Grid>
+                                                <Grid item xs={8} sm={1} style={{}}>
+                                                    <input
+                                                        style={{
+                                                            backgroundColor: '#CDCDCD',
+                                                            width: '100%',
+                                                            height: 30,
+                                                            border: 'none',
+                                                        }}
+                                                        type='text'
+                                                        className='no-outline'
+                                                        onChange={(event) => this.setState({ send: false, manzana: event.target.value })}
+                                                    >
+                                                    </input>
+                                                </Grid>
+                                                <Grid item xs={4} sm={1} style={{ flexDirection: 'column', alignItems: 'center', display: 'flex', justifyContent: !width ? 'flex-end' : '', marginTop: width && 10, }}>
+                                                    <p className='textForm' >Lote</p>
+
+                                                </Grid>
+                                                <Grid item xs={8} sm={1} style={{ paddingLeft: !width && (10), marginTop: width && 10, }}>
+                                                    <input
+                                                        style={{
+                                                            backgroundColor: '#CDCDCD',
+                                                            width: '100%',
+                                                            height: 30,
+                                                            border: 'none',
+                                                        }}
+                                                        type='text'
+                                                        className='no-outline'
+                                                        onChange={(event) => this.setState({ send: false, lote: event.target.value })}
+                                                    >
+                                                    </input>
+                                                </Grid>
+                                                <Grid item xs={4} sm={1} style={{ flexDirection: 'column', alignItems: 'center', display: 'flex', justifyContent: !width ? 'flex-end' : '', marginTop: width && 10, }}>
+                                                    <p className='textForm' >Barrio</p>
+
+                                                </Grid>
+                                                <Grid item xs={8} sm={3} style={{ paddingLeft: !width && (10), marginTop: width && 10, }}>
+                                                    <input
+                                                        style={{
+                                                            backgroundColor: '#CDCDCD',
+                                                            width: '100%',
+                                                            height: 30,
+                                                            border: 'none',
+                                                        }}
+                                                        type='text'
+                                                        required
+                                                        className='no-outline'
+                                                        onChange={(event) => this.setState({ send: false, barrio: event.target.value })}
+                                                    >
+                                                    </input>
+                                                </Grid>
+
+                                                <Grid item xs={4} sm={2} style={{ flexDirection: 'column', alignItems: 'center', display: 'flex', justifyContent: !width ? 'flex-end' : '', marginTop: width && 10, }}>
+                                                    <p className='textForm' >Código postal</p>
+
+                                                </Grid>
+                                                <Grid item xs={8} sm={2} style={{ paddingLeft: !width && (10), marginTop: width && 10, }}>
+                                                    <input
+                                                        style={{
+                                                            backgroundColor: '#CDCDCD',
+                                                            width: '100%',
+                                                            height: 30,
+                                                            border: 'none',
+                                                        }}
+                                                        type='text'
+                                                        required
+                                                        className='no-outline'
+                                                        onChange={(event) => this.setState({ send: false, zipcode: event.target.value })}
+                                                    >
+                                                    </input>
+                                                </Grid>
+
+
+                                            </Grid>
+
+
+
+
+
+
+
                                             <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
                                                 <Grid item xs={4} sm={2} style={{ flexDirection: 'column', alignItems: 'start', display: 'flex' }}>
                                                     <p className='textForm'>Localidad</p>
@@ -440,7 +533,7 @@ class Register extends React.Component {
                                             </Grid>
                                             <Grid container direction='row' alignItems='center' style={{ width: '100%', marginTop: 10,  borderBottom: 'solid 1px #CDCDCD', paddingBottom: 10, paddingTop: 10 }}>
                                                 <Grid item xs={12} sm={8} style={{ flexDirection: 'column', alignItems: 'start', marginTop: width && 10 }}>
-                                                    <p className='textForm'>Tenés algún hábito alimentario (Ej. vegetariano/a; vegano/a)?</p>
+                                                    <p className='textForm'><span>Tenés algún hábito/regimen alimentario (Ej. vegetariano/a; vegano/a)?</span><span style={{color:'#CDCDCD'}}>Si la respuesta es "Si", especificar cual</span> </p>
                                                     <p className='textFormError'>{this.state.mod == '' && this.state.send ? "Campo requerido" : ""}</p>
 
                                                 </Grid>
@@ -465,11 +558,6 @@ class Register extends React.Component {
                                                     </div>
                                                 </Grid>
                                                 <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 10, alignItems: 'center' }}>
-                                                    <Grid item xs={12} sm={12} style={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}>
-                                                        <p className='textForm' style={{color: '#CDCDCD'}}>Si la respuesta es "Si", especificar cual</p>
-                                                    </Grid>
-                                                </div>
-                                                <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 10, alignItems: 'center' }}>
                                                 <Grid item xs={12} sm={12} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 0, borderStyle: 'solid', }}>
                                                     <input
                                                         style={{
@@ -489,7 +577,7 @@ class Register extends React.Component {
                                             </Grid>
                                             <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 10, alignItems: 'center' }}>
                                                 <Grid item xs={12} sm={12} style={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}>
-                                                    <p className='textForm'>Contanos en UNA frase cuáles son tus espectativas para este “EC21”</p>
+                                                    <p className='textForm'>Contanos en UNA frase cuáles son tus expectativas para este “EC21”</p>
                                                     <p className='textFormError'>{this.state.name == '' && this.state.send ? "Campo requerido" : ""}</p>
 
                                                 </Grid>
@@ -598,6 +686,8 @@ class Register extends React.Component {
                                                     <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
                                                         <p style={{ fontFamily: 'FrutigerBlack', letterSpacing: 0.9, fontSize: 20, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%' }}>TE REGISTRASTE SATISFACTORIAMENTE.</p>
                                                         <p style={{ fontFamily: 'FrutigerBold', fontSize: 16, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>Revise su correo electrónico para confirmar su e-mail</p>
+                                                        <p style={{ fontFamily: 'FrutigerLight', fontSize: 13, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>(En caso de no encontrarlo, chequea la carpeta de spam)</p>
+
                                                     </div>
                                                 </Grid>
                                             </Grid>
