@@ -44,7 +44,7 @@ class Footer extends React.Component {
             hours: 0,
             min: 0,
             sec: 0,
-            seconds: (new Date(1615932000000).getTime() - new Date().getTime()) / 1000
+            seconds: (new Date(1623466810000).getTime() - new Date().getTime()) / 1000
         }
     }
 
@@ -58,7 +58,6 @@ class Footer extends React.Component {
         var minutes = Math.floor(minutesLeft / 60);
         var remainingSeconds = seconds % 60;
 
-        //document.getElementById('countdown').innerHTML = pad(days) + ":" + pad(hours) + ":" + pad(minutes) + ":" + pad(remainingSeconds);
         this.setState({
             days: days,
             min: minutes,
@@ -127,7 +126,7 @@ class Footer extends React.Component {
         }
         //        if (this.state.days <= 0 && this.state.hours <= 0 && this.state.min <= 15) {
 
-        if (true && true) {
+        if (false) {
             return (
             <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
                 <p className='timeTitle_gracias'>Gracias por participar</p>
@@ -136,7 +135,7 @@ class Footer extends React.Component {
             </div>);
         }
         return (
-            <div style={{ display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
+            <div style={{ display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: 'rgb(277,7,27)' }}>
                 <Grid container style={{ alignItems: 'center', height: '100%', justifyContent: 'center' }}>
                     <Grid xs={12} sm={2}>
                         <Grid container alignItems='center' direction='column'>

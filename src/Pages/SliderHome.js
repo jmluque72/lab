@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import Grid from '@material-ui/core/Grid';
 import './Main.css'
 import Carousel from 'react-bootstrap/Carousel'
-import image_1 from '../assets/CarouselHome/image_1.jpg'
-import image_2 from '../assets/CarouselHome/image_2.jpg'
-import image_3 from '../assets/CarouselHome/image_3.jpg'
+import image_1 from '../assets/CarouselHome/image_1.jpeg'
+import image_2 from '../assets/CarouselHome/image_2.jpeg'
+import image_3 from '../assets/CarouselHome/image_3.jpeg'
 import logoHeader from '../assets/logo_ozempic_header.png'
 import Footer from './Footer.js'
 import next from '../assets/next.png'
@@ -66,7 +66,6 @@ class SliderHome extends React.Component {
                                             <div style={{  maxHeight:window.innerHeight}}>
                                                 <img src={image_3} style={{ width:'100%',height:'100%'}}></img>
                                             </div>
-                                            
                                         </Grid>
                                     </Grid>  
                                   

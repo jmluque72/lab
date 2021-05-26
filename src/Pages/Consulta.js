@@ -6,7 +6,8 @@ import Footer from './Footer.js'
 import { makeStyles } from '@material-ui/core/styles';
 import {Grid, Button} from '@material-ui/core';
 import './Main.css'
-import Background from '../assets/background_consulta.png'
+import Background from '../assets/background_event_program.png'
+import enviar from '../assets/enviar.png'
 
 
 class Consulta extends React.Component {
@@ -85,9 +86,9 @@ class Consulta extends React.Component {
                         <Grid container direction='row' style={{ width:'100%',height:'100%'}}>
                             <Grid item sm={6} xs={12} style={{ }}>
                                 <Grid container direction='column' justify='center' alignItems={ min ? 'flex-end' : 'center' }style={{ height:'100%'}}>
-                                    <p style={{ fontFamily:'FrutigerBlack',fontSize:min ? 70 : 45,color:'white',textAlign: min ? 'right' : 'center',lineHeight:1,marginLeft: min ? 'auto' : 'none',width:'80%'}}>DEJANOS TU CONSULTA</p>
+                                    <p style={{ fontFamily:'GothamRndBold',fontSize:min ? 70 : 45,color:'white',textAlign: min ? 'right' : 'center',lineHeight:1,marginLeft: min ? 'auto' : 'none',width:'80%'}}>DEJANOS TU CONSULTA</p>
                                     <div style={{width:150,height:20,backgroundColor:'white'}}></div>
-                                    <p style={{ fontFamily:'FrutigerLight',fontSize:16,color:'white',textAlign: min ? 'right' : 'center',lineHeight:1,marginLeft: min ? 'auto' : 'none',width:'70%',marginTop:30}}>Si tenes alguna pregunta o te gustaría recibir información sobre Ozempic <span style={{fontSize: 14,   verticalAlign: 'top'}}>®️</span>, dejanos tu consulta.</p>
+                                    <p style={{ fontFamily:'FrutigerLight',fontSize:16,color:'white',textAlign: min ? 'right' : 'center',lineHeight:1,marginLeft: min ? 'auto' : 'none',width:'70%',marginTop:30}}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                                 </Grid>
                             </Grid>
                             <Grid item sm={6} xs={12} style={{ }}>
@@ -136,11 +137,8 @@ class Consulta extends React.Component {
                                             </div>
                                         </div>
                                     </div>
-                                    {this.state.message && 
-                                        <p style={{paddingLeft:40, marginTop: 20, color: 'white', textAlign: 'center', fontFamily:'FrutigerBold',fontSize:18}}>{this.state.message}</p>
-                                    }
-                                    <Button disabled={buttondisabled} onClick={() => this.send()} style={{paddingLeft:20,paddingRight:20,backgroundColor:'white',borderRadius:20,marginLeft: min ? '5%' : '',marginTop:20}}>
-                                        <p style={{ fontFamily:'FrutigerBold',fontSize:15,margin:0}}>ENVIAR</p>
+                                    <Button  onClick={() => this.send()} style={{}}>
+                                        <img style={{width: 150, height: 150*0.40}} src={enviar} />
                                     </Button>
                                 </Grid>
                             </Grid>

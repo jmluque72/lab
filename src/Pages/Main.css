@@ -35,17 +35,16 @@
 }
 .label-header-not-selected {
     font-family: FrutigerLight;
-    font-size: 16;
-    color:black;
+    font-size: 14px;
+    color:white;
     cursor: pointer;
-
     
 }
 
 .label-header-selected {
     font-family: FrutigerBold;
-    font-size: 16px;
-    color:black;
+    font-size: 14px;
+    color:#e50051;
     cursor: pointer;
 }
 .timeTitle {
