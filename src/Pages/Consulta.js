@@ -88,7 +88,6 @@ class Consulta extends React.Component {
                                 <Grid container direction='column' justify='center' alignItems={ min ? 'flex-end' : 'center' }style={{ height:'100%'}}>
                                     <p style={{ fontFamily:'GothamRndBold',fontSize:min ? 70 : 45,color:'white',textAlign: min ? 'right' : 'center',lineHeight:1,marginLeft: min ? 'auto' : 'none',width:'80%'}}>DEJANOS TU CONSULTA</p>
                                     <div style={{width:150,height:20,backgroundColor:'white'}}></div>
-                                    <p style={{ fontFamily:'FrutigerLight',fontSize:16,color:'white',textAlign: min ? 'right' : 'center',lineHeight:1,marginLeft: min ? 'auto' : 'none',width:'70%',marginTop:30}}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                                 </Grid>
                             </Grid>
                             <Grid item sm={6} xs={12} style={{ }}>
