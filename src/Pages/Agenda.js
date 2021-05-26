@@ -19,7 +19,7 @@ class Agenda extends React.Component {
         };
     }
     pdf() {
-        window.open('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/OZEMPIC_+LA+GRAN+OPORTUNIDAD+EN+DIABETES+TIPO+2.pdf', '_blank');
+        window.open('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/programa.pdf', '_blank');
     }
 
     render() {
