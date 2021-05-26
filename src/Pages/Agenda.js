@@ -27,7 +27,7 @@ class Agenda extends React.Component {
         console.log(window.innerWidth)
         return (
             <div style={{ flexDirection: 'row', height: window.innerHeight, backgroundImage: `url(${Background})`, backgroundSize: 'cover', }}>
-                <img style={{ width: '100%', height: '100%' }} src={fiesta} />
+                <img style={{ width: '100%' }} src={fiesta} />
                 <div style={{ zIndex: 999, position: 'absolute', bottom: - window.innerHeight+100, right: 50 }}>
                 <Button onClick={() => this.pdf()}>
                     <img style={{width: 250, height: 250*0.28}} src={saber_mas} />
