@@ -8,7 +8,7 @@ import { Grid, Button } from '@material-ui/core';
 import Background from '../assets/background_event_program.png'
 import fiesta from '../assets/fiesta.png'
 import fiesta1 from '../assets/fiesta1.jpg'
-import fiesta_responsive from '../assets/fiesta_1_responsive.png'
+import fiesta_responsive from '../assets/fiesta_responsive.jpg'
 
 import saber_mas from '../assets/saber_mas.png'
 
@@ -35,10 +35,10 @@ class Agenda extends React.Component {
         if (!min) {
             fiestavalue = fiesta_responsive;
             paddingRight = 0;
-            marginTop= 0;
+            marginTop= -50;
             widthB = 170;
         }
-        if (true) {
+        if (min) {
             return (
                 <div style={{flexDirection: 'row', height: window.innerHeight, backgroundImage: `url(${Background})`, backgroundSize: 'cover', }}>
                     <img style={{marginTop: marginTop, width: '100%' }} src={fiestavalue} />
@@ -52,9 +52,9 @@ class Agenda extends React.Component {
             );
         } else {
             return (
-                <div style={{flexDirection: 'row', height: window.innerHeight, backgroundImage: `url(${Background})`, backgroundSize: 'cover', }}>
-                    <img style={{ height: '100%', width: '100%' }} src={fiestavalue} />
-                    <div style={{ zIndex: 999, position: 'absolute', bottom: - window.innerHeight+100, right: paddingRight }}>
+                <div style={{flexDirection: 'row', height: window.innerHeight, backgroundSize: 'cover', }}>
+                    <img style={{ marginTop: -50, width: '100%', height: '100%' }} src={fiestavalue} />
+                    <div style={{ zIndex: 999, position: 'absolute', bottom: - window.innerHeight+70, right: paddingRight }}>
                     <Button onClick={() => this.pdf()}>
                         <img style={{width: 250, height: 250*0.28}} src={saber_mas} />
                     </Button>
