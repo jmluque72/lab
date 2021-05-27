@@ -33,7 +33,7 @@ class Header extends React.Component {
         const classContactos = this.props.state === 'contacto' ? 'label-header-selected' : 'label-header-not-selected'
         const min = window.innerWidth >= 1000
         return (
-            <div className='header' style={{ background: '#0006a0', zIndex: 10, paddingTop: 20, paddingBottom: 20, position: 'fixed', height: this.state.menu ? 140 : 100, left: 0, top: 0, right: 0, flexDirection: 'column' }}>
+            <div className='header' style={{ background: '#0006a0', zIndex: 10, paddingTop: 20, paddingBottom: 20, position: 'fixed', height: this.state.menu ? 140 : 110, left: 0, top: 0, right: 0, flexDirection: 'column' }}>
                 <Grid container>
                     <Grid xs={10} sm={4} style={{ height: 60, }}>
                         <Grid container direction='row' justify='space-around'>
@@ -69,7 +69,7 @@ class Header extends React.Component {
                                 <a onClick={() => this.setValue("Home")} className={classHome} style={{color: 'black'}}>HOME</a>
                                 <a onClick={() => this.setValue("Agenda")} className={classAgenda}  style={{color: 'black'}}>NUESTRA FIESTA</a>
                                 <a onClick={() => this.setValue("Evento")} className={classEvento}  style={{color: 'black'}}>CÓMO SER PARTE</a>
-                                <a onClick={() => this.setValue("Contacto")} className={classContactos}  style={{color: 'black'}}>CONTACTO</a>
+                                <a onClick={() => this.setValue("Consultas")} className={classContactos}  style={{color: 'black'}}>CONTACTO</a>
                                 <a onClick={() => this.openSpoty()}>
                                     <img src={Vivo} style={{ marginTop: 10, marginBottom: 10, width: 100, height: 100 * 0.26, cursor: 'pointer' }}></img>
                                 </a>

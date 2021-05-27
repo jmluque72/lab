@@ -34,7 +34,7 @@ class Agenda extends React.Component {
             fiestavalue = fiesta_responsive;
             paddingRight = 0;
         }
-        if (min) {
+        if (true) {
             return (
                 <div style={{flexDirection: 'row', height: window.innerHeight, backgroundImage: `url(${Background})`, backgroundSize: 'cover', }}>
                     <img style={{marginTop: -200, width: '100%' }} src={fiestavalue} />
@@ -49,7 +49,7 @@ class Agenda extends React.Component {
         } else {
             return (
                 <div style={{flexDirection: 'row', height: window.innerHeight, backgroundImage: `url(${Background})`, backgroundSize: 'cover', }}>
-                    <img style={{ height:  window.innerHeight-100 }} src={fiestavalue} />
+                    <img style={{ height: '100%', width: '100%' }} src={fiestavalue} />
                     <div style={{ zIndex: 999, position: 'absolute', bottom: - window.innerHeight+100, right: paddingRight }}>
                     <Button onClick={() => this.pdf()}>
                         <img style={{width: 250, height: 250*0.28}} src={saber_mas} />
