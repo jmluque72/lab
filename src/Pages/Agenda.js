@@ -56,7 +56,7 @@ class Agenda extends React.Component {
                     <img style={{ marginTop: -70,width: '100%', height: '100%' }} src={fiestavalue} />
                     <div style={{ zIndex: 999, position: 'absolute', bottom: - window.innerHeight+100, right: paddingRight }}>
                     <Button onClick={() => this.pdf()}>
-                        <img style={{width: 250, height: 250*0.28}} src={saber_mas} />
+                        <img style={{width: 180, height: 180*0.28}} src={saber_mas} />
                     </Button>
                     </div>
     

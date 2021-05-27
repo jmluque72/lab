@@ -29,7 +29,7 @@ class Agenda extends React.Component {
         console.log(window.innerWidth)
         return (
             <div style={{marginTop: -120, flexDirection: 'row' ,backgroundImage:`url(${Background})`,backgroundSize:'cover',}}>
-                    <Grid item  style={{paddingLeft: 20, height:window.innerHeight-100,width:'100%'}}>
+                    <Grid item  style={{paddingLeft: 20, height:window.innerHeight,width:'100%'}}>
                         <Grid container direction='row' style={{ width:'100%',height:'100%'}}>
                             <Grid item sm={6} xs={12} style={{ }}>
                                 <Grid container direction='column' justify='center' alignItems={ min ? 'flex-end' : 'center' }style={{ height:'100%'}}>
