@@ -8,8 +8,8 @@ import image_2 from '../assets/CarouselHome/image_2.jpg'
 import image_3 from '../assets/CarouselHome/image_3.jpg'
 
 import image_1_responsive from '../assets/CarouselHome/image_1_responsive.jpg'
-import image_2_responsive from '../assets/CarouselHome/image_1_responsive.jpg'
-import image_3_responsive from '../assets/CarouselHome/image_1_responsive.jpg'
+import image_2_responsive from '../assets/CarouselHome/image_2_responsive.jpg'
+import image_3_responsive from '../assets/CarouselHome/image_3_responsive.jpg'
 
 
 
