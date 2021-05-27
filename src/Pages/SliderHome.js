@@ -46,7 +46,7 @@ class SliderHome extends React.Component {
             img_3 = image_3_responsive;
 
         }
-        if (true) {
+        if (!min) {
             return (
                 <div style={{ width: '100%', height: window.innerHeight, justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
                     <Grid item xs={12} sm={12}>
