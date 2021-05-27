@@ -59,15 +59,7 @@ class HomeView extends React.Component {
 
     componentDidMount() {
         window.addEventListener('scroll', (event) => {
-            var current = "home";
-            var offset = window.pageYOffset + 200;
-            console.log(offset);
-            if (document.getElementById("home").offsetTop < offset) current = "home";
-            if (document.getElementById("agenda").offsetTop < offset) current = "agenda";
-            if (document.getElementById("evento").offsetTop < offset) current = "evento";
-            if (document.getElementById("consultas").offsetTop < offset) current = "consultas";
-
-            this.setState({visible: current});
+            
 
             //console.log(this.isScrolledIntoView())
         });
