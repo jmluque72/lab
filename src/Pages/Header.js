@@ -66,10 +66,10 @@ class Header extends React.Component {
                     {this.state.menu && (
                         <Grid xs={12} sm={12} style={{ display: 'flex' }}>
                             <Grid container direction={'column'} alignItems='flex-end' style={{ paddingRight: 10, backgroundColor: '#F1EFEF' }} justify='space-between'>
-                                <a onClick={() => this.setValue("Home")} className={classHome}>HOME</a>
-                                <a onClick={() => this.setValue("Agenda")} className={classAgenda} >NUESTRA FIESTA</a>
-                                <a onClick={() => this.setValue("Evento")} className={classEvento} >CÓMO SER PARTE</a>
-                                <a onClick={() => this.setValue("Contacto")} className={classContactos}>CONTACTO</a>
+                                <a onClick={() => this.setValue("Home")} className={classHome} style={{color: 'black'}}>HOME</a>
+                                <a onClick={() => this.setValue("Agenda")} className={classAgenda}  style={{color: 'black'}}>NUESTRA FIESTA</a>
+                                <a onClick={() => this.setValue("Evento")} className={classEvento}  style={{color: 'black'}}>CÓMO SER PARTE</a>
+                                <a onClick={() => this.setValue("Contacto")} className={classContactos}  style={{color: 'black'}}>CONTACTO</a>
                             </Grid>
                         </Grid>
                     )
