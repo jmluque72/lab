@@ -70,6 +70,10 @@ class Header extends React.Component {
                                 <a onClick={() => this.setValue("Agenda")} className={classAgenda}  style={{color: 'black'}}>NUESTRA FIESTA</a>
                                 <a onClick={() => this.setValue("Evento")} className={classEvento}  style={{color: 'black'}}>CÓMO SER PARTE</a>
                                 <a onClick={() => this.setValue("Contacto")} className={classContactos}  style={{color: 'black'}}>CONTACTO</a>
+                                <a onClick={() => this.openSpoty()}>
+                                    <img src={Vivo} style={{ marginTop: 10, marginBottom: 10, width: 100, height: 100 * 0.26, cursor: 'pointer' }}></img>
+                                </a>
+
                             </Grid>
                         </Grid>
                     )

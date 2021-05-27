@@ -8,7 +8,7 @@ import { Grid, Button } from '@material-ui/core';
 import Background from '../assets/background_event_program.png'
 import fiesta from '../assets/fiesta.png'
 import fiesta1 from '../assets/fiesta1.jpg'
-import fiesta_responsive from '../assets/fiesta_responsive.jpg'
+import fiesta_responsive from '../assets/fiesta_1_responsive.png'
 
 import saber_mas from '../assets/saber_mas.png'
 
@@ -34,18 +34,32 @@ class Agenda extends React.Component {
             fiestavalue = fiesta_responsive;
             paddingRight = 0;
         }
-        console.log(window.innerWidth)
-        return (
-            <div style={{flexDirection: 'row', height: window.innerHeight, backgroundImage: `url(${Background})`, backgroundSize: 'cover', }}>
-                <img style={{marginTop: -200, width: '100%' }} src={fiestavalue} />
-                <div style={{ zIndex: 999, position: 'absolute', bottom: - window.innerHeight+100, right: paddingRight }}>
-                <Button onClick={() => this.pdf()}>
-                    <img style={{width: 250, height: 250*0.28}} src={saber_mas} />
-                </Button>
+        if (min) {
+            return (
+                <div style={{flexDirection: 'row', height: window.innerHeight, backgroundImage: `url(${Background})`, backgroundSize: 'cover', }}>
+                    <img style={{marginTop: -200, width: '100%' }} src={fiestavalue} />
+                    <div style={{ zIndex: 999, position: 'absolute', bottom: - window.innerHeight+100, right: paddingRight }}>
+                    <Button onClick={() => this.pdf()}>
+                        <img style={{width: 250, height: 250*0.28}} src={saber_mas} />
+                    </Button>
+                    </div>
+    
                 </div>
-
-            </div>
-        );
+            );
+        } else {
+            return (
+                <div style={{flexDirection: 'row', height: window.innerHeight, backgroundImage: `url(${Background})`, backgroundSize: 'cover', }}>
+                    <img style={{ height:  window.innerHeight-100 }} src={fiestavalue} />
+                    <div style={{ zIndex: 999, position: 'absolute', bottom: - window.innerHeight+100, right: paddingRight }}>
+                    <Button onClick={() => this.pdf()}>
+                        <img style={{width: 250, height: 250*0.28}} src={saber_mas} />
+                    </Button>
+                    </div>
+    
+                </div>
+            );
+        }
+        
     }
 }
 

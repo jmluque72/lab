@@ -32,7 +32,7 @@ class SliderHome extends React.Component {
     }
 
     prev = () => {
-        
+
     }
 
     render() {
@@ -41,58 +41,96 @@ class SliderHome extends React.Component {
         var img_2 = image_2;
         var img_3 = image_3;
         if (!min) {
-            img_1 =  image_1_responsive;
-            img_2 =  image_2_responsive;
-            img_3 =  image_3_responsive;
+            img_1 = image_1_responsive;
+            img_2 = image_2_responsive;
+            img_3 = image_3_responsive;
 
         }
-        return (
-            <div style={{ width:'100%', height: window.innerHeight, justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
-                <Grid item xs={12} sm={12}>
-                    <Carousel style={{ zIndex:10}}>
-                        <Carousel.Item>
-                                <div style={{display:'flex',flexDirection:'row'}}>
+        if (!min) {
+            return (
+                <div style={{ width: '100%', height: window.innerHeight, justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                    <Grid item xs={12} sm={12}>
+                        <Carousel style={{ zIndex: 10 }}>
+                            <Carousel.Item>
+                                <div style={{ display: 'flex', flexDirection: 'row' }}>
                                     <Grid item xs={12} sm={12}>
                                         <Grid container justify='center' alignItems='center'>
-                                            <div style={{  maxHeight:window.innerHeight}}>
-                                                <img src={img_1} style={{ width:'100%',height:'100%'}}></img>
+                                            <div style={{ maxHeight: window.innerHeight }}>
+                                                <img src={img_3} style={{ width: '100%', height: '100%' }}></img>
                                             </div>
-                                            
+
                                         </Grid>
-                                    </Grid>  
-                                  
+                                    </Grid>
+
                                 </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                                <div style={{display:'flex',flexDirection:'row'}}>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <div style={{ display: 'flex', flexDirection: 'row' }}>
                                     <Grid item xs={12} sm={12}>
                                         <Grid container justify='center' alignItems='center'>
-                                            <div style={{  maxHeight:window.innerHeight}}>
-                                                <img src={img_2} style={{ width:'100%',height:'100%'}}></img>
+                                            <div style={{ maxHeight: window.innerHeight }}>
+                                                <img src={img_2} style={{marginTop: 50, width: '100%', height: '100%' }}></img>
                                             </div>
-                                            
+
                                         </Grid>
-                                    </Grid>  
-                                  
+                                    </Grid>
+
                                 </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                                <div style={{display:'flex',flexDirection:'row'}}>
+                            </Carousel.Item>
+                        </Carousel>
+                    </Grid>
+                    <Footer />
+                </div>
+            );
+        } else {
+            return (
+                <div style={{ width: '100%', height: window.innerHeight, justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                    <Grid item xs={12} sm={12}>
+                        <Carousel style={{ zIndex: 10 }}>
+                            <Carousel.Item>
+                                <div style={{ display: 'flex', flexDirection: 'row' }}>
                                     <Grid item xs={12} sm={12}>
                                         <Grid container justify='center' alignItems='center'>
-                                            <div style={{  maxHeight:window.innerHeight}}>
-                                                <img src={img_3} style={{ width:'100%',height:'100%'}}></img>
+                                            <div style={{ maxHeight: window.innerHeight }}>
+                                                <img src={img_1} style={{ width: '100%', height: '100%' }}></img>
+                                            </div>
+
+                                        </Grid>
+                                    </Grid>
+
+                                </div>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                                    <Grid item xs={12} sm={12}>
+                                        <Grid container justify='center' alignItems='center'>
+                                            <div style={{ maxHeight: window.innerHeight }}>
+                                                <img src={img_2} style={{ width: '100%', height: '100%' }}></img>
+                                            </div>
+
+                                        </Grid>
+                                    </Grid>
+
+                                </div>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                                    <Grid item xs={12} sm={12}>
+                                        <Grid container justify='center' alignItems='center'>
+                                            <div style={{ maxHeight: window.innerHeight }}>
+                                                <img src={img_3} style={{ width: '100%', height: '100%' }}></img>
                                             </div>
                                         </Grid>
-                                    </Grid>  
-                                  
+                                    </Grid>
+
                                 </div>
-                        </Carousel.Item>
-                    </Carousel>
-                </Grid>
-                <Footer />
-            </div>
-        );
+                            </Carousel.Item>
+                        </Carousel>
+                    </Grid>
+                    <Footer />
+                </div>
+            );
+        }
     }
 }
 

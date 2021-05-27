@@ -135,7 +135,7 @@ class Footer extends React.Component {
             </div>);
         }
         return (
-            <div style={{ display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: 'rgb(277,7,27)' }}>
+            <div style={{display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: 'rgb(277,7,27)' }}>
                 <Grid container style={{ alignItems: 'center', height: '100%', justifyContent: 'center' }}>
                     <Grid xs={12} sm={2}>
                         <Grid container alignItems='center' direction='column'>
