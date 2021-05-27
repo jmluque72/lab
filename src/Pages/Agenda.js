@@ -52,14 +52,12 @@ class Agenda extends React.Component {
             );
         } else {
             return (
-                <div style={{marginTop: -70,  backgroundImage: `url(${fiestavalue})`, backgroundSize: 'cover', flexDirection: 'row', height: window.innerHeight, backgroundSize: 'cover', }}>
-                    <div style={{ zIndex: 999, position: 'absolute', bottom: - window.innerHeight+130, right: paddingRight }}>
+                <div style={{marginTop: marginTop, backgroundImage: `url(${fiestavalue})`, backgroundSize: 'cover', flexDirection: 'row', height: window.innerHeight }}>
                     <Button onClick={() => this.pdf()}>
                         <img style={{width: 250, height: 250*0.28}} src={saber_mas} />
                     </Button>
-                    </div>
-    
                 </div>
+
             );
         }
         

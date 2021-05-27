@@ -84,7 +84,7 @@ class SliderHome extends React.Component {
             );
         } else {
             return (
-                <div style={{ width: '100%', height: window.innerHeight, justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                <div style={{width: '100%', height: window.innerHeight, justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
                     <Grid item xs={12} sm={12}>
                         <Carousel style={{ zIndex: 10 }}>
                             <Carousel.Item>
