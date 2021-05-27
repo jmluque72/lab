@@ -28,7 +28,7 @@ class Agenda extends React.Component {
         const min = window.innerWidth >= 1000
         console.log(window.innerWidth)
         return (
-            <div style={{flexDirection: 'row' ,backgroundImage:`url(${Background})`,backgroundSize:'cover',}}>
+            <div style={{marginTop: -50, flexDirection: 'row' ,backgroundImage:`url(${Background})`,backgroundSize:'cover',}}>
                     <Grid item  style={{ height:window.innerHeight-100,width:'100%'}}>
                         <Grid container direction='row' style={{ width:'100%',height:'100%'}}>
                             <Grid item sm={6} xs={12} style={{ }}>

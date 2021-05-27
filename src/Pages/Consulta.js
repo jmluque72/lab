@@ -82,7 +82,7 @@ class Consulta extends React.Component {
             }
         return (
             <div style={{width: '100%', flexDirection: 'row'}}>
-                    <Grid item xs={12} style={{height:window.innerHeight,backgroundImage:`url(${Background})`,backgroundSize:'cover'}}>
+                    <Grid item xs={12} style={{marginTop: -50,height:window.innerHeight,backgroundImage:`url(${Background})`,backgroundSize:'cover'}}>
                         <Grid container direction='row' style={{ width:'100%',height:'100%'}}>
                             <Grid item sm={6} xs={12} style={{ }}>
                                 <Grid container direction='column' justify='center' alignItems={ min ? 'flex-end' : 'center' }style={{ height:'100%'}}>
