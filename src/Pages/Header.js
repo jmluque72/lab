@@ -54,8 +54,8 @@ class Header extends React.Component {
                         <Grid sm={6} style={{ display: 'flex', paddingLeft: 10, paddingRight: 40 }}>
                             <Grid container direction={'row'} alignItems='center' justify='space-between'>
                                 <a onClick={(event) => { this.props.redirect("Home",) }} className={classHome}>HOME</a>
-                                <a onClick={() => this.props.redirect("Agenda")} className={classAgenda} >NUESTA FIESTA</a>
-                                <a onClick={() => this.props.redirect("Evento")} className={classEvento} >COMO SER PARTE</a>
+                                <a onClick={() => this.props.redirect("Agenda")} className={classAgenda} >NUESTRA FIESTA</a>
+                                <a onClick={() => this.props.redirect("Evento")} className={classEvento} >CÓMO SER PARTE</a>
                                 <a onClick={() => this.props.redirect("Consultas")} className={classConsultas}>CONSULTAS</a>
                                 <a onClick={() => this.openSpoty()}>
                                     <img src={Vivo} style={{ width: 160, height: 160 * 0.26, cursor: 'pointer' }}></img>
@@ -68,7 +68,7 @@ class Header extends React.Component {
                             <Grid container direction={'column'} alignItems='flex-end' style={{ paddingRight: 10, backgroundColor: '#F1EFEF' }} justify='space-between'>
                                 <a onClick={() => this.setValue("Home")} className={classHome}>HOME</a>
                                 <a onClick={() => this.setValue("Agenda")} className={classAgenda} >NUESTRA FIESTA</a>
-                                <a onClick={() => this.setValue("Evento")} className={classEvento} >COMO SER PARTE</a>
+                                <a onClick={() => this.setValue("Evento")} className={classEvento} >CÓMO SER PARTE</a>
                                 <a onClick={() => this.setValue("Contacto")} className={classContactos}>CONTACTO</a>
                             </Grid>
                         </Grid>

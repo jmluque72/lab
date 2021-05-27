@@ -6,6 +6,13 @@ import Carousel from 'react-bootstrap/Carousel'
 import image_1 from '../assets/CarouselHome/image_1.jpg'
 import image_2 from '../assets/CarouselHome/image_2.jpg'
 import image_3 from '../assets/CarouselHome/image_3.jpg'
+
+import image_1_responsive from '../assets/CarouselHome/image_1_responsive.jpg'
+import image_2_responsive from '../assets/CarouselHome/image_1_responsive.jpg'
+import image_3_responsive from '../assets/CarouselHome/image_1_responsive.jpg'
+
+
+
 import logoHeader from '../assets/logo_ozempic_header.png'
 import Footer from './Footer.js'
 import next from '../assets/next.png'
@@ -29,6 +36,16 @@ class SliderHome extends React.Component {
     }
 
     render() {
+        const min = window.innerWidth >= 1000
+        var img_1 = image_1;
+        var img_2 = image_2;
+        var img_3 = image_3;
+        if (!min) {
+            img_1 =  image_1_responsive;
+            img_2 =  image_2_responsive;
+            img_3 =  image_3_responsive;
+
+        }
         return (
             <div style={{ width:'100%', height: window.innerHeight, justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
                 <Grid item xs={12} sm={12}>
@@ -38,7 +55,7 @@ class SliderHome extends React.Component {
                                     <Grid item xs={12} sm={12}>
                                         <Grid container justify='center' alignItems='center'>
                                             <div style={{  maxHeight:window.innerHeight}}>
-                                                <img src={image_1} style={{ width:'100%',height:'100%'}}></img>
+                                                <img src={img_1} style={{ width:'100%',height:'100%'}}></img>
                                             </div>
                                             
                                         </Grid>
@@ -51,7 +68,7 @@ class SliderHome extends React.Component {
                                     <Grid item xs={12} sm={12}>
                                         <Grid container justify='center' alignItems='center'>
                                             <div style={{  maxHeight:window.innerHeight}}>
-                                                <img src={image_2} style={{ width:'100%',height:'100%'}}></img>
+                                                <img src={img_2} style={{ width:'100%',height:'100%'}}></img>
                                             </div>
                                             
                                         </Grid>
@@ -64,7 +81,7 @@ class SliderHome extends React.Component {
                                     <Grid item xs={12} sm={12}>
                                         <Grid container justify='center' alignItems='center'>
                                             <div style={{  maxHeight:window.innerHeight}}>
-                                                <img src={image_3} style={{ width:'100%',height:'100%'}}></img>
+                                                <img src={img_3} style={{ width:'100%',height:'100%'}}></img>
                                             </div>
                                         </Grid>
                                     </Grid>  
