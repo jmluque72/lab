@@ -59,7 +59,10 @@ class HomeView extends React.Component {
 
     componentDidMount() {
         window.addEventListener('scroll', (event) => {
-            return;
+            if (window.innerWidth < 1000) {
+                return;
+            }
+
             var current = "home";
             var offset = window.pageYOffset + 200;
             console.log(offset);
