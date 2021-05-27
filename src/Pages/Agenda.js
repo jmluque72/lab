@@ -29,14 +29,16 @@ class Agenda extends React.Component {
 
         const min = window.innerWidth >= 1000
         var fiestavalue = fiesta1;
+        var paddingRight = 50;
         if (!min) {
             fiestavalue = fiesta_responsive;
+            paddingRight = 0;
         }
         console.log(window.innerWidth)
         return (
             <div style={{flexDirection: 'row', height: window.innerHeight, backgroundImage: `url(${Background})`, backgroundSize: 'cover', }}>
                 <img style={{marginTop: -200, width: '100%' }} src={fiestavalue} />
-                <div style={{ zIndex: 999, position: 'absolute', bottom: - window.innerHeight+100, right: 50 }}>
+                <div style={{ zIndex: 999, position: 'absolute', bottom: - window.innerHeight+100, right: paddingRight }}>
                 <Button onClick={() => this.pdf()}>
                     <img style={{width: 250, height: 250*0.28}} src={saber_mas} />
                 </Button>
