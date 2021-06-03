@@ -23,10 +23,10 @@ class Vivo extends React.Component {
             pause: true,
             hasResponse: false,
             question_process: null,
-            url_video_es: "https://vimeo.com/event/789315/embed",
-            url_video_en: "https://vimeo.com/event/789348/embed",
-            url_chat_es: "https://vimeo.com/event/789315/chat/",
-            url_chat_en: "https://vimeo.com/event/789348/chat/",
+            url_video_es: "https://vimeo.com/event/1047577/embed",
+            url_video_en: "https://vimeo.com/event/1047577/embed",
+            url_chat_es: "https://vimeo.com/event/1047577/chat/",
+            url_chat_en: "https://vimeo.com/event/1047577/chat/",
             client: null,
             loading: false
         };
@@ -253,32 +253,63 @@ class Vivo extends React.Component {
         if (this.state.question && this.state.question.responseServer == 1) {
             valueResponse = "Verdadero";
         }
-        console.log(valueResponse);
-        return (
-            <div style={{ width: '100%', flexDirection: 'row' }}>
-                <img style={{ width: '100%', height: '100%', position: 'fixed', top: 0, left: 0 }} src={Background} />
-                <Grid item xs={12} style={{ height: window.innerHeight - 100, position: 'absolute', top: 0, left: 0, width: '100%', paddingBottom: 50 }}>
-                    <Grid container direction='column'>
-                        <Grid xs={12} style={{ padding: 10 }}></Grid>
-                        <Grid container direction='row' justify='space-between' style={{ height: 70, paddingRight: 15, paddingLeft: 15 }}>
-                            <div style={{ height: '100%', width: '100%' }}>
-                                <p style={{fontFamily:'GothamRndBold', padding: 10,marginLeft: marginLeft,fontSize:35, color: 'white'}}>DONDE NOS ENCONTRAMOS TODOS!</p>
-                            </div>
+
+        if (min) {
+            return (
+                <div style={{ width: '100%', flexDirection: 'row' }}>
+                    <img style={{ width: '100%', height: '100%', position: 'fixed', top: 0, left: 0 }} src={Background} />
+                    <Grid item xs={12} style={{ height: window.innerHeight - 100, position: 'absolute', top: 0, left: 0, width: '100%', paddingBottom: 50 }}>
+                        <Grid container direction='column'>
+                            <Grid xs={12} style={{ padding: 10 }}></Grid>
+                            <Grid container direction='row' justify='space-between' style={{ height: 70, paddingRight: 15, paddingLeft: 15 }}>
+                                <div style={{ height: '100%', width: '100%' }}>
+                                    <p style={{fontFamily:'GothamRndBold', padding: 10,marginLeft: marginLeft,fontSize:35, color: 'white'}}>DONDE NOS ENCONTRAMOS TODOS!</p>
+                                </div>
+                            </Grid>
+                        </Grid>
+                        <Grid xs={12} justify='center' className='container' style={{ width: '100%', padding: 10 }}>
+                            <Grid container >
+                                <div className='left' style={{border: '10px solid #FFFFFF', marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '500', padding: 2 }}>
+                                    <div style={{ width: '100%', height: '100%' }}>
+                                        <iframe src={url_video} frameborder="0" width='100%' height='100%' allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+                                </div>
+                                <div className='left' style={{ marginLeft: marginLeft, width: widthChat, height: 500, padding: 2, backgroundColor: 'white' }}>
+                                    <iframe src={url_chat} width="100%" height="100%" frameborder="0"></iframe>
+                                </div>
+                            </Grid>
                         </Grid>
                     </Grid>
-                    <Grid xs={12} justify='center' className='container' style={{ width: '100%', padding: 10 }}>
-                        <Grid container >
-                            <div className='left' style={{border: '10px solid #FFFFFF', marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '500', padding: 2 }}>
-                                <div style={{ width: '100%', height: '100%' }}><iframe src={url_video} frameborder="0" width='100%' height='100%' allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
-                            </div>
-                            <div className='left' style={{ marginLeft: marginLeft, width: widthChat, height: 500, padding: 2, backgroundColor: 'white' }}>
-                                <iframe src={url_chat} width="100%" height="100%" frameborder="0"></iframe>
-                            </div>
+                </div >
+            );  
+        } else {
+
+            return (
+                <div style={{ width: '100%', flexDirection: 'row' }}>
+                    <img style={{ width: '100%', height: '100%', position: 'fixed', top: 0, left: 0 }} src={Background} />
+                    <Grid item xs={12} style={{ height: window.innerHeight - 100, position: 'absolute', top: 0, left: 0, width: '100%', paddingBottom: 50 }}>
+                        <Grid container direction='column'>
+                            <Grid xs={12} style={{ padding: 10 }}></Grid>
+                            <Grid container direction='row' justify='space-between' style={{ height: 70, paddingRight: 15, paddingLeft: 15 }}>
+                                <div style={{ height: '100%', width: '100%' }}>
+                                    <p style={{fontFamily:'GothamRndBold', padding: 10,marginLeft: marginLeft,fontSize:35, color: 'white'}}>DONDE NOS ENCONTRAMOS TODOS!</p>
+                                </div>
+                            </Grid>
+                        </Grid>
+                        <Grid xs={12} justify='center' className='container' style={{marginTop: 50, width: '100%', padding: 10 }}>
+                            <Grid container >
+                                <div className='left' style={{border: '10px solid #FFFFFF', marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '500', padding: 2 }}>
+                                    <div style={{ width: '100%', height: '100%' }}>
+                                        <iframe src={url_video} frameborder="0" width='100%' height='100%' allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+                                        <iframe style={{marginTop: 50}} src={url_chat} width="100%" height="100%" frameborder="0"></iframe>
+                                </div>
+                            </Grid>
                         </Grid>
                     </Grid>
-                </Grid>
-            </div >
-        );
+                </div >
+            );
+
+        }
+        
     }
 }
 
