@@ -297,7 +297,7 @@ class Vivo extends React.Component {
                         </Grid>
                         <Grid xs={12} justify='center' className='container' style={{marginTop: 50, width: '100%', padding: 10 }}>
                             <Grid container >
-                                <div className='left' style={{border: '10px solid #FFFFFF', marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '500', padding: 2 }}>
+                                <div className='left' style={{border: '10px solid #FFFFFF', marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '500'}}>
                                     <div style={{ width: '100%', height: '100%' }}>
                                         <iframe src={url_video} frameborder="0" width='100%' height='100%' allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
                                         <iframe style={{marginTop: 50}} src={url_chat} width="100%" height="100%" frameborder="0"></iframe>

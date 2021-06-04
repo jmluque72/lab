@@ -66,7 +66,7 @@ class Register extends React.Component {
             this.state.addressNumber === "" ||
             this.state.phone === "" ||
             this.state.terms === false ||
-            email.test(this.state.mail) === false
+            this.state.mail == '' 
         ) {
             return;
         }
@@ -478,7 +478,7 @@ class Register extends React.Component {
                                                 </Grid>
                                                 <Grid item xs={3} sm={1} style={{ paddingLeft: 10, flexDirection: 'column', alignItems: 'start', display: 'flex', justifyContent: !width ? 'flex-end' : '', marginTop: width && (10) }}>
                                                     <p className='textForm'>Email</p>
-                                                    <p className='textFormError'>{(this.state.mail == '' || !email.test(this.state.mail)) && this.state.send ? "Campo requerido" : ""}</p>
+                                                    <p className='textFormError'>{(this.state.mail == '') && this.state.send ? "Campo requerido" : ""}</p>
 
                                                 </Grid>
                                                 <Grid item xs={9} sm={5} style={{ paddingLeft: !width && (10), marginTop: width && (10) }}>
