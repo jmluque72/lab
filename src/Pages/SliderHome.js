@@ -61,6 +61,19 @@ class SliderHome extends React.Component {
                                     <Grid item xs={12} sm={12}>
                                         <Grid container justify='center' alignItems='center'>
                                             <div style={{ maxHeight: window.innerHeight }}>
+                                                <img src={img_1} style={{ width: '100%', height: '100%' }}></img>
+                                            </div>
+
+                                        </Grid>
+                                    </Grid>
+
+                                </div>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                                    <Grid item xs={12} sm={12}>
+                                        <Grid container justify='center' alignItems='center'>
+                                            <div style={{ maxHeight: window.innerHeight }}>
                                                 <img src={img_3} style={{ width: '100%', height: '100%' }}></img>
                                             </div>
 
