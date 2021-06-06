@@ -44,7 +44,7 @@ class Footer extends React.Component {
             hours: 0,
             min: 0,
             sec: 0,
-            seconds: (new Date(1623466810000).getTime() - new Date().getTime()) / 1000
+            seconds: (new Date(1623510000000).getTime() - new Date().getTime()) / 1000
         }
     }
 
