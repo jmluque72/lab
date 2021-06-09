@@ -18,13 +18,23 @@
     font-family: 'FrutigerBoldCn';
     src: local('FrutigerBoldCn'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/FrutigerBold.otf') format('truetype');
 }
-@font-face {
-    font-family: 'FrutigerBoldCn';
-    src: local('FrutigerBoldCn'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/FrutigerBold.otf') format('truetype');
-}
+
 @font-face {
     font-family: 'GothamRndBold';
     src: local('GothamRndBold'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/GothamRnd-Bold.otf') format('truetype');
+}
+@font-face {
+    font-family: 'FrutigerRoman';
+    src: local('FrutigerRoman'), url('../assets/fonts/Frutiger-Roman.ttf') format('truetype');
+}
+
+.title{
+    color: black;
+    font-family: FrutigerBold;
+    text-align: left;
+    font-size:16px;
+    margin:0;
+    margin-left: 5px
 }
 
 .header {

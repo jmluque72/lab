@@ -7,6 +7,7 @@ import Cargando from './Pages/Cargando.js'
 import Chart from './Pages/Chart.js'
 import SendQuestions from './Pages/SendQuestions.js'
 import Form from './Pages/Form.js'
+import FormGrido from './Pages/FormGrido.js'
 import Home from './Pages/HomeView.js'
 import Vivo from './Pages/Vivo.js'
 
@@ -40,7 +41,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        {goto}
+      <FormGrido/>
       </header>
     </div>
   );
