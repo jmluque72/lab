@@ -13,7 +13,6 @@ import { client, w3cwebsocket as W3CWebSocket } from "websocket";
 //var client = new W3CWebSocket('wss://n7bj7eh9le.execute-api.sa-east-1.amazonaws.com/production');
 
 class Vivo extends React.Component {
-
     constructor(props) {
         super(props);
         // we use this to make the card to appear after the page has been rendered
@@ -23,10 +22,10 @@ class Vivo extends React.Component {
             pause: true,
             hasResponse: false,
             question_process: null,
-            url_video_es: "https://vimeo.com/event/1047577/embed",
-            url_video_en: "https://vimeo.com/event/1047577/embed",
-            url_chat_es: "https://vimeo.com/event/1047577/chat/",
-            url_chat_en: "https://vimeo.com/event/1047577/chat/",
+            url_video_es: "https://vimeo.com/event/1069200/embed/90baa0f0e9",
+            url_video_en: "https://vimeo.com/event/1069200/embed/90baa0f0e9",
+            url_chat_es: "https://vimeo.com/event/1069200/chat/90baa0f0e9",
+            url_chat_en: "https://vimeo.com/event/1069200/chat/90baa0f0e9",
             client: null,
             loading: false
         };
@@ -263,7 +262,7 @@ class Vivo extends React.Component {
                             <Grid xs={12} style={{ padding: 10 }}></Grid>
                             <Grid container direction='row' justify='space-between' style={{ height: 70, paddingRight: 15, paddingLeft: 15 }}>
                                 <div style={{ height: '100%', width: '100%' }}>
-                                    <p style={{fontFamily:'GothamRndBold', padding: 10,marginLeft: marginLeft,fontSize:35, color: 'white'}}>DONDE NOS ENCONTRAMOS TODOS!</p>
+                                    <p style={{fontFamily:'GothamRndBold', padding: 10,marginLeft: marginLeft,fontSize:35, color: 'white'}}>¡DONDE NOS ENCONTRAMOS TODOS!</p>
                                 </div>
                             </Grid>
                         </Grid>
