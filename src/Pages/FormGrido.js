@@ -110,7 +110,7 @@ class Form extends React.Component {
                         <Grid container direction='column' alignItems='center' style={{ width:'100%',height:'100%'}}>
                             <div style={{ width:'80%',display:'flex',flexDirection:'column', alignItems:'center',boxShadow:' 0 4px 5px -2px black'}}>
                                 <p style={{color:colors.gray,textDecoration:'underline',fontFamily:'FrutigerBlackItalic'}}>Colaboradora / or:</p>
-                                <p style={{marginLeft: 20, marginRight: 20, color:colors.gray,fontFamily:'FrutigerBlack',fontSize:14,textAlign:'center'}}>Muchas gracias por ser parte del “Encuentrode Colaboradores 2021”.</p>
+                                <p style={{marginLeft: 20, marginRight: 20, color:colors.gray,fontFamily:'FrutigerBlack',fontSize:14,textAlign:'center'}}>Muchas gracias por ser parte del “Encuentro de Colaboradores 2021”.</p>
                                 <p style={{color:colors.gray,fontFamily:'FrutigerBlack',fontSize:14,textAlign:'center',width:'80%'}}>A continuación, vas a encontrar una serie de preguntas para comprender aquellos elementos que más valor te aportan a vos. De esta manera seguiremos diseñando eventos que cumplan todas sus expectativas.</p>
                             </div>
                             <div style={{width:'70%',background:gray,position:'relative',borderRadius:12,marginTop:20,paddingLeft:'2.5%',paddingRight:'2.5%',paddingTop:20,paddingBottom:20}}>
@@ -222,7 +222,7 @@ class Form extends React.Component {
                             <div style={{width:'70%',background:gray,position:'relative',borderRadius:12,marginTop:20,paddingLeft:'2.5%',paddingRight:'2.5%',paddingTop:20,paddingBottom:20}}>
                                 <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                     <div style={{ width:'100%'}}>
-                                        <p className='title'>4. ¿Qué te pareció el contenido de la Grido Box que llegó a tu domicilio?</p>
+                                        <p className='title'>3. ¿Qué te pareció el contenido de la Grido Box que llegó a tu domicilio?</p>
                                         <p style={{color:'black',fontFamily:'FrutigerRoman',textAlign:'left',fontSize:14,margin:0, marginLeft: 5}}>(De 1 a 5, donde 1 es muy malo, 2 malo, 3 bueno, 4 muy bueno y 5 excelente)</p>
                                     </div>
                                     <Grid container direction={!min? 'column' : 'row'} >
@@ -253,7 +253,7 @@ class Form extends React.Component {
                             <div style={{width:'70%',background:gray,position:'relative',borderRadius:12,marginTop:20,paddingLeft:'2.5%',paddingRight:'2.5%',paddingTop:20,paddingBottom:20}}>
                                 <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                     <div style={{ width:'100%'}}>
-                                        <p className='title'>5. ¿Qué te pareció la comunicación del evento?</p>
+                                        <p className='title'>4. ¿Qué te pareció la comunicación del evento?</p>
                                         <p style={{color:'black',fontFamily:'FrutigerRoman',textAlign:'left',fontSize:14,margin:0, marginLeft: 5}}>(De 1 a 5, donde 1 es muy malo, 2 malo, 3 bueno, 4 muy bueno y 5 excelente)</p>
                                     </div>
                                     <Grid container direction={!min? 'column' : 'row'} >
@@ -285,7 +285,7 @@ class Form extends React.Component {
                                 <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:azul,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
                                 <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                     <div style={{ width:'100%'}}>
-                                        <p className='title'>6. ¿Te gustaron los juegos interactivos?</p>
+                                        <p className='title'>5. ¿Te gustaron los juegos interactivos?</p>
                                     </div>
                                     <Grid container direction={'column'} style={{marginLeft: 5}}>
                                         <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
@@ -319,7 +319,7 @@ class Form extends React.Component {
                                 <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:azul,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
                                 <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                     <div style={{ width:'100%'}}>
-                                        <p className='title'>7. ¿Qué te pareció el contenido artístico del evento (show de inicio, intervención de Willy Magia, beatbox, etc)?</p>
+                                        <p className='title'>6. ¿Qué te pareció el contenido artístico del evento (show de inicio, intervención de Willy Magia, beatbox, etc)?</p>
                                     </div>
                                     <Grid container direction={'column'} style={{marginLeft: 5}}>
                                         <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
@@ -373,7 +373,7 @@ class Form extends React.Component {
                                 <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:azul,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
                                 <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                     <div style={{ width:'100%'}}>
-                                        <p className='title'>8. ¿Te sentiste representado con el contenido del evento?</p>
+                                        <p className='title'>7. ¿Te sentiste representado con el contenido del evento?</p>
                                     </div>
                                     <Grid container direction={'column'} style={{marginLeft: 5}}>
                                         <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
@@ -407,7 +407,7 @@ class Form extends React.Component {
                                 <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:azul,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
                                 <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                     <div style={{ width:'100%'}}>
-                                        <p className='title'>9. ¿Qué te parecieron los reconocimientos a los empleados?</p>
+                                        <p className='title'>8. ¿Qué te parecieron los reconocimientos a los empleados?</p>
                                     </div>
                                     <Grid container direction={'column'} style={{marginLeft: 5}}>
                                         <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
@@ -453,7 +453,7 @@ class Form extends React.Component {
                                 <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:azul,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
                                 <Grid container direction='row' style={{width:'100%',height:'100%'}}>
                                     <div style={{ width:'100%'}}>
-                                        <p className='title'>10. ¿Con quién compartiste la fiesta?</p>
+                                        <p className='title'>9. ¿Con quién compartiste la fiesta?</p>
                                     </div>
                                     <Grid container direction={'row'} style={{marginLeft: 5}}>
                                         <Grid item sm={3} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
@@ -499,7 +499,7 @@ class Form extends React.Component {
                                     <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:azul,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
                                     <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                         <div style={{ width:'100%'}}>
-                                            <p className='title'>11. Si la respuesta anterior fué familia / amig@s / compañer@s. ¿Te gustó haber compartido la fiesta?</p>
+                                            <p className='title'>10. Si la respuesta anterior fué familia / amig@s / compañer@s. ¿Te gustó haber compartido la fiesta?</p>
                                         </div>
                                         <Grid container direction={'column'} style={{marginLeft: 5}}>
                                             <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
@@ -527,7 +527,7 @@ class Form extends React.Component {
                                 <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:azul,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
                                 <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                     <div style={{ width:'100%'}}>
-                                        <p className='title'>12. ¿Cuál fué tu parte preferida del EC21?</p>
+                                        <p className='title'>11. ¿Cuál fué tu parte preferida del EC21?</p>
                                     </div>
                                     <Grid container direction={'column'} style={{marginLeft: 5}}>
                                         <input
@@ -554,7 +554,7 @@ class Form extends React.Component {
                                 <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:azul,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
                                 <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                     <div style={{ width:'100%'}}>
-                                        <p className='title'>13. Luego de lo vivido, ¿recomendarías a tus compañeros sumarte al Encuentro de Colaboradores el próximo año? ¿Por qué?</p>
+                                        <p className='title'>12. Luego de lo vivido, ¿recomendarías a tus compañeros sumarte al Encuentro de Colaboradores el próximo año? ¿Por qué?</p>
                                     </div>
                                     <Grid container direction={'column'} style={{marginLeft: 5}}>
                                         <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
