@@ -22,7 +22,7 @@ function App() {
   
   if (document.location.href.endsWith('Form')) {
     return (
-      <Form/>
+      <FormGrido/>
     )
   }
   if (document.location.href.endsWith('Vivo')) {

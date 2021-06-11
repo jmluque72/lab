@@ -40,22 +40,22 @@ class Form extends React.Component {
         var {calificacionSelect, calificacionComment, modalidad, modalidadComment, box, comun,juegos, show, showComment, contenido, reconocimiento,reconocimientoComment,compartir, gusto, partePreferida, recomendar, recomendarComment} = this.state
         const context = {
             uno : calificacionSelect,
-            unoB:  calificacionComment,
+            unoB:  calificacionComment ? calificacionComment : "",
             dos: modalidad,
-            dosB: modalidadComment,
+            dosB: modalidadComment ? modalidadComment : "",
             cuatro: box,
             cinco: comun,
             seis: juegos,
             siete: show,
-            sieteB: showComment,
+            sieteB: showComment ? showComment : "",
             ocho: contenido,
             nueve: reconocimiento,
-            nueveB: reconocimientoComment,
+            nueveB: reconocimientoComment ? reconocimientoComment : "",
             diez: compartir,
             once: gusto,
             doce: partePreferida,
             trece: recomendar,
-            treceB: recomendarComment
+            treceB: recomendarComment ? recomendarComment : ""
         }
         var response = fetch("https://4swa57ilx6.execute-api.sa-east-1.amazonaws.com/prod/send_form", {
             method: 'POST',
@@ -72,6 +72,7 @@ class Form extends React.Component {
                 }
             })
             .then((response) => {
+
                 if (!response.error) {
                     this.setState({send: true})
                 } else {
