@@ -22,10 +22,10 @@ class Vivo extends React.Component {
             pause: true,
             hasResponse: false,
             question_process: null,
-            url_video_es: "https://vimeo.com/event/1069200/embed/90baa0f0e9",
-            url_video_en: "https://vimeo.com/event/1069200/embed/90baa0f0e9",
-            url_chat_es: "https://vimeo.com/event/1069200/chat/90baa0f0e9",
-            url_chat_en: "https://vimeo.com/event/1069200/chat/90baa0f0e9",
+            url_video_es: "https://vimeo.com/event/1069341/embed/2a41cddde9",
+            url_video_en: "https://vimeo.com/event/1069341/embed/2a41cddde9",
+            url_chat_es: "https://vimeo.com/event/1069341/chat/2a41cddde9",
+            url_chat_en: "https://vimeo.com/event/1069341/chat/2a41cddde9",
             client: null,
             loading: false
         };
@@ -36,11 +36,13 @@ class Vivo extends React.Component {
     }
 
     timer2 = () => {
+        return
         this.getQuestion();
         this.getResponse();
     }
 
     timer = () => {
+        return
         if (this.state.client) {
             console.log(this.state.client.readyState);
         }
