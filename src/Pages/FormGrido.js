@@ -109,7 +109,6 @@ class Form extends React.Component {
                     <form onSubmit={(event) => this.send_form(event)}>
                         <Grid container direction='column' alignItems='center' style={{ width:'100%',height:'100%'}}>
                             <div style={{ width:'80%',display:'flex',flexDirection:'column', alignItems:'center',boxShadow:' 0 4px 5px -2px black'}}>
-                                <p style={{color:colors.gray,textDecoration:'underline',fontFamily:'FrutigerBlackItalic'}}>Colaboradora / or:</p>
                                 <p style={{marginLeft: 20, marginRight: 20, color:colors.gray,fontFamily:'FrutigerBlack',fontSize:14,textAlign:'center'}}>Muchas gracias por ser parte del “Encuentro de Colaboradores 2021”.</p>
                                 <p style={{color:colors.gray,fontFamily:'FrutigerBlack',fontSize:14,textAlign:'center',width:'80%'}}>A continuación, vas a encontrar una serie de preguntas para comprender aquellos elementos que más valor te aportan a vos. De esta manera seguiremos diseñando eventos que cumplan todas sus expectativas.</p>
                             </div>
