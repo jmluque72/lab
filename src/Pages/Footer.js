@@ -67,7 +67,7 @@ class Footer extends React.Component {
         });
 
         console.log(seconds);
-        if (seconds < 5400) {
+        if (seconds < 1200) {
             this.setState({
                 stoped: true
             })
