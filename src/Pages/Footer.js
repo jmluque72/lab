@@ -44,6 +44,7 @@ class Footer extends React.Component {
             hours: 0,
             min: 0,
             sec: 0,
+            stoped: false,
             seconds: (new Date(1623510000000).getTime() - new Date().getTime()) / 1000
         }
     }
@@ -65,8 +66,11 @@ class Footer extends React.Component {
             sec: parseInt(remainingSeconds)
         });
 
-     
-        if (seconds == 0) {
+        console.log(seconds);
+        if (seconds < 5400) {
+            this.setState({
+                stoped: true
+            })
             this.stop();
         } else {
             seconds--;
@@ -126,13 +130,12 @@ class Footer extends React.Component {
         }
         //        if (this.state.days <= 0 && this.state.hours <= 0 && this.state.min <= 15) {
 
-        if (false) {
+        if (this.state.stoped) {
             return (
-            <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
-                <p className='timeTitle_gracias'>Gracias por participar</p>
-                <p className='timeTitle_gracias_link' onClick={this.goToForm}>Por favor complete la encuenta</p>
-
-            </div>);
+                <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0,   background: 'rgb(277,7,27)'  }}>
+                    <p className='timeTitle_ing' onClick={this.goToVivo}>INGRESAR AL EVENTO</p>
+                </div>
+            )
         }
         return (
             <div style={{display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: 'rgb(277,7,27)' }}>
