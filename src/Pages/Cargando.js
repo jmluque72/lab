@@ -14,7 +14,7 @@ class Cargando extends React.Component {
             
         };
     }
-
+    //
     render() {
         const min = window.innerWidth >= 1000
         if (min) {
