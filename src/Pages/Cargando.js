@@ -24,7 +24,7 @@ class Cargando extends React.Component {
             );
         } else {
             return (
-                <div style={{height: window.innerHeight, width:'100%'}}>
+                <div style={{height: window.innerHeight, width:'100%',backgroundImage:`url(${Background2})`,backgroundSize:'cover'}}>
                 </div>
             );
         }
