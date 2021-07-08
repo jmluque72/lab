@@ -17,7 +17,7 @@ import { Cookies } from 'react-cookie';
 function App() {
 
   if (true) {
-    return <Cargando/>
+    return <div/>
   }
   const cookies = new Cookies();
   var is_reg = cookies.get('username')
