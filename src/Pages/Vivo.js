@@ -13,7 +13,6 @@ import { client, w3cwebsocket as W3CWebSocket } from "websocket";
 //var client = new W3CWebSocket('wss://n7bj7eh9le.execute-api.sa-east-1.amazonaws.com/production');
 
 class Vivo extends React.Component {
-
     constructor(props) {
         super(props);
         // we use this to make the card to appear after the page has been rendered
@@ -23,10 +22,10 @@ class Vivo extends React.Component {
             pause: true,
             hasResponse: false,
             question_process: null,
-            url_video_es: "https://vimeo.com/event/789315/embed",
-            url_video_en: "https://vimeo.com/event/789348/embed",
-            url_chat_es: "https://vimeo.com/event/789315/chat/",
-            url_chat_en: "https://vimeo.com/event/789348/chat/",
+            url_video_es: "https://vimeo.com/event/1069341/embed/2a41cddde9",
+            url_video_en: "https://vimeo.com/event/1069341/embed/2a41cddde9",
+            url_chat_es: "https://vimeo.com/event/1069341/chat/2a41cddde9",
+            url_chat_en: "https://vimeo.com/event/1069341/chat/2a41cddde9",
             client: null,
             loading: false
         };
@@ -37,11 +36,13 @@ class Vivo extends React.Component {
     }
 
     timer2 = () => {
+        return
         this.getQuestion();
         this.getResponse();
     }
 
     timer = () => {
+        return
         if (this.state.client) {
             console.log(this.state.client.readyState);
         }
@@ -88,8 +89,6 @@ class Vivo extends React.Component {
 
     };
     componentDidMount() {
-        this.interval = setInterval(this.timer2, 10000);
-        this.setState({ intervalFive: this.interval })
     }
 
     upRotate() {
@@ -255,115 +254,63 @@ class Vivo extends React.Component {
         if (this.state.question && this.state.question.responseServer == 1) {
             valueResponse = "Verdadero";
         }
-        console.log(valueResponse);
-        return (
-            <div style={{ width: '100%', flexDirection: 'row' }}>
-                <img style={{ width: '100%', height: '100%', position: 'fixed', top: 0, left: 0 }} src={Background} />
-                <Grid item xs={12} style={{ height: window.innerHeight - 100, position: 'absolute', top: 0, left: 0, width: '100%', paddingBottom: 50 }}>
-                    <Grid container direction='column'>
-                        <Grid xs={12} style={{ padding: 10 }}></Grid>
-                        <Grid container direction='row' justify='space-between' style={{ height: 70, paddingRight: 15, paddingLeft: 15 }}>
-                            <div style={{ height: '100%', width: 200 }}>
-                                <img src={LogoOzempicHeader} style={{ width: '100%', height: 'auto' }}></img>
-                            </div>
-                            <div style={{ position: 'relative', height: '100%', flexDirection: 'column', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                <div onClick={() => this.setState({ idiomaButton: !this.state.idiomaButton })} style={{ cursor: 'pointer', width: 100, height: 25, borderRadius: 5, backgroundColor: colors.gray, borderStyle: 'solid', borderWidth: 1, borderColor: 'white', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                    <p style={{ color: 'white', fontSize: 12, margin: 0, fontFamily: 'FrutigerLight', letterSpacing: 1 }}>{this.state.lang ? this.state.lang : "IDIOMA"}</p>
+
+        if (min) {
+            return (
+                <div style={{ width: '100%', flexDirection: 'row' }}>
+                    <img style={{ width: '100%', height: '100%', position: 'fixed', top: 0, left: 0 }} src={Background} />
+                    <Grid item xs={12} style={{ height: window.innerHeight - 100, position: 'absolute', top: 0, left: 0, width: '100%', paddingBottom: 50 }}>
+                        <Grid container direction='column'>
+                            <Grid xs={12} style={{ padding: 10 }}></Grid>
+                            <Grid container direction='row' justify='space-between' style={{ height: 70, paddingRight: 15, paddingLeft: 15 }}>
+                                <div style={{ height: '100%', width: '100%' }}>
+                                    <p style={{fontFamily:'GothamRndBold', padding: 10,marginLeft: marginLeft,fontSize:35, color: 'white'}}>¡DONDE NOS ENCONTRAMOS TODOS!</p>
                                 </div>
-                                {this.state.idiomaButton && (
-                                    <div style={{ position: 'absolute', top: 50, width: 120, marginRight: 20, height: 50, marginTop: 5, backgroundColor: colors.gray, borderStyle: 'solid', borderWidth: 1, borderColor: 'white', display: 'flex', flexDirection: 'column', boxShadow: ' 0 3px 6px 0 #000000' }}>
-                                        <div onClick={() => this.setState({ idiomaButton: false, lang: 'ESPAÑOL' })} style={{ cursor: 'pointer', backgroundColor: this.state.idiomaSelect ? colors.gray : '#a1a1a1', width: '100%', height: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', borderBottomStyle: 'solid', borderWidth: 1, borderColor: 'white' }}>
-                                            <p style={{ color: 'white', fontSize: 14, margin: 0, fontFamily: 'FrutigerLight', fontWeight: !this.state.idiomaSelect ? '' : 'bold', letterSpacing: 1 }}>ESPAÑOL</p>
-                                        </div>
-                                        <div onClick={() => this.setState({ idiomaButton: false, lang: "INGLES" })} style={{ cursor: 'pointer', backgroundColor: !this.state.idiomaSelect ? colors.gray : '#a1a1a1', width: '100%', height: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', borderBottomStyle: 'solid', borderWidth: 1, borderColor: 'white' }}>
-                                            <p style={{ color: 'white', fontSize: 14, margin: 0, fontFamily: 'FrutigerLight', fontWeight: this.state.idiomaSelect ? '' : 'bold', letterSpacing: 1 }}>INGLES</p>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                    <Grid xs={12} justify='center' className='container' style={{ width: '100%', padding: 10 }}>
-                        <Grid container >
-                            <div className='left' style={{ marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '500', padding: 2 }}>
-                                <div style={{ width: '100%', height: '100%' }}><iframe src={url_video} frameborder="0" width='100%' height='100%' allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
-                            </div>
-                            <div className='left' style={{ marginLeft: marginLeft, width: widthChat, height: 500, padding: 2, backgroundColor: 'white' }}>
-                                <iframe src={url_chat} width="100%" height="100%" frameborder="0"></iframe>
-                            </div>
-                        </Grid>
-                    </Grid>
-
-                    <Grid xs={12} style={{ display: display, position: 'fixed', left: 0, right: 0, bottom: 10, height: 'auto' }}>
-                        <Grid container justify='center' alignItems='center'>
-                            <Grid xs={10} style={{ width: '80%', backgroundColor: colors.gray, borderRadius: 10, borderWidth: width, borderStyle: 'solid', borderColor: 'white' }}>
-
-                                {this.state.question ?
-                                    <Grid container style={{ display: 'flex ', flexDirection: 'row' }}>
-                                        <Grid sm={6} xs={12} style={{ height: 'auto' }}>
-                                            <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 10, fontSize: fontSize, lineHeight: 1, marginTop: 10 }}>{this.state.question.title}</p>
-                                            </div>
-                                        </Grid>
-                                        {this.state.question.responseServer == null ?
-                                            <Grid sm={6} xs={12} style={{ display: 'flex ', flexDirection: 'row' }}>
-                                                <Grid sm={6} xs={6} style={{ display: 'flex ', flexDirection: 'column' }}>
-                                                    <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                        <Button onClick={() => this.setResponse(0)} style={{ height: '50%', width: '70%', background: colors.degrade_orange, borderWidth: 1, borderStyle: 'solid', borderColor: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
-                                                            <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: 20 }}>VERDADERO</p>
-                                                        </Button>
-                                                    </div>
-                                                </Grid>
-                                                <Grid sm={6} xs={6} style={{ height: 80 }}>
-                                                    <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                        <Button onClick={() => this.setResponse(1)} style={{ height: '50%', width: '70%', background: colors.degrade_orange, borderWidth: 1, borderStyle: 'solid', borderColor: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
-                                                            <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: 20 }}>FALSE</p>
-                                                        </Button>
-                                                    </div>
-                                                </Grid>
-                                            </Grid>
-                                            :
-
-                                            <Grid justify='center' alignItems='center' sm={4} xs={12} style={{ width: '100%', display: 'flex ', flexDirection: 'row' }}>
-                                                <Grid sm={4} xs={6} style={{ display: 'flex ', flexDirection: 'column', width: '100%' }}>
-                                                    <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 0, fontSize: 14, lineHeight: 1, marginTop: 10 }}>Respuesta correcta:</p>
-                                                </Grid>
-                                                <Grid sm={6} xs={6} style={{ height: 80 }}>
-                                                    {this.state.question.responseServer != null ?
-                                                        <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                            <Button disabled={true} style={{ height: '50%', width: '70%', borderWidth: 1, borderStyle: 'solid', borderColor: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
-                                                                <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 10, fontSize: 20 }}>{valueResponse}</p>
-                                                            </Button>
-                                                        </div>
-                                                        :<div/>
-                                                    }
-                                                </Grid>
-                                            </Grid>
-
-
-                                        }
-                                    </Grid>
-
-                                    :
-                                        this.state.hasResponse &&
-                                            <Grid container style={{ display: 'flex ', flexDirection: 'row' }}>
-                                                <Grid sm={12} xs={12} style={{ height: 80 }}>
-                                                    <div style={{ width: '100%', marginTop: 5, height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                        <p style={{ fontFamily: 'FrutigerBold', color: "white", margin: 10, fontSize: fontSize, lineHeight: 1 }}>Gracias por responder, en minutos develaremos la respuesta correcta.</p>
-                                                    </div>
-                                                </Grid>
-
-                                            </Grid>
-                                        
-                                    }
-
+                        <Grid xs={12} justify='center' className='container' style={{ width: '100%', padding: 10 }}>
+                            <Grid container >
+                                <div className='left' style={{border: '10px solid #FFFFFF', marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '500', padding: 2 }}>
+                                    <div style={{ width: '100%', height: '100%' }}>
+                                        <iframe src={url_video} frameborder="0" width='100%' height='100%' allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+                                </div>
+                                <div className='left' style={{ marginLeft: marginLeft, width: widthChat, height: 500, padding: 2, backgroundColor: 'white' }}>
+                                    <iframe src={url_chat} width="100%" height="100%" frameborder="0"></iframe>
+                                </div>
                             </Grid>
                         </Grid>
                     </Grid>
+                </div >
+            );  
+        } else {
 
-                </Grid>
-            </div >
-        );
+            return (
+                <div style={{ width: '100%', flexDirection: 'row' }}>
+                    <img style={{ width: '100%', height: '100%', position: 'fixed', top: 0, left: 0 }} src={Background} />
+                    <Grid item xs={12} style={{ height: window.innerHeight - 100, position: 'absolute', top: 0, left: 0, width: '100%', paddingBottom: 50 }}>
+                        <Grid container direction='column'>
+                            <Grid xs={12} style={{ padding: 10 }}></Grid>
+                            <Grid container direction='row' justify='space-between' style={{ height: 70, paddingRight: 15, paddingLeft: 15 }}>
+                                <div style={{ height: '100%', width: '100%' }}>
+                                    <p style={{fontFamily:'GothamRndBold', padding: 10,marginLeft: marginLeft,fontSize:35, color: 'white'}}>DONDE NOS ENCONTRAMOS TODOS!</p>
+                                </div>
+                            </Grid>
+                        </Grid>
+                        <Grid xs={12} justify='center' className='container' style={{marginTop: 50, width: '100%', padding: 10 }}>
+                            <Grid container >
+                                <div className='left' style={{border: '10px solid #FFFFFF', marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '500'}}>
+                                    <div style={{ width: '100%', height: '100%' }}>
+                                        <iframe src={url_video} frameborder="0" width='100%' height='100%' allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+                                        <iframe style={{marginTop: 50}} src={url_chat} width="100%" height="100%" frameborder="0"></iframe>
+                                </div>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </div >
+            );
+
+        }
+        
     }
 }
 

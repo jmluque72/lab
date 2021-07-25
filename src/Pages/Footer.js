@@ -44,7 +44,8 @@ class Footer extends React.Component {
             hours: 0,
             min: 0,
             sec: 0,
-            seconds: (new Date(1615932000000).getTime() - new Date().getTime()) / 1000
+            stoped: false,
+            seconds: (new Date(1623510000000).getTime() - new Date().getTime()) / 1000
         }
     }
 
@@ -58,7 +59,6 @@ class Footer extends React.Component {
         var minutes = Math.floor(minutesLeft / 60);
         var remainingSeconds = seconds % 60;
 
-        //document.getElementById('countdown').innerHTML = pad(days) + ":" + pad(hours) + ":" + pad(minutes) + ":" + pad(remainingSeconds);
         this.setState({
             days: days,
             min: minutes,
@@ -66,8 +66,11 @@ class Footer extends React.Component {
             sec: parseInt(remainingSeconds)
         });
 
-     
-        if (seconds == 0) {
+        console.log(seconds + "l" + 1200);
+        if (seconds < 1200) {
+            this.setState({
+                stoped: true
+            })
             this.stop();
         } else {
             seconds--;
@@ -80,6 +83,7 @@ class Footer extends React.Component {
         return (n < 10 ? "0" + n : n);
     }
 
+    //
     componentDidMount() {
 
         this.interval = setInterval(() => {
@@ -105,7 +109,7 @@ class Footer extends React.Component {
 
  return (
                 <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
-                    <p className='timeTitle_ing' onClick={this.goToVivo}>Ingresar al evento</p>
+                    <p className='timeTitle_ing' onClick={this.goToVivo}>INGRESAR AL EVENTO</p>
                 </div>
             )
     */
@@ -127,16 +131,24 @@ class Footer extends React.Component {
         }
         //        if (this.state.days <= 0 && this.state.hours <= 0 && this.state.min <= 15) {
 
-        if (true && true) {
+        
+        if (true) {
             return (
-            <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
-                <p className='timeTitle_gracias'>Gracias por participar</p>
-                <p className='timeTitle_gracias_link' onClick={this.goToForm}>Por favor complete la encuenta</p>
+                <div style={{ display: display, position: 'fixed', height: 100,  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: 'rgb(277,7,27)' }}>
 
-            </div>);
+                </div>
+            )
+
+        }
+        if (true) {
+            return (
+                <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0,   background: 'rgb(277,7,27)'  }}>
+                    <p className='timeTitle_ing' onClick={this.goToVivo}>INGRESAR AL EVENTO</p>
+                </div>
+            )
         }
         return (
-            <div style={{ display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
+            <div style={{display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: 'rgb(277,7,27)' }}>
                 <Grid container style={{ alignItems: 'center', height: '100%', justifyContent: 'center' }}>
                     <Grid xs={12} sm={2}>
                         <Grid container alignItems='center' direction='column'>

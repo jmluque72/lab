@@ -138,12 +138,12 @@ class Form extends React.Component {
                 <div style={{height:'100%',width:22,position:'fixed',top:0,left:0,background:colors.degrade_orange}}></div>
                 <img style={{width:118*0.7,height:84*0.7, position:'absolute',top:10,right:10}} src={logoNovo}></img>
                 <Grid item xs={12} style={{marginTop:50}}>
-                    <Grid container direction='column' alignItems='center' style={{ width:'100%',height:'100%'}}>
+                    <Grid container direction='column' alignItems='center' style={{marginLeft: 10, marginRight: 10, width:'100%',height:'100%'}}>
                         <div style={{ width:150}}>
                             <img style={{width:'100%'}} src={LogoOzempicHeader}></img>
                         </div>
                         <p style={{color:colors.gray,textDecoration:'underline',fontFamily:'FrutigerBlackItalic',marginTop:40}}>Estimado Dr/Dra:</p>
-                        <p style={{color:colors.gray,fontFamily:'FrutigerBlack',fontSize:14,textAlign:'center'}}>Muchas gracias por participar en nuestro evento “La Gran Oportunidad en Diabetes Tipo 2”.</p>
+                        <p style={{marginLeft: 20, marginRight: 20, color:colors.gray,fontFamily:'FrutigerBlack',fontSize:14,textAlign:'center'}}>Muchas gracias por participar en nuestro evento “La Gran Oportunidad en Diabetes Tipo 2”.</p>
                         <p style={{color:colors.gray,fontFamily:'FrutigerBlack',fontSize:14,textAlign:'center',width:'80%'}}>A continuación, encontrará una serie de preguntas para comprender aquellos elementos que más valor le aportan a Ud. De esta manera continuaremos diseñando eventos de educación médica que cumplan todas sus expectativas.</p>
                         <div style={{ width:'90%',height:2,background:colors.gray}}></div>
                         <div style={{width:'70%',background:gray,position:'relative',borderRadius:12,marginTop:20,paddingLeft:'2.5%',paddingRight:'2.5%',paddingTop:20,paddingBottom:20}}>
@@ -398,7 +398,7 @@ class Form extends React.Component {
                             <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:colors.degrade_orange,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
                             <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                 <div style={{ width:'100%'}}>
-                                    <p style={{color:'black',fontFamily:'FrutigerBlack',textAlign:'left',fontSize:14,margin:0, marginLeft: 5}}>5. El haber participado de esta actividad, ¿contribuyó a su conocimiento y/práctica diaria?</p>
+                                    <p style={{color:'black',fontFamily:'FrutigerBlack',textAlign:'left',fontSize:14,margin:0, marginLeft: 5}}>5. El haber participado de esta actividad, ¿contribuyó a su conocimiento y/o práctica diaria?</p>
                                 </div>
                                 <Grid container direction={'column'} style={{marginLeft: 5}}>
                                     <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>

@@ -11,6 +11,7 @@
   src: local('FrutigerBold'), url('./assets/fonts/Frutiger-Bold.otf') format('otf');
 }
 
+
 .App {
   text-align: center;
 }

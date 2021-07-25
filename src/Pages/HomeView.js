@@ -8,7 +8,7 @@ import Oradores from './Oradores.js'
 import Evento from './Evento.js'
 import Consultas from './Consulta.js'
 import Contacto from './Contacto.js'
-
+import Cargando from './Cargando.js'
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import './Main.css'
@@ -26,13 +26,11 @@ class HomeView extends React.Component {
         this.scrollDivEvento = React.createRef();
         this.scrollDivOradores = React.createRef();
         this.scrollDivConsultas = React.createRef();
-        this.scrollDivContacto = React.createRef();
 
         
     }
 
     redirect = (name) => {
-        //this.myRef.current.scrollIntoView()
         if (name == 'Home') {
             this.setState({visible: 'home'});
             window.scrollTo(0, this.scrollDivHome.current.offsetTop-100);
@@ -53,27 +51,26 @@ class HomeView extends React.Component {
             this.setState({visible: 'consultas'});
             window.scrollTo(0, this.scrollDivConsultas.current.offsetTop-100);
         }
-        if (name == 'Contacto') {
-            this.setState({visible: 'contacto'});
-            window.scrollTo(0, this.scrollDivContacto.current.offsetTop-100);
+        if (name == 'Vivo') {
+            window.open("./Vivo");
         }
+
     }
 
     componentDidMount() {
         window.addEventListener('scroll', (event) => {
+            if (window.innerWidth < 1000) {
+                return;
+            }
+
             var current = "home";
             var offset = window.pageYOffset + 200;
             console.log(offset);
-            console.log(document.getElementById("contacto").offsetTop);
-            console.log(document.getElementById("contacto").offsetTop > offset);
             if (document.getElementById("home").offsetTop < offset) current = "home";
             if (document.getElementById("agenda").offsetTop < offset) current = "agenda";
-            if (document.getElementById("oradores").offsetTop < offset) current = "oradores";
             if (document.getElementById("evento").offsetTop < offset) current = "evento";
             if (document.getElementById("consultas").offsetTop < offset) current = "consultas";
-            if (document.getElementById("contacto").offsetTop < offset) current = "contacto";
 
-            console.log(current);
             this.setState({visible: current});
 
             //console.log(this.isScrolledIntoView())
@@ -95,6 +92,11 @@ class HomeView extends React.Component {
     
 
     render() {
+
+        return (
+            <Cargando />
+        )
+
         return (
             <div style={{flexDirection: 'row'}}>
                 <div id='home' ref={this.scrollDivHome}>
@@ -103,9 +105,6 @@ class HomeView extends React.Component {
                  <div id='agenda' ref={this.scrollDivAgenda}>
                     <Agenda/>
                 </div>
-                <div id='oradores'   ref={this.scrollDivOradores}>
-                    <Oradores/>
-                </div>
                 <div id='evento' style={{ marginTop:50}}  ref={this.scrollDivEvento}>
                     <Evento/>
                 </div>
@@ -113,9 +112,6 @@ class HomeView extends React.Component {
                     <div></div>
                     <Consultas/>
                 </div>
-              <div id='contacto'ref={this.scrollDivContacto}>
-                    <Contacto/>
-                </div>  
                 <Header state={this.state.visible} style={{position: 'absolute', top: window.innerHeight*6, height: window.innerHeight, width: '100%'}} redirect={this.redirect} />
 
             </div>
