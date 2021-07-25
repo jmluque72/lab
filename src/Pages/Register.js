@@ -68,7 +68,7 @@ class Register extends React.Component {
         }
         this.setState({ send: true });
         if (
-            this.state.mail === "" ||
+            this.state.email === "" ||
             this.state.day === "" ||
             this.state.month === "" ||
             this.state.year === "" ||
@@ -121,7 +121,7 @@ class Register extends React.Component {
             first_name: this.state.first_name,
             last_name: this.state.last_name,
             day: this.state.day,
-            month: this.state.mounth,
+            month: this.state.month,
             year: this.state.year,
             city: this.state.city,
             province: this.state.province,
@@ -130,9 +130,7 @@ class Register extends React.Component {
             question1: question1,
             question2: question2,
             email: this.state.email
-
         }
-        alert(JSON.stringify(body));
         var response = fetch("https://pom2lkx5ei.execute-api.us-east-1.amazonaws.com/production/register", {
             method: 'POST',
             headers: {
@@ -141,7 +139,6 @@ class Register extends React.Component {
             body: JSON.stringify(body)
         })
             .then((response) => {
-                alert(response.status);
                 if (response.status == 200) {
                     return response.json();
                 } else {
@@ -149,9 +146,7 @@ class Register extends React.Component {
                 }
             })
             .then((response) => {
-
                 if (response) {
-                    alert(JSON.stringify(response));
                     if (!response.error) {
                         this.setState({ register: true, loading: false });
                     } else {
@@ -367,7 +362,7 @@ class Register extends React.Component {
                                             <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
                                                 <Grid item xs={12} sm={4} style={{ alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
                                                     <span className='textForm'> Tel. Código de area </span>
-                                                    <p className='textFormError'>{this.state.phone1 == '' && this.state.send ? "Campo requerido" : ""}</p>
+                                                    <p className='textFormError'>{(this.state.phone1 == '' || this.state.phone2 == '') && this.state.send ? "Campo requerido" : ""}</p>
                                                 </Grid>
                                                 <Grid item xs={12} sm={1} style={{paddingRight:5, alignItems: 'flex-end'}}>
                                                     <p className='textForm'>0</p>
@@ -411,7 +406,6 @@ class Register extends React.Component {
                                             <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
                                                 <Grid item xs={12} sm={3} style={{ flexDirection: 'column', alignItems: 'start', display: 'flex', justifyContent: 'flex-start', marginTop: width && (10) }}>
                                                     <p className='textForm' >Fecha de nacimiento</p>
-                                                    <p className='textFormError'>{(this.state.day == '' || this.state.month || this.state.year) && this.state.send ? "Campo requerido" : ""}</p>
                                                 </Grid>
                                                 <Grid item xs={2} sm={1} style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 10 }}>
                                                     <p className='textForm'>Día</p>
@@ -551,12 +545,12 @@ class Register extends React.Component {
                                             </Grid>
                                             <Grid item xs={12} sm={12} style={{marginTop: 20,  alignItems: 'start', marginRigh: 40 }}>
                                                 <div style={{ width: '100%', height: 40, display: 'flex', flexDirection: 'row', marginTop: 0, alignItems: 'start' }}>
-                                                    <Grid item xs={12} sm={1} style={{ display: 'flex', padding: 10, alignItems: 'start' }}>
+                                                    <Grid item xs={2} sm={12} style={{ display: 'flex', padding: 10, alignItems: 'start' }}>
                                                         <div onClick={() => this.setState({ terms: !this.state.terms })} style={{ cursor: 'pointer', width: 16, height: 16, borderStyle: 'solid', borderWidth: 0, borderColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: ' 0 1px 4px 0 #000000' }}>
                                                             <img src={check} style={{ width: '100%', display: this.state.terms ? 'flex' : 'none' }}></img>
                                                         </div>
                                                     </Grid>
-                                                    <Grid item xs={9} sm={11} style={{marginLeft: -10, display: 'flex', alignItems: 'center', marginTop: 10 }}>
+                                                    <Grid item xs={10} sm={11} style={{marginLeft: -10, display: 'flex', alignItems: 'center', marginTop: 10 }}>
                                                         <p className='textForm' styl={{ color: 'white' }}>Acepto bases y condiciones</p>
                                                     </Grid>
                                                 </div>

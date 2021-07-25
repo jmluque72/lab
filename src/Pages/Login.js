@@ -33,7 +33,7 @@ class Login extends React.Component {
             email: this.state.email,
             password: this.state.pass
         }
-        var response = fetch("https://4swa57ilx6.execute-api.sa-east-1.amazonaws.com/prod/login", {
+        var response = fetch("https://pom2lkx5ei.execute-api.us-east-1.amazonaws.com/production/login", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -42,6 +42,8 @@ class Login extends React.Component {
         })
             .then((response) => {
 
+                alert(response.status);
+                
                 if (response.status == 200) {
                     return response.json();
                 } else {
