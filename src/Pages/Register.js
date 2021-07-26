@@ -547,13 +547,13 @@ class Register extends React.Component {
                                             </Grid>
                                             <Grid item xs={12} sm={12} style={{marginTop: 20,  alignItems: 'start', marginRigh: 40 }}>
                                                 <div style={{ width: '100%', height: 40, display: 'flex', flexDirection: 'row', marginTop: 0, alignItems: 'start' }}>
-                                                    <Grid item xs={2} sm={12} style={{ display: 'flex', padding: 10, alignItems: 'start' }}>
+                                                    <Grid item xs={1} sm={1} style={{ display: 'flex', padding: 10, alignItems: 'start' }}>
                                                         <div onClick={() => this.setState({ terms: !this.state.terms })} style={{ cursor: 'pointer', width: 16, height: 16, borderStyle: 'solid', borderWidth: 0, borderColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: ' 0 1px 4px 0 #000000' }}>
                                                             <img src={check} style={{ width: '100%', display: this.state.terms ? 'flex' : 'none' }}></img>
                                                         </div>
                                                     </Grid>
-                                                    <Grid item xs={10} sm={11} style={{marginLeft: -10, display: 'flex', alignItems: 'center', marginTop: 10 }}>
-                                                        <p className='textForm' styl={{ color: 'white' }}>Acepto bases y condiciones</p>
+                                                    <Grid item xs={11} sm={11} style={{marginLeft: 10, display: 'flex', alignItems: 'start', marginTop: 10 }}>
+                                                        <p className='textForm' style={{ textAlign: 'left' }}>Acepto bases y condiciones</p>
                                                     </Grid>
                                                 </div>
                                                 {this.state.error &&
