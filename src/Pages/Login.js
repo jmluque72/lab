@@ -41,8 +41,6 @@ class Login extends React.Component {
             body: JSON.stringify(body)
         })
             .then((response) => {
-
-                alert(response.status);
                 
                 if (response.status == 200) {
                     return response.json();

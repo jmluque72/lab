@@ -139,6 +139,7 @@ class Register extends React.Component {
             body: JSON.stringify(body)
         })
             .then((response) => {
+                console.log(response);
                 if (response.status == 200) {
                     return response.json();
                 } else {
@@ -146,7 +147,9 @@ class Register extends React.Component {
                 }
             })
             .then((response) => {
+                console.log(response);
                 if (response) {
+                    console.log(response);
                     if (!response.error) {
                         this.setState({ register: true, loading: false });
                     } else {
@@ -155,7 +158,6 @@ class Register extends React.Component {
                 }
             })
             .catch(error => {
-                alert(error);
                 this.setState({ error: error + "", loading: false })
             });
     }

@@ -6,6 +6,7 @@ import Background2 from '../assets/placafinalweb.jpg'
 import BackgroundR from '../assets/placafinalweb.jpg'
 
 import PlacaAntes from '../assets/PlacaAntesVete.png'
+import PlacaAntesVeteResponsive from '../assets/PlacaAntesVeteResponsive.jpg'
 
 class Cargando extends React.Component {
     constructor(props) {
@@ -16,21 +17,18 @@ class Cargando extends React.Component {
         };
     }
     //
+    PlacaAntesVeteResponsive
     render() {
         const min = window.innerWidth >= 1000
-        return (
-            <div className='backgroundCargando' style={{flex: 1, width:window.innerWidth, height: window.innerHeight , backgroundColor: 'red'}}/>
-        );
-    if (min) {
+        if (min) {
             return (
-                <div style={{width: 100, backgroundColor: 'red'}} />
+                <div className='backgroundCargando' style={{flex: 1, width:window.innerWidth, height: window.innerHeight , backgroundColor: 'red'}}/>
             );
-        } else {
-            return (
-                <div style={{height: window.innerHeight, width:'100%',backgroundImage:`url(${PlacaAntes})`,backgroundSize:'auto'}}>
-                </div>
-            );
-        }
+            } else {
+                return (
+                    <div className='backgroundCargandoResponsive' style={{flex: 1, width:window.innerWidth, height: window.innerHeight , backgroundColor: 'red'}}/>
+                );
+            }
         
     }
 }
