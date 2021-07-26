@@ -363,7 +363,7 @@ class Register extends React.Component {
                                             </Grid>
                                             <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
                                                 <Grid item xs={12} sm={4} style={{ alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
-                                                    <span className='textForm'> Tel. Código de area </span>
+                                                    <span className='textForm'> Tel. Código de área </span>
                                                     <p className='textFormError'>{(this.state.phone1 == '' || this.state.phone2 == '') && this.state.send ? "Campo requerido" : ""}</p>
                                                 </Grid>
                                                 <Grid item xs={12} sm={1} style={{paddingRight:5, alignItems: 'flex-end'}}>
@@ -497,7 +497,7 @@ class Register extends React.Component {
                                             </Grid>
 
                                             <Grid item xs={12} sm={12} style={{ marginTop: 20, marginBotton: 20, alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
-                                                <p className='textForm'>¿Que funcion desempeña dentro del rubro veterinatio?</p>
+                                                <p className='textForm'>¿Que funcion desempeña dentro del rubro veterinario?</p>
                                             </Grid>
                                             <Grid style={{ flex: 1, flexDirection: 'row', display: 'flex' }}>
                                                 <Grid style={{ alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
@@ -519,7 +519,7 @@ class Register extends React.Component {
                                                         <input type="radio" checked={this.state.check5} onChange={(value) => this.radioButton('check5', value)} /><span className='radioB'>Proveedor</span>
                                                     </div>
                                                     <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
-                                                        <input type="radio" checked={this.state.check6} onChange={(value) => this.radioButton('check6', value)} /><span className='radioB'>Médico Veterinario en clinica / particular</span>
+                                                        <input type="radio" checked={this.state.check6} onChange={(value) => this.radioButton('check6', value)} /><span className='radioB'>Médico Veterinario en clínica / particular</span>
                                                     </div>
                                                 </Grid>
                                             </Grid>
@@ -618,6 +618,10 @@ class Register extends React.Component {
                                                     <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
                                                         <p style={{ fontFamily: 'FrutigerBlack', letterSpacing: 0.9, fontSize: 20, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%' }}>TE REGISTRASTE SATISFACTORIAMENTE.</p>
                                                         <p style={{ fontFamily: 'FrutigerBold', fontSize: 16, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>Revise su correo electrónico para confirmar su e-mail</p>
+                                                        <p style={{ fontFamily: 'FrutigerBold', fontSize: 14, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>No olvides chequear la carpeta SPAM</p>
+
+
+                                                        
                                                     </div>
                                                 </Grid>
                                             </Grid>
