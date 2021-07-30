@@ -558,12 +558,12 @@ class Register extends React.Component {
                                                 </div>
                                                 {this.state.error &&
                                                     <div style={{ width: '85%', display: 'flex', justifyContent: 'center' }}>
-                                                        <p style={{ marginTop: 20, color: 'red', fontFamily: 'FiraSansBook', fontSize: 14 }}>{this.state.error}</p>
+                                                        <p style={{ marginTop: 20, color: 'red', fontFamily: 'FiraSansMedium', fontSize: 14 }}>{this.state.error}</p>
                                                     </div>
                                                 }
 
                                                     <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 0, alignItems: 'center' }}>
-                                                        <p style={{ fontFamily: 'FiraSansBook', fontSize: 10, color: '#465658', margin: 0, textAlign: 'left' }}>El aviso legal predeterminado que hay a continuación se mostrará a todo aquel que se inscriba al evento. Al marcar esta casilla envia su información al organizador del evento quien la utlizará para comunicarse con usted sobre este evento.</p>
+                                                        <p style={{ fontFamily: 'FiraSansMedium', fontSize: 10, color: '#465658', margin: 0, textAlign: 'left' }}>El aviso legal predeterminado que hay a continuación se mostrará a todo aquel que se inscriba al evento. Al marcar esta casilla envia su información al organizador del evento quien la utlizará para comunicarse con usted sobre este evento.</p>
                                                     </div>
                                                                                                     <Grid item xs={9} sm={11} style={{ display: 'flex', alignItems: 'center' }}>
                                                     </Grid>
@@ -616,9 +616,9 @@ class Register extends React.Component {
                                             <Grid item sm={7} xs={12} style={{ marginTop: !width && -20 }}>
                                                 <Grid container alignItems='center' justify='center' style={{ width: min ? '85%' : '100%' }}>
                                                     <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-                                                        <p style={{ fontFamily: 'FiraSansBook', letterSpacing: 0.9, fontSize: 20, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%' }}>TE REGISTRASTE SATISFACTORIAMENTE.</p>
-                                                        <p style={{ fontFamily: 'FiraSansBook', fontSize: 16, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>Revise su correo electrónico para confirmar su e-mail</p>
-                                                        <p style={{ fontFamily: 'FiraSansBook', fontSize: 14, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>No olvides chequear la carpeta SPAM</p>
+                                                        <p style={{ fontFamily: 'FiraSansMedium', letterSpacing: 0.9, fontSize: 20, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%' }}>TE REGISTRASTE SATISFACTORIAMENTE.</p>
+                                                        <p style={{ fontFamily: 'FiraSansMedium', fontSize: 16, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>Revise su correo electrónico para confirmar su e-mail</p>
+                                                        <p style={{ fontFamily: 'FiraSansMedium', fontSize: 14, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>No olvides chequear la carpeta SPAM</p>
 
 
                                                         

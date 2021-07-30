@@ -102,7 +102,7 @@ class Login extends React.Component {
                                     <Grid item xs={11} sm={10} md={6}  style={{ marginTop: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#5E565D', paddingTop: 30, paddingBottom: 30 }}>
                                         <div style={{ width: '90%', display: 'flex', flexDirection: 'row' }}>
                                             <Grid item sm={4} xs={4} style={{ width: '35%', height: '100%', display: 'flex', alignItems: 'center' }}>
-                                                <p style={{ fontFamily: 'FiraSansBook', fontSize: 18, color: 'white', margin: 0, lineHeight: 1.2 }}>Usuario (e-mail): </p>
+                                                <p style={{ fontFamily: 'FiraSansMedium', fontSize: 18, color: 'white', margin: 0, lineHeight: 1.2 }}>Usuario (e-mail): </p>
                                             </Grid>
                                             <Grid item sm={10} xs={10} style={{ width: '65%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                                 <input
@@ -117,7 +117,7 @@ class Login extends React.Component {
                                         </div>
                                         <div style={{ width: '90%', display: 'flex', flexDirection: 'row', marginTop: 30 }}>
                                             <Grid item sm={3} xs={4} style={{ width: '30%', height: '100%', display: 'flex', alignItems: 'center' }}>
-                                                <p style={{ fontFamily: 'FiraSansBook', fontSize: 18, color: 'white', margin: 0 }}>Contraseña:</p>
+                                                <p style={{ fontFamily: 'FiraSansMedium', fontSize: 18, color: 'white', margin: 0 }}>Contraseña:</p>
                                             </Grid>
                                             <Grid item sm={9} xs={8} style={{ width: '75%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                                 <input
@@ -140,7 +140,7 @@ class Login extends React.Component {
 
                             <Grid item xs={12} style={{ marginTop: 10 }}>
                                 <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-                                    <p style={{ fontFamily: 'FiraSansBook', paddingTop: 20, fontSize: 22, color: '#FFFFFF', margin: 0 }}>*Si aun no está registrado <a href={'/Register'} style={{ textDecoration: 'underline #ffffff', color: '#ffffff' }}>HAZ CLICK AQUI</a></p>
+                                    <p style={{ fontFamily: 'FiraSansMedium', paddingTop: 20, fontSize: 22, color: '#FFFFFF', margin: 0 }}>*Si aun no está registrado <a href={'/Register'} style={{ textDecoration: 'underline #ffffff', color: '#ffffff' }}>HAZ CLICK AQUI</a></p>
                                 </div>
                                 {this.state.error &&
                                     <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>

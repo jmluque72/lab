@@ -10,6 +10,8 @@
     font-family: 'FiraSansMedium';
     src: local('FrutigerBlack'), url('https://publiceventsenjoy.s3.amazonaws.com/FiraSans-Medium.ttf') format('truetype');
 }
+
+
 @font-face {
     font-family: 'FiraSansRegular';
     src: local('FrutigerBold'), url('https://publiceventsenjoy.s3.amazonaws.com/FiraSans-Regular.ttf') format('truetype');
@@ -160,19 +162,19 @@ input {
     width:100px;
 }
 .textForm{
-    font-family: 'FrutigerBold';
+    font-family: 'FiraSansMedium';
     font-size: 16px;
     color: #12326E;
     margin: 0; 
 }
 .textFormW{
-    font-family: 'FrutigerBold';
+    font-family: 'FiraSansMedium';
     font-size: 16px;
     color: #ffffff;
     margin: 0; 
 }
 .textFormError{
-    font-family: 'FrutigerBold';
+    font-family: 'FiraSansMedium';
     font-size: 10px;
     color: #FF0000;
     margin: 0; 
@@ -194,8 +196,8 @@ input {
 }
 
 .titleFormTitle{
-    font-family: 'FiraSansUltra';
-    font-size: 22px;
+    font-family: 'FiraSansMedium';
+    font-size: 36px;
     color: #12326E;
     margin: 0; 
     text-align: left;
