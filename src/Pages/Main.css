@@ -186,7 +186,7 @@ input {
     margin-left: 10px;
 }
 .titleForm{
-    font-family: 'FrutigerBold';
+    font-family: 'FiraSansUltra';
     font-size: 36px;
     color: #12326E;
     margin: 0; 
@@ -194,8 +194,8 @@ input {
 }
 
 .titleFormTitle{
-    font-family: 'GothamRndBold';
-    font-size: 36px;
+    font-family: 'FiraSansUltra';
+    font-size: 22px;
     color: #12326E;
     margin: 0; 
     text-align: left;
