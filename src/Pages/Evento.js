@@ -41,7 +41,7 @@ class Agenda extends React.Component {
                             <Grid item sm={6} xs={12} style={{ }}>
                                 <Grid container direction='column' justify='center' alignItems={ min ? 'flex-end' : 'center' }style={{ height:'100%'}}>
                                     <p style={{ fontFamily:'FiraSansUltra',fontSize:min ? 72 : 45,color:'white',textAlign: min ? 'right' : 'center',lineHeight:1,marginLeft: min ? 'auto' : 'none',width:'100%'}}>CÓMO <br/> INGRESAR</p>
-                                    <div style={{width:150,height:20,background:'#ffffff'}}></div>
+                                    <div style={{width:150,height:20,background:'#f0f0f0'}}></div>
                                 </Grid>
                             </Grid>
                             <Grid item sm={6} xs={12} style={{marginLeft: margin, marginRight: margin,  marginTop: min ? '' : 20}}>
