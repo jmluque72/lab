@@ -69,7 +69,7 @@ class Agenda extends React.Component {
                         <div style={{ height:500, width:'50%'}}>
 
 
-                        <iframe width="200%" height="500" src="https://youtu.be/aXYX5vpwm6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="200%" height="500" src="https://www.youtube.com/embed/aXYX5vpwm6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
                         </div>

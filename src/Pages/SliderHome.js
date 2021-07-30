@@ -74,7 +74,7 @@ class SliderHome extends React.Component {
                                     <Grid item xs={12} sm={12}>
                                         <Grid container justify='center' alignItems='center'>
                                             <div style={{ maxHeight: window.innerHeight }}>
-                                                <img src={img_3} style={{ width: '100%', height: '100%' }}></img>
+                                                <img src={img_2} style={{ width: '100%', height: '100%' }}></img>
                                             </div>
 
                                         </Grid>
