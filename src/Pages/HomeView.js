@@ -93,9 +93,6 @@ class HomeView extends React.Component {
 
     render() {
 
-        return (
-            <Cargando />
-        )
 
         return (
             <div style={{flexDirection: 'row'}}>

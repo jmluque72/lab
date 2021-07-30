@@ -7,26 +7,28 @@
     src: local('FrutigerBlackItalic'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/FrutigerBlackItalic.otf') format('truetype');
 }
 @font-face {
-    font-family: 'FrutigerBlack';
-    src: local('FrutigerBlack'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/FrutigerBlack.otf') format('truetype');
+    font-family: 'FiraSansMedium';
+    src: local('FrutigerBlack'), url('https://publiceventsenjoy.s3.amazonaws.com/FiraSans-Medium.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'FrutigerBold';
-    src: local('FrutigerBold'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/FrutigerBold.otf') format('truetype');
+    font-family: 'FiraSansRegular';
+    src: local('FrutigerBold'), url('https://publiceventsenjoy.s3.amazonaws.com/FiraSans-Regular.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'FrutigerBoldCn';
-    src: local('FrutigerBoldCn'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/FrutigerBold.otf') format('truetype');
+    font-family: 'FiraSansHeavy';
+    src: local('FrutigerBoldCn'), url('https://publiceventsenjoy.s3.amazonaws.com/FiraSans-Heavy.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'GothamRndBold';
-    src: local('GothamRndBold'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/GothamRnd-Bold.otf') format('truetype');
+    font-family: 'FiraSansUltra';
+    src: local('GothamRndBold'), url('https://publiceventsenjoy.s3.amazonaws.com/FiraSans-Ultra.ttf') format('truetype');
 }
+
 @font-face {
-    font-family: 'FrutigerRoman';
-    src: local('FrutigerRoman'), url('../assets/fonts/Frutiger-Roman.ttf') format('truetype');
+    font-family: 'FiraSansBook';
+    src: local('GothamRndBold'), url('https://publiceventsenjoy.s3.amazonaws.com/FiraSans-Book.ttf') format('truetype');
 }
+
 
 .title{
     color: black;
@@ -44,21 +46,23 @@
     justify-content: center;
 }
 .label-header-not-selected {
-    font-family: FrutigerLight;
+    font-family: FiraSansMedium;
     font-size: 14px;
-    color:white;
+    color:#008DCC;
     cursor: pointer;
     
 }
 
 .label-header-selected {
-    font-family: FrutigerBold;
+    font-family: FiraSansHeavy;
     font-size: 14px;
-    color:#e50051;
+    background-color:#008DCC;
+    padding: 5px;
+    color: #FFFFFF;
     cursor: pointer;
 }
 .timeTitle {
-    font-family: 'FrutigerBlack';
+    font-family: 'FiraSansMedium';
     font-size: 50px;
     color: white;
 }
@@ -88,7 +92,7 @@
 }
 
 .timeValue {
-    font-family: 'FrutigerBlack';
+    font-family: 'FiraSansHeavy';
     font-size: 70px;
     
     margin-top: -10px;
@@ -96,7 +100,7 @@
 }
 
 .timeValueLabel {
-    font-family: 'FrutigerLight';
+    font-family: 'FiraSansMedium';
     font-size: 16px;
     margin-top: -30px;
     text-align: center;

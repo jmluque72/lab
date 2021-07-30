@@ -5,9 +5,9 @@ import Header from './Header.js'
 import Footer from './Footer.js'
 import { makeStyles } from '@material-ui/core/styles';
 import {Grid, Button, Dialog} from '@material-ui/core';
-import Background from '../assets/background_event_program.png'
+import Background from '../assets/backgroundZoonvetAll.jpg'
 import {colors} from '../utils'
-import verTutorial from '../assets/tutorial.png'
+import verTutorial from '../assets/comoingresar.svg'
 import './Main.css'
 
 
@@ -32,27 +32,27 @@ class Agenda extends React.Component {
                         <Grid container direction='row' style={{ width:'100%',height:'100%'}}>
                             <Grid item sm={6} xs={12} style={{ }}>
                                 <Grid container direction='column' justify='center' alignItems={ min ? 'flex-end' : 'center' }style={{ height:'100%'}}>
-                                    <p style={{ fontFamily:'GothamRndBold',fontSize:min ? 72 : 45,color:'white',textAlign: min ? 'right' : 'center',lineHeight:1,marginLeft: min ? 'auto' : 'none',width:'100%'}}>CÓMO <br/> INGRESAR</p>
+                                    <p style={{ fontFamily:'FiraSansUltra',fontSize:min ? 72 : 45,color:'white',textAlign: min ? 'right' : 'center',lineHeight:1,marginLeft: min ? 'auto' : 'none',width:'100%'}}>CÓMO <br/> INGRESAR</p>
                                     <div style={{width:150,height:20,backgroundColor:'white'}}></div>
                                 </Grid>
                             </Grid>
                             <Grid item sm={6} xs={12} style={{ marginTop: min ? '' : 20}}>
                                 <Grid container direction='column' justify={ min ? 'center' :'' }alignItems={ min ? 'flex-start' : 'left' }style={{ height:'100%', marginRight: 30}}>
-                                    <p style={{ fontFamily:'FrutigerBlack',fontSize:15,color:'white',textAlign:min ? 'left' : 'left',lineHeight:1,width:'60%',marginLeft: min ? '10%' : '', }}>El día del evento deberás seguir los siguientes pasos </p>
-                                    <ol style={{ fontFamily:'FrutigerLight',fontSize:15,color:'white',marginLeft: min ? '10%' : '',lineHeight:1.4, paddingRight: 30 }}>
-                                        <li style={{textAlign: 'left'}}>Ingresá a nuestro sitio web www.ecgrido.com.ar  </li>
+                                    <p style={{ fontFamily:'FiraSansBook',fontSize:18,color:'white',textAlign:min ? 'left' : 'left',lineHeight:1,width:'60%',marginLeft: min ? '10%' : '', }}>El día del evento deberás seguir los siguientes pasos </p>
+                                    <ol style={{ fontFamily:'FiraSansBook',fontSize:16,color:'white',marginLeft: min ? '10%' : '',lineHeight:1.4, paddingRight: 30 }}>
+                                        <li style={{textAlign: 'left'}}>Ingresá a nuestro sitio web www.diadelveterinariozoovet.com.ar  </li>
                                         <li style={{textAlign: 'left'}}>Deberás iniciar sesión con tu usuario ( email ) y contraseña que fue enviada cuando realizaste la inscripción</li>
                                         <li style={{textAlign: 'left'}}>Una vez iniciada la sesión, deberás hacer click en el botón que dice "Ingresar al evento"  que aparecerá cuando finalice la cuenta regresiva.</li>
                                     </ol>
-                                    <div style={{ fontFamily:'FrutigerBlack',fontSize:14,color:'white',marginLeft: min ? '10%' : '',lineHeight:1.4 }}>
-                                        <p style={{fontFamily:'FrutigerBlack', textAlign: 'left', fontSize: 15, marginTop: 10, marginBottom: 10, color: 'white'}}> Algunos consejos</p>
+                                    <div style={{ fontFamily:'FiraSansBook',fontSize:18,color:'white',marginLeft: min ? '10%' : '',lineHeight:1.4 }}>
+                                        <p style={{fontFamily:'FiraSansBook', textAlign: 'left', fontSize: 16, marginTop: 10, marginBottom: 10, color: 'white'}}> Algunos consejos</p>
                                         <ul>
-                                            <li style={{fontFamily:'FrutigerLight', textAlign: 'left'}}>  Asegúrate de tener una conexión estable a internet.</li>
-                                            <li style={{fontFamily:'FrutigerLight' ,textAlign: 'left'}}>  Recomendamos ver el evento en un dispositivo como una PC , notebook o tablet para una mejor visualización y en posición horizontal. </li>
+                                            <li style={{fontFamily:'FiraSansBook', textAlign: 'left'}}>  Asegúrate de tener una conexión estable a internet.</li>
+                                            <li style={{fontFamily:'FiraSansBook' ,textAlign: 'left'}}>  Recomendamos ver el evento en un dispositivo como una PC , notebook o tablet para una mejor visualización y en posición horizontal. </li>
                                     </ul>
                                     </div>
                                     <Button onClick={() => this.setState({ video : true})} style={{ }}>
-                                        <img style={{marginTop: 40, marginLeft: 40,width: 200, height: 200*0.219}} src={verTutorial} />
+                                        <img style={{marginTop: 40, marginLeft: 80,width: 150, height: 150*0.219}} src={verTutorial} />
                                     </Button>
                                 </Grid>
                             </Grid>

@@ -2,11 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import Header from './Header.js'
 import { Grid, Button } from '@material-ui/core';
-import Background from '../assets/background_event_program.png'
+import Background from '../assets/backgroundZoonvetAll.jpg'
 import LogoOzempicHeader from '../assets/logo_white.png'
 import up_white from '../assets/up_white.png'
 import { colors } from '../utils'
 import './Main.css'
+import jugar from '../assets/boton_jugar.png'
+import logoNovo from '../assets/logoZoon.svg'
 
 import { client, w3cwebsocket as W3CWebSocket } from "websocket";
 
@@ -106,7 +108,7 @@ class Vivo extends React.Component {
         }
         const body = {
         }
-     
+
         var response = fetch("https://4swa57ilx6.execute-api.sa-east-1.amazonaws.com/prod/get_question", {
             method: 'GET',
             headers: {
@@ -211,7 +213,7 @@ class Vivo extends React.Component {
                 }
             })
             .then((response) => {
-                this.setState({hasResponse: true, question: null });
+                this.setState({ hasResponse: true, question: null });
             })
             .catch(error => {
                 this.setState({ error: error })
@@ -255,22 +257,30 @@ class Vivo extends React.Component {
             valueResponse = "Verdadero";
         }
 
+
         if (min) {
             return (
                 <div style={{ width: '100%', flexDirection: 'row' }}>
-                    <img style={{ width: '100%', height: '100%', position: 'fixed', top: 0, left: 0 }} src={Background} />
+                    <img style={{ width: '100%', height: '100%', position: 'fixed', top: 0, left: 0, backgroundSize: 'cover' }} src={Background} />
+                    <img style={{ width: 90, height: 90 * 0.64, position: 'absolute', bottom: 10, left: 10 }} src={logoNovo}></img>
+
                     <Grid item xs={12} style={{ height: window.innerHeight - 100, position: 'absolute', top: 0, left: 0, width: '100%', paddingBottom: 50 }}>
                         <Grid container direction='column'>
-                            <Grid xs={12} style={{ padding: 10 }}></Grid>
-                            <Grid container direction='row' justify='space-between' style={{ height: 70, paddingRight: 15, paddingLeft: 15 }}>
-                                <div style={{ height: '100%', width: '100%' }}>
-                                    <p style={{fontFamily:'GothamRndBold', padding: 10,marginLeft: marginLeft,fontSize:35, color: 'white'}}>¡DONDE NOS ENCONTRAMOS TODOS!</p>
+                            <Grid md={12} style={{ padding: 10 }}></Grid>
+                            <Grid md={12} container direction='row' justify='space-between' style={{ height: 70, paddingRight: 15, paddingLeft: 15 }}>
+                                <div style={{ height: '100%', width: '70%' }}>
+                                    <p style={{ fontFamily: 'FiraSansUltra', padding: 10, marginLeft: marginLeft, fontSize: 55, color: 'white' }}>¡NUESTRA FIESTA!</p>
+                                </div>
+                                <div style={{ marginTop: 10, height: '100%', width: '15%' }}>
+                                <Button onClick={() => this.play()} style={{}}>
+                                    <img style={{ width: 150, height: 150 * 0.40 }} src={jugar} />
+                                </Button>
                                 </div>
                             </Grid>
                         </Grid>
                         <Grid xs={12} justify='center' className='container' style={{ width: '100%', padding: 10 }}>
                             <Grid container >
-                                <div className='left' style={{border: '10px solid #FFFFFF', marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '500', padding: 2 }}>
+                                <div className='left' style={{ border: '10px solid #FFFFFF', marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '500', padding: 2 }}>
                                     <div style={{ width: '100%', height: '100%' }}>
                                         <iframe src={url_video} frameborder="0" width='100%' height='100%' allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
                                 </div>
@@ -281,7 +291,7 @@ class Vivo extends React.Component {
                         </Grid>
                     </Grid>
                 </div >
-            );  
+            );
         } else {
 
             return (
@@ -292,16 +302,16 @@ class Vivo extends React.Component {
                             <Grid xs={12} style={{ padding: 10 }}></Grid>
                             <Grid container direction='row' justify='space-between' style={{ height: 70, paddingRight: 15, paddingLeft: 15 }}>
                                 <div style={{ height: '100%', width: '100%' }}>
-                                    <p style={{fontFamily:'GothamRndBold', padding: 10,marginLeft: marginLeft,fontSize:35, color: 'white'}}>DONDE NOS ENCONTRAMOS TODOS!</p>
+                                    <p style={{ fontFamily: 'GothamRndBold', padding: 10, marginLeft: marginLeft, fontSize: 35, color: 'white' }}>DONDE NOS ENCONTRAMOS TODOS!</p>
                                 </div>
                             </Grid>
                         </Grid>
-                        <Grid xs={12} justify='center' className='container' style={{marginTop: 50, width: '100%', padding: 10 }}>
+                        <Grid xs={12} justify='center' className='container' style={{ marginTop: 50, width: '100%', padding: 10 }}>
                             <Grid container >
-                                <div className='left' style={{border: '10px solid #FFFFFF', marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '500'}}>
+                                <div className='left' style={{ border: '10px solid #FFFFFF', marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '500' }}>
                                     <div style={{ width: '100%', height: '100%' }}>
                                         <iframe src={url_video} frameborder="0" width='100%' height='100%' allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
-                                        <iframe style={{marginTop: 50}} src={url_chat} width="100%" height="100%" frameborder="0"></iframe>
+                                    <iframe style={{ marginTop: 50 }} src={url_chat} width="100%" height="100%" frameborder="0"></iframe>
                                 </div>
                             </Grid>
                         </Grid>
@@ -310,7 +320,7 @@ class Vivo extends React.Component {
             );
 
         }
-        
+
     }
 }
 

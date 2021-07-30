@@ -5,8 +5,8 @@ import './Main.css'
 import Carousel from 'react-bootstrap/Carousel'
 import image_1 from '../assets/CarouselHome/image_1.jpg'
 import image_2 from '../assets/CarouselHome/image_2.jpg'
-import image_3 from '../assets/CarouselHome/image_3.jpg'
-import image_4 from '../assets/CarouselHome/image_4.jpg'
+import image_3 from '../assets/CarouselHome/image_1.svg'
+import image_4 from '../assets/CarouselHome/image_1.svg'
 
 import image_1_responsive from '../assets/CarouselHome/image_1_responsive.jpg'
 import image_2_responsive from '../assets/CarouselHome/image_2_responsive.jpg'
@@ -18,7 +18,7 @@ import image_4_responsive from '../assets/CarouselHome/image_4_responsive.jpg'
 import logoHeader from '../assets/logo_ozempic_header.png'
 import Footer from './Footer.js'
 import next from '../assets/next.png'
-import prev from '../assets/prev.png'
+import prev from '../assets/prev.svg'
 
 class SliderHome extends React.Component {
     constructor(props) {
@@ -82,32 +82,7 @@ class SliderHome extends React.Component {
 
                                 </div>
                             </Carousel.Item>
-                            <Carousel.Item>
-                                <div style={{ display: 'flex', flexDirection: 'row' }}>
-                                    <Grid item xs={12} sm={12}>
-                                        <Grid container justify='center' alignItems='center'>
-                                            <div style={{ maxHeight: window.innerHeight }}>
-                                                <img src={img_2} style={{marginTop: 50, width: '100%', height: '100%' }}></img>
-                                            </div>
-
-                                        </Grid>
-                                    </Grid>
-
-                                </div>
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <div style={{ display: 'flex', flexDirection: 'row' }}>
-                                    <Grid item xs={12} sm={12}>
-                                        <Grid container justify='center' alignItems='center'>
-                                            <div style={{ maxHeight: window.innerHeight }}>
-                                                <img src={img_4} style={{marginTop: 50, width: '100%', height: '100%' }}></img>
-                                            </div>
-
-                                        </Grid>
-                                    </Grid>
-
-                                </div>
-                            </Carousel.Item>
+                            
                         </Carousel>
                     </Grid>
                     <Footer />
@@ -144,30 +119,7 @@ class SliderHome extends React.Component {
 
                                 </div>
                             </Carousel.Item>
-                            <Carousel.Item>
-                                <div style={{ display: 'flex', flexDirection: 'row' }}>
-                                    <Grid item xs={12} sm={12}>
-                                        <Grid container justify='center' alignItems='center'>
-                                            <div style={{ maxHeight: window.innerHeight }}>
-                                                <img src={img_3} style={{ width: '100%', height: '100%' }}></img>
-                                            </div>
-                                        </Grid>
-                                    </Grid>
-
-                                </div>
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <div style={{ display: 'flex', flexDirection: 'row' }}>
-                                    <Grid item xs={12} sm={12}>
-                                        <Grid container justify='center' alignItems='center'>
-                                            <div style={{ maxHeight: window.innerHeight }}>
-                                                <img src={img_4} style={{ width: '100%', height: '100%' }}></img>
-                                            </div>
-                                        </Grid>
-                                    </Grid>
-
-                                </div>
-                            </Carousel.Item>
+                            
                         </Carousel>
                     </Grid>
                     <Footer />

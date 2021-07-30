@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import LogoNovo from '../assets/logoHeader.png'
 import menu from '../assets/menu.png'
-import LogoOzempicHeader from '../assets/logoGrido.png'
-import Vivo from '../assets/vivo.png'
+import LogoOzempicHeader from '../assets/logoHeaderFiesta.svg'
+import Vivo from '../assets/logoZoovetHeader.svg'
 
 import './Main.css';
 import Grid from '@material-ui/core/Grid';
@@ -33,13 +33,12 @@ class Header extends React.Component {
         const classContactos = this.props.state === 'contacto' ? 'label-header-selected' : 'label-header-not-selected'
         const min = window.innerWidth >= 1000
         return (
-            <div className='header' style={{ background: '#0006a0', zIndex: 10, paddingTop: 20, paddingBottom: 20, position: 'fixed', height: this.state.menu ? 140 : 110, left: 0, top: 0, right: 0, flexDirection: 'column' }}>
+            <div className='header' style={{ background: '#ffffff', zIndex: 10, paddingTop: 20, paddingBottom: 20, position: 'fixed', height: this.state.menu ? 140 : 110, left: 0, top: 0, right: 0, flexDirection: 'column' }}>
                 <Grid container>
                     <Grid xs={10} sm={4} style={{ height: 60, }}>
                         <Grid container direction='row' justify='space-around'>
                             <div style={{ width: 80, height: 60, display: 'flex', justifyContent: 'center' }}>
-                                <img style={{ width: '100%', height: 'auto', marginRight: 50 }} src={LogoNovo} />
-                                <img style={{ marginTop: 10, width: 100, height: 100 * 0.64 }} src={LogoOzempicHeader} />
+                                <img style={{marginTop: -30, width: 200, height: 200 * 0.64 }} src={LogoOzempicHeader} />
                             </div>
                         </Grid>
                     </Grid>
@@ -57,9 +56,7 @@ class Header extends React.Component {
                                 <a onClick={() => this.props.redirect("Agenda")} className={classAgenda} >NUESTRA FIESTA</a>
                                 <a onClick={() => this.props.redirect("Evento")} className={classEvento} >CÓMO SER PARTE</a>
                                 <a onClick={() => this.props.redirect("Consultas")} className={classConsultas}>CONSULTAS</a>
-                                <a onClick={() => this.openSpoty()}>
-                                    <img src={Vivo} style={{ width: 160, height: 160 * 0.26, cursor: 'pointer' }}></img>
-                                </a>
+                                <img src={Vivo} style={{ width: 160, height: 160 * 0.26, cursor: 'pointer' }}></img>
                             </Grid>
                         </Grid>
                     }
@@ -70,9 +67,7 @@ class Header extends React.Component {
                                 <a onClick={() => this.setValue("Agenda")} className={classAgenda}  style={{color: 'black'}}>NUESTRA FIESTA</a>
                                 <a onClick={() => this.setValue("Evento")} className={classEvento}  style={{color: 'black'}}>CÓMO SER PARTE</a>
                                 <a onClick={() => this.setValue("Consultas")} className={classContactos}  style={{color: 'black'}}>CONTACTO</a>
-                                <a onClick={() => this.openSpoty()}>
-                                    <img src={Vivo} style={{ marginTop: 10, marginBottom: 10, width: 100, height: 100 * 0.26, cursor: 'pointer' }}></img>
-                                </a>
+                                <img src={Vivo} style={{ marginTop: 10, marginBottom: 10, width: 100, height: 100 * 0.26, cursor: 'pointer' }}></img>
 
                             </Grid>
                         </Grid>
