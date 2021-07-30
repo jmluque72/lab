@@ -83,12 +83,16 @@ class Consulta extends React.Component {
                 buttondisabled = true;
         }
         var back = Background;
+        var justify = "center";
+        var top = -70;
         if (!min) {
             back = BackgroundR;
+            justify = "start";
+            top = -90
         }
         return (
             <div style={{width: '100%', flexDirection: 'row'}}>
-                    <Grid item xs={12} style={{marginTop: -70,height:window.innerHeight,backgroundImage:`url(${back})`,backgroundSize:'cover'}}>
+                    <Grid item xs={12} style={{marginTop: top,height:window.innerHeight,backgroundImage:`url(${back})`,backgroundSize:'cover'}}>
                         <Grid container direction='row' style={{ width:'100%',height:'100%'}}>
                             <Grid item sm={6} xs={12} style={{ }}>
                                 <Grid container direction='column' justify='center' alignItems={ min ? 'flex-end' : 'center' }style={{ height:'100%'}}>
@@ -96,9 +100,9 @@ class Consulta extends React.Component {
                                     <div style={{width:150,height:20,backgroundColor:'white'}}></div>
                                 </Grid>
                             </Grid>
-                            <Grid item sm={6} xs={12} style={{ }}>
-                                <Grid container direction='column' justify='center' alignItems={ min ? 'flex-start' : 'center' }style={{ height:'100%'}}>
-                                    <div style={{ width:'60%',display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column',marginLeft:'5%'}}>
+                            <Grid item sm={6} xs={12} style={{}}>
+                                <Grid container direction='column' justify={justify} alignItems={ min ? 'flex-start' : 'center' }style={{ height:'100%'}}>
+                                    <div style={{ width:'60%',display:'flex',alignItems:'center',flexDirection:'column',marginLeft:'5%'}}>
                                         <div style={{ display:'flex',flexDirection:'column',alignItems:'space-around',height:60,width:'100%'}}>
                                             <div style={{ width:'100%',height:'40%',display:'flex'}}>
                                                 <p style={{ fontFamily:'FiraSansBook',fontSize:14,color:'white'}}>Nombre y Apellido</p>

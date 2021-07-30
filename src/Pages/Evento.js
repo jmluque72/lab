@@ -28,7 +28,9 @@ class Agenda extends React.Component {
     render() {
         const min = window.innerWidth >= 1000
         var back = Background;
+        var margin = 0
         if (!min) {
+            margin = 20
             back = BackgroundR;
         }
         console.log(window.innerWidth)
@@ -39,10 +41,10 @@ class Agenda extends React.Component {
                             <Grid item sm={6} xs={12} style={{ }}>
                                 <Grid container direction='column' justify='center' alignItems={ min ? 'flex-end' : 'center' }style={{ height:'100%'}}>
                                     <p style={{ fontFamily:'FiraSansUltra',fontSize:min ? 72 : 45,color:'white',textAlign: min ? 'right' : 'center',lineHeight:1,marginLeft: min ? 'auto' : 'none',width:'100%'}}>CÓMO <br/> INGRESAR</p>
-                                    <div style={{width:150,height:20,backgroundColor:'white'}}></div>
+                                    <div style={{width:150,height:20,background:'red'}}></div>
                                 </Grid>
                             </Grid>
-                            <Grid item sm={6} xs={12} style={{ marginTop: min ? '' : 20}}>
+                            <Grid item sm={6} xs={12} style={{marginLeft: margin, marginRight: margin,  marginTop: min ? '' : 20}}>
                                 <Grid container direction='column' justify={ min ? 'center' :'' }alignItems={ min ? 'flex-start' : 'left' }style={{ height:'100%', marginRight: 30}}>
                                     <p style={{ fontFamily:'FiraSansBook',fontSize:18,color:'white',textAlign:min ? 'left' : 'left',lineHeight:1,width:'60%',marginLeft: min ? '10%' : '', }}>El día del evento deberás seguir los siguientes pasos </p>
                                     <ol style={{ fontFamily:'FiraSansBook',fontSize:16,color:'white',marginLeft: min ? '10%' : '',lineHeight:1.4, paddingRight: 30 }}>
