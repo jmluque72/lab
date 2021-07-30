@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {Grid,Button} from '@material-ui/core';
 import './Main.css'
 import Background from '../assets/background_contact.png'
-import BackgroundMin from '../assets/background_consulta.png'
+import BackgroundMin from '../assets/backgroun_responsive_all.jpg'
 
 
 import { colors } from "../utils/index.js";

@@ -6,6 +6,8 @@ import Footer from './Footer.js'
 import { makeStyles } from '@material-ui/core/styles';
 import {Grid, Button, Dialog} from '@material-ui/core';
 import Background from '../assets/backgroundZoonvetAll.jpg'
+import BackgroundR from '../assets/backgroun_responsive_all.jpg'
+
 import {colors} from '../utils'
 import verTutorial from '../assets/comoingresar.svg'
 import './Main.css'
@@ -25,9 +27,13 @@ class Agenda extends React.Component {
     }
     render() {
         const min = window.innerWidth >= 1000
+        var back = Background;
+        if (!min) {
+            back = BackgroundR;
+        }
         console.log(window.innerWidth)
         return (
-            <div style={{marginTop: -120, flexDirection: 'row' ,backgroundImage:`url(${Background})`,backgroundSize:'cover',}}>
+            <div style={{marginTop: -120, flexDirection: 'row' ,backgroundImage:`url(${back})`,backgroundSize:'cover',}}>
                     <Grid item  style={{paddingLeft: 20, height:window.innerHeight,width:'100%'}}>
                         <Grid container direction='row' style={{ width:'100%',height:'100%'}}>
                             <Grid item sm={6} xs={12} style={{ }}>

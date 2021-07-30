@@ -7,6 +7,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import {Grid, Button} from '@material-ui/core';
 import './Main.css'
 import Background from '../assets/backgroundZoonvetAll.jpg'
+import BackgroundR from '../assets/backgroun_responsive_all.jpg'
+
 import enviar from '../assets/enviar.svg'
 
 
@@ -29,7 +31,7 @@ class Consulta extends React.Component {
             email: this.state.email,
             comment: this.state.men
          }
-        var response = fetch("https://4swa57ilx6.execute-api.sa-east-1.amazonaws.com/prod/comments", {
+        var response = fetch("https://pom2lkx5ei.execute-api.us-east-1.amazonaws.com/production/comments", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -79,10 +81,14 @@ class Consulta extends React.Component {
             email.test(this.state.email) === false
             ) {
                 buttondisabled = true;
-            }
+        }
+        var back = Background;
+        if (!min) {
+            back = BackgroundR;
+        }
         return (
             <div style={{width: '100%', flexDirection: 'row'}}>
-                    <Grid item xs={12} style={{marginTop: -70,height:window.innerHeight,backgroundImage:`url(${Background})`,backgroundSize:'cover'}}>
+                    <Grid item xs={12} style={{marginTop: -70,height:window.innerHeight,backgroundImage:`url(${back})`,backgroundSize:'cover'}}>
                         <Grid container direction='row' style={{ width:'100%',height:'100%'}}>
                             <Grid item sm={6} xs={12} style={{ }}>
                                 <Grid container direction='column' justify='center' alignItems={ min ? 'flex-end' : 'center' }style={{ height:'100%'}}>

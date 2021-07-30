@@ -99,7 +99,7 @@ class HomeView extends React.Component {
                 <div id='home' ref={this.scrollDivHome}>
                     <SliderHome />
                 </div>
-                 <div id='agenda' ref={this.scrollDivAgenda}>
+                 <div id='agenda' style={{ marginTop:50}} ref={this.scrollDivAgenda}>
                     <Agenda/>
                 </div>
                 <div id='evento' style={{ marginTop:50}}  ref={this.scrollDivEvento}>
