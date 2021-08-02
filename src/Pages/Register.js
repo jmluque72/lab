@@ -89,7 +89,7 @@ class Register extends React.Component {
             error: null,
             loading: true
         })
-        var  question1 = 1;
+        var question1 = 1;
         var question2 = 1;
         if (this.state.check2) {
             question1 = 2
@@ -120,6 +120,9 @@ class Register extends React.Component {
         }
         if (this.state.check10) {
             question2 = 4
+        }
+        if (this.state.check12) {
+            question2 = 12
         }
         const body = {
             first_name: this.state.first_name,
@@ -262,6 +265,7 @@ class Register extends React.Component {
                 check8: false,
                 check9: false,
                 check10: false,
+                check12: false,
             })
         }
         if (field == "check8") {
@@ -270,6 +274,8 @@ class Register extends React.Component {
                 check8: true,
                 check9: false,
                 check10: false,
+                check12: false,
+
             })
         }
         if (field == "check9") {
@@ -278,6 +284,8 @@ class Register extends React.Component {
                 check8: false,
                 check9: true,
                 check10: false,
+                check12: false,
+
             })
         }
         if (field == "check10") {
@@ -286,8 +294,20 @@ class Register extends React.Component {
                 check8: false,
                 check9: false,
                 check10: true,
+                check12: false,
             })
         }
+        if (field == "check12") {
+            this.setState({
+                check7: false,
+                check8: false,
+                check9: false,
+                check10: false,
+                check12: true,
+
+            })
+        }
+
     }
     render() {
         const height = window.innerHeight
@@ -317,8 +337,8 @@ class Register extends React.Component {
             if (!this.state.register) {
                 return (
                     <form onSubmit={(event) => this.onSubmit(event)}>
-                        <div style={{overflowY: 'scroll', display: 'flex' }}>
-                            <div style={{ display: 'flex', justifyContent: 'center', backgroundImage: `url(${Background})`, minHeight: h,  backgroundSize: 'cover' }}>
+                        <div style={{ overflowY: 'scroll', display: 'flex' }}>
+                            <div style={{ display: 'flex', justifyContent: 'center', backgroundImage: `url(${Background})`, minHeight: h, backgroundSize: 'cover' }}>
                                 <Grid container direction='row' styl={{ height: '100%' }}>
                                     {header}
                                     <Grid item xs={12} sm={9} md={8} lg={7} tyle={{}} >
@@ -393,7 +413,7 @@ class Register extends React.Component {
                                                         <span className='textForm'> Tel. Código de área </span>
                                                         <p className='textFormError'>{(this.state.phone1 == '' || this.state.phone2 == '') && this.state.send ? "Campo requerido" : ""}</p>
                                                     </Grid>
-                                                    <Grid item xs={12} sm={1} style={{paddingRight:5, alignItems: 'flex-end'}}>
+                                                    <Grid item xs={12} sm={1} style={{ paddingRight: 5, alignItems: 'flex-end' }}>
                                                         <p className='textForm'>0</p>
                                                         <p className='textFormError'>{this.state.phone2 == '' && this.state.send ? "Campo requerido" : ""}</p>
                                                     </Grid>
@@ -412,7 +432,7 @@ class Register extends React.Component {
                                                         >
                                                         </input>
                                                     </Grid>
-                                                    <Grid item xs={12} sm={2} style={{paddingRight: 5, alignItems: 'flex-end', display: 'flex', flexDirection: 'column' }}>
+                                                    <Grid item xs={12} sm={2} style={{ paddingRight: 5, alignItems: 'flex-end', display: 'flex', flexDirection: 'column' }}>
                                                         <p className='textForm'> 15</p>
                                                         <p className='textFormError'>{this.state.phone2 == '' && this.state.send ? "Campo requerido" : ""}</p>
                                                     </Grid>
@@ -453,7 +473,7 @@ class Register extends React.Component {
                                                     <Grid item xs={2} sm={2} style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 10 }}>
                                                         <p className='textForm' >Mes</p>
                                                     </Grid>
-    
+
                                                     <Grid item xs={2} sm={1} style={{}}>
                                                         <input
                                                             className="boxForm"
@@ -468,7 +488,7 @@ class Register extends React.Component {
                                                     <Grid item xs={2} sm={1} style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 10 }}>
                                                         <p className='textForm' >Año</p>
                                                     </Grid>
-    
+
                                                     <Grid item xs={2} sm={2} style={{}}>
                                                         <input
                                                             className="boxForm"
@@ -478,14 +498,14 @@ class Register extends React.Component {
                                                         >
                                                         </input>
                                                     </Grid>
-    
+
                                                 </Grid>
-    
+
                                                 <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
                                                     <Grid item xs={4} sm={2} style={{ flexDirection: 'column', alignItems: 'start', display: 'flex' }}>
                                                         <p className='textForm'>Localidad</p>
                                                         <p className='textFormError'>{this.state.city == '' && this.state.send ? "Campo requerido" : ""}</p>
-    
+
                                                     </Grid>
                                                     <Grid item xs={8} sm={4} style={{}}>
                                                         <input
@@ -522,7 +542,7 @@ class Register extends React.Component {
                                                         </input>
                                                     </Grid>
                                                 </Grid>
-    
+
                                                 <Grid item xs={12} sm={12} style={{ marginTop: 20, marginBotton: 20, alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
                                                     <p className='textForm'>¿Que funcion desempeña dentro del rubro veterinario?</p>
                                                 </Grid>
@@ -551,10 +571,10 @@ class Register extends React.Component {
                                                     </Grid>
                                                 </Grid>
                                                 <Grid style={{ alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
-                                                        <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
-                                                            <input type="radio" checked={this.state.check11} onChange={(value) => this.radioButton('check11', value)} /><span className='radioB'>Ninguna</span>
-                                                        </div>
-                                                    </Grid>
+                                                    <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
+                                                        <input type="radio" checked={this.state.check11} onChange={(value) => this.radioButton('check11', value)} /><span className='radioB'>Ninguna</span>
+                                                    </div>
+                                                </Grid>
 
                                                 <Grid item xs={12} sm={12} style={{ marginTop: 20, marginBotton: 20, alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
                                                     <p className='textForm'>Si usted es médico veterinario, usted se especializa en:</p>
@@ -577,14 +597,21 @@ class Register extends React.Component {
                                                         </div>
                                                     </Grid>
                                                 </Grid>
-                                                <Grid item xs={12} sm={12} style={{marginTop: 20,  alignItems: 'start', marginRigh: 40 }}>
-                                                    <div style={{ width: '100%',  display: 'flex', flexDirection: 'row', marginTop: 0, alignItems: 'start' }}>
+                                                <Grid style={{ alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
+                                                    <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
+                                                        <input type="radio" checked={this.state.check12} onChange={(value) => this.radioButton('check12', value)} /><span className='radioB'>Ninguna</span>
+                                                    </div>
+                                                </Grid>
+
+
+                                                <Grid item xs={12} sm={12} style={{ marginTop: 20, alignItems: 'start', marginRigh: 40 }}>
+                                                    <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 0, alignItems: 'start' }}>
                                                         <Grid item xs={2} sm={2} style={{ display: 'flex', padding: 10, alignItems: 'start' }}>
                                                             <div onClick={() => this.setState({ terms: !this.state.terms })} style={{ cursor: 'pointer', width: 16, height: 16, borderStyle: 'solid', borderWidth: 0, borderColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: ' 0 1px 4px 0 #000000' }}>
                                                                 <img src={check} style={{ width: '100%', display: this.state.terms ? 'flex' : 'none' }}></img>
                                                             </div>
                                                         </Grid>
-                                                        <Grid item xs={19} sm={10} style={{marginLeft: 10, display: 'flex', alignItems: 'start', marginTop: 10 }}>
+                                                        <Grid item xs={19} sm={10} style={{ marginLeft: 10, display: 'flex', alignItems: 'start', marginTop: 10 }}>
                                                             <p className='textForm' style={{ textAlign: 'left' }}>Acepto bases y condiciones</p>
                                                         </Grid>
                                                     </div>
@@ -593,13 +620,13 @@ class Register extends React.Component {
                                                             <p style={{ marginTop: 20, color: 'red', fontFamily: 'FiraSansMedium', fontSize: 14 }}>{this.state.error}</p>
                                                         </div>
                                                     }
-    
-                                                        <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 0, alignItems: 'center' }}>
-                                                            <p style={{ fontFamily: 'FiraSansMedium', fontSize: 10, color: '#465658', margin: 0, textAlign: 'left' }}>El aviso legal predeterminado que hay a continuación se mostrará a todo aquel que se inscriba al evento. Al marcar esta casilla envia su información al organizador del evento quien la utlizará para comunicarse con usted sobre este evento.</p>
-                                                        </div>
-                                                                                                        <Grid item xs={9} sm={11} style={{ display: 'flex', alignItems: 'center' }}>
-                                                        </Grid>
-    
+
+                                                    <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 0, alignItems: 'center' }}>
+                                                        <p style={{ fontFamily: 'FiraSansMedium', fontSize: 10, color: '#465658', margin: 0, textAlign: 'left' }}>El aviso legal predeterminado que hay a continuación se mostrará a todo aquel que se inscriba al evento. Al marcar esta casilla envia su información al organizador del evento quien la utlizará para comunicarse con usted sobre este evento.</p>
+                                                    </div>
+                                                    <Grid item xs={9} sm={11} style={{ display: 'flex', alignItems: 'center' }}>
+                                                    </Grid>
+
                                                     {this.state.loading ?
                                                         <Loader
                                                             type="Puff"
@@ -613,17 +640,16 @@ class Register extends React.Component {
                                                                 <img width='140px' height='auto' src={Registrarse}></img>
                                                             </button>
                                                         </div>
-    
+
                                                     }
-    
-    
-    
+
+
+
                                                 </Grid>
-    
+
                                             </Grid>
                                         </Grid>
-    
-    
+
                                     </Grid>
                                 </Grid>
                             </div>
@@ -651,16 +677,16 @@ class Register extends React.Component {
                                                             <p style={{ fontFamily: 'FiraSansMedium', letterSpacing: 0.9, fontSize: 20, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%' }}>TE REGISTRASTE SATISFACTORIAMENTE.</p>
                                                             <p style={{ fontFamily: 'FiraSansMedium', fontSize: 16, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>Revise su correo electrónico para confirmar su e-mail</p>
                                                             <p style={{ fontFamily: 'FiraSansMedium', fontSize: 14, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>No olvides chequear la carpeta SPAM</p>
-    
-    
-                                                            
+
+
+
                                                         </div>
                                                     </Grid>
                                                 </Grid>
                                             </Grid>
                                         </Grid>
                                     </Grid>
-    
+
                                 </Grid>
                             </div>
                         </div>
@@ -677,8 +703,8 @@ class Register extends React.Component {
             if (!this.state.register) {
                 return (
                     <form onSubmit={(event) => this.onSubmit(event)}>
-                        <div style={{overflowY: 'scroll', flex: 1, display: 'flex' }}>
-                            <div style={{ display: 'flex', justifyContent: 'center', backgroundImage: `url(${Background})`, minHeight: h,  backgroundSize: 'cover' }}>
+                        <div style={{ overflowY: 'scroll', flex: 1, display: 'flex' }}>
+                            <div style={{ display: 'flex', justifyContent: 'center', backgroundImage: `url(${Background})`, minHeight: h, backgroundSize: 'cover' }}>
                                 <Grid container direction='row' styl={{ height: '100%' }}>
                                     {header}
                                     <Grid item xs={12} sm={9} md={8} lg={7} tyle={{}} >
@@ -753,7 +779,7 @@ class Register extends React.Component {
                                                         <span className='textForm'> Tel. Código de área </span>
                                                         <p className='textFormError'>{(this.state.phone1 == '' || this.state.phone2 == '') && this.state.send ? "Campo requerido" : ""}</p>
                                                     </Grid>
-                                                    <Grid item xs={12} sm={2} style={{paddingRight: 5, alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
+                                                    <Grid item xs={12} sm={2} style={{ paddingRight: 5, alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
                                                         <p className='textForm'>0</p>
                                                         <p className='textFormError'>{this.state.phone2 == '' && this.state.send ? "Campo requerido" : ""}</p>
                                                     </Grid>
@@ -772,7 +798,7 @@ class Register extends React.Component {
                                                         >
                                                         </input>
                                                     </Grid>
-                                                    <Grid item xs={12} sm={2} style={{paddingRight: 5, alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
+                                                    <Grid item xs={12} sm={2} style={{ paddingRight: 5, alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
                                                         <p className='textForm'> 15</p>
                                                         <p className='textFormError'>{this.state.phone2 == '' && this.state.send ? "Campo requerido" : ""}</p>
                                                     </Grid>
@@ -799,7 +825,7 @@ class Register extends React.Component {
                                                     <Grid item xs={12} sm={12} style={{ display: 'flex', justifyContent: 'start' }}>
                                                         <p className='textForm'>Día</p>
                                                     </Grid>
-                                                    <Grid item xs={12} sm={12} style={{display: 'flex', justifyContent: 'start'}}>
+                                                    <Grid item xs={12} sm={12} style={{ display: 'flex', justifyContent: 'start' }}>
                                                         <input
                                                             className="boxForm"
                                                             type='number'
@@ -813,8 +839,8 @@ class Register extends React.Component {
                                                     <Grid item xs={2} sm={2} style={{ display: 'flex', justifyContent: 'start', paddingRight: 10 }}>
                                                         <p className='textForm' >Mes</p>
                                                     </Grid>
-    
-                                                    <Grid item xs={12} sm={12} style={{display: 'flex', justifyContent: 'start'}}>
+
+                                                    <Grid item xs={12} sm={12} style={{ display: 'flex', justifyContent: 'start' }}>
                                                         <input
                                                             className="boxForm"
                                                             type='number'
@@ -828,8 +854,8 @@ class Register extends React.Component {
                                                     <Grid item xs={2} sm={1} style={{ display: 'flex', justifyContent: 'start', paddingRight: 10 }}>
                                                         <p className='textForm' >Año</p>
                                                     </Grid>
-    
-                                                    <Grid item xs={12} sm={12} style={{display: 'flex', justifyContent: 'start'}}>
+
+                                                    <Grid item xs={12} sm={12} style={{ display: 'flex', justifyContent: 'start' }}>
                                                         <input
                                                             className="boxForm"
                                                             type='number'
@@ -838,14 +864,14 @@ class Register extends React.Component {
                                                         >
                                                         </input>
                                                     </Grid>
-    
+
                                                 </Grid>
-    
+
                                                 <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
                                                     <Grid item xs={4} sm={4} style={{ flexDirection: 'column', alignItems: 'start', display: 'flex' }}>
                                                         <p className='textForm'>Localidad</p>
                                                         <p className='textFormError'>{this.state.city == '' && this.state.send ? "Campo requerido" : ""}</p>
-    
+
                                                     </Grid>
                                                     <Grid item xs={8} sm={8} style={{}}>
                                                         <input
@@ -881,7 +907,7 @@ class Register extends React.Component {
                                                         </input>
                                                     </Grid>
                                                 </Grid>
-    
+
                                                 <Grid item xs={12} sm={12} style={{ marginTop: 20, marginBotton: 20, alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
                                                     <p className='textForm'>¿Que funcion desempeña dentro del rubro veterinario?</p>
                                                 </Grid>
@@ -910,11 +936,11 @@ class Register extends React.Component {
                                                     </Grid>
                                                 </Grid>
                                                 <Grid style={{ alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
-                                                        <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
-                                                            <input type="radio" checked={this.state.check11} onChange={(value) => this.radioButton('check11', value)} /><span className='radioB'>Ninguna</span>
-                                                        </div>
-                                                    </Grid>
-    
+                                                    <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
+                                                        <input type="radio" checked={this.state.check11} onChange={(value) => this.radioButton('check11', value)} /><span className='radioB'>Ninguna</span>
+                                                    </div>
+                                                </Grid>
+
                                                 <Grid item xs={12} sm={12} style={{ marginTop: 20, marginBotton: 20, alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
                                                     <p className='textForm'>Si usted es médico veterinario, usted se especializa en:</p>
                                                 </Grid>
@@ -936,14 +962,20 @@ class Register extends React.Component {
                                                         </div>
                                                     </Grid>
                                                 </Grid>
-                                                <Grid item xs={12} sm={12} style={{marginTop: 20,  alignItems: 'start', marginRigh: 40 }}>
-                                                    <div style={{ width: '100%',  display: 'flex', flexDirection: 'row', marginTop: 0, alignItems: 'start' }}>
+                                                <Grid style={{ alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
+                                                    <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
+                                                        <input type="radio" checked={this.state.check12} onChange={(value) => this.radioButton('check12', value)} /><span className='radioB'>Ninguna</span>
+                                                    </div>
+                                                </Grid>
+
+                                                <Grid item xs={12} sm={12} style={{ marginTop: 20, alignItems: 'start', marginRigh: 40 }}>
+                                                    <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 0, alignItems: 'start' }}>
                                                         <Grid item xs={2} sm={2} style={{ display: 'flex', padding: 10, alignItems: 'start' }}>
                                                             <div onClick={() => this.setState({ terms: !this.state.terms })} style={{ cursor: 'pointer', width: 16, height: 16, borderStyle: 'solid', borderWidth: 0, borderColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: ' 0 1px 4px 0 #000000' }}>
                                                                 <img src={check} style={{ width: '100%', display: this.state.terms ? 'flex' : 'none' }}></img>
                                                             </div>
                                                         </Grid>
-                                                        <Grid item xs={19} sm={10} style={{marginLeft: 10, display: 'flex', alignItems: 'start', marginTop: 10 }}>
+                                                        <Grid item xs={19} sm={10} style={{ marginLeft: 10, display: 'flex', alignItems: 'start', marginTop: 10 }}>
                                                             <p className='textForm' style={{ textAlign: 'left' }}>Acepto bases y condiciones</p>
                                                         </Grid>
                                                     </div>
@@ -952,13 +984,13 @@ class Register extends React.Component {
                                                             <p style={{ marginTop: 20, color: 'red', fontFamily: 'FiraSansMedium', fontSize: 14 }}>{this.state.error}</p>
                                                         </div>
                                                     }
-    
-                                                        <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 0, alignItems: 'center' }}>
-                                                            <p style={{ fontFamily: 'FiraSansMedium', fontSize: 10, color: '#465658', margin: 0, textAlign: 'left' }}>El aviso legal predeterminado que hay a continuación se mostrará a todo aquel que se inscriba al evento. Al marcar esta casilla envia su información al organizador del evento quien la utlizará para comunicarse con usted sobre este evento.</p>
-                                                        </div>
-                                                                                                        <Grid item xs={9} sm={11} style={{ display: 'flex', alignItems: 'center' }}>
-                                                        </Grid>
-    
+
+                                                    <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 0, alignItems: 'center' }}>
+                                                        <p style={{ fontFamily: 'FiraSansMedium', fontSize: 10, color: '#465658', margin: 0, textAlign: 'left' }}>El aviso legal predeterminado que hay a continuación se mostrará a todo aquel que se inscriba al evento. Al marcar esta casilla envia su información al organizador del evento quien la utlizará para comunicarse con usted sobre este evento.</p>
+                                                    </div>
+                                                    <Grid item xs={9} sm={11} style={{ display: 'flex', alignItems: 'center' }}>
+                                                    </Grid>
+
                                                     {this.state.loading ?
                                                         <Loader
                                                             type="Puff"
@@ -972,17 +1004,17 @@ class Register extends React.Component {
                                                                 <img width='140px' height='auto' src={Registrarse}></img>
                                                             </button>
                                                         </div>
-    
+
                                                     }
-    
-    
-    
+
+
+
                                                 </Grid>
-    
+
                                             </Grid>
                                         </Grid>
-    
-    
+
+
                                     </Grid>
                                 </Grid>
                             </div>
@@ -1010,16 +1042,16 @@ class Register extends React.Component {
                                                             <p style={{ fontFamily: 'FiraSansMedium', letterSpacing: 0.9, fontSize: 20, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%' }}>TE REGISTRASTE SATISFACTORIAMENTE.</p>
                                                             <p style={{ fontFamily: 'FiraSansMedium', fontSize: 16, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>Revise su correo electrónico para confirmar su e-mail</p>
                                                             <p style={{ fontFamily: 'FiraSansMedium', fontSize: 14, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>No olvides chequear la carpeta SPAM</p>
-    
-    
-                                                            
+
+
+
                                                         </div>
                                                     </Grid>
                                                 </Grid>
                                             </Grid>
                                         </Grid>
                                     </Grid>
-    
+
                                 </Grid>
                             </div>
                         </div>
@@ -1030,7 +1062,7 @@ class Register extends React.Component {
 
 
         }
-        
+
 
     }
 }
