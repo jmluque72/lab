@@ -29,8 +29,12 @@ class Agenda extends React.Component {
         const min = window.innerWidth >= 1000
         var back = Background;
         var margin = 0
+        var font1 = 18
+        var font2 = 16
         if (!min) {
-            margin = 20
+            margin = 10
+            font1 = 14;
+            font2 = 12;
             back = BackgroundR;
         }
         console.log(window.innerWidth)
@@ -44,15 +48,15 @@ class Agenda extends React.Component {
                                     <div style={{width:150,height:20,background:'#f0f0f0'}}></div>
                                 </Grid>
                             </Grid>
-                            <Grid item sm={6} xs={12} style={{marginLeft: margin, marginRight: margin,  marginTop: min ? '' : 20}}>
+                            <Grid item sm={6} xs={12} style={{marginLeft: margin, marginRight: margin,  marginTop: min ? 0 : -20}}>
                                 <Grid container direction='column' justify={ min ? 'center' :'' }alignItems={ min ? 'flex-start' : 'left' }style={{ height:'100%', marginRight: 30}}>
-                                    <p style={{ fontFamily:'FiraSansBook',fontSize:18,color:'white',textAlign:min ? 'left' : 'left',lineHeight:1,width:'60%',marginLeft: min ? '10%' : '', }}>El día del evento deberás seguir los siguientes pasos </p>
-                                    <ol style={{ fontFamily:'FiraSansBook',fontSize:16,color:'white',marginLeft: min ? '10%' : '',lineHeight:1.4, paddingRight: 30 }}>
+                                    <p style={{ fontFamily:'FiraSansBook',fontSize:font1,color:'white',textAlign:min ? 'left' : 'left',lineHeight:1,width:'60%',marginLeft: min ? '10%' : '', }}>El día del evento deberás seguir los siguientes pasos </p>
+                                    <ol style={{ fontFamily:'FiraSansBook',fontSize:font2,color:'white',marginLeft: min ? '10%' : '',lineHeight:1.4, paddingRight: '10%' }}>
                                         <li style={{textAlign: 'left'}}>Ingresá a nuestro sitio web www.diadelveterinariozoovet.com.ar  </li>
                                         <li style={{textAlign: 'left'}}>Deberás iniciar sesión con tu usuario ( email ) y contraseña que fue enviada cuando realizaste la inscripción</li>
                                         <li style={{textAlign: 'left'}}>Una vez iniciada la sesión, deberás hacer click en el botón que dice "Ingresar al evento"  que aparecerá cuando finalice la cuenta regresiva.</li>
                                     </ol>
-                                    <div style={{ fontFamily:'FiraSansBook',fontSize:18,color:'white',marginLeft: min ? '10%' : '',lineHeight:1.4 }}>
+                                    <div style={{ fontFamily:'FiraSansBook',fontSize:font1,color:'white',marginLeft: min ? '10%' : '',lineHeight:1.4 }}>
                                         <p style={{fontFamily:'FiraSansBook', textAlign: 'left', fontSize: 16, marginTop: 10, marginBottom: 10, color: 'white'}}> Algunos consejos</p>
                                         <ul>
                                             <li style={{fontFamily:'FiraSansBook', textAlign: 'left'}}>  Asegúrate de tener una conexión estable a internet.</li>
