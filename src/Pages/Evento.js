@@ -59,8 +59,8 @@ class Agenda extends React.Component {
                                     <div style={{ fontFamily:'FiraSansBook',fontSize:font1,color:'white',marginLeft: min ? '10%' : '',lineHeight:1.4 }}>
                                         <p style={{fontFamily:'FiraSansBook', textAlign: 'left', fontSize: 16, marginTop: 10, marginBottom: 10, color: 'white'}}> Algunos consejos</p>
                                         <ul>
-                                            <li style={{fontFamily:'FiraSansBook', textAlign: 'left'}}>  Asegúrate de tener una conexión estable a internet.</li>
-                                            <li style={{fontFamily:'FiraSansBook' ,textAlign: 'left'}}>  Recomendamos ver el evento en un dispositivo como una PC , notebook o tablet para una mejor visualización y en posición horizontal. </li>
+                                            <li style={{fontFamily:'FiraSansBook', textAlign: 'left', marginRight: 20}}>  Asegúrate de tener una conexión estable a internet.</li>
+                                            <li style={{fontFamily:'FiraSansBook' ,textAlign: 'left', marginRight: 20}}>  Recomendamos ver el evento en un dispositivo como una PC , notebook o tablet para una mejor visualización y en posición horizontal. </li>
                                     </ul>
                                     </div>
                                     <Button onClick={() => this.setState({ video : true})} style={{ }}>
