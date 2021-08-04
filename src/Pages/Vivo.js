@@ -24,10 +24,10 @@ class Vivo extends React.Component {
             pause: true,
             hasResponse: false,
             question_process: null,
-            url_video_es: "https://vimeo.com/event/1069341/embed/2a41cddde9",
-            url_video_en: "https://vimeo.com/event/1069341/embed/2a41cddde9",
-            url_chat_es: "https://vimeo.com/event/1069341/chat/2a41cddde9",
-            url_chat_en: "https://vimeo.com/event/1069341/chat/2a41cddde9",
+            url_video_es: "https://vimeo.com/event/1183899/embed/d437fc6ef8",
+            url_video_en: "https://vimeo.com/event/1183899/embed/d437fc6ef8",
+            url_chat_es: "https://vimeo.com/event/1183899/chat/d437fc6ef8",
+            url_chat_en: "https://vimeo.com/event/1183899/chat/d437fc6ef8",
             client: null,
             loading: false
         };
@@ -256,8 +256,6 @@ class Vivo extends React.Component {
         if (this.state.question && this.state.question.responseServer == 1) {
             valueResponse = "Verdadero";
         }
-
-
         if (min) {
             return (
                 <div style={{ width: '100%', flexDirection: 'row' }}>
