@@ -99,9 +99,6 @@ class Form extends React.Component {
       
         return (    
             <div style={{height:'100%',display:'flex',flexDirection:'column',marginBottom:10}}>
-                <div style={{ width:'100%',height: window.innerHeight*1,backgroundImage:`url(${background})`,backgroundSize:'cover',backgroundPosition:'center bottom',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                    <img src={logoEC21} height='auto' width='40%'></img> 
-                </div>
                 <div style={{position:'absolute', top:window.innerHeight - margenTop,left:0,height:this.state.heightForm + margenTop,width:'8%',backgroundImage:`url(${margen})`,backgroundSize:'cover'}}></div>
 
                 {/* <div style={{height:'100%',width:22,position:'fixed',top:0,left:0,background:colors.degrade_orange}}></div> */}
@@ -112,10 +109,65 @@ class Form extends React.Component {
                                 <p style={{marginLeft: 20, marginRight: 20, color:colors.gray,fontFamily:'FrutigerBlack',fontSize:14,textAlign:'center'}}>Muchas gracias por ser parte del “Encuentro de Colaboradores 2021”.</p>
                                 <p style={{color:colors.gray,fontFamily:'FrutigerBlack',fontSize:14,textAlign:'center',width:'80%'}}>A continuación, vas a encontrar una serie de preguntas para comprender aquellos elementos que más valor te aportan a vos. De esta manera seguiremos diseñando eventos que cumplan todas sus expectativas.</p>
                             </div>
+                            <div style={{ width:'70%',background:gray,position:'relative',borderRadius:12,marginTop:20,paddingLeft:'2.5%',paddingRight:'2.5%',paddingTop:20,paddingBottom:20}}>
+                                <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:azul,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
+                                <Grid container direction='column' style={{width:'100%',height:'100%'}}>
+                                    <div style={{ width:'100%'}}>
+                                        <p className='title'>1. ¿Sos cliente de Zoovet?</p>
+                                    </div>
+                                    <Grid container direction={'column'} style={{marginLeft: 5}}>
+                                        <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
+                                            <div onClick={() => this.setState({ modalidad : 1})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                {this.state.modalidad == 1 && (
+                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
+                                                )}
+                                            </div>
+                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>Si</p>
+                                        </Grid>
+                                        <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
+                                            <div onClick={() => this.setState({ modalidad : 2})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                {this.state.modalidad == 2 && (
+                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
+                                                )}
+                                            </div>
+                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>No</p>
+                                        </Grid>
+                                        <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
+                                            <div onClick={() => this.setState({ modalidad : 3})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                {this.state.modalidad == 3 && (
+                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
+                                                )}
+                                            </div>
+                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>En parte</p>
+                                        </Grid>
+                                        <div style={{ width:'100%',height:15,borderBottomStyle:'dotted',borderWidth:2,marginTop:10}}></div>
+                                        <div    style={{ width:'100%',marginTop:20}}>
+                                            <p className='title'>Si tu respuesta fue “No” o “En parte”, ¿Qué cambiarías / agregarías?</p>
+                                        </div>
+                                        <input
+                                            style={{ backgroundColor:'transparent',
+                                            width:'100%',
+                                            height:'100%',
+                                            border:'none',
+                                            borderBottomStyle:'solid',
+                                            borderWidth:1,
+                                            borderColor:'gray',
+                                            marginTop:5,
+                                            padding:5}}
+                                            placeholder='Su respuesta'
+                                            required={this.state.modalidad > 1}
+                                            className='no-outline'
+                                            onChange={(event) => this.setState({ modalidadComment : event.target.value})}
+
+                                        >
+                                        </input>
+                                    </Grid>
+                                </Grid>
+                            </div>
                             <div style={{width:'70%',background:gray,position:'relative',borderRadius:12,marginTop:20,paddingLeft:'2.5%',paddingRight:'2.5%',paddingTop:20,paddingBottom:20}}>
                                 <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                     <div style={{ width:'100%'}}>
-                                        <p className='title'>1. Calificación general del evento</p>
+                                        <p className='title'>2. Calificación general del evento CON NÚMERO DE ESCALA</p>
                                         <p style={{color:'black',fontFamily:'FrutigerRoman',textAlign:'left',fontSize:14,margin:0, marginLeft: 5}}>(De 1 a 5, donde 1 es muy malo, 2 malo, 3 bueno, 4 muy bueno y 5 excelente)</p>
                                     </div>
                                     <Grid container direction={!min? 'column' : 'row'} >
@@ -165,38 +217,75 @@ class Form extends React.Component {
                             </div>
                             <div style={{ width:'70%',background:gray,position:'relative',borderRadius:12,marginTop:20,paddingLeft:'2.5%',paddingRight:'2.5%',paddingTop:20,paddingBottom:20}}>
                                 <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:azul,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
+                                <Grid container direction='row' style={{width:'100%',height:'100%'}}>
+                                    <div style={{ width:'100%'}}>
+                                        <p className='title'>3.¿Cómo te enteraste del evento?</p>
+                                    </div>
+                                    <Grid container direction={'row'} style={{marginLeft: 5}}>
+                                        <Grid item sm={3} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
+                                            <div onClick={() => this.setState({ compartir : 1})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                {this.state.compartir == 1 && (
+                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
+                                                )}
+                                            </div>
+                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>Familia</p>
+                                        </Grid>
+                                        <Grid item sm={3} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
+                                            <div onClick={() => this.setState({ compartir : 2})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                {this.state.compartir == 2 && (
+                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
+                                                )}
+                                            </div>
+                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>Amig@s</p>
+                                        </Grid>
+                                        <Grid item sm={3} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
+                                            <div onClick={() => this.setState({ compartir : 3})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                {this.state.compartir == 3 && (
+                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
+                                                )}
+                                            </div>
+                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>Compañer@s de trabajo.</p>
+                                        </Grid>
+                                        <Grid item sm={3} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+                                            <div onClick={() => this.setState({ compartir : 4})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                {this.state.compartir == 4 && (
+                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
+                                                )}
+                                            </div>
+                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>Sol@</p>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </div>
+                            <div style={{width:'70%',background:gray,position:'relative',borderRadius:12,marginTop:20,paddingLeft:'2.5%',paddingRight:'2.5%',paddingTop:20,paddingBottom:20}}>
                                 <Grid container direction='column' style={{width:'100%',height:'100%'}}>
                                     <div style={{ width:'100%'}}>
-                                        <p className='title'>2. ¿Te gustó la modalidad Streaming?</p>
+                                        <p className='title'>4. ¿Te gustaron los juegos interactivos?</p>
+                                        <p style={{color:'black',fontFamily:'FrutigerRoman',textAlign:'left',fontSize:14,margin:0, marginLeft: 5}}>(De 1 a 5, donde 1 es muy malo, 2 malo, 3 bueno, 4 muy bueno y 5 excelente)</p>
                                     </div>
-                                    <Grid container direction={'column'} style={{marginLeft: 5}}>
-                                        <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
-                                            <div onClick={() => this.setState({ modalidad : 1})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                                                {this.state.modalidad == 1 && (
-                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
-                                                )}
-                                            </div>
-                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>Si</p>
+                                    <Grid container direction={!min? 'column' : 'row'} >
+                                        <Grid item sm={1} style={{marginTop:10,display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                                            <p style={{margin:0,fontSize:18,color:'black',fontFamily:'FrutigerBlack',marginRight:5}}>1</p>
+                                            <img onClick={() => this.setState({ calificacionSelect : 1})} width='25px' height='auto' src={this.state.calificacionSelect === 1 ? starSelected : star} style={{cursor:'pointer'}}></img>
                                         </Grid>
-                                        <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
-                                            <div onClick={() => this.setState({ modalidad : 2})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                                                {this.state.modalidad == 2 && (
-                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
-                                                )}
-                                            </div>
-                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>No</p>
+                                        <Grid item sm={1} style={{marginTop:10,display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                                            <p style={{margin:0,fontSize:18,color:'black',fontFamily:'FrutigerBlack',marginRight:5}}>2</p>
+                                            <img onClick={() => this.setState({ calificacionSelect : 2})} width='25px' height='auto' src={this.state.calificacionSelect === 2 ? starSelected : star} style={{cursor:'pointer'}}></img>
                                         </Grid>
-                                        <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
-                                            <div onClick={() => this.setState({ modalidad : 3})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                                                {this.state.modalidad == 3 && (
-                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
-                                                )}
-                                            </div>
-                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>En parte</p>
+                                        <Grid item sm={1} style={{marginTop:10,display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                                            <p style={{margin:0,fontSize:18,color:'black',fontFamily:'FrutigerBlack',marginRight:5}}>3</p>
+                                            <img onClick={() => this.setState({ calificacionSelect : 3})} width='25px' height='auto' src={this.state.calificacionSelect === 3 ? starSelected : star} style={{cursor:'pointer'}}></img>
                                         </Grid>
-                                        <div style={{ width:'100%',height:15,borderBottomStyle:'dotted',borderWidth:2,marginTop:10}}></div>
-                                        <div    style={{ width:'100%',marginTop:20}}>
-                                            <p className='title'>Si tu respuesta fue “No” o “En parte”, ¿Qué cambiarías / agregarías?</p>
+                                        <Grid item sm={1} style={{marginTop:10,display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                                            <p style={{margin:0,fontSize:18,color:'black',fontFamily:'FrutigerBlack',marginRight:5}}>4</p>
+                                            <img onClick={() => this.setState({ calificacionSelect : 4})} width='25px' height='auto' src={this.state.calificacionSelect === 4 ? starSelected : star} style={{cursor:'pointer'}}></img>
+                                        </Grid>
+                                        <Grid item sm={1} style={{marginTop:10,display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                                            <p style={{margin:0,fontSize:18,color:'black',fontFamily:'FrutigerBlack',marginRight:5}}>5</p>
+                                            <img onClick={() => this.setState({ calificacionSelect : 5})} width='25px' height='auto' src={this.state.calificacionSelect === 5 ? starSelected : star} style={{cursor:'pointer'}}></img>
+                                        </Grid>
+                                        <div style={{ width:'100%',marginTop:20}}>
+                                            <p style={{color:'black',fontFamily:'FrutigerBold',textAlign:'left',fontSize:16,margin:0, marginLeft: 5}}>¿Qué mejoraría?</p>
                                         </div>
                                         <input
                                             style={{ backgroundColor:'transparent',
@@ -209,9 +298,107 @@ class Form extends React.Component {
                                             marginTop:5,
                                             padding:5}}
                                             placeholder='Su respuesta'
-                                            required={this.state.modalidad > 1}
                                             className='no-outline'
-                                            onChange={(event) => this.setState({ modalidadComment : event.target.value})}
+                                            onChange={(event) => this.setState({ calificacionComment : event.target.value})}
+
+                                        >
+                                        </input>
+                                    </Grid>
+                                </Grid>
+                                <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:azul,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
+
+                            </div>
+                            <div style={{width:'70%',background:gray,position:'relative',borderRadius:12,marginTop:20,paddingLeft:'2.5%',paddingRight:'2.5%',paddingTop:20,paddingBottom:20}}>
+                                <Grid container direction='column' style={{width:'100%',height:'100%'}}>
+                                    <div style={{ width:'100%'}}>
+                                        <p className='title'>5. ¿Qué te pareció el contenido artístico del evento?</p>
+                                        <p style={{color:'black',fontFamily:'FrutigerRoman',textAlign:'left',fontSize:14,margin:0, marginLeft: 5}}>(De 1 a 5, donde 1 es muy malo, 2 malo, 3 bueno, 4 muy bueno y 5 excelente)</p>
+                                    </div>
+                                    <Grid container direction={!min? 'column' : 'row'} >
+                                        <Grid item sm={1} style={{marginTop:10,display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                                            <p style={{margin:0,fontSize:18,color:'black',fontFamily:'FrutigerBlack',marginRight:5}}>1</p>
+                                            <img onClick={() => this.setState({ calificacionSelect : 1})} width='25px' height='auto' src={this.state.calificacionSelect === 1 ? starSelected : star} style={{cursor:'pointer'}}></img>
+                                        </Grid>
+                                        <Grid item sm={1} style={{marginTop:10,display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                                            <p style={{margin:0,fontSize:18,color:'black',fontFamily:'FrutigerBlack',marginRight:5}}>2</p>
+                                            <img onClick={() => this.setState({ calificacionSelect : 2})} width='25px' height='auto' src={this.state.calificacionSelect === 2 ? starSelected : star} style={{cursor:'pointer'}}></img>
+                                        </Grid>
+                                        <Grid item sm={1} style={{marginTop:10,display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                                            <p style={{margin:0,fontSize:18,color:'black',fontFamily:'FrutigerBlack',marginRight:5}}>3</p>
+                                            <img onClick={() => this.setState({ calificacionSelect : 3})} width='25px' height='auto' src={this.state.calificacionSelect === 3 ? starSelected : star} style={{cursor:'pointer'}}></img>
+                                        </Grid>
+                                        <Grid item sm={1} style={{marginTop:10,display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                                            <p style={{margin:0,fontSize:18,color:'black',fontFamily:'FrutigerBlack',marginRight:5}}>4</p>
+                                            <img onClick={() => this.setState({ calificacionSelect : 4})} width='25px' height='auto' src={this.state.calificacionSelect === 4 ? starSelected : star} style={{cursor:'pointer'}}></img>
+                                        </Grid>
+                                        <Grid item sm={1} style={{marginTop:10,display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                                            <p style={{margin:0,fontSize:18,color:'black',fontFamily:'FrutigerBlack',marginRight:5}}>5</p>
+                                            <img onClick={() => this.setState({ calificacionSelect : 5})} width='25px' height='auto' src={this.state.calificacionSelect === 5 ? starSelected : star} style={{cursor:'pointer'}}></img>
+                                        </Grid>
+                                        <div style={{ width:'100%',marginTop:20}}>
+                                            <p style={{color:'black',fontFamily:'FrutigerBold',textAlign:'left',fontSize:16,margin:0, marginLeft: 5}}>¿Qué mejoraría?</p>
+                                        </div>
+                                        <input
+                                            style={{ backgroundColor:'transparent',
+                                            width:'100%',
+                                            height:'100%',
+                                            border:'none',
+                                            borderBottomStyle:'solid',
+                                            borderWidth:1,
+                                            borderColor:'gray',
+                                            marginTop:5,
+                                            padding:5}}
+                                            placeholder='Su respuesta'
+                                            className='no-outline'
+                                            onChange={(event) => this.setState({ calificacionComment : event.target.value})}
+
+                                        >
+                                        </input>
+                                    </Grid>
+                                </Grid>
+                                <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:azul,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
+
+                            </div>
+
+                            <div style={{ width:'70%',background:gray,position:'relative',borderRadius:12,marginTop:20,paddingLeft:'2.5%',paddingRight:'2.5%',paddingTop:20,paddingBottom:20}}>
+                                <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:azul,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
+                                <Grid container direction='column' style={{width:'100%',height:'100%'}}>
+                                    <div style={{ width:'100%'}}>
+                                        <p className='title'>12. Luego de lo vivido, ¿recomendarías a tus compañeros sumarte al Encuentro de Colaboradores el próximo año? ¿Por qué?</p>
+                                    </div>
+                                    <Grid container direction={'column'} style={{marginLeft: 5}}>
+                                        <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
+                                            <div onClick={() => this.setState({ recomendar : 1})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                {this.state.recomendar == 1 && (
+                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
+                                                )}
+                                            </div>
+                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>Si</p>
+                                        </Grid>
+                                        <Grid item sm={12} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
+                                            <div onClick={() => this.setState({ recomendar : 2})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                                                {this.state.recomendar == 2 && (
+                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
+                                                )}
+                                            </div>
+                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>No</p>
+                                        </Grid>
+                                        <div    style={{ width:'100%',marginTop:20}}>
+                                            <p className='title'>Justifique su respuesta</p>
+                                        </div>
+                                        <input
+                                            style={{ backgroundColor:'transparent',
+                                            width:'100%',
+                                            height:'100%',
+                                            border:'none',
+                                            borderBottomStyle:'solid',
+                                            borderWidth:1,
+                                            borderColor:'gray',
+                                            marginTop:5,
+                                            padding:5}}
+                                            placeholder='Su respuesta'
+                                            className='no-outline'
+                                            onChange={(event) => this.setState({ recomendarComment : event.target.value})}
 
                                         >
                                         </input>
@@ -448,48 +635,7 @@ class Form extends React.Component {
                                     </Grid>
                                 </Grid>
                             </div>
-                            <div style={{ width:'70%',background:gray,position:'relative',borderRadius:12,marginTop:20,paddingLeft:'2.5%',paddingRight:'2.5%',paddingTop:20,paddingBottom:20}}>
-                                <div style={{height:'100%',width:12,position:'absolute',top:0,left:0,background:azul,borderTopLeftRadius:10,borderBottomLeftRadius:12}}></div>
-                                <Grid container direction='row' style={{width:'100%',height:'100%'}}>
-                                    <div style={{ width:'100%'}}>
-                                        <p className='title'>9. ¿Con quién compartiste la fiesta?</p>
-                                    </div>
-                                    <Grid container direction={'row'} style={{marginLeft: 5}}>
-                                        <Grid item sm={3} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
-                                            <div onClick={() => this.setState({ compartir : 1})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                                                {this.state.compartir == 1 && (
-                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
-                                                )}
-                                            </div>
-                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>Familia</p>
-                                        </Grid>
-                                        <Grid item sm={3} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
-                                            <div onClick={() => this.setState({ compartir : 2})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                                                {this.state.compartir == 2 && (
-                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
-                                                )}
-                                            </div>
-                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>Amig@s</p>
-                                        </Grid>
-                                        <Grid item sm={3} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center'}}>
-                                            <div onClick={() => this.setState({ compartir : 3})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                                                {this.state.compartir == 3 && (
-                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
-                                                )}
-                                            </div>
-                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>Compañer@s de trabajo.</p>
-                                        </Grid>
-                                        <Grid item sm={3} style={{marginTop:10,display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
-                                            <div onClick={() => this.setState({ compartir : 4})} style={{ width:15,boxShadow:' 0 1px 2px 0 black',height:15,borderStyle:'solid',borderColor:'black',borderWidth:1,borderRadius:7.5,backgroundColor:'white',cursor:'pointer',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                                                {this.state.compartir == 4 && (
-                                                    <div style={{width:7,height:7,borderRadius:3.5,backgroundColor:'black'}}></div>
-                                                )}
-                                            </div>
-                                            <p style={{margin:0,fontSize:16,color:'black',fontFamily:'FrutigerBold',marginLeft:10}}>Sol@</p>
-                                        </Grid>
-                                    </Grid>
-                                </Grid>
-                            </div>
+                            
                             <div style={{ width:'70%',display:'flex',flexDirection:'row'}}>
                                 <div style={{ width:'20%',display:'flex',justifyContent:'flex-end',alignItems:'flex-start',paddingRight:15,paddingTop:15}}>
                                     <img src={arrow} width='35%' height='auto'></img>
@@ -608,17 +754,6 @@ class Form extends React.Component {
                     </form>
                 </Grid>
                     
-                <div style={{ width:'100%',height:40,display:'flex',flexDirection:'row',alignItems:'center',marginTop:20}}>
-                    <div style={{ width:min ? '70%' : '35%',height:'50%',backgroundColor:azul}}></div>
-                    <div style={{ width:min ? '10%' : '25%',display:'flex',flexDirection:'row',justifyContent:'center'}}>
-                        <p style={{color:azul,fontFamily:'FrutigerBlack',fontSize:16,margin:0,textAlign:'center'}}>Recursos Humanos</p>
-                    </div>
-                    <div style={{ width:min ? '10%' : '30%',display:'flex',justifyContent:'center'}}>
-                        <img src={logo} width='50%'></img>
-                    </div>
-                    <div style={{ width:'10%',height:'50%',backgroundColor:azul}}></div>
-
-                </div>
 
             </div>
         );

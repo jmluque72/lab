@@ -269,7 +269,7 @@ class Vivo extends React.Component {
                     <Grid item xs={12} style={{ height: window.innerHeight, position: 'absolute', top: 0, left: 0, width: '100%', paddingBottom: 50 }}>
                         <Grid container direction='column'>
                             <Grid md={12} style={{ padding: 10 }}></Grid>
-                            <Grid md={12} container direction='row' justify='space-between' style={{ height: 70, paddingRight: 15, paddingLeft: 15 }}>
+                            <Grid md={12} container direction='row' justify='space-between' style={{  paddingRight: 15, paddingLeft: 15 }}>
                                 <div style={{ height: '100%', width: '70%' }}>
                                     <p style={{ fontFamily: 'FiraSansUltra', padding: 10, marginLeft: marginLeft, fontSize: 55, color: 'white' }}>¡NUESTRA FIESTA!</p>
                                 </div>
@@ -302,7 +302,7 @@ class Vivo extends React.Component {
                     <Grid item xs={12} style={{ height: window.innerHeight - 100, position: 'absolute', top: 0, left: 0, width: '100%', paddingBottom: 50 }}>
                         <Grid container direction='column'>
                             <Grid xs={12} style={{ padding: 10 }}></Grid>
-                            <Grid container direction='row' justify='space-between' style={{ height: 70, paddingRight: 15, paddingLeft: 15 }}>
+                            <Grid container direction='row' justify='space-between' style={{  paddingRight: 15, paddingLeft: 15 }}>
                                 <div style={{ height: '100%', width: '100%' }}>
                                     <p style={{ fontFamily: 'FiraSansUltra', padding: 10, marginLeft: marginLeft, fontSize: 35, color: 'white' }}>DONDE NOS ENCONTRAMOS TODOS!</p>
                                 </div>
