@@ -221,7 +221,7 @@ class Vivo extends React.Component {
     }
 
     play = () => {
-        window.open("https://quizizz.com/join?gc=665780", "_blank");
+        window.open("https://quizizz.com/join?class=O305839", "_blank");
     }
 
     render() {
