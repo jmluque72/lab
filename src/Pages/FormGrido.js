@@ -357,6 +357,7 @@ class Form extends React.Component {
                                         }}
                                         placeholder='Su respuesta'
                                         className='no-outline'
+                                        required={true}
                                         onChange={(event) => this.setState({ question7: event.target.value })}
 
                                     >
@@ -428,6 +429,8 @@ class Form extends React.Component {
                                         }}
                                         placeholder='Su respuesta'
                                         className='no-outline'
+                                        required={true}
+
                                         onChange={(event) => this.setState({ question8_t: event.target.value })}
 
                                     >
