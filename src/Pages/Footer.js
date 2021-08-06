@@ -66,7 +66,7 @@ class Footer extends React.Component {
             sec: parseInt(remainingSeconds)
         });
         console.log(seconds)
-        if (seconds < 12000) {
+        if (seconds < 1200) {
             this.setState({
                 stoped: true
             })
