@@ -65,8 +65,8 @@ class Footer extends React.Component {
             hours: hours,
             sec: parseInt(remainingSeconds)
         });
-
-        if (seconds < 1200) {
+        console.log(seconds)
+        if (seconds < 12000) {
             this.setState({
                 stoped: true
             })
@@ -139,9 +139,9 @@ class Footer extends React.Component {
             )
 
         }
-        if (false) {
+        if (this.state.stoped) {
             return (
-                <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0,   background: 'rgb(277,7,27)'  }}>
+                <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0,   background: '#5C575D'  }}>
                     <p className='timeTitle_ing' onClick={this.goToVivo}>INGRESAR AL EVENTO</p>
                 </div>
             )
