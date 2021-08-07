@@ -131,15 +131,18 @@ class Footer extends React.Component {
         //        if (this.state.days <= 0 && this.state.hours <= 0 && this.state.min <= 15) {
 
         
-        if (false) {
+        if (true) {
             return (
-                <div style={{ display: display, position: 'fixed', height: 100,  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: 'rgb(277,7,27)' }}>
+                <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: '#5C575D' }}>
+                    <p className='timeTitle_gracias'>Gracias por participar</p>
+                    <p className='timeTitle_gracias_link' onClick={this.goToForm}>Por favor complete la encuenta</p>
 
                 </div>
             )
 
+
         }
-        if (this.state.stoped) {
+        if (false) {
             return (
                 <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0,   background: '#5C575D'  }}>
                     <p className='timeTitle_ing' onClick={this.goToVivo}>INGRESAR AL EVENTO</p>
