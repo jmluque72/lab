@@ -47,6 +47,8 @@ class Form extends React.Component {
 
     send_form(event) {
         // send
+
+        // send
         event.preventDefault()
         this.setState({ error: null });
         const context = {
