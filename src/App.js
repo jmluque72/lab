@@ -19,7 +19,7 @@ function App() {
   const cookies = new Cookies();
   var is_reg = cookies.get('username')
   var goto = <Home />
-
+  // hola
   if (document.location.href.endsWith('Form')) {
     return (
       <FormGrido/>
