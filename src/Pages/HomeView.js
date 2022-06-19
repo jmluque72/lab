@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Header from './Header.js'
 import SliderHome from './SliderHome.js'
 import Agenda from './Agenda.js'
-import Oradores from './Oradores.js'
+
 import Evento from './Evento.js'
 import Consultas from './Consulta.js'
 import Contacto from './Contacto.js'
@@ -27,7 +27,7 @@ class HomeView extends React.Component {
         this.scrollDivOradores = React.createRef();
         this.scrollDivConsultas = React.createRef();
 
-        
+
     }
 
     redirect = (name) => {
@@ -39,10 +39,7 @@ class HomeView extends React.Component {
             this.setState({visible: 'agenda'});
             window.scrollTo(0, this.scrollDivAgenda.current.offsetTop-100);
         }
-        if (name == 'Oradores') {
-            this.setState({visible: 'oradores'});
-            window.scrollTo(0, this.scrollDivOradores.current.offsetTop-100);
-        }
+
         if (name == 'Evento') {
             this.setState({visible: 'evento'});
             window.scrollTo(0, this.scrollDivEvento.current.offsetTop-100);
@@ -59,13 +56,10 @@ class HomeView extends React.Component {
 
     componentDidMount() {
         window.addEventListener('scroll', (event) => {
-            if (window.innerWidth < 1000) {
-                return;
-            }
-
             var current = "home";
             var offset = window.pageYOffset + 200;
-            console.log(offset);
+
+
             if (document.getElementById("home").offsetTop < offset) current = "home";
             if (document.getElementById("agenda").offsetTop < offset) current = "agenda";
             if (document.getElementById("evento").offsetTop < offset) current = "evento";
@@ -77,9 +71,10 @@ class HomeView extends React.Component {
         });
     }
 
-    
+
 
     isScrolledIntoView = (el) => {
+
         var rect = el.getBoundingClientRect();
         var elemTop = rect.top;
         var elemBottom = rect.bottom;
@@ -89,7 +84,7 @@ class HomeView extends React.Component {
         //isVisible = elemTop < window.innerHeight && elemBottom >= 0;
         return isVisible;
     }
-    
+
 
     render() {
 

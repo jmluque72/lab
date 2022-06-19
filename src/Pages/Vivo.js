@@ -269,18 +269,18 @@ class Vivo extends React.Component {
                     <Grid item xs={12} style={{ height: window.innerHeight, position: 'absolute', top: 0, left: 0, width: '100%', paddingBottom: 50 }}>
                         <Grid container direction='column'>
                             <Grid md={12} style={{ padding: 10 }}></Grid>
-                            <Grid md={12} container direction='row' justify='space-between' style={{  paddingRight: 15, paddingLeft: 15 }}>
+                            <Grid md={12} container direction='row' justifyContent='space-between' style={{  paddingRight: 15, paddingLeft: 15 }}>
                                 <div style={{ height: '100%', width: '70%' }}>
                                     <p style={{ fontFamily: 'FiraSansUltra', padding: 10, marginLeft: marginLeft, fontSize: 55, color: 'white' }}>¡NUESTRA FIESTA!</p>
                                 </div>
                                 <div style={{ marginTop: 10, height: '100%', width: '15%' }}>
-                                <Button onClick={() => this.play()} style={{}}>
+                                {/*<Button onClick={() => this.play()} style={{}}>
                                     <img style={{ width: 150, height: 150 * 0.40 }} src={jugar} />
-                                </Button>
+                                </Button>*/}
                                 </div>
                             </Grid>
                         </Grid>
-                        <Grid xs={12} justify='center' className='container' style={{ width: '100%', padding: 10 }}>
+                        <Grid xs={12} justifyContent='center' className='container' style={{ width: '100%', padding: 10 }}>
                             <Grid container >
                                 <div className='left' style={{ border: '10px solid #FFFFFF', marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '450', padding: 2 }}>
                                     <div style={{ width: '100%', height: '100%' }}>
@@ -302,18 +302,18 @@ class Vivo extends React.Component {
                     <Grid item xs={12} style={{ height: window.innerHeight - 100, position: 'absolute', top: 0, left: 0, width: '100%', paddingBottom: 50 }}>
                         <Grid container direction='column'>
                             <Grid xs={12} style={{ padding: 10 }}></Grid>
-                            <Grid container direction='row' justify='space-between' style={{  paddingRight: 15, paddingLeft: 15 }}>
+                            <Grid container direction='row' justifyContent='space-between' style={{  paddingRight: 15, paddingLeft: 15 }}>
                                 <div style={{ height: '100%', width: '100%' }}>
                                     <p style={{ fontFamily: 'FiraSansUltra', padding: 10, marginLeft: marginLeft, fontSize: 35, color: 'white' }}>DONDE NOS ENCONTRAMOS TODOS!</p>
                                 </div>
-                                
+
                             </Grid>
-                            <Button onClick={() => this.play()} style={{marginTop: 20}}>
+                            {/*<Button onClick={() => this.play()} style={{marginTop: 20}}>
                                     <img style={{ width: 150, height: 150 * 0.40 }} src={jugar} />
-                                </Button>
+                                </Button>*/}
 
                         </Grid>
-                        <Grid xs={12} justify='center' className='container' style={{ marginTop: 50, width: '100%', padding: 10 }}>
+                        <Grid xs={12} justifyContent='center' className='container' style={{ marginTop: 50, width: '100%', padding: 10 }}>
                             <Grid container >
                                 <div className='left' style={{ border: '10px solid #FFFFFF', marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '500' }}>
                                     <div style={{ width: '100%', height: '100%' }}>

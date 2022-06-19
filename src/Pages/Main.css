@@ -1,215 +1,204 @@
 @font-face {
-    font-family: 'FrutigerLight';
-    src: local('FrutigerLight'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/FrutigerLight.otf') format('truetype');
+  font-family: "Montserrat-Regular";
+  src: local("Montserrat-Regular"),
+    url("https://publiceventsenjoy.s3.amazonaws.com/Montserrat-Regular.ttf")
+      format("truetype");
 }
 @font-face {
-    font-family: 'FrutigerBlackItalic';
-    src: local('FrutigerBlackItalic'), url('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/FrutigerBlackItalic.otf') format('truetype');
+  font-family: "Montserrat-SemiBold";
+  src: local("Montserrat-SemiBold"),
+    url("https://publiceventsenjoy.s3.amazonaws.com/Montserrat-SemiBold.ttf")
+      format("truetype");
 }
 @font-face {
-    font-family: 'FiraSansMedium';
-    src: local('FrutigerBlack'), url('https://publiceventsenjoy.s3.amazonaws.com/FiraSans-Medium.ttf') format('truetype');
+  font-family: "Montserrat-Black";
+  src: local("Montserrat-Black"),
+     url("https://publiceventsenjoy.s3.amazonaws.com/Montserrat-Black.ttf")
+      format("truetype");
 }
-
-
+/*
 @font-face {
-    font-family: 'FiraSansRegular';
-    src: local('FrutigerBold'), url('https://publiceventsenjoy.s3.amazonaws.com/FiraSans-Regular.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'FiraSansHeavy';
-    src: local('FrutigerBoldCn'), url('https://publiceventsenjoy.s3.amazonaws.com/FiraSans-Heavy.ttf') format('truetype');
-}
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url("../assets/fonts/Montserrat-Regular.ttf") format("truetype");
+}*/
 
-@font-face {
-    font-family: 'FiraSansUltra';
-    src: local('GothamRndBold'), url('https://publiceventsenjoy.s3.amazonaws.com/FiraSans-Ultra.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'FiraSansBook';
-    src: local('GothamRndBold'), url('https://publiceventsenjoy.s3.amazonaws.com/FiraSans-Book.ttf') format('truetype');
-}
-
-
-.title{
-    color: black;
-    font-family: FiraSansBook;
-    text-align: left;
-    font-size:20px;
-    margin:0;
-    margin-left: 5px
+.title {
+  color: black;
+  font-family: Montserrat-Black;
+  text-align: left;
+  font-size: 20px;
+  margin: 0;
+  margin-left: 5px;
 }
 
 .header {
-    padding-top: '20px';
-    align-items: center;
-    justify-self: center;
-    justify-content: center;
+  padding-top: "20px";
+  align-items: center;
+  justify-self: center;
+  justify-content: center;
 }
 .label-header-not-selected {
-    font-family: FiraSansMedium;
-    font-size: 14px;
-    color:#008DCC;
-    cursor: pointer;
-    
+  font-family: Montserrat-SemiBold;
+  font-size: 14px;
+  color: #008dcc;
+  cursor: pointer;
 }
 
 .label-header-selected {
-    font-family: FiraSansHeavy;
-    font-size: 14px;
-    background-color:#008DCC;
-    padding: 5px;
-    color: #FFFFFF;
-    cursor: pointer;
+  font-family: Montserrat-SemiBold;
+  font-size: 14px;
+  background-color: #008dcc;
+  padding: 5px;
+  color: #ffffff;
+  cursor: pointer;
 }
 .timeTitle {
-    font-family: 'FiraSansMedium';
-    font-size: 50px;
-    color: white;
+  font-family: Montserrat-ExtraBold;
+  font-size: 50px;
+  color: white;
 }
 
 .timeTitle_gracias {
-    font-family: 'FiraSansMedium';
-    font-size: 50px;
-    color: white;
+  font-family: Montserrat-SemiBold;
+  font-size: 50px;
+  color: white;
 }
 
 .timeTitle_gracias_link {
-    font-family: 'FiraSansMedium';
-    font-size: 30px;
-    color: white;
-    text-decoration: underline;
-    cursor: pointer;
-
+  font-family: Montserrat-Regular;
+  font-size: 30px;
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .timeTitle_ing {
-    font-family: 'FrutigerBlack';
-    font-size: 50px;
-    padding: 20px;
-    color: white;
-    text-decoration: underline;
-    cursor: pointer;
+  font-family: Montserrat-Black;
+  font-size: 50px;
+  padding: 20px;
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .timeValue {
-    font-family: 'FiraSansHeavy';
-    font-size: 70px;
-    
-    margin-top: -10px;
-    color: white;
+  font-family: Montserrat-Regular;
+  font-size: 70px;
+
+  margin-top: -10px;
+  color: white;
 }
 
 .timeValueLabel {
-    font-family: 'FiraSansMedium';
-    font-size: 16px;
-    margin-top: -30px;
-    text-align: center;
-    color: white;
+  font-family: Montserrat-SemiBold;
+  font-size: 16px;
+  margin-top: -30px;
+  text-align: center;
+  color: white;
 }
 input {
-    border-top-style: hidden;
-    border-right-style: hidden;
-    border-left-style: hidden;
-    border-bottom-style: groove;
-    background-color: #eee;
-  }
-  
-  .no-outline:focus {
-    outline: none;
-  }
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: #eee;
+}
+
+.no-outline:focus {
+  outline: none;
+}
 /* span.carousel-control-next-icon {
     background-image : url('../assets/up_red.png')
 
 } */
 
-
 #container {
-    width:100%;
-    text-align:center;
+  width: 100%;
+  text-align: center;
 }
 
 #left {
-    float:left;
-    width:100px;
+  float: left;
+  width: 100px;
 }
 
 .radioB {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 .backgroundCargando {
-    background: url(../assets/PlacaAntesVete.png); 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    width: 100%;
+  background: url(../assets/PlacaAntesVete.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+
 }
 
 .backgroundCargandoResponsive {
-    background: url(../assets/PlacaAntesVeteResponsive.jpg); 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    width: 100%;
+  background: url(../assets/PlacaAntesVeteResponsive.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+
 }
 
 #center {
-    display: inline-block;
-    margin:0 auto;
-    width:100px;
+  display: inline-block;
+  margin: 0 auto;
+  width: 100px;
 }
-.textForm{
-    font-family: 'FiraSansMedium';
-    font-size: 16px;
-    color: #12326E;
-    margin: 0; 
+.textForm {
+  font-family: Montserrat-Regular;
+  font-size: 16px;
+  color: #5d565e;
+  margin: 0;
 }
-.textFormW{
-    font-family: 'FiraSansMedium';
-    font-size: 16px;
-    color: #ffffff;
-    margin: 0; 
+.textFormW {
+  font-family: Montserrat-Regular;
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0;
 }
-.textFormError{
-    font-family: 'FiraSansMedium';
-    font-size: 10px;
-    color: #FF0000;
-    margin: 0; 
+.textFormError {
+  font-family: Montserrat-ExtraBold;
+  font-size: 10px;
+  color: #ff0000;
+  margin: 0;
 }
-.textTerm{
-    font-family: 'FrutigerBold';
-    font-size: 10px;
-    color: #12326E;
-    margin: 0; 
-    text-align: left;
-    margin-left: 10px;
+.textTerm {
+  font-family: Montserrat-Regukar;
+  font-size: 10px;
+  color: #5d565e;
+  margin: 0;
+  text-align: left;
+  margin-left: 10px;
 }
-.titleForm{
-    font-family: 'FiraSansUltra';
-    font-size: 36px;
-    color: #12326E;
-    margin: 0; 
-    text-align: left;
-}
-
-.titleFormTitle{
-    font-family: 'FiraSansMedium';
-    font-size: 36px;
-    color: #12326E;
-    margin: 0; 
-    text-align: left;
+.titleForm {
+  font-family: Montserrat-ExtraBold;
+  font-size: 36px;
+  color: #5d565e;
+  margin: 0;
+  text-align: left;
 }
 
-.boxForm    {
-    background-color: #CDCDCD;
-    width: 50px;
-    height: 30px;
-    border: none;
-    outline: none;
+.titleFormTitle {
+  font-family: Montserrat-Black;
+  font-size: 36px;
+  color: #5d565e;
+  margin: 0;
+  text-align: left;
 }
-input[type=text]:focus {
-    border: none;
+
+.boxForm {
+  background-color: #cdcdcd;
+  width: 50px;
+  height: 30px;
+  border: none;
+  outline: none;
+}
+input[type="text"]:focus {
+  border: none;
 }

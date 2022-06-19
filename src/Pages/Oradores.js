@@ -63,7 +63,7 @@ class Oradores extends React.Component {
             <div>
                 <div  style={{display:'flex',alignItems:'center',flexDirection:'column'}}>
                     <div style={{ width:340,display:'flex',flexDirection:'column',position:'relative',height:115}}>
-                        <p style={{ fontFamily:'FrutigerBlack',fontSize: min ? 70 : 55,color:gray,textAlign:'center',marginTop:20}}>ORADORES</p>
+                        <p style={{ fontFamily:'Montserrat-Black',fontSize: min ? 70 : 55,color:gray,textAlign:'center',marginTop:20}}>ORADORES</p>
                         <div style={{ width:100,height:15,backgroundColor:gray,position:'absolute',bottom:0,left:min ? 0 :15}}></div>
                     </div>
                     <div  style={{width:'100%'}}>
@@ -80,9 +80,9 @@ class Oradores extends React.Component {
                                                                 <img style={{ width:'100%'}} src={item.img}>
                                                                 </img>
                                                         </div>
-                                                        <p style={{ fontFamily:'FrutigerBlack',fontSize:16,color:gray,textAlign:'center',margin:0,marginTop:10}}>{item.name}</p>
+                                                        <p style={{ fontFamily:'Montserrat-Black',fontSize:16,color:gray,textAlign:'center',margin:0,marginTop:10}}>{item.name}</p>
                                                         <div onClick={() => this.setState({[x] : !this.state[x]})} style={{cursor:'pointer', width:'100%',height:30,display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-                                                            <p style={{ fontFamily:'FrutigerBlack',fontSize:12,color:'#ec2424',textDecoration:'underline red',textAlign:'center',margin:0}}>MÁS INFO</p>
+                                                            <p style={{ fontFamily:'Montserrat-Black',fontSize:12,color:'#ec2424',textDecoration:'underline red',textAlign:'center',margin:0}}>MÁS INFO</p>
                                                             <img src={up} style={{ height:'30%',marginLeft:5,transform:this.upRotate(x)}}></img>
                                                         </div>
                                                         {/* {true&& ( */}
@@ -91,22 +91,22 @@ class Oradores extends React.Component {
                                                                 <ul style={{ textAlign:'left'}}>
                                                                     {item.inf?.map((i) => {
                                                                         return(
-                                                                            <li style={{fontFamily:'FrutigerLight',margin:0}}>{i}</li>
+                                                                            <li style={{fontFamily:'Montserrat-Regular',margin:0}}>{i}</li>
                                                                         )
                                                                     })}
                                                                 </ul>
-                                                                
-                                                                <p style={{ fontFamily:'FrutigerBlack',margin:0}}>Conflictos de interés</p>
+
+                                                                <p style={{ fontFamily:'Montserrat-Black',margin:0}}>Conflictos de interés</p>
                                                                 <div style={{ display:'flex',flexDirection:'column'}}>
                                                                     {item.extra.map((i) => {
                                                                         return(
-                                                                            <p style={{fontFamily:'FrutigerLight',margin:0,textAlign:'left'}}>{i}</p>
+                                                                            <p style={{fontFamily:'Montserrat-Regular',margin:0,textAlign:'left'}}>{i}</p>
 
                                                                         )
                                                                     })}
                                                                 </div>
-                                                               
-                                                              
+
+
                                                             </div>
                                                         )}
                                                     </div>
@@ -120,9 +120,9 @@ class Oradores extends React.Component {
                                                                     <img style={{ width:'100%'}} src={item.img}>
                                                                     </img>
                                                             </div>
-                                                            <p style={{ fontFamily:'FrutigerBlack',fontSize:16,color:gray,textAlign:'center',margin:0,marginTop:10}}>{item.name}</p>
+                                                            <p style={{ fontFamily:'Montserrat-Black',fontSize:16,color:gray,textAlign:'center',margin:0,marginTop:10}}>{item.name}</p>
                                                             <div onClick={() => this.setState({[x] : !this.state[x]})} style={{width:'100%',cursor:'pointer', height:30,display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-                                                                <p style={{ fontFamily:'FrutigerBlack',fontSize:12,color:'#ec2424',textDecoration:'underline red',textAlign:'center',margin:0}}>MÁS INFO</p>
+                                                                <p style={{ fontFamily:'Montserrat-Black',fontSize:12,color:'#ec2424',textDecoration:'underline red',textAlign:'center',margin:0}}>MÁS INFO</p>
                                                                 <img src={up} style={{ height:'30%',marginLeft:5,transform:this.upRotate(x)}}></img>
                                                             </div>
                                                             {/* {true&& ( */}
@@ -131,40 +131,40 @@ class Oradores extends React.Component {
                                                                     <ul style={{ textAlign:'left'}}>
                                                                         {item.inf?.map((i) => {
                                                                             return(
-                                                                                <li style={{fontFamily:'FrutigerLight',margin:0}}>{i}</li>
+                                                                                <li style={{fontFamily:'Montserrat-Regular',margin:0}}>{i}</li>
                                                                             )
                                                                         })}
                                                                     </ul>
-                                                                    {item.type ==  3?  <p></p> : <p style={{ fontFamily:'FrutigerBlack',margin:0}}>Conflictos de interés</p> }
+                                                                    {item.type ==  3?  <p></p> : <p style={{ fontFamily:'Montserrat-Black',margin:0}}>Conflictos de interés</p> }
                                                                     <Grid container style={{ display:'flex',flexDirection:'row',justifyContent:'center',width:'100%',alignItems:'center'}}>
                                                                         {item.extra?.map((i,ind) => {
                                                                             const lenght = item.extra?.length - 1
                                                                             if(lenght == ind){
                                                                                 return(
-                                                                                    <p style={{fontFamily:'FrutigerLight',margin:2,textAlign:'left'}}>{i} </p>
+                                                                                    <p style={{fontFamily:'Montserrat-Regular',margin:2,textAlign:'left'}}>{i} </p>
                                                                                 )
                                                                             }else{
                                                                                 return(
-                                                                                    <p style={{fontFamily:'FrutigerLight',margin:2,textAlign:'left'}}>{i}, </p>
+                                                                                    <p style={{fontFamily:'Montserrat-Regular',margin:2,textAlign:'left'}}>{i}, </p>
                                                                                 )
                                                                             }
                                                                         })}
                                                                     </Grid>
-                                                                       
+
                                                                 </div>
                                                             )}
                                                         </div>
                                                     )
                                                     break
                                         }
-                                        
+
                                     })}
                                 </Masonry>
-                                
+
                                 </div>
-                            
+
                         </Grid>
-                    </div> 
+                    </div>
                 </div>
                 <Header state='oradores'></Header>
             </div>

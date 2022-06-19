@@ -3,11 +3,10 @@ import PropTypes from "prop-types";
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Button } from '@material-ui/core';
 import Background from '../assets/background_event_program.png'
-import logoEvent from '../assets/logo_ozempic_circle.png'
-import logoHeader from '../assets/logo_ozempic_header.png'
+
 import logoNovo from '../assets/logo_novo.png'
 import { colors } from '../utils'
-import LogoOzempicHeader from '../assets/logo_ozempic_header.png'
+
 import { Cookies } from 'react-cookie';
 import { client, w3cwebsocket as W3CWebSocket } from "websocket";
 
@@ -18,7 +17,7 @@ class SendQuestions extends React.Component {
         // we use this to make the card to appear after the page has been rendered
         this.state = {
             error: null,
-            question: "1. Semaglutida es de administración diaria y titulación semanal",
+            question: "1. Semaglutida es de administración diaria y titulación semanall",
             response: "1. Semaglutida es de administración diaria y titulación semanal",
         };
     }
@@ -34,7 +33,7 @@ class SendQuestions extends React.Component {
             console.log('WebSocket Client Connected');
             var str = "response|" + this.state.response + "|1"
             clientv.send(str);
-        };        
+        };
     }
 
     sendQuestion() {
@@ -74,7 +73,7 @@ class SendQuestions extends React.Component {
                 }
                */
 
-                
+
             })
             .catch(error => {
                 alert(error);
@@ -103,7 +102,7 @@ class SendQuestions extends React.Component {
                 }
             })
             .then((response) => {
-                
+
                 //ENVIAMOS PREGUNTA
                 /*
                 try {
@@ -119,7 +118,7 @@ class SendQuestions extends React.Component {
                 }
                */
 
-                
+
             })
             .catch(error => {
                 this.setState({ error: error })
@@ -162,7 +161,7 @@ class SendQuestions extends React.Component {
                 }
                */
 
-                
+
             })
             .catch(error => {
                 this.setState({ error: error })
@@ -202,11 +201,11 @@ class SendQuestions extends React.Component {
                 <div style={{ display: 'flex', height: this.state.height }}>
                     <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
                         <Grid item xs={11} sm={11} style={{ width: '90%', height: '90%', backgroundColor: 'white', boxShadow: ' 0 3px 6px 0 #000000', padding: '2%', marginTop: '2%', marginBottom: '2%', position: 'relative' }}>
-                            <Grid container alignItems='space-around' direction='row' justify='center' style={{ width: '100%' }}>
+                            <Grid container alignItems='space-around' direction='row' justifyContent='center' style={{ width: '100%' }}>
                                 <Grid item xs={12} sm={6} style={{ marginTop: 50, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'black', borderRadius: 20, paddingTop: 40, paddingBottom: 40 }}>
                                     <div style={{ width: '90%', display: 'flex', flexDirection: 'row' }}>
                                         <Grid item sm={4} xs={4} style={{ width: '35%', height: '100%', display: 'flex', alignItems: 'center' }}>
-                                            <p style={{ fontFamily: 'FrutigerBold', fontSize: 18, color: 'white', margin: 0, lineHeight: 1.2 }}>Enviar pregunta : </p>
+                                            <p style={{ fontFamily: 'Montserrat-SemiBold', fontSize: 18, color: 'white', margin: 0, lineHeight: 1.2 }}>Enviar pregunta : </p>
                                         </Grid>
                                         <Grid item sm={10} xs={10} style={{ width: '65%', marginLeft: '5%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                             <select
@@ -231,7 +230,7 @@ class SendQuestions extends React.Component {
                                     </div>
                                     <Grid item xs={12} sm={9} style={{ marginTop: 10 }}>
                                         <Button  onClick={() => this.sendQuestion()} style={{ paddingLeft: 30, paddingRight: 30, paddingTop: 10, paddingBottom: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 30, background: colors.gray, borderRadius: 20, marginLeft: 'auto' }}>
-                                            <p style={{ fontFamily: 'FrutigerBlack', fontSize: 16, color: 'white', margin: 0 }}>ENVIAR</p>
+                                            <p style={{ fontFamily: 'Montserrat-Black', fontSize: 16, color: 'white', margin: 0 }}>ENVIAR</p>
                                         </Button>
                                     </Grid>
                                 </Grid>
@@ -239,7 +238,7 @@ class SendQuestions extends React.Component {
                                 <Grid item xs={12} sm={6} style={{ marginTop: 50, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'black', borderRadius: 20, paddingTop: 40, paddingBottom: 40 }}>
                                     <div style={{ width: '90%', display: 'flex', flexDirection: 'row' }}>
                                         <Grid item sm={4} xs={4} style={{ width: '35%', height: '100%', display: 'flex', alignItems: 'center' }}>
-                                            <p style={{ fontFamily: 'FrutigerBold', fontSize: 18, color: 'white', margin: 0, lineHeight: 1.2 }}>Enviar respuesta : </p>
+                                            <p style={{ fontFamily: 'Montserrat-SemiBold', fontSize: 18, color: 'white', margin: 0, lineHeight: 1.2 }}>Enviar respuesta : </p>
                                         </Grid>
                                         <Grid item sm={10} xs={10} style={{ width: '65%', marginLeft: '5%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                             <select
@@ -263,14 +262,14 @@ class SendQuestions extends React.Component {
                                     </div>
                                     <Grid item xs={12} sm={9} style={{ marginTop: 10 }}>
                                         <Button  onClick={() => this.sendResponse()} style={{ paddingLeft: 30, paddingRight: 30, paddingTop: 10, paddingBottom: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 30, background: colors.gray, borderRadius: 20, marginLeft: 'auto' }}>
-                                            <p style={{ fontFamily: 'FrutigerBlack', fontSize: 16, color: 'white', margin: 0 }}>ENVIAR</p>
+                                            <p style={{ fontFamily: 'Montserrat-Black', fontSize: 16, color: 'white', margin: 0 }}>ENVIAR</p>
                                         </Button>
                                     </Grid>
                                 </Grid>
                             </Grid>
                         </Grid>
                         <Button  onClick={() => this.clean()} style={{ paddingLeft: 30, paddingRight: 30, paddingTop: 10, paddingBottom: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 30, background: colors.gray, borderRadius: 20, marginLeft: 'auto' }}>
-                            <p style={{ fontFamily: 'FrutigerBlack', fontSize: 16, color: 'white', margin: 0 }}>CLEAN</p>
+                            <p style={{ fontFamily: 'Montserrat-Black', fontSize: 16, color: 'white', margin: 0 }}>CLEAN</p>
                         </Button>
 
                     </div>

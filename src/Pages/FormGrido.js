@@ -5,7 +5,6 @@ import { Grid, Button, Dialog } from '@material-ui/core';
 import './Main.css'
 import logoNovo from '../assets/logo_novo.png'
 import { colors } from '../utils'
-import logoEC21 from '../assets/logoEC21.png'
 import margen from '../assets/encuesta/margen.png'
 import background from '../assets/encuesta/background.png'
 import star from '../assets/encuesta/star.png'
@@ -195,7 +194,7 @@ class Form extends React.Component {
                                     <div style={{ width: '100%' }}>
                                         <p className='title'>3.¿Cómo te enteraste del evento?</p>
                                     </div>
-                                    <Grid justify='start' container direction={'column'} style={{ marginLeft: 5 }}>
+                                    <Grid justifyContent='start' container direction={'column'} style={{ marginLeft: 5 }}>
                                         <Grid item sm={3} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                                             <div onClick={() => this.setState({ question3: 1 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                                 {this.state.question3 == 1 && (

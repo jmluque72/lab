@@ -1,19 +1,24 @@
-import React from "react";
+import React, { Component } from 'react';
+import axios from 'axios';
 import PropTypes from "prop-types";
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Button } from '@material-ui/core';
-import Background from '../assets/backgroundRegister.svg'
-import Background2 from '../assets/background_event_program.png'
-import backgroundCheck from '../assets/backgroundCheck.png'
-import backgroundRegisterOk from '../assets/backgroundRegisterOk.svg'
+import Background from '../assets/backgroundRegister.svg';
+import Background2 from '../assets/background_event_program.png';
+import backgroundCheck from '../assets/backgroundCheck.png';
+import backgroundRegisterOk from '../assets/backgroundRegisterOk.svg';
+import LogoTop from '../assets/LogoVete.svg'
+import logoVeteGrande from '../assets/LogoVete.png';
 
-import logoVeteGrande from '../assets/LogoVete.svg'
+import CheckMail from '../assets/Checkmail.png';
 
-import logoHeader from '../assets/logo_ozempic_header.png'
+
+
+
 import logoNovo from '../assets/logoZoon.svg'
 import check from '../assets/check.png'
 import { colors } from '../utils'
-import LogoOzempicHeader from '../assets/logo_ozempic_header.png'
+
 import Registrarse from '../assets/buttonRegister.png'
 import './Main.css'
 import TILDE from '../assets/TILDE.png'
@@ -21,6 +26,7 @@ import Loader from "react-loader-spinner";
 import moment from 'moment';
 
 class Register extends React.Component {
+
     constructor(props) {
         super(props);
         // we use this to make the card to appear after the page has been rendered
@@ -139,14 +145,16 @@ class Register extends React.Component {
             email: this.state.email
         }
         var response = fetch("https://pom2lkx5ei.execute-api.us-east-1.amazonaws.com/production/register", {
+
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(body)
         })
+
             .then((response) => {
-                console.log(response);
+                    console.log('aca1',response);
                 if (response.status == 200) {
                     return response.json();
                 } else {
@@ -154,11 +162,12 @@ class Register extends React.Component {
                 }
             })
             .then((response) => {
-                console.log(response);
+               console.log('aca2',response);
                 if (response) {
-                    console.log(response);
+                   // console.log(response);
                     if (!response.error) {
                         this.setState({ register: true, loading: false });
+
                     } else {
                         this.setState({ error: response.error, loading: false })
                     }
@@ -312,14 +321,15 @@ class Register extends React.Component {
     render() {
         const height = window.innerHeight
         const min = window.innerWidth >= 1000
+        const minxs =window.innerWidth <= 700
         var disabledbutton = false;
         const email = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
         const width = window.innerWidth < 1000
 
-        disabledbutton = false;
         var header = <Grid item xs={12} sm={3} md={4} lg={5} style={{ height: '100%', display: 'flex' }} >
             <div style={{ flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
-                <img height='auto' width='100%' style={{ marginTop: -50, maxWidth: 500 }} src={logoVeteGrande} />
+                <img height='auto' width='100%' style={{ marginTop: 50, maxWidth: 500 }} src={logoVeteGrande} />
+                 <img style={{ width: 90, height: 90 * 0.64, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
             </div>
         </Grid>
 
@@ -338,11 +348,14 @@ class Register extends React.Component {
                 return (
                     <form onSubmit={(event) => this.onSubmit(event)}>
                         <div style={{ overflowY: 'scroll', display: 'flex' }}>
-                            <div style={{ display: 'flex', justifyContent: 'center', backgroundImage: `url(${Background})`, minHeight: h, backgroundSize: 'cover' }}>
-                                <Grid container direction='row' styl={{ height: '100%' }}>
+
+                            <div style={{ display: 'flex', justifyContent: 'center', backgroundImage: `url(${Background})`,minHeight: h, height: '100%', width: '100%',backgroundSize: 'cover' }}>
+
+                                <Grid container direction='row' style={{ height: '100%' }}>
                                     {header}
                                     <Grid item xs={12} sm={9} md={8} lg={7} tyle={{}} >
-                                        <Grid container direction='column' justify='center' alignItems='center' style={{ height: '100%', marginTop: 20 }}>
+                                        <Grid container direction='column' justifyContent='center' alignItems='center' style={{ height: '100%', marginTop: 20 }}>
+
                                             <Grid item style={{ background: 'white', width: '90%', padding: 30, borderRadius: 30 }}>
                                                 <div style={{ marginTop: 0 }}>
                                                     <p className='titleFormTitle'>REGISTRATE</p>
@@ -352,9 +365,10 @@ class Register extends React.Component {
                                                         <p className='textForm'> Nombre</p>
                                                         <p className='textFormError'>{this.state.first_name == '' && this.state.send ? "Campo requerido" : ""}</p>
                                                     </Grid>
-                                                    <Grid item xs={12} sm={4} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 0, borderStyle: 'solid', }}>
+                                                    <Grid item xs={12} sm={4} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 1, borderStyle: 'solid', }}>
                                                         <input
-                                                            style={{
+                                                          style={{
+                                                                height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 1, borderStyle: 'solid',
                                                                 backgroundColor: '#CDCDCD',
                                                                 width: '100%',
                                                                 height: '100%',
@@ -367,13 +381,14 @@ class Register extends React.Component {
                                                         >
                                                         </input>
                                                     </Grid>
-                                                    <Grid item xs={12} sm={2} style={{ alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
+                                                    <Grid item xs={12} sm={2} style={{ display: 'flex', flexDirection: 'column' }}>
                                                         <p className='textForm'> Apellido</p>
                                                         <p className='textFormError'>{this.state.last_name == '' && this.state.send ? "Campo requerido" : ""}</p>
                                                     </Grid>
-                                                    <Grid item xs={12} sm={4} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 0, borderStyle: 'solid', }}>
+                                                    <Grid item xs={12} sm={4} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 1, borderStyle: 'solid', }}>
                                                         <input
                                                             style={{
+                                                                height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 1, borderStyle: 'solid',
                                                                 backgroundColor: '#CDCDCD',
                                                                 width: '100%',
                                                                 height: '100%',
@@ -392,75 +407,71 @@ class Register extends React.Component {
                                                         <p className='textForm'> Email</p>
                                                         <p className='textFormError'>{this.state.email == '' && this.state.send ? "Campo requerido" : ""}</p>
                                                     </Grid>
-                                                    <Grid item xs={12} sm={8} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 0, borderStyle: 'solid', }}>
+                                                    <Grid item xs={12} sm={8} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 1, borderStyle: 'solid', }}>
                                                         <input
-                                                            style={{
+                                                         style={{
+                                                                height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 1, borderStyle: 'solid',
                                                                 backgroundColor: '#CDCDCD',
                                                                 width: '100%',
                                                                 height: '100%',
                                                                 border: 'none',
                                                             }}
-                                                            type='text'
+                                                            type='email'
                                                             required
+                                                            placeholder={'ej.: ejemplo@gmail.com'}
                                                             className='no-outline'
                                                             onChange={(event) => this.setState({ send: false, email: event.target.value })}
                                                         >
                                                         </input>
                                                     </Grid>
                                                 </Grid>
+
                                                 <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
-                                                    <Grid item xs={12} sm={4} style={{ alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
-                                                        <span className='textForm'> Tel. Código de área </span>
+                                                    <Grid item xs={12} sm={2} style={{ alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
+
+                                                        <p className='textForm'> Tel. Código de área 0</p>
                                                         <p className='textFormError'>{(this.state.phone1 == '' || this.state.phone2 == '') && this.state.send ? "Campo requerido" : ""}</p>
                                                     </Grid>
-                                                    <Grid item xs={12} sm={1} style={{ paddingRight: 5, alignItems: 'flex-end' }}>
-                                                        <p className='textForm'>0</p>
-                                                        <p className='textFormError'>{this.state.phone2 == '' && this.state.send ? "Campo requerido" : ""}</p>
-                                                    </Grid>
-                                                    <Grid item xs={12} sm={2} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 0, borderStyle: 'solid', }}>
+                                                    <Grid item xs={12} sm={4} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 1, }}>
                                                         <input
-                                                            style={{
-                                                                backgroundColor: '#CDCDCD',
-                                                                width: '100%',
-                                                                height: '100%',
-                                                                border: 'none',
-                                                            }}
-                                                            type='text'
-                                                            required
-                                                            className='no-outline'
-                                                            onChange={(event) => this.setState({ send: false, phone1: event.target.value })}
+                                                             style={{  height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 1, borderStyle: 'solid',  backgroundColor: '#CDCDCD', }}
+                                                                    type='number'
+                                                                    required
+                                                                    className='no-outline'
+                                                                    onChange={(event) => this.setState({ send: false, phone1: event.target.value })}
                                                         >
                                                         </input>
                                                     </Grid>
-                                                    <Grid item xs={12} sm={2} style={{ paddingRight: 5, alignItems: 'flex-end', display: 'flex', flexDirection: 'column' }}>
+                                                    <Grid item xs={12} sm={2} style={{ display: 'flex', flexDirection: 'column' }}>
                                                         <p className='textForm'> 15</p>
                                                         <p className='textFormError'>{this.state.phone2 == '' && this.state.send ? "Campo requerido" : ""}</p>
                                                     </Grid>
-                                                    <Grid item xs={12} sm={3} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 0, borderStyle: 'solid', }}>
+                                                    <Grid item xs={12} sm={4} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 1 }}>
                                                         <input
-                                                            style={{
-                                                                backgroundColor: '#CDCDCD',
-                                                                width: '100%',
-                                                                height: '100%',
-                                                                border: 'none',
-                                                            }}
-                                                            type='text'
+                                                             style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 1, borderStyle: 'solid',  backgroundColor: '#CDCDCD', }}
+                                                             type='number'
                                                             required
                                                             className='no-outline'
+
                                                             onChange={(event) => this.setState({ send: false, phone2: event.target.value })}
                                                         >
                                                         </input>
                                                     </Grid>
                                                 </Grid>
+
+
+
+
                                                 <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
-                                                    <Grid item xs={12} sm={3} style={{ flexDirection: 'column', alignItems: 'start', display: 'flex', justifyContent: 'flex-start', marginTop: width && (10) }}>
+                                                    <Grid item xs={12} sm={5} style={{ flexDirection: 'column', alignItems: 'start', display: 'flex', justifyContent: 'flex-start', marginTop: width && (10) }}>
                                                         <p className='textForm' >Fecha de nacimiento</p>
                                                     </Grid>
                                                     <Grid item xs={2} sm={1} style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 10 }}>
                                                         <p className='textForm'>Día</p>
                                                     </Grid>
-                                                    <Grid item xs={2} sm={1} style={{}}>
+                                                    <Grid item xs={2} sm={1} >
                                                         <input
+                                                            style={{borderRadius: 8, borderWidth:1, borderColor: colors.gray,borderStyle: 'solid'}}
                                                             className="boxForm"
                                                             type='number'
                                                             required
@@ -470,12 +481,13 @@ class Register extends React.Component {
                                                         >
                                                         </input>
                                                     </Grid>
-                                                    <Grid item xs={2} sm={2} style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 10 }}>
+                                                    <Grid item xs={2} sm={1} style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 10 }}>
                                                         <p className='textForm' >Mes</p>
                                                     </Grid>
 
                                                     <Grid item xs={2} sm={1} style={{}}>
                                                         <input
+                                                              style={{borderRadius: 8, borderWidth:1, borderColor: colors.gray,borderStyle: 'solid'}}
                                                             className="boxForm"
                                                             type='number'
                                                             required
@@ -489,11 +501,14 @@ class Register extends React.Component {
                                                         <p className='textForm' >Año</p>
                                                     </Grid>
 
-                                                    <Grid item xs={2} sm={2} style={{}}>
+                                                    <Grid item xs={2} sm={1} >
                                                         <input
+                                                           style={{width:'70px', borderRadius: 8, borderWidth:1, borderColor: colors.gray,borderStyle: 'solid'}}
                                                             className="boxForm"
                                                             type='number'
                                                             required
+                                                            min={1900}
+                                                            max={2000}
                                                             onChange={(event) => this.setState({ send: false, year: event.target.value })}
                                                         >
                                                         </input>
@@ -510,10 +525,11 @@ class Register extends React.Component {
                                                     <Grid item xs={8} sm={4} style={{}}>
                                                         <input
                                                             style={{
+
                                                                 backgroundColor: '#CDCDCD',
                                                                 width: '100%',
                                                                 height: 30,
-                                                                border: 'none',
+                                                                borderRadius: 8, borderColor: colors.gray, borderWidth: 1, borderStyle: 'solid',
                                                             }}
                                                             type='text'
                                                             required
@@ -531,8 +547,8 @@ class Register extends React.Component {
                                                                 backgroundColor: '#CDCDCD',
                                                                 width: '100%',
                                                                 height: 30,
-                                                                border: 'none',
                                                                 marginLeft: 20,
+                                                                borderRadius: 8, borderColor: colors.gray, borderWidth: 1, borderStyle: 'solid',
                                                             }}
                                                             type='text'
                                                             required
@@ -611,7 +627,7 @@ class Register extends React.Component {
                                                                 <img src={check} style={{ width: '100%', display: this.state.terms ? 'flex' : 'none' }}></img>
                                                             </div>
                                                         </Grid>
-                                                        <Grid item xs={19} sm={10} style={{ marginLeft: 10, display: 'flex', alignItems: 'start', marginTop: 10 }}>
+                                                        <Grid item xs={10} sm={10} style={{ marginLeft: 10, display: 'flex', alignItems: 'start', marginTop: 10 }}>
                                                             <p className='textForm' style={{ textAlign: 'left' }}>Acepto bases y condiciones</p>
                                                         </Grid>
                                                     </div>
@@ -643,8 +659,6 @@ class Register extends React.Component {
 
                                                     }
 
-
-
                                                 </Grid>
 
                                             </Grid>
@@ -661,33 +675,14 @@ class Register extends React.Component {
                     <div>
                         <div style={{ display: 'flex', height: window.innerHeight }}>
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', backgroundImage: `url(${backgroundRegisterOk})`, backgroundSize: 'cover' }}>
-                                <Grid item xs={11} sm={11} style={{ width: '100%', }}>
-                                    <img style={{ width: 118 * 0.7, height: 84 * 0.7, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
-                                    <Grid container alignItems='center' direction='row' justify='center' style={{ width: '100%' }}>
-                                        <Grid item xs={12} sm={6} style={{ marginTop: min ? 25 : 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                                            <Grid container direction='row' alignContent='center' style={{ padding: 35, height: 330, width: 650, maxWidth: window.innerWidth, backgroundImage: `url(${backgroundCheck})`, backgroundSize: 'cover' }} >
-                                                <Grid item sm={5} xs={12} style={{ marginTop: -20 }}>
-                                                    <Grid container justify='center' alignItems='center' style={{ width: '100%' }}>
-                                                        <img width='70%' height='auto' style={{ maxWidth: 120 }} src={TILDE}></img>
-                                                    </Grid>
-                                                </Grid>
-                                                <Grid item sm={7} xs={12} style={{ marginTop: !width && -20 }}>
-                                                    <Grid container alignItems='center' justify='center' style={{ width: min ? '85%' : '100%' }}>
-                                                        <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-                                                            <p style={{ fontFamily: 'FiraSansMedium', letterSpacing: 0.9, fontSize: 20, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%' }}>TE REGISTRASTE SATISFACTORIAMENTE.</p>
-                                                            <p style={{ fontFamily: 'FiraSansMedium', fontSize: 16, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>Revise su correo electrónico para confirmar su e-mail</p>
-                                                            <p style={{ fontFamily: 'FiraSansMedium', fontSize: 14, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>No olvides chequear la carpeta SPAM</p>
 
-
-
-                                                        </div>
-                                                    </Grid>
-                                                </Grid>
-                                            </Grid>
+                                        <div className='d-flex justify-content-center'>
+                                                 <img style={{ width: 800, height: 350, alignItems: 'center', }} src={CheckMail}></img>
+                                        </div>
+                                        <Grid item  style={{ }}>
+                                            <img style={{ width: 118 * 0.7, height: 84 * 0.7, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
                                         </Grid>
-                                    </Grid>
 
-                                </Grid>
                             </div>
                         </div>
                     </div>
@@ -705,10 +700,10 @@ class Register extends React.Component {
                     <form onSubmit={(event) => this.onSubmit(event)}>
                         <div style={{ overflowY: 'scroll', flex: 1, display: 'flex' }}>
                             <div style={{ display: 'flex', justifyContent: 'center', backgroundImage: `url(${Background})`, minHeight: h, backgroundSize: 'cover' }}>
-                                <Grid container direction='row' styl={{ height: '100%' }}>
+                                <Grid container direction='row' style={{ height: '100%' }}>
                                     {header}
                                     <Grid item xs={12} sm={9} md={8} lg={7} tyle={{}} >
-                                        <Grid container direction='column' justify='center' alignItems='center' style={{ height: '100%', marginTop: 20 }}>
+                                        <Grid container direction='column' justifyContent='center' alignItems='center' style={{ height: '100%', marginTop: 20 }}>
                                             <Grid item style={{ background: 'white', width: '90%', padding: 30, borderRadius: 30 }}>
                                                 <div style={{ marginTop: 0 }}>
                                                     <p className='titleFormTitle'>REGISTRATE</p>
@@ -718,13 +713,13 @@ class Register extends React.Component {
                                                         <p className='textForm'> Nombre</p>
                                                         <p className='textFormError'>{this.state.first_name == '' && this.state.send ? "Campo requerido" : ""}</p>
                                                     </Grid>
-                                                    <Grid item xs={12} sm={4} style={{ height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 0, borderStyle: 'solid', }}>
+                                                    <Grid item xs={12} sm={4} style={{height: 30, borderRadius: 8, borderColor: colors.gray, borderWidth: 0, borderStyle: 'solid', }}>
                                                         <input
                                                             style={{
                                                                 backgroundColor: '#CDCDCD',
                                                                 width: '100%',
                                                                 height: '100%',
-                                                                border: 'none',
+                                                                       borderRadius: 8, borderWidth:1, borderColor: colors.gray,borderStyle: 'solid',
                                                             }}
                                                             type='text'
                                                             required
@@ -743,7 +738,7 @@ class Register extends React.Component {
                                                                 backgroundColor: '#CDCDCD',
                                                                 width: '100%',
                                                                 height: '100%',
-                                                                border: 'none',
+                                                                     borderRadius: 8, borderWidth:1, borderColor: colors.gray,borderStyle: 'solid',
                                                             }}
                                                             type='text'
                                                             required
@@ -764,10 +759,11 @@ class Register extends React.Component {
                                                                 backgroundColor: '#CDCDCD',
                                                                 width: '100%',
                                                                 height: '100%',
-                                                                border: 'none',
+                                                                     borderRadius: 8, borderWidth:1, borderColor: colors.gray,borderStyle: 'solid',
                                                             }}
-                                                            type='text'
+                                                            type='email'
                                                             required
+                                                            placeholder={'ej.: ejemplo@gmail.com'}
                                                             className='no-outline'
                                                             onChange={(event) => this.setState({ send: false, email: event.target.value })}
                                                         >
@@ -789,9 +785,9 @@ class Register extends React.Component {
                                                                 backgroundColor: '#CDCDCD',
                                                                 width: '100%',
                                                                 height: '100%',
-                                                                border: 'none',
+                                                                borderRadius: 8, borderWidth:1, borderColor: colors.gray,borderStyle: 'solid'
                                                             }}
-                                                            type='text'
+                                                             type='number'
                                                             required
                                                             className='no-outline'
                                                             onChange={(event) => this.setState({ send: false, phone1: event.target.value })}
@@ -808,9 +804,9 @@ class Register extends React.Component {
                                                                 backgroundColor: '#CDCDCD',
                                                                 width: '100%',
                                                                 height: '100%',
-                                                                border: 'none',
+                                                                borderRadius: 8, borderWidth:1, borderColor: colors.gray,borderStyle: 'solid'
                                                             }}
-                                                            type='text'
+                                                            type='number'
                                                             required
                                                             className='no-outline'
                                                             onChange={(event) => this.setState({ send: false, phone2: event.target.value })}
@@ -821,27 +817,27 @@ class Register extends React.Component {
                                                 <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
                                                     <Grid item xs={12} sm={12} style={{ flexDirection: 'column', alignItems: 'start', display: 'flex', justifyContent: 'flex-start', marginTop: width && (10) }}>
                                                         <p className='textForm' >Fecha de nacimiento</p>
+                                                        <p></p>
                                                     </Grid>
                                                     <Grid item xs={12} sm={12} style={{ display: 'flex', justifyContent: 'start' }}>
-                                                        <p className='textForm'>Día</p>
-                                                    </Grid>
-                                                    <Grid item xs={12} sm={12} style={{ display: 'flex', justifyContent: 'start' }}>
+                                                        <p className='textForm'>Día </p>
+
                                                         <input
+                                                           style={{ marginLeft:5,   borderRadius: 8, borderWidth:1, borderColor: colors.gray,borderStyle: 'solid'}}
                                                             className="boxForm"
                                                             type='number'
                                                             required
                                                             min={1}
                                                             max={31}
+
                                                             onChange={(event) => this.setState({ send: false, day: event.target.value })}
                                                         >
                                                         </input>
-                                                    </Grid>
-                                                    <Grid item xs={2} sm={2} style={{ display: 'flex', justifyContent: 'start', paddingRight: 10 }}>
-                                                        <p className='textForm' >Mes</p>
-                                                    </Grid>
 
-                                                    <Grid item xs={12} sm={12} style={{ display: 'flex', justifyContent: 'start' }}>
+                                                        <p className='textForm'  style={{ marginLeft:5 }}>Mes</p>
+
                                                         <input
+                                                            style={{ marginLeft:5,  borderRadius: 8, borderWidth:1, borderColor: colors.gray,borderStyle: 'solid' }}
                                                             className="boxForm"
                                                             type='number'
                                                             required
@@ -850,21 +846,22 @@ class Register extends React.Component {
                                                             onChange={(event) => this.setState({ send: false, month: event.target.value })}
                                                         >
                                                         </input>
-                                                    </Grid>
-                                                    <Grid item xs={2} sm={1} style={{ display: 'flex', justifyContent: 'start', paddingRight: 10 }}>
-                                                        <p className='textForm' >Año</p>
-                                                    </Grid>
 
-                                                    <Grid item xs={12} sm={12} style={{ display: 'flex', justifyContent: 'start' }}>
-                                                        <input
+
+                                                        <p className='textForm' style={{ marginLeft:5 }}>Año</p>
+
+                                                    <input
+                                                           style={{ width: '70px', marginLeft:5, borderRadius: 8, borderWidth:1, borderColor: colors.gray,borderStyle: 'solid'}}
                                                             className="boxForm"
                                                             type='number'
                                                             required
+                                                            min={1900}
+                                                            max={2000}
                                                             onChange={(event) => this.setState({ send: false, year: event.target.value })}
                                                         >
                                                         </input>
-                                                    </Grid>
 
+                                                    </Grid>
                                                 </Grid>
 
                                                 <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
@@ -879,7 +876,7 @@ class Register extends React.Component {
                                                                 backgroundColor: '#CDCDCD',
                                                                 width: '100%',
                                                                 height: 30,
-                                                                border: 'none',
+                                                                       borderRadius: 8, borderWidth:1, borderColor: colors.gray,borderStyle: 'solid',
                                                             }}
                                                             type='text'
                                                             required
@@ -897,7 +894,7 @@ class Register extends React.Component {
                                                                 backgroundColor: '#CDCDCD',
                                                                 width: '100%',
                                                                 height: 30,
-                                                                border: 'none',
+                                                                borderRadius: 8, borderWidth:1, borderColor: colors.gray,borderStyle: 'solid',
                                                             }}
                                                             type='text'
                                                             required
@@ -1023,36 +1020,20 @@ class Register extends React.Component {
                 );
             } else {
                 return (
-                    <div>
-                        <div style={{ display: 'flex', height: window.innerHeight }}>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', backgroundImage: `url(${backgroundRegisterOk})`, backgroundSize: 'cover' }}>
-                                <Grid item xs={11} sm={11} style={{ width: '100%', }}>
-                                    <img style={{ width: 118 * 0.7, height: 84 * 0.7, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
-                                    <Grid container alignItems='center' direction='row' justify='center' style={{ width: '100%' }}>
-                                        <Grid item xs={12} sm={6} style={{ marginTop: min ? 25 : 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                                            <Grid container direction='row' alignContent='center' style={{ padding: 35, height: 330, width: 650, maxWidth: window.innerWidth, backgroundImage: `url(${backgroundCheck})`, backgroundSize: 'cover' }} >
-                                                <Grid item sm={5} xs={12} style={{ marginTop: -20 }}>
-                                                    <Grid container justify='center' alignItems='center' style={{ width: '100%' }}>
-                                                        <img width='70%' height='auto' style={{ maxWidth: 120 }} src={TILDE}></img>
-                                                    </Grid>
-                                                </Grid>
-                                                <Grid item sm={7} xs={12} style={{ marginTop: !width && -20 }}>
-                                                    <Grid container alignItems='center' justify='center' style={{ width: min ? '85%' : '100%' }}>
-                                                        <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-                                                            <p style={{ fontFamily: 'FiraSansMedium', letterSpacing: 0.9, fontSize: 20, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%' }}>TE REGISTRASTE SATISFACTORIAMENTE.</p>
-                                                            <p style={{ fontFamily: 'FiraSansMedium', fontSize: 16, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>Revise su correo electrónico para confirmar su e-mail</p>
-                                                            <p style={{ fontFamily: 'FiraSansMedium', fontSize: 14, color: 'white', margin: 0, textAlign: !width ? 'left' : 'center', width: '70%', marginTop: !width && 10 }}>No olvides chequear la carpeta SPAM</p>
-
-
-
-                                                        </div>
-                                                    </Grid>
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-
+                   <div>
+                        <div style={{ display: 'block', height: window.innerHeight }}>
+                              <Grid  xs={12} style={{marginTop:'5',alignItems: 'center', width:'100%' }}>
+                                     <img  style={{ width: 250, height: 150 * 0.86, marginTop: 50 }} src={logoVeteGrande}></img>
                                 </Grid>
+                            <div style={{ display: 'flex', flexdirection:'row', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', backgroundImage: `url(${backgroundRegisterOk})`, backgroundSize: 'cover' }}>
+
+                                <div style={{ display: 'flex', direction: 'column', alignItems: 'center', justifyContent: 'center', }}>
+                                        <img style={{ width: minxs? 350 : 550, height: minxs? 180 : 250, alignItems: 'center', marginTop:'-60%' }} src={CheckMail}></img>
+                                </div>
+                                        <Grid item  style={{ }}>
+                                            <img style={{ width: 118 * 0.7, height: 84 * 0.7, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
+                                        </Grid>
+
                             </div>
                         </div>
                     </div>
