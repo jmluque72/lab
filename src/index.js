@@ -4,11 +4,10 @@ import './index.css';
 import './Pages/Main.css'
 import Home from './Pages/HomeView'
 import Login from './Pages/Login'
-import { Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from "history";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Agenda from './Pages/Agenda';
-import Oradores from './Pages/Oradores';
 import Evento from './Pages/Evento';
 import Consulta from './Pages/Consulta';
 import Contacto from './Pages/Contacto';

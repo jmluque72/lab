@@ -1,15 +1,17 @@
+
 @font-face {
-  font-family: 'FrutigerLight';
-  src: local('FrutigerLight'), url('./assets/fonts/Frutiger-Light.otf') format('otf');
+  font-family: 'Montserrat-Regular';
+  src: local('Montserrat-Regular'), url('./assets/fonts/Montserrat-Regular.ttf') format('ttf');
 }
 @font-face {
-  font-family: 'FrutigerBlack';
-  src: local('FrutigerBlack'), url('./assets/fonts/Frutiger-Black.otf') format('otf');
+  font-family: 'Montserrat-Black';
+  src: local('Montserrat-Black'), url('./assets/fonts/Montserrat-Black.ttf') format('ttf');
 }
 @font-face {
-  font-family: 'FrutigerBold';
-  src: local('FrutigerBold'), url('./assets/fonts/Frutiger-Bold.otf') format('otf');
+  font-family: 'Montserrat-ExtraBold';
+  src: local('Montserrat-ExtraBold'), url('./assets/fonts/Montserrat-ExtraBold.ttf') format('ttf');
 }
+
 
 .App {
   text-align: center;
