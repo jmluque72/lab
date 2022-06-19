@@ -39,13 +39,18 @@ class Footer extends React.Component {
     constructor(props) {
         super(props);
         // we use this to make the card to appear after the page has been rendered
+        const eventDate = new Date('08/07/22 18:00');
+
         this.state = {
             days: 0,
             hours: 0,
             min: 0,
             sec: 0,
-            seconds: (new Date(1615932000000).getTime() - new Date().getTime()) / 1000
+            stoped: false,
+            seconds: (eventDate.getTime() - new Date().getTime()) / 1000
+
         }
+
     }
 
     timer = () => {
@@ -58,7 +63,6 @@ class Footer extends React.Component {
         var minutes = Math.floor(minutesLeft / 60);
         var remainingSeconds = seconds % 60;
 
-        //document.getElementById('countdown').innerHTML = pad(days) + ":" + pad(hours) + ":" + pad(minutes) + ":" + pad(remainingSeconds);
         this.setState({
             days: days,
             min: minutes,
@@ -66,8 +70,10 @@ class Footer extends React.Component {
             sec: parseInt(remainingSeconds)
         });
 
-     
-        if (seconds == 0) {
+        if (seconds < 1200) {
+            this.setState({
+                stoped: true
+            })
             this.stop();
         } else {
             seconds--;
@@ -76,9 +82,9 @@ class Footer extends React.Component {
             })
         }
     }
-    pad = (n) => {
-        return (n < 10 ? "0" + n : n);
-    }
+
+
+    //
 
     componentDidMount() {
 
@@ -101,76 +107,94 @@ class Footer extends React.Component {
     goToForm = () => {
         document.location.href = "/Form";
     }
-    /*
 
- return (
-                <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
-                    <p className='timeTitle_ing' onClick={this.goToVivo}>Ingresar al evento</p>
-                </div>
-            )
+    /*
+                return (
+                    <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
+                        <p className='timeTitle_ing' onClick={this.goToVivo}>INGRESAR AL EVENTO</p>
+                    </div>
+                )
     */
     /*
+                return (
+                    <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
+                        <p className='timeTitle_gracias'>Gracias por participar</p>
+                        <p className='timeTitle_gracias_link' onClick={this.goToForm}>Por favor complete la encuenta</p>
 
-            return (
-                <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
-                    <p className='timeTitle_gracias'>Gracias por participar</p>
-                    <p className='timeTitle_gracias_link' onClick={this.goToForm}>Por favor complete la encuenta</p>
-
-                </div>
-            )
+                    </div>
+                )
                 */
+
     render() {
         const countDown = this.state;
+
         var display = "block"
         if (window.scrollY > 0) {
             display = "none";
         }
-        //        if (this.state.days <= 0 && this.state.hours <= 0 && this.state.min <= 15) {
 
-        if (true && true) {
+
+
+     if (this.state.stoped == true && this.state.days + 1 < 0) {
             return (
-            <div style={{ display: display, position: 'fixed',  paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
-                <p className='timeTitle_gracias'>Gracias por participar</p>
-                <p className='timeTitle_gracias_link' onClick={this.goToForm}>Por favor complete la encuenta</p>
+                <div style={{ display: display, position: 'fixed', paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: '#5C575D' }}>
+                    <p className='timeTitle_gracias' style={{fontFamily:'Montserrat-SemiBold' }} >Gracias por participar</p>
+                    <p className='timeTitle_gracias_link' style={{fontFamily:'Montserrat-SemiBold' }}  onClick={this.goToForm}>Por favor complete la encuenta</p>
 
-            </div>);
+                </div>
+            )
+
+
         }
-        return (
-            <div style={{ display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange }}>
-                <Grid container style={{ alignItems: 'center', height: '100%', justifyContent: 'center' }}>
-                    <Grid xs={12} sm={2}>
-                        <Grid container alignItems='center' direction='column'>
-                            <div className='timeTitle'>FALTAN</div>
-                        </Grid>
-                    </Grid>
-                    <Grid xs={3} sm={1} >
-                        <Grid container alignItems='center' direction='column'>
-                            <div className='timeValue' id='days'>{this.state.days}</div>
-                            <div className='timeValueLabel'>Días</div>
-                        </Grid>
-                    </Grid>
-                    <Grid xs={3} sm={1} >
-                        <Grid container alignItems='center' direction='column'>
-                            <div className='timeValue' id={'hours'}>{this.state.hours}</div>
-                            <div className='timeValueLabel'>Horas</div>
-                        </Grid>
-                    </Grid>
-                    <Grid xs={3} sm={1}>
-                        <Grid container alignItems='center' direction='column'>
-                            <div className='timeValue' id={'minutes'}>{this.state.min}</div>
-                            <div className='timeValueLabel'>Minutos</div>
-                        </Grid>
-                    </Grid>
-                    <Grid xs={3} sm={1} >
-                        <Grid container alignItems='center' direction='column'>
-                            <div className='timeValue' id={'seconds'}>{this.state.sec}</div>
-                            <div className='timeValueLabel'>Segundos</div>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </div>
-        );
-    }
+
+        if (this.state.stoped == true && this.state.days == -1 && this.state.seconds < 0) {
+
+            return (
+                <div style={{ display: display, position: 'fixed', paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: '#5C575D' }}>
+                    <p className='timeTitle_ing' onClick={this.goToVivo}>INGRESAR AL EVENTO</p>
+                </div>
+            )
+        } else {
+                    return (
+                        <div style={{ display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: '#5C575D' }}>
+                            <Grid container style={{ alignItems: 'center', height: '100%', justifyContent: 'center' , padding: 5, marginBottom:15}}>
+                                <Grid xs={12} sm={12}>
+                                    <Grid container alignItems='center' direction='column'>
+                                        <div className='timeTitle' style={{fontFamily:'Montserrat-Black' }}>FALTAN</div>
+                                    </Grid>
+                                </Grid>
+                                <Grid xs={3} sm={2} >
+                                    <Grid container alignItems='center' direction='column'>
+                                        <div className='timeValue' style={{fontFamily:'Montserrat-SemiBold' }} id='days'>{this.state.days}</div>
+                                        <div className='timeValueLabel'>Días</div>
+                                    </Grid>
+                                </Grid>
+                                <Grid xs={3} sm={2} >
+                                    <Grid container alignItems='center' direction='column'>
+                                        <div className='timeValue' id={'hours'} style={{fontFamily:'Montserrat-SemiBold' }} >{this.state.hours}</div>
+                                        <div className='timeValueLabel'>Horas</div>
+                                    </Grid>
+                                </Grid>
+                                <Grid xs={3} sm={2}>
+                                    <Grid container alignItems='center' direction='column'>
+                                        <div className='timeValue' id={'minutes'} style={{fontFamily:'Montserrat-SemiBold' }} >{this.state.min}</div>
+                                        <div className='timeValueLabel' >Minutos</div>
+                                    </Grid>
+                                </Grid>
+                                <Grid xs={3} sm={2} >
+                                    <Grid container alignItems='center' direction='column'>
+                                        <div className='timeValue' id={'seconds'} style={{fontFamily:'Montserrat-SemiBold' }} >{this.state.sec}</div>
+                                        <div className='timeValueLabel'>Segundos</div>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </div>
+
+                    );
+
+            }
+        }
+
 }
 
 Footer.propTypes = {

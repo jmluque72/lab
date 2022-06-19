@@ -94,17 +94,17 @@ class Chart extends React.Component {
         var value = this.state.ttrue + this.state.tfalse;
         return (
             <Grid item xs={12} style={{ height: window.innerHeight, backgroundImage: `url(${Background})`, backgroundSize: 'cover' }}>
-                <Grid justify='center' item xs={12} style={{ height: window.innerHeight - 100, position: 'absolute', top: 0, left: 0, width: '100%', flexDirection: 'column', paddingBottom: 50 }}>
+                <Grid justifyContent='center' item xs={12} style={{ height: window.innerHeight - 100, position: 'absolute', top: 0, left: 0, width: '100%', flexDirection: 'column', paddingBottom: 50 }}>
                     <Grid container direction='column' style={{ alignContent: 'center', justifyContent: 'center' }} >
-                        <Grid container direction='row' justify='center' style={{ paddingRight: 15, paddingLeft: 15 }}>
+                        <Grid container direction='row' justifyContent='center' style={{ paddingRight: 15, paddingLeft: 15 }}>
                             <div style={{ height: '100%', flexDirection: 'column', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                <p style={{ paddingTop: 10, textAlign: 'center', color: 'white', fontSize: 40, fontFamily: 'FrutigerLight', letterSpacing: 1 }}>{this.state.question}</p>
+                                <p style={{ paddingTop: 10, textAlign: 'center', color: 'white', fontSize: 40, fontFamily: 'Montserrat-Regular', letterSpacing: 1 }}>{this.state.question}</p>
                             </div>
                         </Grid>
                     </Grid>
-                    <Grid item sm={12} xs={12} justify='center' direction='column' style={{ width: '100%', textAlign: 'center', justifyItems: 'center' }} >
+                    <Grid item sm={12} xs={12} justifyContent='center' direction='column' style={{ width: '100%', textAlign: 'center', justifyItems: 'center' }} >
                         {value == 0 ?
-                            <p style={{ paddingTop: 10, textAlign: 'center', color: 'white', fontSize: 40, fontFamily: 'FrutigerLight', letterSpacing: 1 }}>NO HAY DATOS</p>
+                            <p style={{ paddingTop: 10, textAlign: 'center', color: 'white', fontSize: 40, fontFamily: 'Montserrat-Regular', letterSpacing: 1 }}>NO HAY DATOS</p>
                             :
                             <PieChart
                                 style={{color: 'white', textAlign: 'center', width: '35%', marginTop: 70 }}
@@ -121,7 +121,7 @@ class Chart extends React.Component {
                             />
                         }
 
-                        
+
                     </Grid>
 
 
