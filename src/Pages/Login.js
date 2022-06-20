@@ -104,7 +104,7 @@ class Login extends React.Component {
     }
     render() {
         const min = window.innerWidth >= 1000
-
+        const minheight = window.innerWidth >= 1400
         const height = window.innerHeight
         const email = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
@@ -121,12 +121,12 @@ class Login extends React.Component {
                 <div>
                     <div style={{ display: 'flex', height: '100vh', width: '100%' }}>
 
-                        <div style={{ display: 'flex',  width: '100%', backgroundImage: `url(${Background})`, backgroundSize: 'cover' }}>
+                        <div style={{ display: 'flex',  width: '100%', backgroundImage: `url(${Background})`, backgroundSize: 'cover' , height:'100vh'}}>
                             <Grid item xs={12} sm={12} style={{ width: '100%', height: '90%' }}>
-                                <img style={{ width: 400, height: 250*0.86,marginTop:50}} src={LogoTop}></img>
+                                <img style={{  width: minheight? 400 : 300, height: minheight? 250*0.86 : 160*0.86,marginTop: minheight? 50 : 20}} src={LogoTop}></img>
 
                                 <Grid container  direction='row' justifyContent='center' style={{ width: '100%' }}>
-                                            <Grid container direction='row' alignContent='center' style={{ padding: 35, height: 400, width: 900,  backgroundImage: `url(${backgroundCheck})`, backgroundSize: '100% 100%' }} >
+                                            <Grid container direction='row' alignContent='center' style={{ padding: 35, height:  minheight? 400 : 300, width: minheight? 900 : 600,  backgroundImage: `url(${backgroundCheck})`, backgroundSize: '100% 100%' }} >
 
                                             <div style={{ width: '90%', display: 'flex', flexDirection: 'row', marginTop:20 }}>
                                             <Grid item sm={4} xs={4} style={{ width: '35%', height: '100%', display: 'flex', alignItems: 'center' }}>
