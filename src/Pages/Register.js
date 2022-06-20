@@ -63,7 +63,7 @@ class Register extends React.Component {
 
         };
     }
-    register() {
+register() {
         const email = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
         var d = moment({ year: this.state.year, month: this.state.mounth, day: this.state.day });

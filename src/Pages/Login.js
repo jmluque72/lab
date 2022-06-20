@@ -119,7 +119,8 @@ class Login extends React.Component {
         if (min) {
             return (
                 <div>
-                    <div style={{ display: 'flex', height: this.state.height, width:'100%'}}>
+                    <div style={{ display: 'flex', height: '100vh', width: '100%' }}>
+
                         <div style={{ display: 'flex',  width: '100%', backgroundImage: `url(${Background})`, backgroundSize: 'cover' }}>
                             <Grid item xs={12} sm={12} style={{ width: '100%', height: '90%' }}>
                                 <img style={{ width: 400, height: 250*0.86,marginTop:50}} src={LogoTop}></img>

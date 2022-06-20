@@ -24,28 +24,31 @@ class Cargando extends React.Component {
         const min = window.innerWidth >= 1000
         const height = window.innerHeight
         const width = window.innerWidth
+        const minheight = window.innerWidth >= 1400
 
  if (min) {
             return (
              <div>
-                    <div style={{  display: 'flex', height: height, width:'100%'}}>
-                        <div style={{ display: 'flex',justifyContent:'center', width: '100%', backgroundImage: `url(${Background})`, backgroundSize: 'cover' ,height: height}}>
+                    <div style={{ display: 'flex', width: '100%', height: '100vh' }}>
+                        <div style={{ width: '100%', backgroundImage: `url(${Background})`, backgroundSize: 'cover' ,height: '100vh' }}>
                             <Grid item xs={12} sm={12} style={{ display:'flex',flexDirection: 'column',alignContent:'center' }}>
 
                                     <div  style={{display: 'flex',justifyContent:'center', alignContent:'center'}}>
-                                        <img style={{maxWidth:700, marginTop: '10%',alignItems: 'center', }} src={LogoTop}></img>
-                                    </div>
+                                    <img style={{ maxWidth: minheight ? 700 : 400, marginTop: '10%', alignItems: 'center', }} src={LogoTop}></img>
 
-                                    <Grid container alignItems='center' direction='row' justifyContent='center' style={{ width: '100%' }}>
+                                    </div>
                                     <div  style={{ alignContent:'center',justifyContent:'center'}}>
-                                        <img style={{ maxWidth: 600, minWidth: 400, alignItems: 'center' }} src={logoCargando}></img>
+                                        <img style={{ maxWidth: minheight? 600 : 400 , minWidth: minheight? 400 : 300, alignItems: 'center' }} src={logoCargando}></img>
                                     </div>
-                                <img style={{ width: 90, height: 90 * 0.64, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
-                            </Grid>
+                                    <Grid container alignItems='center' direction='row' justifyContent='center' style={{ width: '100%' }}>
 
-                             <div style={{display: 'flex', justifyContent:'center', alignContent:'center'}}>
-                                    <img  style={{ maxWidth: 150, bottom: 0, position: 'absolute', alignItems: 'center' }} src={pieCargando}></img>
-                            </div>
+                                            <img style={{ width: 90, height: 90 * 0.64, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
+                                            <div style={{display: 'flex', justifyContent:'center', alignContent:'center'}}>
+                                            <img  style={{ maxWidth: 150, bottom: 0, position: 'absolute', alignItems: 'center' }} src={pieCargando}></img>
+                                            </div>
+                                     </Grid>
+
+
                            </Grid>
                         </div>
                         </div>
@@ -54,10 +57,10 @@ class Cargando extends React.Component {
         } else {
             return (
               <div>
-                    <div style={{ display: 'flex', height: height, width:'100%' }}>
-                    <div style={{display:'flex',justifyContent:'center',width:'100%',backgroundImage:`url(${Background})`,backgroundSize:'cover', height:height}}>
+                    <div style={{ display: 'flex',  height: '100%vh', width:'100%' }}>
+                    <div style={{display:'flex',justifyContent:'center',width:'100%',backgroundImage:`url(${Background})`,backgroundSize:'cover', height:'100vh'}}>
                             <Grid item xs={11} sm={11} md={8} style={{ alignItems: 'center' ,width: '100%', height: '100%',   marginTop: '2%', marginBottom: '0%', position: 'absolute' }}>
-                                 <img style={{ width: 400, height: 250 * 0.86, marginTop: '10%',alignItems: 'center' }} src={LogoTop}></img>
+                                 <img style={{ width: 400, height: 250 * 0.86, marginTop: '40%',alignItems: 'center' }} src={LogoTop}></img>
 
                                 <div style={{ display: 'flex',flexDirection: 'column',alignItems:'center'}}>
                                      <img style={{  maxWidth: 400, minWidth: 300,alignItems: 'center' }} src={logoCargando}></img>
