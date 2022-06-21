@@ -24,7 +24,8 @@ class Cargando extends React.Component {
         const min = window.innerWidth >= 1000
         const height = window.innerHeight
         const width = window.innerWidth
-        const minheight = window.innerWidth >= 1400
+        const minheight = window.innerHeight >= 1400
+        const minWidth = window.innerWidth >= 500
 
  if (min) {
             return (
@@ -59,15 +60,15 @@ class Cargando extends React.Component {
               <div>
                     <div style={{ display: 'flex',  height: '100%vh', width:'100%' }}>
                     <div style={{display:'flex',justifyContent:'center',width:'100%',backgroundImage:`url(${Background})`,backgroundSize:'cover', height:'100vh'}}>
-                            <Grid item xs={11} sm={11} md={8} style={{ alignItems: 'center' ,width: '100%', height: '100%',   marginTop: '2%', marginBottom: '0%', position: 'absolute' }}>
-                                 <img style={{ width: 400, height: 250 * 0.86, marginTop: '40%',alignItems: 'center' }} src={LogoTop}></img>
+                            <Grid item xs={11} sm={11} md={8} style={{ alignItems: 'center' ,width: '100%', height: '100%',   marginTop: '10%', marginBottom: '0%', position: 'absolute' }}>
+                                 <img style={{ maxWidth: minWidth ? 400 : 300 , maxHeight: minheight ? 250 * 0.86 : 150 * 0.86, marginTop: '40%',alignItems: 'center' }} src={LogoTop}></img>
 
                                 <div style={{ display: 'flex',flexDirection: 'column',alignItems:'center'}}>
-                                     <img style={{  maxWidth: 400, minWidth: 300,alignItems: 'center' }} src={logoCargando}></img>
+                                     <img style={{   maxWidth: minWidth ? 400 : 300, minWidth: 300,alignItems: 'center' }} src={logoCargando}></img>
                                 </div>
                             </Grid>
                                     <img style={{ width: 118 * 0.7, height: 84 * 0.7, position: 'absolute', bottom: '0%', right: '5%' }} src={logoNovo}></img>
-                                    <img style={{ maxWidth: 150, bottom: '0%', position: 'absolute', alignItems: 'center' }} src={pieCargando}></img>
+                                    <img style={{ maxWidth: 150, bottom: 0, position: 'absolute', alignItems: 'center' }} src={pieCargando}></img>
                     </div>
                 </div>
             </div>
