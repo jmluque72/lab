@@ -35,7 +35,7 @@ class Cargando extends React.Component {
                             <Grid item xs={12} sm={12} style={{ display:'flex',flexDirection: 'column',alignContent:'center' }}>
 
                                     <div  style={{display: 'flex',justifyContent:'center', alignContent:'center'}}>
-                                        <img style={{ maxWidth: minheight ? 700 : 400, marginTop: '10%', alignItems: 'center', }} src={LogoTop}></img>
+                                        <img style={{ maxWidth: minheight ? 700 : 500, marginTop: '10%', alignItems: 'center'}} src={LogoTop}></img>
 
                                     </div>
                                     <div  style={{ alignContent:'center',justifyContent:'center'}}>
@@ -63,7 +63,7 @@ class Cargando extends React.Component {
                           <Grid item xs={12} sm={12} style={{ display:'flex',flexDirection: 'column',alignContent:'center' }}>
 
                                     <div  style={{display: 'flex',justifyContent:'center', alignContent:'center'}}>
-                                        <img style={{ maxWidth: minWidth ? 400 : 300 , maxHeight: minheight ? 250 * 0.86 : 240 * 0.86, marginTop: '50%',alignItems: 'center' }} src={LogoTop}></img>
+                                        <img style={{ maxWidth: minWidth ? 400 : 300 , maxHeight: minheight ? 250 * 0.86 : 200 * 0.86, marginTop: '50%',alignItems: 'center' }} src={LogoTop}></img>
                                     </div>
                                 <div style={{ display: 'flex',flexDirection: 'column',alignItems:'center'}}>
                                      <img style={{   maxWidth: minWidth ? 400 : 300, minWidth: 300,alignItems: 'center' }} src={logoCargando}></img>
