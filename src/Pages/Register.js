@@ -12,9 +12,6 @@ import logoVeteGrande from '../assets/LogoVete.png';
 
 import CheckMail from '../assets/Checkmail.png';
 
-
-
-
 import logoNovo from '../assets/logoZoon.svg'
 import check from '../assets/check.png'
 import { colors } from '../utils'
@@ -45,6 +42,8 @@ class Register extends React.Component {
             error: null,
             register: false,
             terms: false,
+            presencial: false,
+            streaming: true,
             loading: false,
             send: false,
             habito: "",
@@ -63,6 +62,8 @@ class Register extends React.Component {
 
         };
     }
+
+
 register() {
         const email = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
@@ -96,7 +97,9 @@ register() {
             loading: true
         })
         var question1 = 1;
-        var question2 = 1;
+    var question2 = 1;
+
+
         if (this.state.check2) {
             question1 = 2
         }
@@ -129,7 +132,8 @@ register() {
         }
         if (this.state.check12) {
             question2 = 12
-        }
+    }
+
         const body = {
             first_name: this.state.first_name,
             last_name: this.state.last_name,
@@ -142,7 +146,8 @@ register() {
             phone2: this.state.phone2,
             question1: question1,
             question2: question2,
-            email: this.state.email
+            email: this.state.email,
+            presencial: this.state.presencial,
         }
         var response = fetch("https://pom2lkx5ei.execute-api.us-east-1.amazonaws.com/production/register", {
 
@@ -154,25 +159,32 @@ register() {
         })
 
             .then((response) => {
-                    console.log('aca1',response);
+
                 if (response.status == 200) {
                     return response.json();
+
                 } else {
                     this.setState({ error: response + "", loading: false })
                 }
             })
             .then((response) => {
-               console.log('aca2',response);
+
                 if (response) {
-                   // console.log(response);
+
                     if (!response.error) {
+
                         this.setState({ register: true, loading: false });
+
 
                     } else {
                         this.setState({ error: response.error, loading: false })
                     }
                 }
+
+
             })
+
+
             .catch(error => {
                 this.setState({ error: error + "", loading: false })
             });
@@ -181,6 +193,7 @@ register() {
         event.preventDefault()
         if (this.state.terms) {
             this.register()
+
         } else {
             alert('Debes aceptar los Terminos y Condiciones')
         }
@@ -316,8 +329,23 @@ register() {
 
             })
         }
+         if (field == "streaming") {
+            this.setState({
+                presencial: false,
+                streaming: true,
+            })
+        }
+        if (field == "presencial") {
+            this.setState({
+                streaming: false,
+                presencial: true,
+            })
+        }
 
-    }
+
+}
+
+
     render() {
         const height = window.innerHeight
         const min = window.innerWidth >= 1000
@@ -619,6 +647,23 @@ register() {
                                                     </div>
                                                 </Grid>
 
+                                                         <Grid item xs={10} sm={10} style={{ marginLeft: 0, display: 'flex', alignItems: 'start', marginTop: 10 }}>
+                                                            <p className='textForm' style={{ textAlign: 'left' }}>Asistire al evento en modo:</p>
+
+                                                </Grid>
+
+                                                  <Grid style={{ flex: 1, alignItems: 'start', flexDirection: 'row', display: 'flex' }}>
+                                                    <Grid style={{ flex: 0.5, alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
+                                                         <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
+                                                            <input type="radio" checked={this.state.streaming} onChange={(value) => this.radioButton('streaming', value)} /><span className='radioB'>Streaming</span>
+                                                        </div>
+                                                        <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
+                                                            <input type="radio" checked={this.state.presencial} onChange={(value) => this.radioButton('presencial', value)} /><span className='radioB'>Presencial</span>
+                                                        </div>
+
+                                                    </Grid>
+
+                                                </Grid>
 
                                                 <Grid item xs={12} sm={12} style={{ marginTop: 20, alignItems: 'start', marginRigh: 40 }}>
                                                     <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 0, alignItems: 'start' }}>
@@ -627,7 +672,7 @@ register() {
                                                                 <img src={check} style={{ width: '100%', display: this.state.terms ? 'flex' : 'none' }}></img>
                                                             </div>
                                                         </Grid>
-                                                        <Grid item xs={10} sm={10} style={{ marginLeft: 10, display: 'flex', alignItems: 'start', marginTop: 10 }}>
+                                                        <Grid item xs={10} sm={10} style={{ marginLeft: 0, display: 'flex', alignItems: 'start', marginTop: 10 }}>
                                                             <p className='textForm' style={{ textAlign: 'left' }}>Acepto bases y condiciones</p>
                                                         </Grid>
                                                     </div>
@@ -965,6 +1010,25 @@ register() {
                                                     </div>
                                                 </Grid>
 
+                                                 <Grid item xs={10} sm={10} style={{ marginLeft: 0, display: 'flex', alignItems: 'start', marginTop: 10 }}>
+                                                            <p className='textForm' style={{ textAlign: 'left' }}>Asistire al evento en modo:</p>
+
+                                                </Grid>
+
+                                                  <Grid style={{ flex: 1, alignItems: 'start', flexDirection: 'row', display: 'flex' }}>
+                                                    <Grid style={{ flex: 0.5, alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
+                                                           <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
+                                                            <input type="radio" checked={this.state.streaming} onChange={(value) => this.radioButton('streaming', value)} /><span className='radioB'>Streaming</span>
+                                                        </div>
+                                                        <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
+                                                            <input type="radio" checked={this.state.presencial} onChange={(value) => this.radioButton('presencial', value)} /><span className='radioB'>Presencial</span>
+                                                        </div>
+
+                                                    </Grid>
+
+                                                </Grid>
+
+
                                                 <Grid item xs={12} sm={12} style={{ marginTop: 20, alignItems: 'start', marginRigh: 40 }}>
                                                     <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 0, alignItems: 'start' }}>
                                                         <Grid item xs={2} sm={2} style={{ display: 'flex', padding: 10, alignItems: 'start' }}>
@@ -972,7 +1036,7 @@ register() {
                                                                 <img src={check} style={{ width: '100%', display: this.state.terms ? 'flex' : 'none' }}></img>
                                                             </div>
                                                         </Grid>
-                                                        <Grid item xs={19} sm={10} style={{ marginLeft: 10, display: 'flex', alignItems: 'start', marginTop: 10 }}>
+                                                        <Grid item xs={10} sm={10} style={{ marginLeft: 10, display: 'flex', alignItems: 'start', marginTop: 10 }}>
                                                             <p className='textForm' style={{ textAlign: 'left' }}>Acepto bases y condiciones</p>
                                                         </Grid>
                                                     </div>
@@ -1022,7 +1086,7 @@ register() {
                 return (
                    <div>
                         <div style={{ display: 'block', height: window.innerHeight }}>
-                              <Grid  xs={12} style={{marginTop:'5',alignItems: 'center', width:'100%' }}>
+                              <Grid  item xs={12} style={{marginTop:'5',alignItems: 'center', width:'100%' }}>
                                      <img  style={{ width: 250, height: 150 * 0.86, marginTop: 50 }} src={logoVeteGrande}></img>
                                 </Grid>
                             <div style={{ display: 'flex', flexdirection:'row', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%', backgroundImage: `url(${backgroundRegisterOk})`, backgroundSize: 'cover' }}>
