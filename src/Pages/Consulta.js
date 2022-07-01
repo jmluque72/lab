@@ -5,11 +5,13 @@ import Header from './Header.js'
 import Footer from './Footer.js'
 import { makeStyles } from '@material-ui/core/styles';
 import {Grid, Button} from '@material-ui/core';
-import './Main.css'
-import Background from '../assets/backgroundZoonvetAll.jpg'
-import BackgroundR from '../assets/backgroun_responsive_all.jpg'
+import './Main.css';
+import Background from '../assets/backgroundZoonvetAll.jpg';
+import BackgroundR from '../assets/backgroun_responsive_all.jpg';
 
-import enviar from '../assets/enviar.svg'
+import imgComoserParte from '../assets/imgConsulta-01.png';
+import enviar from '../assets/enviar.svg';
+import { ISO_8601 } from "moment";
 
 
 class Consulta extends React.Component {
@@ -31,7 +33,7 @@ class Consulta extends React.Component {
             email: this.state.email,
             comment: this.state.men
          }
-        var response = fetch("https://pom2lkx5ei.execute-api.us-east-1.amazonaws.com/production/comments", {
+        var response = fetch("https://pom2lkx5ei.execute-api.us-east-1.amazonaws.com/prod/comments", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -91,19 +93,18 @@ class Consulta extends React.Component {
             top = -90
         }
         return (
-            <div style={{width: '100%', flexDirection: 'row'}}>
-                    <Grid item xs={12} style={{marginTop: top,height:window.innerHeight,backgroundImage:`url(${back})`,backgroundSize:'cover'}}>
-                        <Grid container direction='row' style={{ width:'100%',height:'100%'}}>
-                            <Grid item sm={6} xs={12} style={{ }}>
-                                <Grid container direction='column' justifyContent='center' alignItems={ min ? 'flex-end' : 'center' } style={{ height:'100%'}}>
-                                    <p style={{ fontFamily:'Montserrat-Black',fontSize:min ? 70 : 45,color:'white',textAlign: min ? 'right' : 'center',lineHeight:1,marginLeft: min ? 'auto' : 'none',width:'80%'}}>DEJANOS TU CONSULTA</p>
-                                    <div style={{width:150,height:20,backgroundColor:'white'}}></div>
+            <div style={{width: window.innerWidth, flexDirection: 'row',marginTop: -100}}>
+                <Grid item sm={12} xs={12} md={12} l={12} lg={12}  style={{ width: window.innerWidth, height:window.innerHeight , backgroundImage:`url(${back})`,backgroundSize:'cover'}}>
+                        <Grid container direction='row' style={{height:'100%'}}>
+                        <Grid item sm={12} xs={12} md={6} l={6} lg={6}   style={{ }}>
+                                <Grid container direction='column' justifyContent='space-around' alignItems={ min ? 'flex-end' : 'center' } style={{ width:'100%', height:'100%'}}>
+                                  <img style={{ marginLeft: min? '-9%' : '-3%',marginTop: min? '-5%' : '-4%', width: min? 650 :380, height: min? 300: 190,justifyContent: min? 'center' : 'center' }} src={imgComoserParte} ></img>
                                 </Grid>
                             </Grid>
-                            <Grid item sm={6} xs={12} style={{}}>
+                        <Grid item sm={12} xs={12} md={6} l={6} style={{}}>
                                 <Grid container direction='column' justifyContent={justify} alignItems={ min ? 'flex-start' : 'center' } style={{ height:'100%'}}>
-                                    <div style={{ width:'60%',display:'flex',alignItems:'center',flexDirection:'column',marginLeft:'5%'}}>
-                                        <div style={{ display:'flex',flexDirection:'column',alignItems:'space-around',height:60,width:'100%'}}>
+                                <div style={{ marginTop: min ? 90 : '-30%', width: '80%', display: 'flex', alignItems: 'center', flexDirection: 'column', marginLeft: min ? '15%' : 0 }}>
+                                        <div style={{ display:'flex',flexDirection:'column',alignItems:'space-around',width:'100%'}}>
                                             <div style={{ width:'100%',height:'40%',display:'flex'}}>
                                                 <p style={{ fontFamily:'Montserrat-SemiBold',fontSize:14,color:'white'}}>Nombre y Apellido</p>
                                             </div>
@@ -146,7 +147,7 @@ class Consulta extends React.Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <Button  onClick={() => this.send()} style={{}}>
+                                    <Button  onClick={() => this.send()} style={{marginLeft: min?  '10%' : 0}}>
                                         <img style={{marginLeft: 25, width: 100, height: 150*0.40}} src={enviar} />
                                     </Button>
                                 </Grid>

@@ -602,29 +602,29 @@ register() {
                                                             <input type="radio" checked={this.state.check3} onChange={(value) => this.radioButton('check3', value)} /><span className='radioB'>Vendedor / Asistente Comercial en Distribuidor</span>
                                                         </div>
                                                     </Grid>
-                                                    <Grid style={{ alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
+                                                    <Grid style={{ marginLeft: '10%', alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
                                                         <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
-                                                            <input type="radio" checked={this.state.check4} onChange={(value) => this.radioButton('check4', value)} /><span className='radioB'>Representante del canal de Distribución</span>
+                                                            <input type="radio" checked={this.state.check4} onChange={(value) => this.radioButton('check4', value)} /><span className='radioB'>Canal Distribuidor</span>
                                                         </div>
                                                         <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
                                                             <input type="radio" checked={this.state.check5} onChange={(value) => this.radioButton('check5', value)} /><span className='radioB'>Proveedor</span>
                                                         </div>
                                                         <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
-                                                            <input type="radio" checked={this.state.check6} onChange={(value) => this.radioButton('check6', value)} /><span className='radioB'>Médico Veterinario en clínica / particular</span>
+                                                            <input type="radio" checked={this.state.check6} onChange={(value) => this.radioButton('check6', value)} /><span className='radioB'>Médico Veterinario particular</span>
                                                         </div>
                                                     </Grid>
                                                 </Grid>
                                                 <Grid style={{ alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
                                                     <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
-                                                        <input type="radio" checked={this.state.check11} onChange={(value) => this.radioButton('check11', value)} /><span className='radioB'>Ninguna</span>
+                                                        <input type="radio" checked={this.state.check11} onChange={(value) => this.radioButton('check11', value)} /><span className='radioB'>Otros</span>
                                                     </div>
                                                 </Grid>
 
-                                                <Grid item xs={12} sm={12} style={{ marginTop: 20, marginBotton: 20, alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
-                                                    <p className='textForm'>Si usted es médico veterinario, usted se especializa en:</p>
+                                                <Grid item xs={12} sm={12} md={12} lg={12} style={{ marginTop: 20, marginBotton: 20, alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
+                                                    <p className='textForm'>Si usted es médico veterinario, se especializa en:</p>
                                                 </Grid>
                                                 <Grid style={{ flex: 1, alignItems: 'start', flexDirection: 'row', display: 'flex' }}>
-                                                    <Grid style={{ flex: 0.5, alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
+                                                    <Grid style={{ alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
                                                         <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
                                                             <input type="radio" checked={this.state.check7} onChange={(value) => this.radioButton('check7', value)} /><span className='radioB'>Grandes Animales</span>
                                                         </div>
@@ -632,7 +632,7 @@ register() {
                                                             <input type="radio" checked={this.state.check8} onChange={(value) => this.radioButton('check8', value)} /><span className='radioB'>Pequeños Animales</span>
                                                         </div>
                                                     </Grid>
-                                                    <Grid style={{ flex: 0.5, alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
+                                                   <Grid style={{ marginLeft: '10%', alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
                                                         <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
                                                             <input type="radio" checked={this.state.check9} onChange={(value) => this.radioButton('check9', value)} /><span className='radioB'>Ambos </span>
                                                         </div>
@@ -647,7 +647,7 @@ register() {
                                                     </div>
                                                 </Grid>
 
-                                                         <Grid item xs={10} sm={10} style={{ marginLeft: 0, display: 'flex', alignItems: 'start', marginTop: 10 }}>
+                                                <Grid item xs={10} sm={10} style={{ marginLeft: 0, display: 'flex', alignItems: 'start', marginTop: 10 }}>
                                                             <p className='textForm' style={{ textAlign: 'left' }}>Asistire al evento en modo:</p>
 
                                                 </Grid>
@@ -965,29 +965,29 @@ register() {
                                                             <input type="radio" checked={this.state.check3} onChange={(value) => this.radioButton('check3', value)} /><span className='radioB'>Vendedor / Asistente Comercial en Distribuidor</span>
                                                         </div>
                                                     </Grid>
-                                                    <Grid style={{ alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
+                                                    <Grid style={{ marginLeft:'10%', alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
                                                         <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
-                                                            <input type="radio" checked={this.state.check4} onChange={(value) => this.radioButton('check4', value)} /><span className='radioB'>Representante del canal de Distribución</span>
+                                                            <input type="radio" checked={this.state.check4} onChange={(value) => this.radioButton('check4', value)} /><span className='radioB'>Canal Distribuidor</span>
                                                         </div>
                                                         <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
                                                             <input type="radio" checked={this.state.check5} onChange={(value) => this.radioButton('check5', value)} /><span className='radioB'>Proveedor</span>
                                                         </div>
                                                         <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
-                                                            <input type="radio" checked={this.state.check6} onChange={(value) => this.radioButton('check6', value)} /><span className='radioB'>Médico Veterinario en clínica / particular</span>
+                                                            <input type="radio" checked={this.state.check6} onChange={(value) => this.radioButton('check6', value)} /><span className='radioB'>Médico Veterinario particular</span>
                                                         </div>
                                                     </Grid>
                                                 </Grid>
                                                 <Grid style={{ alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
                                                     <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
-                                                        <input type="radio" checked={this.state.check11} onChange={(value) => this.radioButton('check11', value)} /><span className='radioB'>Ninguna</span>
+                                                        <input type="radio" checked={this.state.check11} onChange={(value) => this.radioButton('check11', value)} /><span className='radioB'>Otros</span>
                                                     </div>
                                                 </Grid>
 
                                                 <Grid item xs={12} sm={12} style={{ marginTop: 20, marginBotton: 20, alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
-                                                    <p className='textForm'>Si usted es médico veterinario, usted se especializa en:</p>
+                                                    <p className='textForm'>Si usted es médico veterinario, se especializa en:</p>
                                                 </Grid>
-                                                <Grid style={{ flex: 1, alignItems: 'start', flexDirection: 'row', display: 'flex' }}>
-                                                    <Grid style={{ flex: 0.5, alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
+                                               <Grid style={{ flex: 1, flexDirection: 'row', display: 'flex' }}>
+                                                    <Grid style={{ alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
                                                         <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
                                                             <input type="radio" checked={this.state.check7} onChange={(value) => this.radioButton('check7', value)} /><span className='radioB'>Grandes Animales</span>
                                                         </div>
@@ -995,7 +995,7 @@ register() {
                                                             <input type="radio" checked={this.state.check8} onChange={(value) => this.radioButton('check8', value)} /><span className='radioB'>Pequeños Animales</span>
                                                         </div>
                                                     </Grid>
-                                                    <Grid style={{ flex: 0.5, alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
+                                                    <Grid style={{ marginLeft:'15%', alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
                                                         <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
                                                             <input type="radio" checked={this.state.check9} onChange={(value) => this.radioButton('check9', value)} /><span className='radioB'>Ambos </span>
                                                         </div>

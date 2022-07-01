@@ -14,6 +14,7 @@ class Header extends React.Component {
         super(props);
         // we use this to make the card to appear after the page has been rendered
         this.state = {
+            menu:false
         };
     }
 
@@ -32,53 +33,62 @@ class Header extends React.Component {
         const classEvento = this.props.state === 'evento' ? 'label-header-selected' : 'label-header-not-selected'
         const classConsultas = this.props.state === 'consultas' ? 'label-header-selected' : 'label-header-not-selected'
         const classContactos = this.props.state === 'contacto' ? 'label-header-selected' : 'label-header-not-selected'
-        const min = window.innerWidth >= 1000
-        return (
-            <div className='header' style={{ background: '#ffffff', zIndex: 10, paddingTop: 20, paddingBottom: 20, position: 'fixed', height: this.state.menu ? 140 : 170, left: 0, top: 0, right: 0, flexDirection: 'column' }}>
-                <Grid container>
-                    <Grid xs={10} sm={4} style={{ height: 80, }}>
-                        <Grid container direction='row' justifyContent='space-around'>
+        const min = window.innerWidth >= 900
 
-                                   <div style={{ width: 90, height: 50, display: 'flex', justifyContent: 'center'}}>
-                                        <img style={{ marginLeft:60, marginTop: -20, width: 300, height: 250 * 0.64 }} src={LogoZoovet} />
-                                    </div>
+     return (
+         <div className='header' style={{
+             fontFamily: 'Montserrat-SemiBold',
+            height:150,display:'flex',justifyContent:'center',boxShadow:'none',
+             background: '#ffffff', position: 'fixed',
+            left: 0, top: 0, right: 0,
+             borderTop: '30px solid  #0d80bb', borderBottom: '20px solid  #0d80bb'}}>
+
+        <Grid container style={{}}>
+                 <Grid xs={10} sm={6} md={4}  style={{ height: 90, }}>
+                        <Grid container direction='row' justifyContent='space-around' position='absolute'>
+
+                                   <div style={{minWidth:400, width: 400, height: 90, display: 'flex', justifyContent: 'center'}}>
+
+                                     <img src={LogoZoovet} onClick={() =>  {this.props.redirect('Home')}} alt='logo-zoovet' height='95px' width='auto' style={{ marginRight:16,cursor:'pointer'}}></img>
+                                     </div>
 
 
                         </Grid>
                     </Grid>
-                    <Grid item sm={2} ></Grid>
+
                     {!min ?
-                        <Grid xs={2} sm={6} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', }}>
+                        <Grid xs={2} sm={12} md={2} style={{ paddingTop:-20,display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                             <div onClick={() => this.setState({ menu: !this.state.menu })} >
                                 <img src={menu} style={{ width: 40, height: 40, cursor: 'pointer' }}></img>
                             </div>
                         </Grid>
                         :
-                        <Grid sm={6} style={{ display: 'flex', paddingLeft: 10, paddingRight: 40 }}>
+                     <Grid sm={6} md={8}  style={{ display: 'flex', paddingLeft: 100, paddingRight: 10 }}>
                             <Grid container direction={'row'} alignItems='center' justifyContent='space-between'>
                                 <a onClick={(event) => { this.props.redirect("Home",) }} className={classHome}>HOME</a>
                                 <a onClick={() => this.props.redirect("Agenda")} className={classAgenda} >NUESTRA FIESTA</a>
                                 <a onClick={() => this.props.redirect("Evento")} className={classEvento} >CÓMO SER PARTE</a>
                                 <a onClick={() => this.props.redirect("Consultas")} className={classConsultas}>CONSULTAS</a>
-                                <img src={Vivo} style={{ width: 160, height: 160 * 0.26, cursor: 'pointer' }}></img>
+                                <img src={Vivo} style={{ width: 120, height: 160 * 0.26, cursor: 'pointer' }}></img>
                             </Grid>
                         </Grid>
                     }
                     {this.state.menu && (
-                        <Grid xs={12} sm={12} style={{ display: 'flex' }}>
-                            <Grid container direction={'column'} alignItems='flex-end' style={{ marginTop: 60, paddingRight: 10, backgroundColor: '#F1EFEF' }} >
+                        <Grid xs={12} sm={12} style={{ display: 'flex', position: 'absolute', width:'100%'}}>
+                            <Grid container direction={'column'} alignItems='flex-end' style={{ marginTop:90,paddingRight: 10, backgroundColor: '#F1EFEF' }} >
                                 <a onClick={() => this.setValue("Home")} className={classHome} style={{color: 'black'}}>HOME</a>
                                 <a onClick={() => this.setValue("Agenda")} className={classAgenda}  style={{color: 'black'}}>NUESTRA FIESTA</a>
                                 <a onClick={() => this.setValue("Evento")} className={classEvento}  style={{color: 'black'}}>CÓMO SER PARTE</a>
-                                <a onClick={() => this.setValue("Consultas")} className={classContactos}  style={{color: 'black'}}>CONTACTO</a>
-                                <img src={Vivo} style={{ marginTop: 10, marginBottom: 10, width: 100, height: 100 * 0.26, cursor: 'pointer' }}></img>
+                                <a onClick={() => this.setValue("Consultas")} className={classContactos}  style={{color: 'black'}}>CONSULTAS</a>
+                                <img src={Vivo} style={{  width: 80, height: 80 * 0.26, cursor: 'pointer' }}></img>
 
                             </Grid>
                         </Grid>
                     )
                     }
 
-                </Grid>
+             </Grid>
+
             </div>
         );
     }
@@ -89,3 +99,4 @@ Header.propTypes = {
 };
 
 export default Header;
+
