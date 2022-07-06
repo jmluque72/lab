@@ -510,7 +510,7 @@ handleChange = (selected) => {
 
                                             <Grid item style={{ background: 'white', width: '90%', padding: 30, borderRadius: 30 }}>
                                                 <div style={{ marginTop: 0 }}>
-                                                    <p className='titleFormTitle'>REGISTRO</p>
+                                                    <p className='titleFormTitle'>REGISTRATE</p>
                                                 </div>
                                                 <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
                                                     <Grid item xs={12} sm={2} style={{ alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
