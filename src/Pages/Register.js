@@ -86,7 +86,6 @@ class Register extends React.Component {
             check10: false,
             check11: false
 
-
         };
     }
 
@@ -168,8 +167,6 @@ handleChange = (selected) => {
             question2 = 12
         }
         var obj = this.state.optionSelected
-
-
 
 
         var p1 = ""
