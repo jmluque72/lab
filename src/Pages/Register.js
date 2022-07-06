@@ -25,7 +25,7 @@ import moment from 'moment';
 import { default as ReactSelect } from "react-select";
 
 import { products} from "../utils/products";
-import { ConsoleLogger } from '@aws-amplify/core';
+
 
 const Option = (props) => {
   return (
