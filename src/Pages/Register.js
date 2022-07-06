@@ -84,18 +84,7 @@ class Register extends React.Component {
             check8: false,
             check9: false,
             check10: false,
-            check11: false,
-            prod1: "",
-            prod2: "",
-            prod3: "",
-            prod4: "",
-            prod5: "",
-            prod6: "",
-            prod7: "",
-            prod8: "",
-            prod9: "",
-            prod10: ""
-
+            check11: false
 
 
         };
