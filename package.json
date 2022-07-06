@@ -11,9 +11,12 @@
     "aws-amplify-react": "^4.2.22",
     "axios": "^0.27.2",
     "bootstrap": "^4.6.0",
+    "express": "^4.18.1",
     "history": "^5.0.0",
     "moment": "^2.29.1",
     "node-ws": "0.0.4",
+    "nodemailer": "^6.7.5",
+    "nodemailer-react": "^1.0.2",
     "prop-types": "^15.8.1",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.0",
@@ -26,13 +29,14 @@
     "react-responsive-masonry": "^2.1.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
+    "react-select": "^5.4.0",
     "react-use-websocket": "^2.5.0",
     "sockette": "^2.0.6",
     "web-vitals": "^1.0.1",
     "websocket": "^1.0.33"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
