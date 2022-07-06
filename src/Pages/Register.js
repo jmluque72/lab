@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
+import {components } from "react-select";
 import axios from 'axios';
 import PropTypes from "prop-types";
 import { makeStyles } from '@material-ui/core/styles';
@@ -11,7 +12,6 @@ import LogoTop from '../assets/LogoVete.svg'
 import logoVeteGrande from '../assets/LogoVete.png';
 
 import CheckMail from '../assets/Checkmail.png';
-
 import logoNovo from '../assets/logoZoon.svg'
 import check from '../assets/check.png'
 import { colors } from '../utils'
@@ -22,7 +22,31 @@ import TILDE from '../assets/TILDE.png'
 import Loader from "react-loader-spinner";
 import moment from 'moment';
 
+import { default as ReactSelect } from "react-select";
+
+import { products} from "../utils/products";
+import { ConsoleLogger } from '@aws-amplify/core';
+
+const Option = (props) => {
+  return (
+    <div>
+      <components.Option {...props}>
+        <input
+          type="checkbox"
+          checked={props.isSelected}
+          onChange={() => null}
+        />{" "}
+              <label>{props.label}</label>
+      </components.Option>
+    </div>
+  );
+};
+
+
+
+
 class Register extends React.Component {
+
 
     constructor(props) {
         super(props);
@@ -44,6 +68,8 @@ class Register extends React.Component {
             terms: false,
             presencial: false,
             streaming: true,
+            productSi: true,
+            productNo: false,
             loading: false,
             send: false,
             habito: "",
@@ -58,13 +84,32 @@ class Register extends React.Component {
             check8: false,
             check9: false,
             check10: false,
-            check11: false
+            check11: false,
+            prod1: "",
+            prod2: "",
+            prod3: "",
+            prod4: "",
+            prod5: "",
+            prod6: "",
+            prod7: "",
+            prod8: "",
+            prod9: "",
+            prod10: ""
+
+
 
         };
     }
 
 
-register() {
+handleChange = (selected) => {
+    this.setState({
+      optionSelected: selected
+    });
+    };
+
+    register() {
+
         const email = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
         var d = moment({ year: this.state.year, month: this.state.mounth, day: this.state.day });
@@ -97,7 +142,7 @@ register() {
             loading: true
         })
         var question1 = 1;
-    var question2 = 1;
+        var question2 = 1;
 
 
         if (this.state.check2) {
@@ -132,7 +177,71 @@ register() {
         }
         if (this.state.check12) {
             question2 = 12
-    }
+        }
+        var obj = this.state.optionSelected
+
+
+
+
+        var p1 = ""
+        var p2 = ""
+        var p3 = ""
+        var p4 = ""
+        var p5 = ""
+        var p6 = ""
+        var p7 = ""
+        var p8 = ""
+        var p9 = ""
+        var p10 = ""
+
+
+
+        for (let i = 0; i<obj.length; i++) {
+
+            if (obj[i].value == 1) {
+               var p1 = "x"
+
+
+            }
+              if (obj[i].value == 2) {
+               var p2 = "x"
+
+            }
+              if (obj[i].value == 3) {
+                 var p3 = "x"
+
+            }
+             if (obj[i].value == 4) {
+                 var p4 = "x"
+
+            }
+              if (obj[i].value == 5) {
+                  var p5 = "x"
+
+            }
+              if (obj[i].value == 6) {
+                  var p6 = "x"
+
+            }
+             if (obj[i].value == 7) {
+                 var p7 = "x"
+
+            }
+              if (obj[i].value == 8) {
+                  var p8 = "x"
+
+            }
+              if (obj[i].value == 9) {
+                  var p9 = "x"
+
+            }
+              if (obj[i].value == 10) {
+                  var p10 = "x"
+
+            }
+            }
+
+
 
         const body = {
             first_name: this.state.first_name,
@@ -148,7 +257,22 @@ register() {
             question2: question2,
             email: this.state.email,
             presencial: this.state.presencial,
+            productsi: this.state.productSi,
+            producto1: p1,
+            producto2: p2,
+            producto3: p3,
+            producto4: p4,
+            producto5: p5,
+            producto6: p6,
+            producto7: p7,
+            producto8: p8,
+            producto9: p9,
+            producto10: p10
+
         }
+
+
+
         var response = fetch("https://pom2lkx5ei.execute-api.us-east-1.amazonaws.com/production/register", {
 
             method: 'POST',
@@ -341,12 +465,24 @@ register() {
                 presencial: true,
             })
         }
+            if (field == "productSi") {
+            this.setState({
+                productSi: true,
+                productNo: false,
+            })
+        }
+        if (field == "productNo") {
+            this.setState({
+                productSi: false,
+                productNo: true,
+            })
+        }
 
 
-}
-
+    }
 
     render() {
+
         const height = window.innerHeight
         const min = window.innerWidth >= 1000
         const minxs =window.innerWidth <= 700
@@ -354,7 +490,9 @@ register() {
         const email = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
         const width = window.innerWidth < 1000
 
-        var header = <Grid item xs={12} sm={3} md={4} lg={5} style={{ height: '100%', display: 'flex' }} >
+
+
+        var header = <Grid item xs={12} sm={3} l={3} md={3} lg={4} style={{ height: '100%', display: 'flex' }} >
             <div style={{ flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
                 <img height='auto' width='100%' style={{ marginTop: 50, maxWidth: 500 }} src={logoVeteGrande} />
                  <img style={{ width: 90, height: 90 * 0.64, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
@@ -364,7 +502,7 @@ register() {
         const h = window.innerHeight;
 
         if (window.matchMedia('screen and (max-width: 768px)').matches) {
-            header = <Grid item xs={12} sm={3} md={4} lg={5}  >
+            header = <Grid item xs={12} sm={3} md={4} l={4} lg={4}  >
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
                 </div>
             </Grid>
@@ -381,7 +519,7 @@ register() {
 
                                 <Grid container direction='row' style={{ height: '100%' }}>
                                     {header}
-                                    <Grid item xs={12} sm={9} md={8} lg={7} tyle={{}} >
+                                    <Grid item xs={12} sm={9} md={9} l={9} lg={8} style={{}} >
                                         <Grid container direction='column' justifyContent='center' alignItems='center' style={{ height: '100%', marginTop: 20 }}>
 
                                             <Grid item style={{ background: 'white', width: '90%', padding: 30, borderRadius: 30 }}>
@@ -664,6 +802,48 @@ register() {
                                                     </Grid>
 
                                                 </Grid>
+                                                <Grid item xs={10} sm={10} style={{ marginLeft: 0, display: 'flex', alignItems: 'start', marginTop: 10 }}>
+                                                            <p className='textForm' style={{ textAlign: 'left' }}>Utiliza productos Zoovet?</p>
+
+                                                </Grid>
+
+                                                  <Grid style={{ flex: 1, alignItems: 'start', flexDirection: 'row', display: 'flex' }}>
+                                                    <Grid style={{ flex: 0.5, alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
+                                                            <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
+                                                                <input type="radio" checked={this.state.productNo} onChange={(value) => this.radioButton('productNo', value)} /><span className='radioB'>No</span>
+                                                            </div>
+
+                                                             <div  style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
+                                                                <input type="radio" checked={this.state.productSi} onChange={(value) => this.radioButton('productSi', value)} /><span className='radioB'>Si</span>
+                                                            </div>
+                                                      {this.state.productSi ?
+                                                            <span
+                                                                    class="d-inline-block"
+                                                                    data-toggle="popover"
+                                                                    data-trigger="focus"
+                                                                    data-content="Seleccione Productos"
+                                                                    style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}
+                                                                    placeholder="Seleccione productos"
+                                                                >
+                                                                    <ReactSelect
+                                                                    options={products}
+                                                                    isMulti
+                                                                    closeMenuOnSelect={false}
+                                                                    hideSelectedOptions={false}
+                                                                    components={{
+                                                                        Option
+                                                                    }}
+                                                                    onChange={this.handleChange}
+                                                                    allowSelectAll={true}
+                                                                    value={this.state.optionSelected}
+                                                                    />
+                                                            </span>
+                                                            :
+                                                            <span></span>
+                                                            }
+                                                    </Grid>
+
+                                                </Grid>
 
                                                 <Grid item xs={12} sm={12} style={{ marginTop: 20, alignItems: 'start', marginRigh: 40 }}>
                                                     <div style={{ width: '100%', display: 'flex', flexDirection: 'row', marginTop: 0, alignItems: 'start' }}>
@@ -678,7 +858,7 @@ register() {
                                                     </div>
                                                     {this.state.error &&
                                                         <div style={{ width: '85%', display: 'flex', justifyContent: 'center' }}>
-                                                            <p style={{ marginTop: 20, color: 'red', fontFamily: 'FiraSansMedium', fontSize: 14 }}>{this.state.error}</p>
+                                                            <p style={{ marginTop: 20, color: 'red', fontFamily: 'Montserrat-SemiBold', fontSize: 14 }}>{this.state.error}</p>
                                                         </div>
                                                     }
 
@@ -1024,6 +1204,46 @@ register() {
                                                             <input type="radio" checked={this.state.presencial} onChange={(value) => this.radioButton('presencial', value)} /><span className='radioB'>Presencial</span>
                                                         </div>
 
+                                                    </Grid>
+
+                                                </Grid>
+                                                   <Grid item xs={10} sm={10} style={{ marginLeft: 0, display: 'flex', alignItems: 'start', marginTop: 10 }}>
+                                                            <p className='textForm' style={{ textAlign: 'left' }}>Utiliza productos Zoovet?</p>
+
+                                                </Grid>
+                                                     <Grid style={{ flex: 1, alignItems: 'start', flexDirection: 'row', display: 'flex' }}>
+                                                    <Grid style={{ flex: 0.5, alignItems: 'start', flexDirection: 'column', display: 'flex' }}>
+                                                            <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
+                                                                <input type="radio" checked={this.state.productNo} onChange={(value) => this.radioButton('productNo', value)} /><span className='radioB'>No</span>
+                                                            </div>
+                                                             <div style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}>
+                                                                <input type="radio" checked={this.state.productSi} onChange={(value) => this.radioButton('productSi', value)} /><span className='radioB'>Si</span>
+                                                             </div>
+                                                        {this.state.productSi ?
+                                                            <span
+                                                                class="d-inline-block"
+                                                                data-toggle="popover"
+                                                                data-trigger="focus"
+                                                                data-content="Seleccione Productos"
+                                                                style={{ textAlign: 'left', width: '100%', alignItems: 'start' }}
+                                                                placeholder="Seleccione productos"
+                                                            >
+                                                                <ReactSelect
+                                                                    options={products}
+                                                                    isMulti
+                                                                    closeMenuOnSelect={false}
+                                                                    hideSelectedOptions={false}
+                                                                    components={{
+                                                                        Option
+                                                                    }}
+                                                                    onChange={this.handleChange}
+                                                                    allowSelectAll={true}
+                                                                    value={this.state.optionSelected}
+                                                                />
+                                                            </span>
+                                                            :
+                                                            <span></span>
+                                                        }
                                                     </Grid>
 
                                                 </Grid>
