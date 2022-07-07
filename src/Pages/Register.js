@@ -90,15 +90,30 @@ class Register extends React.Component {
     }
 
 
-handleChange = (selected) => {
-    this.setState({
-      optionSelected: selected
-    });
+    handleChange = (selected) => {
+        if (this.state.productSi = true) {
+
+            this.setState({
+                optionSelected: selected
+            })
+        }
     };
 
     register() {
 
         const email = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+          if ( email.test(this.state.email) ) {
+        // this is a valid email address
+        // call setState({email: email}) to update the email
+        // or update the data in redux store.
+            }
+            else {
+              this.setState({
+                error: "Email inválido"
+            })
+            return;
+            }
+
 
         var d = moment({ year: this.state.year, month: this.state.mounth, day: this.state.day });
         if (d == null) {
@@ -166,7 +181,7 @@ handleChange = (selected) => {
         if (this.state.check12) {
             question2 = 12
         }
-        var obj = this.state.optionSelected
+
 
 
         var p1 = ""
@@ -181,7 +196,9 @@ handleChange = (selected) => {
         var p10 = ""
 
 
+ if (this.state.productNo = false) {
 
+     var obj = this.state.optionSelected
         for (let i = 0; i<obj.length; i++) {
 
             if (obj[i].value == 1) {
@@ -227,6 +244,19 @@ handleChange = (selected) => {
             }
             }
 
+ } else {
+        var p1 = " "
+        var p2 = " "
+        var p3 = " "
+        var p4 = " "
+        var p5 = " "
+        var p6 = " "
+        var p7 = " "
+        var p8 = " "
+        var p9 = " "
+        var p10 = " "
+        }
+
 
 
         const body = {
@@ -257,7 +287,7 @@ handleChange = (selected) => {
 
         }
 
-
+console.log(body)
 
         var response = fetch("https://pom2lkx5ei.execute-api.us-east-1.amazonaws.com/production/register", {
 
@@ -825,6 +855,7 @@ handleChange = (selected) => {
                                                                     />
                                                             </span>
                                                             :
+
                                                             <span></span>
                                                             }
                                                     </Grid>
