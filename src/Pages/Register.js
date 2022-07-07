@@ -287,7 +287,7 @@ class Register extends React.Component {
 
         }
 
-console.log(body)
+
 
         var response = fetch("https://pom2lkx5ei.execute-api.us-east-1.amazonaws.com/production/register", {
 
