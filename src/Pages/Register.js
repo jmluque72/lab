@@ -184,21 +184,22 @@ class Register extends React.Component {
 
 
 
-        var p1 = ""
-        var p2 = ""
-        var p3 = ""
-        var p4 = ""
-        var p5 = ""
-        var p6 = ""
-        var p7 = ""
-        var p8 = ""
-        var p9 = ""
-        var p10 = ""
+        var p1 = " "
+        var p2 = " "
+        var p3 = " "
+        var p4 = " "
+        var p5 = " "
+        var p6 = " "
+        var p7 = " "
+        var p8 = " "
+        var p9 = " "
+        var p10 = " "
 
 
- if (this.state.productNo = false) {
+ if (this.state.productNo == false) {
 
      var obj = this.state.optionSelected
+
         for (let i = 0; i<obj.length; i++) {
 
             if (obj[i].value == 1) {
@@ -244,18 +245,7 @@ class Register extends React.Component {
             }
             }
 
- } else {
-        var p1 = " "
-        var p2 = " "
-        var p3 = " "
-        var p4 = " "
-        var p5 = " "
-        var p6 = " "
-        var p7 = " "
-        var p8 = " "
-        var p9 = " "
-        var p10 = " "
-        }
+ }
 
 
 
