@@ -22,50 +22,78 @@ class Consulta extends React.Component {
             name: "",
             email: "",
             men: "",
-            message: ""
+            message: "",
+            error:null
         };
     }
 
     send() {
-        this.setState({error: null, message: ""});
+        this.setState({ error: null, message: "" });
+        const email = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+        if (email.test(this.state.email)) {
+               this.setState({ error: null, message: "" });
+        // this is a valid email address
+        // call setState({email: email}) to update the email
+        // or update the data in redux store.
+            }
+            else {
+              this.setState({
+                error: "Email inválido"
+            })
+            return;
+            }
+
         var body = {
             name : this.state.name,
             email: this.state.email,
             comment: this.state.men
-         }
+        }
+
         var response = fetch("https://pom2lkx5ei.execute-api.us-east-1.amazonaws.com/prod/comments", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(body)
+
         })
+
+
             .then((response) => {
+
                 if (response.status == 200) {
+
                     return response.json();
                 } else {
-                    this.setState({ error: response })
+                    this.setState({ error: response.error })
                 }
             })
+
             .then((response) => {
-                if (!response.error) {
-                    this.setState({
-                        name: "",
-                        email: "",
-                        men: "",
-                        message: "Su consulta se envio correctamente"
-                    })
-                } else {
-                    this.setState({error: response.error})
+
+                if (response) {
+
+                    if (!response.error) {
+
+                        this.setState({
+                            name: "",
+                            email: "",
+                            men: "",
+                            error: "Su consulta se envio correctamente"
+                        })
+                    } else {
+                        this.setState({ error: response.error })
+                    }
                 }
             })
             .catch(error => {
-                this.setState({ error: error })
+                this.setState({ error: response.error })
             });
     }
 
 
-    typeClick(){
+    typeClick() {
+
         var body = {
             name : this.state.name,
             email: this.state.email,
@@ -149,7 +177,12 @@ class Consulta extends React.Component {
                                     </div>
                                     <Button  onClick={() => this.send()} style={{marginLeft: min?  '10%' : 0}}>
                                         <img style={{marginLeft: 25, width: 100, height: 150*0.40}} src={enviar} />
-                                    </Button>
+                                </Button>
+                                 {this.state.error &&
+                                    <div style={{ width:'95%',display:'flex',justifyContent:'center'}}>
+                                        <p style={{margin:10, marginTop: 40, color: 'red', fontFamily:'Montserrat-SemiBold',fontSize:16}}>{this.state.error}</p>
+                                    </div>
+                                }
                                 </Grid>
                             </Grid>
                         </Grid>
