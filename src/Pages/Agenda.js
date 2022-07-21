@@ -36,7 +36,8 @@ class Agenda extends React.Component {
         }
 
             return (
-      <div style={{width: window.innerWidth,height:window.innerHeight, flexDirection: 'row'}}>
+                <div style={{ width: window.innerWidth, height: window.innerHeight, flexDirection: 'row' }}>
+
             <Grid item sm={12} xs={12} md={12} lg={12}  style={{ width: window.innerWidth,height: '100%' , backgroundImage:`url(${back})`,backgroundSize:'cover', marginRight: 0}}>
                         <Grid container direction='row' style={{height:'100%', width: '100%'}}>
                         <Grid item sm={12} xs={12} md={6} style={{ }}>
@@ -51,14 +52,11 @@ class Agenda extends React.Component {
                                             <div style={{alignItems: min ?'start' : 'center', width: '100%', height: '40%', display: 'flex', flexDirection: 'column' }}>
 
 
-                                                <p className="textForm"  style={{ padding: min ? 10: 0, color: 'white',textAlign: 'left' }}>Una jornada conducida con el carisma y humor de:</p>
-                                                <p className="titleForm" style={{padding: 10,color: 'white', fontSize:25, textAlign: 'left' }}>Alejandra Maglieti</p>
-                                                <p className="textForm"  style={{ padding: min ? 10: 0, color: 'white',textAlign: 'left' }}>Con la alegría y diversión de la música en vivo de:</p>
-                                                <p className="titleForm" style={{padding: 10,color: 'white',fontSize:25, textAlign: 'left' }}>Los Totora</p>
-                                                <p className="textForm" style={{padding: min ? 10: 0,color: 'white',textAlign: 'left'}}> Y un exclusivo show de la mano de:</p>
-                                                 <p className="titleForm" style={{padding: 10,color: 'white',fontSize:25, textAlign: 'left'}}>Carismagico</p>
 
-                                                    <Button onClick={() => this.pdf()} style={{padding: min? 60: 0, alignItems: min? 'center' : 'center',justifyContent: min? 'center' : 'center'}}>
+                                                <p className="titleForm" style={{padding: 10,color: 'white', fontSize:25, textAlign: 'center' }}>¡Un año más que nos juntamos a celebrar tu día!
+                                                Juegos, música, magia, premios y muchas sorpresas más. Te lo vas a perder?</p>
+
+                                                    <Button onClick={() => this.pdf()} style={{padding: min? 0: 0, alignItems: min? 'center' : 'center',justifyContent: min? 'center' : 'center'}}>
                                                         <img style={{ textAlign: min? 'left' : 'center', width: 180, height: 150 * 0.40 }} src={saber_mas} alt="Ver Mas" />
                                                     </Button>
                                                 </div>

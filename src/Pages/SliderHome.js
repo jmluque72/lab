@@ -52,46 +52,31 @@ class SliderHome extends React.Component {
 
         }
        const mid = (window.innerWidth > 1000 & window.innerWidth<1400)
+const h= window.innerHeight - 260
 
-
-
+console.log(window.innerHeight, window.innerWidth, h )
         return (
-            <div style={{backgroundImage:`url(${back})`,backgroundSize: 'cover', height: window.innerHeight - 150 , width: window.innerWidth, marginTop: 150}}>
-
-
-             <Carousel style={{ zIndex: 10  }}>
-                            <Carousel.Item>
-                                <div style={{ display: 'flex', flexDirection: 'row', height: window.innerHeight }}>
-                                    <Grid item xs={12} sm={12} md={12} l={12} lg={12}>
-                                        <Grid container justify='center' alignItems='center'>
-                                            <div style={{ height:'100%',
-                                                  width: '100%'}}>
-                                                <img src={img_1} style={{ width: '100%', height: '100%' }}></img>
-                                            </div>
-
-                                        </Grid>
-                                    </Grid>
-
-                                </div>
+    <div >
+        <Footer />
+            <div style={{
+            height: 140 }}>
+                </div>
+                  <div style={{ alignContent: 'center',  backgroundImage:`url(${back})`, backgroundSize:'cover'}}>
+                        <Carousel>
+                            <Carousel.Item style={{}}>
+                                <img src={img_2} style={{width:'auto',height: h}}></img>
                             </Carousel.Item>
 
-                            <Carousel.Item>
-                               <div style={{ display: 'flex', flexDirection: 'row', height: window.innerHeight }}>
-                                      <Grid item xs={12} sm={12} md={12} l={12} lg={12}>
-                                        <Grid container justify='center' alignItems='center'>
-                                            <div style={{ height:'100%',
-                                                  width: '100%'}}>
-                                                    <img src={img_2} style={{ width: '100%', height: '100%'  }}></img>
-                                                </div>
-                                        </Grid>
-                                    </Grid>
-
-                                </div>
+                            <Carousel.Item >
+                                <img src={img_1} style={{width:'auto',height: h}}></img>
                             </Carousel.Item>
                         </Carousel>
-
-                    <Footer />
                 </div>
+        <div style={{
+            height: 140 }}>
+                </div>
+        </div>
+
 
         );
     }

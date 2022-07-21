@@ -37,7 +37,8 @@ class Evento extends React.Component {
         }
 
         return (
-         <div style={{width: window.innerWidth, flexDirection: 'row'}}>
+            <div style={{ width: window.innerWidth, flexDirection: 'row' }}>
+
             <Grid item sm={12} xs={12} md={12} lg={12}  style={{ width: window.innerWidth, height:'100vh'  , backgroundImage:`url(${back})`,backgroundSize: 'cover'}}>
                         <Grid container direction='row' style={{height:'100%', width: '100%'}}>
                         <Grid item sm={12} xs={12} md={6} l={6} lg={6}   style={{ }}>
@@ -45,8 +46,8 @@ class Evento extends React.Component {
                                   <img style={{ marginLeft: min? '10%' : '0',marginTop: min? '' : '10%', width: min? 800 :300, height: min? 300: 130,justifyContent: min? 'center' : 'center' }} src={imgComoserParte} ></img>
                                 </Grid>
                             </Grid>
-                        <Grid item sm={12} xs={12} md={6} lg={6} style={{ padding:min? 20 : 10, width: window.innerWidth, marginLeft: min? '' : '3%', marginRight: margin,  marginTop: min ? -30 : 0, height:'100%'}}>
-                                <Grid container direction='column' justifyContent={ min ? 'center' : '' } alignItems={ min ? 'flex-start' : '' }style={{height:'100%', marginRight: min? 30 : 0, marginTop: min? 10 : 0}}>
+                        <Grid item sm={12} xs={12} md={6} lg={6} style={{ padding:min? 20 : 10, width: window.innerWidth, marginLeft: min? '' : '3%', marginRight: margin,marginBottom: 0, marginTop: min ? -10 : 0, height:'100%'}}>
+                                <Grid container direction='column' justifyContent={ min ? 'center' : '' } alignItems={ min ? 'flex-start' : '' }style={{height:'100%', marginRight: min? 30 : 0, marginTop: min? 10 : 0, padding:0}}>
                                 <p  className="titleForm" style={{ padding: 5, color:'white', fontSize:font1,textAlign:min ? 'left' : 'left',lineHeight:1,marginLeft: min ? '10%' : '', }}>El día del evento deberás seguir los siguientes pasos </p>
                                 <ol className="textForm" style={{padding:20,  fontSize: font2, marginLeft: min ? '10%' : '', lineHeight: 1.4, paddingRight: 0 }}>
                                         <li className="textForm" style={{color:'white',textAlign: 'left'}}>Ingresá a nuestro sitio web www.diadelveterinariozoovet.com.ar  </li>

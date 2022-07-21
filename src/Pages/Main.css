@@ -186,7 +186,7 @@ input {
 }
 .textForm {
   font-family: "Montserrat-ExtraBold";
-  font-size: 16px;
+  font-size: 14px;
   color: #5d565e;
   margin: 0;
 }
@@ -212,7 +212,7 @@ input {
 }
 .titleForm {
   font-family: "Montserrat-ExtraBold";
-  font-size: 36px;
+  font-size: 30px;
   color: #5d565e;
   margin: 0;
   text-align: left;
