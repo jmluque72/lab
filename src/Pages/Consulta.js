@@ -120,18 +120,18 @@ class Consulta extends React.Component {
         }
 
         return (
-            <div style={{ width: window.innerWidth, flexDirection: 'row' }}>
-                
+           <div style={{ width: window.innerWidth, flexDirection: 'row' }}>
+
             <Grid item sm={12} xs={12} md={12} lg={12}  style={{ width: window.innerWidth, height:'100vh'  , backgroundImage:`url(${back})`,backgroundSize: 'cover'}}>
                         <Grid container direction='row' style={{height:'100%', width: '100%'}}>
                         <Grid item sm={12} xs={12} md={6} l={6} lg={6}   style={{ }}>
                                 <Grid container direction='column' justifyContent='space-around' alignItems={ min ? 'flex-end' : 'center' } style={{ width:'100%', height:'100%'}}>
-                                  <img style={{ marginLeft: min? '-9%' : '-3%',marginTop: min? '5%' : '20%', width: min? 550 :300, height: min? 250: 140,justifyContent: min? 'center' : 'center' }} src={imgComoserParte} ></img>
+                                  <img style={{ marginLeft: min? '-9%' : '-3%',marginTop: min? -50 : -20, width: min? 550 :300, height: min? 250: 140,justifyContent: min? 'center' : 'center' }} src={imgComoserParte} ></img>
                                 </Grid>
                             </Grid>
-                        <Grid item sm={12} xs={12} md={6} l={6} style={{}}>
+                        <Grid item sm={12} xs={12} md={6} l={6} style={{ marginBottom:120}}>
                                 <Grid container direction='column' justifyContent='center' alignItems={ min ? 'flex-start' : 'center' } style={{ height:'100%'}}>
-                                <div style={{ marginTop: min ? 40 : '-30%', width: '80%', display: 'flex', alignItems: 'center', flexDirection: 'column', marginLeft: min ? '15%' : 0 }}>
+                                <div style={{ marginTop: min ? 60 : 0, width: '80%', display: 'flex', alignItems: 'center', flexDirection: 'column', marginLeft: min ? '15%' : 0 }}>
 
                                         <div style={{ display:'flex',flexDirection:'column',alignItems:'space-around',height:55,width:'100%',marginTop:5}}>
                                             <div style={{ width:'100%',height:'40%',display:'flex'}}>

@@ -106,7 +106,7 @@ class HomeView extends React.Component {
                 <div id='evento' style={{}}  ref={this.scrollDivEvento}>
                     <Evento/>
                 </div>
-                <div id='consultas' style={{  }}  ref={this.scrollDivConsultas}>
+                <div id='consultas' style={{   }}  ref={this.scrollDivConsultas}>
                     <div></div>
                     <Consultas/>
                 </div>

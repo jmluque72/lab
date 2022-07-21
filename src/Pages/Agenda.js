@@ -34,11 +34,11 @@ class Agenda extends React.Component {
             justify = "start";
 
         }
-
+const h = window.innerHeight
             return (
-                <div style={{ width: window.innerWidth, height: window.innerHeight, flexDirection: 'row' }}>
+                <div style={{ width: window.innerWidth, flexDirection: 'row' }}>
 
-            <Grid item sm={12} xs={12} md={12} lg={12}  style={{ width: window.innerWidth,height: '100%' , backgroundImage:`url(${back})`,backgroundSize:'cover', marginRight: 0}}>
+            <Grid item sm={12} xs={12} md={12} lg={12}  style={{ width: window.innerWidth,height: h , backgroundImage:`url(${back})`,backgroundSize:'cover', marginRight: 0}}>
                         <Grid container direction='row' style={{height:'100%', width: '100%'}}>
                         <Grid item sm={12} xs={12} md={6} style={{ }}>
                               <Grid container direction='column' justifyContent='space-around' alignItems={ min ? 'flex-end' : 'center' } style={{ width:'100%', height:'100%'}}>
