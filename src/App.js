@@ -6,7 +6,7 @@ import Register from './Pages/Register.js'
 import Vivo from './Pages/Vivo.js'
 import Chart from './Pages/Chart.js'
 import SendQuestions from './Pages/SendQuestions.js'
-import Form from './Pages/Form.js'
+import Form from './Pages/FormZoovet.js'
 import Cargando from './Pages/Cargando.js'
 
 
@@ -18,8 +18,8 @@ function App() {
   const cookies = new Cookies();
     var is_reg = cookies.get('username')
 
- // var goto = <HomeView />
-     var goto = <Cargando />
+var goto = <HomeView />
+ //   var goto = <Cargando />
 
   if (document.location.href.endsWith('Form')) {
     return (
