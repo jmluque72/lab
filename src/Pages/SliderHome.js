@@ -5,16 +5,15 @@ import './Main.css'
 import Carousel from 'react-bootstrap/Carousel'
 import image_1 from '../assets/CarouselHome/image_1.jpg'
 import image_2 from '../assets/CarouselHome/image_2.jpg'
-import image_3 from '../assets/CarouselHome/image_1.jpg'
-import image_4 from '../assets/CarouselHome/image_1.jpg'
+
 
 import image_1_responsive from '../assets/CarouselHome/image_1_responsive.jpg'
 import image_2_responsive from '../assets/CarouselHome/image_2_responsive.jpg'
-import image_3_responsive from '../assets/CarouselHome/image_1_responsive.jpg'
-import image_4_responsive from '../assets/CarouselHome/image_1_responsive.jpg'
+import image_1_responsiveM from '../assets/CarouselHome/image_1.png'
+import image_2_responsiveM from '../assets/CarouselHome/image_2.jpg'
 import logoHeader from '../assets/logoHeader.png'
-import Background from '../assets/background_fiesta.jpg'
-import BackgroundR from '../assets/backgroun_responsive_all.jpg'
+import Background from '../assets/backgroundZoonvetAllliso-01.jpg'
+import BackgroundR from '../assets/backgroundZoonvetAllliso-01.jpg'
 
 import Footer from './Footer.js'
 import next from '../assets/next.png'
@@ -43,54 +42,57 @@ class SliderHome extends React.Component {
         var back = Background;
         var img_1 = image_1;
         var img_2 = image_2;
-        var img_3 = image_3;
-        var img_4 = image_4;
+
 
         if (!min) {
             img_1 = image_1_responsive;
             img_2 = image_2_responsive;
-            img_3 = image_3_responsive;
-            img_4 = image_4_responsive;
+
             back = BackgroundR;
 
         }
+       const mid = (window.innerWidth > 1000 & window.innerWidth<1400)
+
+
+
         return (
+            <div style={{backgroundImage:`url(${back})`,backgroundSize: 'cover', height: window.innerHeight - 150 , width: window.innerWidth, marginTop: 150}}>
 
 
-            <div style={{ width: window.innerWidth, height:  window.innerHeight, justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
-                 <Grid item xs={12} sm={12} md={12} l={12} lg={12} style={{  backgroundImage:`url(${back})`,backgroundSize:'cover'}}>
-                <Carousel style={{  }}>
-                         <Carousel.Item>
-                                <div style={{display:'flex',flexDirection:'row'}}>
+             <Carousel style={{ zIndex: 10  }}>
+                            <Carousel.Item>
+                                <div style={{ display: 'flex', flexDirection: 'row', height: window.innerHeight }}>
                                     <Grid item xs={12} sm={12} md={12} l={12} lg={12}>
-                                        <Grid container justifyContent='center' alignItems='center'>
-                                            <div style={{  maxHeight: min? window.innerHeight : ''}}>
-                                                <img src={img_1} style={{ width:'100%',height:'100%'}}></img>
+                                        <Grid container justify='center' alignItems='center'>
+                                            <div style={{ height:'100%',
+                                                  width: '100%'}}>
+                                                <img src={img_1} style={{ width: '100%', height: '100%' }}></img>
                                             </div>
 
                                         </Grid>
                                     </Grid>
 
                                 </div>
-                        </Carousel.Item>
-                         <Carousel.Item>
-                                <div style={{display:'flex',flexDirection:'row'}}>
-                                    <Grid item xs={12} sm={12}>
-                                        <Grid container justifyContent='center' alignItems='center'>
-                                             <div style={{  maxHeight: min? window.innerHeight : ''}}>
-                                                <img src={img_2} style={{ width:'100%',height:'100%'}}></img>
-                                            </div>
+                            </Carousel.Item>
 
+                            <Carousel.Item>
+                               <div style={{ display: 'flex', flexDirection: 'row', height: window.innerHeight }}>
+                                      <Grid item xs={12} sm={12} md={12} l={12} lg={12}>
+                                        <Grid container justify='center' alignItems='center'>
+                                            <div style={{ height:'100%',
+                                                  width: '100%'}}>
+                                                    <img src={img_2} style={{ width: '100%', height: '100%'  }}></img>
+                                                </div>
                                         </Grid>
                                     </Grid>
 
                                 </div>
-                        </Carousel.Item>
-                    </Carousel>
+                            </Carousel.Item>
+                        </Carousel>
 
                     <Footer />
-                    </Grid>
                 </div>
+
         );
     }
 }

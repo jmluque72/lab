@@ -16,7 +16,7 @@ class Cargando extends React.Component {
         super(props);
         // we use this to make the card to appear after the page has been rendered
         this.state = {
-
+            mensaje:''
         };
     }
 

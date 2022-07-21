@@ -47,9 +47,12 @@ class Footer extends React.Component {
             min: 0,
             sec: 0,
             stoped: false,
-            seconds: (eventDate.getTime() - new Date().getTime()) / 1000
+            seconds: (eventDate.getTime() - new Date().getTime()) / 1000,
+            eventDay: (eventDate.getDate()),
+            finEvento:(new Date().getDate())
 
         }
+
 
     }
 
@@ -70,7 +73,8 @@ class Footer extends React.Component {
             sec: parseInt(remainingSeconds)
         });
 
-        if (seconds < 1200) {
+
+        if (seconds < 1200  ) {
             this.setState({
                 stoped: true
             })
@@ -80,7 +84,10 @@ class Footer extends React.Component {
             this.setState({
                 seconds: seconds
             })
-        }
+      }
+    }
+    pad = (n) => {
+        return (n < 10 ? "0" + n : n);
     }
 
 
@@ -91,6 +98,11 @@ class Footer extends React.Component {
         this.interval = setInterval(() => {
             const date = this.timer();
         }, 1000);
+          if (this.state.finEvento >= this.state.eventDay  & this.state.seconds < 0) {
+            this.setState({
+                stoped: true
+            })
+        }
     }
 
 
@@ -127,70 +139,92 @@ class Footer extends React.Component {
 
     render() {
         const countDown = this.state;
+      const min = window.innerWidth >= 1000
 
-        var display = "block"
+            var display = "block"
+            var margin = 0
+            var vtimeTitle = 'timeTitle'
+            var vtimeValue = 'timeValue'
+            var vtimeValueB = 'timeValueB'
+            var vtimeValueLabel = 'timeValueLabel'
+
+
+        if (!min) {
+            var vtimeTitle = 'timeTitleR'
+            var vtimeValue = 'timeValueR'
+            var vtimeValueB = 'timeValueRB'
+            var vtimeValueLabel = 'timeValueLabelR'
+        }
+
         if (window.scrollY > 0) {
-            display = "none";
+           // display = "none";
         }
 
+       // console.log(this.state.stoped, this.state.finEvento, this.state.eventDay, this.state.seconds)
+
+        if (this.state.stoped == true & this.state.finEvento > this.state.eventDay) {
+
+                return (
+                      <div style={{ display: display, position: 'absolute', paddingTop: 5,  zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange , height: '20%'}}>
+                        <p className={vtimeTitle} style={{ fontFamily: 'Montserrat-SemiBold' }} >Gracias por participar</p>
+                        <p className={vtimeValue} style={{ cursor: 'pointer'}} onClick={this.goToForm}>Por favor complete la encuenta</p>
+
+                    </div>
+                )
 
 
-     if (this.state.stoped == true && this.state.days + 1 < 0) {
+        }
+
+        if (this.state.stoped == true & this.state.finEvento == this.state.eventDay & this.state.seconds < 0) {
+
             return (
-                <div style={{ display: display, position: 'fixed', paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: '#5C575D' }}>
-                    <p className='timeTitle_gracias' style={{fontFamily:'Montserrat-SemiBold' }} >Gracias por participar</p>
-                    <p className='timeTitle_gracias_link' style={{fontFamily:'Montserrat-SemiBold' }}  onClick={this.goToForm}>Por favor complete la encuenta</p>
-
+                <div style={{ display: display, position: 'absolute', paddingTop: 5, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange, height: '20%' }}>
+                    <p className={vtimeTitle} style={{ cursor: 'pointer', marginTop: 20 }} onClick={this.goToVivo}>INGRESAR AL EVENTO</p>
                 </div>
             )
 
-
-        }
-
-        if (this.state.stoped == true && this.state.days == -1 && this.state.seconds < 0) {
-
-            return (
-                <div style={{ display: display, position: 'fixed', paddingTop: 10, zIndex: 100, left: 0, bottom: 0, right: 0, background: '#5C575D' }}>
-                    <p className='timeTitle_ing' onClick={this.goToVivo}>INGRESAR AL EVENTO</p>
-                </div>
-            )
         } else {
-                    return (
-                        <div style={{ display: display, position: 'fixed', zIndex: 100, left: 0, bottom: 0, right: 0, background: '#5C575D' }}>
-                            <Grid container style={{ alignItems: 'center', height: '100%', justifyContent: 'center' , padding: 5, marginBottom:15}}>
-                                <Grid xs={12} sm={12}>
-                                    <Grid container alignItems='center' direction='column'>
-                                        <div className='timeTitle' style={{fontFamily:'Montserrat-Black' }}>FALTAN</div>
-                                    </Grid>
-                                </Grid>
-                                <Grid xs={3} sm={2} >
-                                    <Grid container alignItems='center' direction='column'>
-                                        <div className='timeValue' style={{fontFamily:'Montserrat-SemiBold' }} id='days'>{this.state.days}</div>
-                                        <div className='timeValueLabel'>Días</div>
-                                    </Grid>
-                                </Grid>
-                                <Grid xs={3} sm={2} >
-                                    <Grid container alignItems='center' direction='column'>
-                                        <div className='timeValue' id={'hours'} style={{fontFamily:'Montserrat-SemiBold' }} >{this.state.hours}</div>
-                                        <div className='timeValueLabel'>Horas</div>
-                                    </Grid>
-                                </Grid>
-                                <Grid xs={3} sm={2}>
-                                    <Grid container alignItems='center' direction='column'>
-                                        <div className='timeValue' id={'minutes'} style={{fontFamily:'Montserrat-SemiBold' }} >{this.state.min}</div>
-                                        <div className='timeValueLabel' >Minutos</div>
-                                    </Grid>
-                                </Grid>
-                                <Grid xs={3} sm={2} >
-                                    <Grid container alignItems='center' direction='column'>
-                                        <div className='timeValue' id={'seconds'} style={{fontFamily:'Montserrat-SemiBold' }} >{this.state.sec}</div>
-                                        <div className='timeValueLabel'>Segundos</div>
-                                    </Grid>
+
+            return (
+                <div style={{
+                    width: window.innerWidth, display: display, position: 'absolute', paddingTop: 25, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange, height: '20%'
+                }}>
+                        <Grid container style={{ alignItems: 'center', height: '100%', justifyContent: 'center' }}>
+                            <Grid item xs={12} sm={12} md={4} >
+                                <Grid container alignItems='center' direction='column' style={{marginTop: min? -10 : -20}}>
+
+                                    <div className={vtimeTitle} style={{  paddingLeft: 25, paddingRight: 25, paddingTop: 1, paddingBottom: 1, borderRadius: 40, backgroundColor: 'white', color: '#77127c' }}> FALTAN </div>
                                 </Grid>
                             </Grid>
-                        </div>
+                            <Grid item xs={3} sm={2} md={2}>
+                                <Grid container alignItems='center' direction='column'>
+                                    <div className={vtimeValue} id={'hours'} style={{}} id='days'>{this.state.days}</div>
+                                    <div className={vtimeValueLabel}>Días</div>
+                                </Grid>
+                            </Grid>
+                            <Grid item xs={3} sm={2} md={2}>
+                                <Grid container alignItems='center' direction='column'>
+                                    <div className={vtimeValue} id={'hours'} style={{}} >{this.state.hours}</div>
+                                    <div className={vtimeValueLabel}>Horas</div>
+                                </Grid>
+                            </Grid>
+                            <Grid item xs={3} sm={2} md={2}>
+                                <Grid container alignItems='center' direction='column'>
+                                    <div className={vtimeValue} id={'minutes'} style={{}} >{this.state.min}</div>
+                                    <div className={vtimeValueLabel} >Minutos</div>
+                                </Grid>
+                            </Grid>
+                            <Grid item xs={3} sm={2} md={2}>
+                                <Grid container alignItems='center' direction='column'>
+                                    <div className={vtimeValue} id={'seconds'} style={{}} >{this.state.sec}</div>
+                                    <div className={vtimeValueLabel}>Segundos</div>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </div>
 
-                    );
+                )
+
 
             }
         }
@@ -202,6 +236,7 @@ Footer.propTypes = {
 };
 Footer.defaultProps = {
     date: new Date()
+
 };
 
 export default Footer;

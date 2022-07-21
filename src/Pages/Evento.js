@@ -22,49 +22,46 @@ class Evento extends React.Component {
 
         };
     }
-    pdf(){
-        window.open('https://resourceslanzamiento.s3-sa-east-1.amazonaws.com/OZEMPIC_+LA+GRAN+OPORTUNIDAD+EN+DIABETES+TIPO+2.pdf', '_blank');
 
-    }
     render() {
         const min = window.innerWidth >= 1000
         var back = Background;
         var margin = 0
-        var font1 = 18
-        var font2 = 16
+        var font1 = 20
+        var font2 = 18
         if (!min) {
             margin = 10
-            font1 = 16;
-            font2 = 14;
+            font1 = 18;
+            font2 = 16;
             back = BackgroundR;
         }
 
         return (
-             <div style={{width: window.innerWidth, flexDirection: 'row',marginTop: -140}}>
-                <Grid item sm={12} xs={12} md={12} lg={12}  style={{ width: window.innerWidth, height:window.innerHeight , backgroundImage:`url(${back})`,backgroundSize:'cover'}}>
-                        <Grid container direction='row' style={{height:'100%'}}>
-                        <Grid item sm={12} xs={12} md={6} style={{ }}>
+         <div style={{width: window.innerWidth, flexDirection: 'row'}}>
+            <Grid item sm={12} xs={12} md={12} lg={12}  style={{ width: window.innerWidth, height:'100vh'  , backgroundImage:`url(${back})`,backgroundSize: 'cover'}}>
+                        <Grid container direction='row' style={{height:'100%', width: '100%'}}>
+                        <Grid item sm={12} xs={12} md={6} l={6} lg={6}   style={{ }}>
                               <Grid container direction='column' justifyContent='space-around' alignItems={ min ? 'flex-end' : 'center' } style={{ width:'100%', height:'100%'}}>
-                                  <img style={{ marginLeft: min? '-2%' : '6%',marginTop: min? '' : '5%', width: min? 650 :380, height: min? 300: 190,justifyContent: min? 'center' : 'center' }} src={imgComoserParte} ></img>
+                                  <img style={{ marginLeft: min? '10%' : '0',marginTop: min? '' : '10%', width: min? 800 :300, height: min? 300: 130,justifyContent: min? 'center' : 'center' }} src={imgComoserParte} ></img>
                                 </Grid>
                             </Grid>
-                        <Grid item sm={12} xs={12} md={6} lg={6} style={{ padding:-20, width: window.innerWidth, marginLeft: min? '-10%' : '3%', marginRight: margin,  marginTop: min ? 30 : 0, height:'100%'}}>
-                                <Grid container direction='column' justifyContent={ min ? 'center' :'' } alignItems={ min ? 'flex-start' : 'left' }style={{height:'100%', marginRight: min? 30 : 0, marginTop: min? 0 : 0}}>
-                                    <p style={{ fontFamily:'Montserrat-Regular',fontSize:font1,color:'white',textAlign:min ? 'left' : 'left',lineHeight:1,marginLeft: min ? '20%' : '2%', }}>El día del evento deberás seguir los siguientes pasos </p>
-                                    <ol style={{ fontFamily:'Montserrat-Regular',fontSize:font2,color:'white',marginLeft: min ? '10%' : '',lineHeight:1.4, paddingRight: '5%' }}>
-                                        <li style={{textAlign: 'left'}}>Ingresá a nuestro sitio web www.diadelveterinariozoovet.com.ar  </li>
-                                        <li style={{textAlign: 'left'}}>Deberás iniciar sesión con tu usuario ( email ) y contraseña que fue enviada cuando realizaste la inscripción</li>
-                                        <li style={{textAlign: 'left'}}>Una vez iniciada la sesión, deberás hacer click en el botón que dice "Ingresar al evento"  que aparecerá cuando finalice la cuenta regresiva.</li>
+                        <Grid item sm={12} xs={12} md={6} lg={6} style={{ padding:min? 20 : 10, width: window.innerWidth, marginLeft: min? '' : '3%', marginRight: margin,  marginTop: min ? -30 : 0, height:'100%'}}>
+                                <Grid container direction='column' justifyContent={ min ? 'center' : '' } alignItems={ min ? 'flex-start' : '' }style={{height:'100%', marginRight: min? 30 : 0, marginTop: min? 10 : 0}}>
+                                <p  className="titleForm" style={{ padding: 5, color:'white', fontSize:font1,textAlign:min ? 'left' : 'left',lineHeight:1,marginLeft: min ? '10%' : '', }}>El día del evento deberás seguir los siguientes pasos </p>
+                                <ol className="textForm" style={{padding:20,  fontSize: font2, marginLeft: min ? '10%' : '', lineHeight: 1.4, paddingRight: 0 }}>
+                                        <li className="textForm" style={{color:'white',textAlign: 'left'}}>Ingresá a nuestro sitio web www.diadelveterinariozoovet.com.ar  </li>
+                                        <li className="textForm" style={{color:'white',textAlign: 'left'}}>Deberás iniciar sesión con tu usuario ( email ) y contraseña que fue enviada cuando realizaste la inscripción</li>
+                                        <li className="textForm" style={{color:'white',extAlign: 'left'}}>Una vez iniciada la sesión, deberás hacer click en el botón que dice "Ingresar al evento"  que aparecerá cuando finalice la cuenta regresiva.</li>
                                     </ol>
 
-                                    <p style={{ fontFamily:'Montserrat-Regular',fontSize:font1,color:'white',textAlign:min ? 'left' : 'left',lineHeight:1,marginLeft: min ? '10%' : '2%', }}> Algunos consejos</p>
-                                    <ol style={{ fontFamily:'Montserrat-Regular',fontSize:font2,color:'white',marginLeft: min ? '10%' : '',lineHeight:1.4, paddingRight: '5%' }}>
-                                        <li style={{fontFamily:'Montserrat-Regular', textAlign: 'left', marginRight: 0}}>  Asegúrate de tener una conexión estable a internet.</li>
-                                        <li style={{fontFamily:'Montserrat-Regular' ,textAlign: 'left', marginRight: 0}}>  Recomendamos ver el evento en un dispositivo como una PC , notebook o tablet para una mejor visualización y en posición horizontal. </li>
+                                    <p  className="titleForm" style={{padding:5,  fontSize:font1,color:'white',textAlign:min ? 'left' : 'left',lineHeight:1,marginLeft: min ? '10%' : '2%', }}> Algunos consejos</p>
+                                    <ol  className="textForm" style={{ padding:20,fontSize:font2,color:'white',marginLeft: min ? '10%' : '',lineHeight:1.4, paddingRight: '5%' }}>
+                                        <li  className="textForm" style={{color:'white',textAlign: 'left', marginRight: 0}}>  Asegúrate de tener una conexión estable a internet.</li>
+                                        <li  className="textForm" style={{color:'white',textAlign: 'left', marginRight: 0}}>  Recomendamos ver el evento en un dispositivo como una PC , notebook o tablet para una mejor visualización y en posición horizontal. </li>
                                     </ol>
 
-                                <Button onClick={() => this.setState({ video: true })} style={{ marginLeft: min? 100 : 100}}>
-                                      <img style={{width: 200, height: 200*0.28 ,justifyContent: min? 'center' : 'flex-start' }} src={verTutorial} alt="Ver Mas" />
+                                    <Button onClick={() => this.setState({ video: true })} style={{ marginLeft: min? 100 : 0, marginTop: min? 0 : -40}}>
+                                      <img style={{padding: min? 0 : 15, width: 250, height: 100 ,justifyContent: min? 'center' : 'flex-start' }} src={verTutorial} alt="Ver Mas" />
                                     </Button>
                                 </Grid>
                             </Grid>
@@ -75,19 +72,21 @@ class Evento extends React.Component {
                         fullWidth
                         maxWidth="md"
                         aria-labelledby="max-width-dialog-title"
-                        onBackdropClick={() => this.setState({ video: false})}
+                        onClose={() => this.setState({ video: false})}
                         PaperProps={{style: {backgroundColor:'transparent'}}}
                     >
                         <div style={{ height:500, width:'50%'}}>
 
-                        <iframe width="200%" height="500" src="https://youtu.be/9c0MDJhapHE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="200%" height="500" src="https://www.youtube.com/embed/2hvBU4nm8bQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                         </div>
                 </Dialog>
-                      <Header state='evento'></Header>
+                <Header state='evento'></Header>
+
             </div>
         );
     }
+
 }
 
 Evento.propTypes = {
@@ -95,3 +94,4 @@ Evento.propTypes = {
 };
 
 export default Evento;
+

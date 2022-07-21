@@ -1,7 +1,7 @@
 @font-face {
-  font-family: "Montserrat-Regular";
-  src: local("Montserrat-Regular"),
-    url("https://publiceventsenjoy.s3.amazonaws.com/Montserrat-Regular.ttf")
+  font-family: "Montserrat-Black";
+  src: local("Montserrat-Black"),
+    url("https://publiceventsenjoy.s3.amazonaws.com/Montserrat-Black.ttf")
       format("truetype");
 }
 @font-face {
@@ -11,21 +11,22 @@
       format("truetype");
 }
 @font-face {
-  font-family: "Montserrat-Black";
-  src: local("Montserrat-Black"),
-     url("https://publiceventsenjoy.s3.amazonaws.com/Montserrat-Black.ttf")
+  font-family: "Montserrat-Regular";
+  src: local("Montserrat-Regular"),
+    url("https://publiceventsenjoy.s3.amazonaws.com/Montserrat-Regular.ttf")
       format("truetype");
 }
-/*
+
 @font-face {
-  font-family: "Montserrat";
-  src: local("Montserrat"),
-    url("../assets/fonts/Montserrat-Regular.ttf") format("truetype");
-}*/
+  font-family: "Montserrat-ExtraBold";
+  src: local("Montserrat-ExtraBold"),
+    url("https://publiceventsenjoy.s3.amazonaws.com/Montserrat-ExtraBold.ttf")
+      format("truetype");
+}
 
 .title {
   color: black;
-  font-family: Montserrat-Black;
+  font-family: "Montserrat-Black";
   text-align: left;
   font-size: 20px;
   margin: 0;
@@ -33,40 +34,49 @@
 }
 
 .header {
+  font-family: "Montserrat-SemiBold";
   padding-top: "20px";
   align-items: center;
   justify-self: center;
   justify-content: center;
 }
 .label-header-not-selected {
-  font-family: Montserrat-SemiBold;
+  font-family: "Montserrat-ExtraBold";
   font-size: 14px;
   color: #008dcc;
   cursor: pointer;
 }
 
 .label-header-selected {
-  font-family: Montserrat-SemiBold;
+  font-family: "Montserrat-ExtraBold";
   font-size: 14px;
-  background-color: #008dcc;
+  background-color: #991d9f;
   padding: 5px;
   color: #ffffff;
   cursor: pointer;
+
 }
 .timeTitle {
-  font-family: Montserrat-ExtraBold;
-  font-size: 50px;
+  font-family: "Montserrat-ExtraBold";
+  font-size: 40px;
+  padding: 20px;
+  color: white;
+}
+.timeTitleR {
+  font-family: "Montserrat-ExtraBold";
+  font-size: 30px;
+  padding: 0px;
   color: white;
 }
 
 .timeTitle_gracias {
-  font-family: Montserrat-SemiBold;
+  font-family: "Montserrat-ExtraBold";
   font-size: 50px;
   color: white;
 }
 
 .timeTitle_gracias_link {
-  font-family: Montserrat-Regular;
+  font-family: "Montserrat-SemiBold";
   font-size: 30px;
   color: white;
   text-decoration: underline;
@@ -74,26 +84,55 @@
 }
 
 .timeTitle_ing {
-  font-family: Montserrat-Black;
+  font-family: "Montserrat-Black";
   font-size: 50px;
-  padding: 20px;
+  padding: 10px;
   color: white;
   text-decoration: underline;
   cursor: pointer;
 }
 
 .timeValue {
-  font-family: Montserrat-Regular;
+  font-family: "Montserrat-ExtraBold";
+  margin-top: -30px;
+  font-size: 60px;
+  padding: 5px;
+  color: white;
+}
+.timeValueB {
+  font-family: "Montserrat-ExtraBold";
+  margin-top: -40px;
   font-size: 70px;
-
-  margin-top: -10px;
+  color: white;
+}
+.timeValueR {
+  font-family: "Montserrat-ExtraBold";
+  margin-top: -30px;
+  font-size: 40px;
+  padding: 5px;
+  color: white;
+}
+.timeValueRB {
+  font-family: "Montserrat-ExtraBold";
+  margin-top: -30px;
+  font-size: 50px;
+  padding: 5px;
   color: white;
 }
 
 .timeValueLabel {
-  font-family: Montserrat-SemiBold;
-  font-size: 16px;
-  margin-top: -30px;
+  font-family: "Montserrat-Regular";
+  margin-top: -10px;
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+  color: white;
+}
+.timeValueLabelR {
+  font-family: "Montserrat-Regular";
+  margin-top: -25px;
+  font-size: 20px;
+  padding: 5px;
   text-align: center;
   color: white;
 }
@@ -130,9 +169,6 @@ input {
   background: url(../assets/PlacaAntesVete.png);
   background-repeat: no-repeat;
   background-size: cover;
-
-
-
 }
 
 .backgroundCargandoResponsive {
@@ -141,8 +177,6 @@ input {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
-
 }
 
 #center {
@@ -151,33 +185,33 @@ input {
   width: 100px;
 }
 .textForm {
-  font-family: Montserrat-Regular;
+  font-family: "Montserrat-ExtraBold";
   font-size: 16px;
   color: #5d565e;
   margin: 0;
 }
 .textFormW {
-  font-family: Montserrat-Regular;
+  font-family: "Montserrat-ExtraBold";
   font-size: 16px;
   color: #ffffff;
   margin: 0;
 }
 .textFormError {
-  font-family: Montserrat-ExtraBold;
+  font-family: "Montserrat-ExtraBold";
   font-size: 10px;
   color: #ff0000;
   margin: 0;
 }
 .textTerm {
-  font-family: Montserrat-Regukar;
-  font-size: 10px;
+  font-family: "Montserrat-Regular";
+  font-size: 14px;
   color: #5d565e;
   margin: 0;
   text-align: left;
   margin-left: 10px;
 }
 .titleForm {
-  font-family: Montserrat-ExtraBold;
+  font-family: "Montserrat-ExtraBold";
   font-size: 36px;
   color: #5d565e;
   margin: 0;
@@ -185,7 +219,7 @@ input {
 }
 
 .titleFormTitle {
-  font-family: Montserrat-Black;
+  font-family: "Montserrat-Black";
   font-size: 36px;
   color: #5d565e;
   margin: 0;

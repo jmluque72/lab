@@ -18,6 +18,7 @@ class Contacto extends React.Component {
         super(props);
         // we use this to make the card to appear after the page has been rendered
         this.state = {
+             mensaje:''
         };
     }
 
@@ -29,7 +30,7 @@ class Contacto extends React.Component {
         }
 
         return (
-            <div style={{ width: '100%',  flexDirection: 'row', height:window.innerHeight-100,backgroundImage:`url(${background})`,backgroundSize:'cover'}}>
+            <div style={{ width: '100%',  flexDirection: 'row',marginTop: min? 0 : 100, height:window.innerHeight,backgroundImage:`url(${background})`,backgroundSize:'cover'}}>
                     <Grid item xs={12} style={{ height:'100%',width:'100%'}}>
                         <Grid container direction='row' style={{ width:'100%',height:'100%'}}>
                             <Grid item sm={5} style={{ }}>

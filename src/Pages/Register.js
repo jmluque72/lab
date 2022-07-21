@@ -42,7 +42,8 @@ const Option = (props) => {
   );
 };
 
-
+//var f = new Date();
+//var fechaIngreso = f.getFullYear() + "-"+ (f.getMonth()+1) + "-" +f.getDate();
 
 
 class Register extends React.Component {
@@ -279,6 +280,8 @@ class Register extends React.Component {
 
 
 
+
+
         var response = fetch("https://pom2lkx5ei.execute-api.us-east-1.amazonaws.com/production/register", {
 
             method: 'POST',
@@ -501,7 +504,6 @@ class Register extends React.Component {
         var header = <Grid item xs={12} sm={3} l={3} md={3} lg={4} style={{ height: '100%', display: 'flex' }} >
             <div style={{ flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
                 <img height='auto' width='100%' style={{ marginTop: 50, maxWidth: 500 }} src={logoVeteGrande} />
-                 <img style={{ width: 90, height: 90 * 0.64, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
             </div>
         </Grid>
 
@@ -865,7 +867,7 @@ class Register extends React.Component {
                                                     </div>
                                                     {this.state.error &&
                                                         <div style={{ width: '85%', display: 'flex', justifyContent: 'center' }}>
-                                                            <p style={{ marginTop: 20, color: 'red', fontFamily: 'Montserrat-SemiBold', fontSize: 14 }}>{this.state.error}</p>
+                                                              <p style={{ borderRadius: 2, background: 'red', margin:10, marginTop: 40, color: 'white', fontFamily:'Montserrat-SemiBold',fontSize:18}}>{this.state.error}</p>
                                                         </div>
                                                     }
 
@@ -911,12 +913,13 @@ class Register extends React.Component {
                                         <div className='d-flex justify-content-center'>
                                                  <img style={{ width: 800, height: 350, alignItems: 'center', }} src={CheckMail}></img>
                                         </div>
-                                        <Grid item  style={{ }}>
-                                            <img style={{ width: 118 * 0.7, height: 84 * 0.7, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
-                                        </Grid>
+
 
                             </div>
                         </div>
+                          <Grid item  style={{ }}>
+                            <img style={{ width: 118 * 0.7, height: 84 * 0.7, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
+                         </Grid>
                     </div>
                 )
             }
@@ -938,7 +941,7 @@ class Register extends React.Component {
                                         <Grid container direction='column' justifyContent='center' alignItems='center' style={{ height: '100%', marginTop: 20 }}>
                                             <Grid item style={{ background: 'white', width: '90%', padding: 30, borderRadius: 30 }}>
                                                 <div style={{ marginTop: 0 }}>
-                                                    <p className='titleFormTitle'>REGISTRATE</p>
+                                                    <p className="titleFormTitle">REGISTRATE</p>
                                                 </div>
                                                 <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
                                                     <Grid item xs={12} sm={2} style={{ alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
@@ -1269,7 +1272,7 @@ class Register extends React.Component {
                                                     </div>
                                                     {this.state.error &&
                                                         <div style={{ width: '85%', display: 'flex', justifyContent: 'center' }}>
-                                                            <p style={{ marginTop: 20, color: 'red', fontFamily: 'FiraSansMedium', fontSize: 14 }}>{this.state.error}</p>
+                                                                <p style={{ borderRadius: 2, background: 'red', margin:10, marginTop: 40, color: 'white', fontFamily:'Montserrat-SemiBold',fontSize:18}}>{this.state.error}</p>
                                                         </div>
                                                     }
 

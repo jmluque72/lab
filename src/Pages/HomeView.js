@@ -12,6 +12,7 @@ import Cargando from './Cargando.js'
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import './Main.css'
+import Footer from './Footer.js'
 
 
 class HomeView extends React.Component {
@@ -24,13 +25,18 @@ class HomeView extends React.Component {
         this.scrollDivHome = React.createRef();
         this.scrollDivAgenda = React.createRef();
         this.scrollDivEvento = React.createRef();
-        this.scrollDivOradores = React.createRef();
         this.scrollDivConsultas = React.createRef();
 
 
     }
 
+
+
     redirect = (name) => {
+
+
+
+
         if (name == 'Home') {
             this.setState({visible: 'home'});
             window.scrollTo(0, this.scrollDivHome.current.offsetTop-100);
@@ -39,8 +45,8 @@ class HomeView extends React.Component {
             this.setState({visible: 'agenda'});
             window.scrollTo(0, this.scrollDivAgenda.current.offsetTop-100);
         }
-
         if (name == 'Evento') {
+
             this.setState({visible: 'evento'});
             window.scrollTo(0, this.scrollDivEvento.current.offsetTop-100);
         }
@@ -91,20 +97,21 @@ class HomeView extends React.Component {
 
         return (
             <div style={{flexDirection: 'row'}}>
-                <div id='home' ref={this.scrollDivHome}>
+                <div id='home' style={{}}  ref={this.scrollDivHome}>
                     <SliderHome />
                 </div>
-                 <div id='agenda' style={{ marginTop:50}} ref={this.scrollDivAgenda}>
+                 <div id='agenda' style={{ }} ref={this.scrollDivAgenda}>
                     <Agenda/>
                 </div>
-                <div id='evento' style={{ marginTop:50}}  ref={this.scrollDivEvento}>
+                <div id='evento' style={{}}  ref={this.scrollDivEvento}>
                     <Evento/>
                 </div>
-                <div id='consultas' style={{ marginTop:50, marginBottom: 50}}  ref={this.scrollDivConsultas}>
+                <div id='consultas' style={{  }}  ref={this.scrollDivConsultas}>
                     <div></div>
                     <Consultas/>
                 </div>
-                <Header state={this.state.visible} style={{position: 'absolute', top: window.innerHeight*6, height: window.innerHeight, width: '100%'}} redirect={this.redirect} />
+
+                <Header state={this.state.visible} style={{position: 'absolute', top: window.innerHeight*5, height: window.innerHeight, width: window.innerWidth}} redirect={this.redirect} />
 
             </div>
         );
