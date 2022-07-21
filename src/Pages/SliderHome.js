@@ -64,11 +64,11 @@ console.log(window.innerHeight, window.innerWidth, h )
                   <div style={{ alignContent: 'center',  backgroundImage:`url(${back})`, backgroundSize:'cover'}}>
                         <Carousel>
                             <Carousel.Item style={{}}>
-                                <img src={img_2} style={{width:'auto',height: h}}></img>
+                                <img src={img_1} style={{width:'auto',height: h}}></img>
                             </Carousel.Item>
 
                             <Carousel.Item >
-                                <img src={img_1} style={{width:'auto',height: h}}></img>
+                                <img src={img_2} style={{width:'auto',height: h}}></img>
                             </Carousel.Item>
                         </Carousel>
                 </div>
