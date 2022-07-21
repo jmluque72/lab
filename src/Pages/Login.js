@@ -8,7 +8,7 @@ import Background from '../assets/LoginBackgroundVete.svg'
 import logoNovo from '../assets/logoZoon.svg'
 import { colors } from '../utils'
 import LogoTop from '../assets/LogoVete.png'
-import Ingresar from '../assets/buttonLogin.svg'
+import Ingresar from '../assets/ingresar.png'
 import backgroundCheck from '../assets/backgroundCheck.png'
 import { Cookies } from 'react-cookie';
 
@@ -104,7 +104,7 @@ class Login extends React.Component {
     }
     render() {
         const min = window.innerWidth >= 1000
-
+        const minheight = window.innerWidth >= 1400
         const height = window.innerHeight
         const email = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
@@ -119,13 +119,14 @@ class Login extends React.Component {
         if (min) {
             return (
                 <div>
-                    <div style={{ display: 'flex', height: this.state.height, width:'100%'}}>
-                        <div style={{ display: 'flex',  width: '100%', backgroundImage: `url(${Background})`, backgroundSize: 'cover' }}>
+                    <div style={{ display: 'flex', height: '100%', width: '100%' }}>
+
+                        <div style={{ display: 'flex',  width: '100%', backgroundImage: `url(${Background})`, backgroundSize: 'cover' , height:'100vh'}}>
                             <Grid item xs={12} sm={12} style={{ width: '100%', height: '90%' }}>
-                                <img style={{ width: 400, height: 250*0.86,marginTop:50}} src={LogoTop}></img>
+                                <img style={{  width: minheight? 400 : 300, height: minheight? 250*0.86 : 160*0.86,marginTop: minheight? 50 : 20}} src={LogoTop}></img>
 
                                 <Grid container  direction='row' justifyContent='center' style={{ width: '100%' }}>
-                                            <Grid container direction='row' alignContent='center' style={{ padding: 35, height: 400, width: 900,  backgroundImage: `url(${backgroundCheck})`, backgroundSize: '100% 100%' }} >
+                                            <Grid container direction='row' alignContent='center' style={{ padding: 35, height:  minheight? 400 : 300, width: minheight? 800 : 600,  backgroundImage: `url(${backgroundCheck})`, backgroundSize: '100% 100%' }} >
 
                                             <div style={{ width: '90%', display: 'flex', flexDirection: 'row', marginTop:20 }}>
                                             <Grid item sm={4} xs={4} style={{ width: '35%', height: '100%', display: 'flex', alignItems: 'center' }}>
@@ -168,7 +169,7 @@ class Login extends React.Component {
 
                                 <Grid item xs={12} style={{ marginTop: 10 }}>
                                     <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-                                        <p style={{ fontFamily: 'Montserrat-Black', paddingTop: 20, fontSize: 22, color: '#FFFFFF', margin: 0 }}>*Si aun no está registrado <a href={'/Register'} style={{ textDecoration: 'underline #ffffff', color: '#ffffff' }}>HAZ CLICK AQUI</a></p>
+                                        <p className="titleForm" style={{ paddingTop: 20, fontSize: 22, color: '#FFFFFF', margin: 0 }}>*Si aun no está registrado <a href={'/Register'} style={{ textDecoration: 'underline #ffffff', color: '#ffffff' }}>HAZ CLICK AQUI</a></p>
                                     </div>
                                     {this.state.error &&
                                         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
@@ -228,11 +229,11 @@ class Login extends React.Component {
 
                               </div>
                                 <div style={{ width:'95%',display:'flex',justifyContent:'center', marginTop:'10%'}}>
-                                    <p style={{ fontFamily:'Montserrat-Black',fontSize:18,color:"white",margin:0}}>* Si aun no está registrado <a href={'/Register'} style={{textDecoration:'underline #4B5E5E',color:'white'}}>HAZ CLICK AQUI</a></p>
+                                    <p className="titleForm" style={{ textAlign:'center', padding: 10, fontSize:18,color:"white",margin:0}}>* Si aun no está registrado <a href={'/Register'} style={{textDecoration:'underline #4B5E5E',color:'white'}}>HAZ CLICK AQUI</a></p>
                                 </div>
                                 {this.state.error &&
                                     <div style={{ width:'95%',display:'flex',justifyContent:'center'}}>
-                                        <p style={{margin:10, marginTop: 40, color: 'red', fontFamily:'Montserrat-SemiBold',fontSize:16}}>{this.state.error}</p>
+                                          <p style={{ borderRadius: 2, background: 'red', margin:10, marginTop: 40, color: 'white', fontFamily:'Montserrat-SemiBold',fontSize:18}}>{this.state.error}</p>
                                     </div>
                                 }
 

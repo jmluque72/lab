@@ -25,7 +25,7 @@ import moment from 'moment';
 import { default as ReactSelect } from "react-select";
 
 import { products} from "../utils/products";
-import { ConsoleLogger } from '@aws-amplify/core';
+
 
 const Option = (props) => {
   return (
@@ -42,7 +42,8 @@ const Option = (props) => {
   );
 };
 
-
+//var f = new Date();
+//var fechaIngreso = f.getFullYear() + "-"+ (f.getMonth()+1) + "-" +f.getDate();
 
 
 class Register extends React.Component {
@@ -90,15 +91,30 @@ class Register extends React.Component {
     }
 
 
-handleChange = (selected) => {
-    this.setState({
-      optionSelected: selected
-    });
+    handleChange = (selected) => {
+        if (this.state.productSi = true) {
+
+            this.setState({
+                optionSelected: selected
+            })
+        }
     };
 
     register() {
 
         const email = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+          if ( email.test(this.state.email) ) {
+        // this is a valid email address
+        // call setState({email: email}) to update the email
+        // or update the data in redux store.
+            }
+            else {
+              this.setState({
+                error: "Email inválido"
+            })
+            return;
+            }
+
 
         var d = moment({ year: this.state.year, month: this.state.mounth, day: this.state.day });
         if (d == null) {
@@ -166,21 +182,24 @@ handleChange = (selected) => {
         if (this.state.check12) {
             question2 = 12
         }
-        var obj = this.state.optionSelected
 
 
-        var p1 = ""
-        var p2 = ""
-        var p3 = ""
-        var p4 = ""
-        var p5 = ""
-        var p6 = ""
-        var p7 = ""
-        var p8 = ""
-        var p9 = ""
-        var p10 = ""
+
+        var p1 = " "
+        var p2 = " "
+        var p3 = " "
+        var p4 = " "
+        var p5 = " "
+        var p6 = " "
+        var p7 = " "
+        var p8 = " "
+        var p9 = " "
+        var p10 = " "
 
 
+ if (this.state.productNo == false) {
+
+     var obj = this.state.optionSelected
 
         for (let i = 0; i<obj.length; i++) {
 
@@ -227,6 +246,8 @@ handleChange = (selected) => {
             }
             }
 
+ }
+
 
 
         const body = {
@@ -256,6 +277,8 @@ handleChange = (selected) => {
             producto10: p10
 
         }
+
+
 
 
 
@@ -481,7 +504,6 @@ handleChange = (selected) => {
         var header = <Grid item xs={12} sm={3} l={3} md={3} lg={4} style={{ height: '100%', display: 'flex' }} >
             <div style={{ flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
                 <img height='auto' width='100%' style={{ marginTop: 50, maxWidth: 500 }} src={logoVeteGrande} />
-                 <img style={{ width: 90, height: 90 * 0.64, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
             </div>
         </Grid>
 
@@ -510,7 +532,7 @@ handleChange = (selected) => {
 
                                             <Grid item style={{ background: 'white', width: '90%', padding: 30, borderRadius: 30 }}>
                                                 <div style={{ marginTop: 0 }}>
-                                                    <p className='titleFormTitle'>REGISTRO</p>
+                                                    <p className='titleFormTitle'>REGISTRATE</p>
                                                 </div>
                                                 <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
                                                     <Grid item xs={12} sm={2} style={{ alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
@@ -825,6 +847,7 @@ handleChange = (selected) => {
                                                                     />
                                                             </span>
                                                             :
+
                                                             <span></span>
                                                             }
                                                     </Grid>
@@ -844,7 +867,7 @@ handleChange = (selected) => {
                                                     </div>
                                                     {this.state.error &&
                                                         <div style={{ width: '85%', display: 'flex', justifyContent: 'center' }}>
-                                                            <p style={{ marginTop: 20, color: 'red', fontFamily: 'Montserrat-SemiBold', fontSize: 14 }}>{this.state.error}</p>
+                                                              <p style={{ borderRadius: 2, background: 'red', margin:10, marginTop: 40, color: 'white', fontFamily:'Montserrat-SemiBold',fontSize:18}}>{this.state.error}</p>
                                                         </div>
                                                     }
 
@@ -890,12 +913,13 @@ handleChange = (selected) => {
                                         <div className='d-flex justify-content-center'>
                                                  <img style={{ width: 800, height: 350, alignItems: 'center', }} src={CheckMail}></img>
                                         </div>
-                                        <Grid item  style={{ }}>
-                                            <img style={{ width: 118 * 0.7, height: 84 * 0.7, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
-                                        </Grid>
+
 
                             </div>
                         </div>
+                          <Grid item  style={{ }}>
+                            <img style={{ width: 118 * 0.7, height: 84 * 0.7, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
+                         </Grid>
                     </div>
                 )
             }
@@ -917,7 +941,7 @@ handleChange = (selected) => {
                                         <Grid container direction='column' justifyContent='center' alignItems='center' style={{ height: '100%', marginTop: 20 }}>
                                             <Grid item style={{ background: 'white', width: '90%', padding: 30, borderRadius: 30 }}>
                                                 <div style={{ marginTop: 0 }}>
-                                                    <p className='titleFormTitle'>REGISTRATE</p>
+                                                    <p className="titleFormTitle">REGISTRATE</p>
                                                 </div>
                                                 <Grid container direction='row' alignItems='center' style={{ marginTop: 10 }}>
                                                     <Grid item xs={12} sm={2} style={{ alignItems: 'start', display: 'flex', flexDirection: 'column' }}>
@@ -1248,7 +1272,7 @@ handleChange = (selected) => {
                                                     </div>
                                                     {this.state.error &&
                                                         <div style={{ width: '85%', display: 'flex', justifyContent: 'center' }}>
-                                                            <p style={{ marginTop: 20, color: 'red', fontFamily: 'FiraSansMedium', fontSize: 14 }}>{this.state.error}</p>
+                                                                <p style={{ borderRadius: 2, background: 'red', margin:10, marginTop: 40, color: 'white', fontFamily:'Montserrat-SemiBold',fontSize:18}}>{this.state.error}</p>
                                                         </div>
                                                     }
 
