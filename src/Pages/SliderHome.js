@@ -51,38 +51,22 @@ class SliderHome extends React.Component {
             back = BackgroundR;
 
         }
-       const mid = (window.innerWidth > 1000 & window.innerWidth<1400)
+const mid = (window.innerWidth > 1000 & window.innerWidth<1400)
+console.log()
 
+            return (
+                <div style={{ width: '100%', minHeight: '100vh', justifyContent: 'center', alignItems: 'center', display: 'flex', padding: 0, }}>
+                    <div style={{height:150}}>
 
-        return (
-
-           <div style={{ width: '100%', height: window.innerHeight, justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
-                <Footer />
-                <Header />
-                <Grid item sm={12} xs={12} >
-                <div style={{ alignContent: 'center'}}>
-
+                    </div>
+                    <Grid item xs={12} sm={12} >
                         <Carousel style={{ zIndex: 10 }}>
-                            <Carousel.Item>
-                                <div style={{ display: 'flex', flexDirection: 'row' }}>
-                                    <Grid item xs={12} sm={12}>
-                                        <Grid container justify='center' alignItems='center'>
-                                            <div style={{ maxHeight: window.innerHeight  }}>
-                                                <img src={img_1} style={{ marginTop:60,width: min? '80%': '100%', height: min?'80%': '100%' }}></img>
-                                            </div>
-
-                                        </Grid>
-                                    </Grid>
-
-                                </div>
-                            </Carousel.Item>
-
-                              <Carousel.Item>
+                            <Carousel.Item style={{}}>
                                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                                     <Grid item xs={12} sm={12}>
                                         <Grid container justify='center' alignItems='center'>
                                             <div style={{ maxHeight: window.innerHeight }}>
-                                                <img src={img_2}  style={{ marginTop:60,  width: min? '80%': '100%', height: min?'80%': '100%' }}></img>
+                                                <img src={img_1} style={{width: '80%', height: '80%'  }}></img>
                                             </div>
 
                                         </Grid>
@@ -90,15 +74,25 @@ class SliderHome extends React.Component {
 
                                 </div>
                             </Carousel.Item>
-                    </Carousel>
+                            <Carousel.Item>
+                                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                                    <Grid item xs={12} sm={12}>
+                                        <Grid container justify='center' alignItems='center'>
+                                            <div style={{ maxHeight: window.innerHeight }}>
+                                                <img src={img_2} style={{ width: '80%', height: '80%' }}></img>
+                                            </div>
 
-                    </div>
+                                        </Grid>
+                                    </Grid>
 
-    </Grid>
+                                </div>
+                            </Carousel.Item>
+                        </Carousel>
+                    </Grid>
+                    <Footer />
+                </div>
+            );
 
-
-  </div>
-        );
     }
 }
 
