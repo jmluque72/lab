@@ -56,17 +56,17 @@ console.log()
 
             return (
                 <div style={{ width: '100%', minHeight: '100vh', justifyContent: 'center', alignItems: 'center', display: 'flex', padding: 0, }}>
-                    <div style={{height:150}}>
+                    <div style={{height:min?110:0}}>
 
                     </div>
                     <Grid item xs={12} sm={12} >
-                        <Carousel style={{ zIndex: 10 }}>
+                        <Carousel style={{ zIndex: 10 , marginTop: min? 0: -60}}>
                             <Carousel.Item style={{}}>
                                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                                     <Grid item xs={12} sm={12}>
                                         <Grid container justify='center' alignItems='center'>
-                                            <div style={{ maxHeight: window.innerHeight }}>
-                                                <img src={img_1} style={{width: '80%', height: '80%'  }}></img>
+                                            <div style={{  }}>
+                                                <img src={img_1} style={{width: min?'80%': '90%'}}></img>
                                             </div>
 
                                         </Grid>
@@ -78,8 +78,8 @@ console.log()
                                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                                     <Grid item xs={12} sm={12}>
                                         <Grid container justify='center' alignItems='center'>
-                                            <div style={{ maxHeight: window.innerHeight }}>
-                                                <img src={img_2} style={{ width: '80%', height: '80%' }}></img>
+                                            <div style={{  }}>
+                                                <img src={img_2} style={{width: min?'80%': '90%' }}></img>
                                             </div>
 
                                         </Grid>

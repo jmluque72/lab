@@ -41,7 +41,7 @@ class Header extends React.Component {
      return (
          <div className='header' style={{
              fontFamily: 'Montserrat-SemiBold',
-           height: 'auto',display:'flex',boxShadow:'none',
+           height: '120',display:'flex',boxShadow:'none',
              background: '#ffffff', position: 'fixed',
             left: 0, top: 0, right: 0, width: '100%',
              borderTop: '20px solid  #0d80bb', borderBottom: '10px solid  #0d80bb' , zIndex: '100'}}>
