@@ -4,13 +4,19 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Button } from '@material-ui/core';
 import Background from '../assets/LoginBackgroundVete.svg'
 
-
+import backgroundRegisterOk from '../assets/backgroundRegisterOk.svg';
+import logoVeteGrande from '../assets/LogoVete.png';
+import CheckMail from '../assets/Checkmail.png';
 import logoNovo from '../assets/logoZoon.svg'
 import { colors } from '../utils'
 import LogoTop from '../assets/LogoVete.png'
 import Ingresar from '../assets/ingresar.png'
+import Recuppass from '../assets/ingresar.png'
 import backgroundCheck from '../assets/backgroundCheck.png'
 import { Cookies } from 'react-cookie';
+import Popup from './Popup.js';
+
+
 
 class Login extends React.Component {
 
@@ -20,18 +26,29 @@ class Login extends React.Component {
         this.state = {
             error: null,
             email: '',
-            pass:'',
-            loading: false
+            pass: '',
+            loading: false,
+            showPopup: false
+
         };
     }
 
+    togglePopup() {
+        this.setState({
+            showPopup: !this.state.showPopup
+        });
+ }
     componentDidMount() {
         this.setState({ height: window.innerHeight })
     }
 
+
+
+
+
     login() {
 
-        this.setState({ error: null });
+        this.setState({ error: null, recuperopass: false })
         const body = {
             email: this.state.email,
             password: this.state.pass
@@ -40,19 +57,19 @@ class Login extends React.Component {
         if (this.state.email == '') {
             this.setState({
                 error: "Debe introducir email valido",
-                loading:false
+                loading: false
             })
             return;
         }
-          if (this.state.pass == '') {
+        if (this.state.pass == '') {
             this.setState({
                 error: "Debe introducir password valido",
-                 loading:false
+                loading: false
             })
             return;
         }
-       // console.log(this.state.loading, this.state.email, this.state.pass )
-        if  (this.state.loading == true && !(this.state.email == '' && this.state.pass == '' ) ) {
+        // console.log(this.state.loading, this.state.email, this.state.pass )
+        if (this.state.loading == true && !(this.state.email == '' && this.state.pass == '')) {
             var response = fetch("https://pom2lkx5ei.execute-api.us-east-1.amazonaws.com/production/login", {
                 method: 'POST',
                 headers: {
@@ -82,8 +99,8 @@ class Login extends React.Component {
 
                 });
         } else {
-             alert('Debe completar Mail y Password')
-             this.setState({ loading: false })
+            alert('Debe completar Mail y Password')
+            this.setState({ loading: false })
         }
     }
 
@@ -106,6 +123,7 @@ class Login extends React.Component {
         const min = window.innerWidth >= 1000
         const minheight = window.innerWidth >= 1400
         const height = window.innerHeight
+        const minxs = window.innerWidth <= 700
         const email = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
         var disabledbutton = false;
@@ -116,124 +134,151 @@ class Login extends React.Component {
         ) {
             disabledbutton = true
         }
+
         if (min) {
             return (
                 <div>
                     <div style={{ display: 'flex', height: '100%', width: '100%' }}>
 
-                        <div style={{ display: 'flex',  width: '100%', backgroundImage: `url(${Background})`, backgroundSize: 'cover' , height:'100vh'}}>
+                        <div style={{ display: 'flex', width: '100%', backgroundImage: `url(${Background})`, backgroundSize: 'cover', height: '100vh' }}>
                             <Grid item xs={12} sm={12} style={{ width: '100%', height: '90%' }}>
-                                <img style={{  width: minheight? 400 : 300, height: minheight? 250*0.86 : 160*0.86,marginTop: minheight? 50 : 20}} src={LogoTop}></img>
+                                <img style={{ width: minheight ? 400 : 300, height: minheight ? 250 * 0.86 : 160 * 0.86, marginTop: minheight ? 50 : 20 }} src={LogoTop}></img>
 
-                                <Grid container  direction='row' justifyContent='center' style={{ width: '100%' }}>
-                                            <Grid container direction='row' alignContent='center' style={{ padding: 35, height:  minheight? 400 : 300, width: minheight? 800 : 600,  backgroundImage: `url(${backgroundCheck})`, backgroundSize: '100% 100%' }} >
+                                <Grid container direction='row' justifyContent='center' style={{ width: '100%' }}>
+                                    <Grid container direction='row' alignContent='center' style={{ padding: 35, height: minheight ? 400 : 300, width: minheight ? 800 : 600, backgroundImage: `url(${backgroundCheck})`, backgroundSize: '100% 100%' }} >
 
-                                            <div style={{ width: '90%', display: 'flex', flexDirection: 'row', marginTop:20 }}>
+                                        <div style={{ width: '90%', display: 'flex', flexDirection: 'row', marginTop: 20 }}>
                                             <Grid item sm={4} xs={4} style={{ width: '35%', height: '100%', display: 'flex', alignItems: 'center' }}>
 
-                                                    <p style={{ fontFamily: 'Montserrat-SemiBold', fontSize: 18, color: 'white', margin: 0, lineHeight: 1.2 }}>Usuario (e-mail): </p>
-                                                </Grid>
-                                                <Grid item sm={10} xs={10} style={{ width: '65%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                    <input
-                                                        className='no-outline'
-                                                        type='email'
-                                                        required
-                                                        placeholder={'ej.: ejemplo@gmail.com'}
-                                                        style={{ paddingTop: 5, paddingBottom: 5, width: '100%', height: '100%', borderStyle: 'none', borderRadius: 5,height:35 }}
-                                                        onChange={(event) => this.setState({loading:true, email: event.target.value })}>
-                                                    </input>
-                                                </Grid>
-                                            </div>
-                                            <div style={{ width: '90%', display: 'flex', flexDirection: 'row', marginTop: 30 }}>
-                                                <Grid item sm={3} xs={4} style={{ width: '30%', height: '100%', display: 'flex', alignItems: 'center' }}>
-                                                    <p style={{ fontFamily: 'Montserrat-SemiBold', fontSize: 18, color: 'white', margin: 0 }}>Contraseña:</p>
-                                                </Grid>
-                                                <Grid item sm={9} xs={8} style={{ width: '75%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                    <input
-                                                        className='no-outline'
-                                                        type='password'
-                                                        required
-                                                        style={{paddingTop: 5, paddingBottom: 5, width: '100%', height: '100%', borderStyle: 'none', borderRadius: 5,height:35 }}
-                                                        onChange={(event) => this.setState({ loading:true, pass: event.target.value })}>
-                                                    </input>
-                                                </Grid>
+                                                <p style={{ fontFamily: 'Montserrat-SemiBold', fontSize: 18, color: 'white', margin: 0, lineHeight: 1.2 }}>Usuario (e-mail): </p>
+                                            </Grid>
+                                            <Grid item sm={10} xs={10} style={{ width: '65%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                                <input
+                                                    className='no-outline'
+                                                    type='email'
+                                                    required
+                                                    placeholder={'ej.: ejemplo@gmail.com'}
+                                                    style={{ paddingTop: 5, paddingBottom: 5, width: '100%', height: '100%', borderStyle: 'none', borderRadius: 5, height: 35 }}
+                                                    onChange={(event) => this.setState({ loading: true, email: event.target.value })}>
+                                                </input>
+                                            </Grid>
+                                        </div>
+                                        <div style={{ width: '90%', display: 'flex', flexDirection: 'row', marginTop: 30 }}>
+                                            <Grid item sm={3} xs={4} style={{ width: '30%', height: '100%', display: 'flex', alignItems: 'center' }}>
+                                                <p style={{ fontFamily: 'Montserrat-SemiBold', fontSize: 18, color: 'white', margin: 0 }}>Contraseña:</p>
+                                            </Grid>
+                                            <Grid item sm={9} xs={8} style={{ width: '75%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                                <input
+                                                    className='no-outline'
+                                                    type='password'
+                                                    required
+                                                    style={{ paddingTop: 5, paddingBottom: 5, width: '100%', height: '100%', borderStyle: 'none', borderRadius: 5, height: 35 }}
+                                                    onChange={(event) => this.setState({ loading: true, pass: event.target.value })}>
+                                                </input>
+                                            </Grid>
 
-                                            </div>
-                                            <div style={{ width:'90%',display:'flex',justifyContent:'flex-end',marginTop:20}}>
-                                                <button onClick={() => this.login()} type='submit' style={{ padding:0,cursor:'pointer',border:'none',background:'transparent'}}>
-                                                    <img width='140px' height='auto' src={Ingresar} ></img>
-                                                </button>
-                                            </div>
-                                        </Grid>
+                                        </div>
+
+                                        <div style={{ width: '90%', display: 'flex', justifyContent: 'flex-end', marginTop: 20 }}>
+                                            <button onClick={() => this.login()} type='submit' style={{ padding: 0, cursor: 'pointer', border: 'none', background: 'transparent' }}>
+                                                <img width='140px' height='auto' src={Ingresar} ></img>
+                                            </button>
+                                        </div>
                                     </Grid>
+                                </Grid>
 
                                 <Grid item xs={12} style={{ marginTop: 10 }}>
                                     <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                                         <p className="titleForm" style={{ paddingTop: 20, fontSize: 22, color: '#FFFFFF', margin: 0 }}>*Si aun no está registrado <a href={'/Register'} style={{ textDecoration: 'underline #ffffff', color: '#ffffff' }}>HAZ CLICK AQUI</a></p>
                                     </div>
+                                    <div style={{   display: 'flex', justifyContent: 'center', padding: 20 }}>
+                                        <button onClick={this.togglePopup.bind(this)} style={{ padding: 0, cursor: 'pointer', border: 'none', background: 'transparent' }}>
+                                            <p className="titleForm" style={{ paddingTop: 20, fontSize: 22, color: '#FFFFFF', margin: 0,textDecoration: 'underline #ffffff',}}>Recuperar Contraseña</p>
+                                        </button>
+                                                {this.state.showPopup ?
+                                            <Popup
+                                            closePopup={this.togglePopup.bind(this)}
+                                                />
+                                                : null
+                                                }
+                                         </div>
+
                                     {this.state.error &&
                                         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-                                            <p style={{ marginTop:40, paddingTop: 20, color: 'red', fontFamily: 'Montserrat-SemiBold', fontSize: 20, margin:0 }}>{this.state.error}</p>
+                                            <p style={{ marginTop: 40, paddingTop: 20, color: 'red', fontFamily: 'Montserrat-SemiBold', fontSize: 20, margin: 0 }}>{this.state.error}</p>
                                         </div>
                                     }
                                 </Grid>
 
 
                             </Grid>
-                                    <img style={{ width: 90, height: 90 * 0.64, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
+                            <img style={{ width: 90, height: 90 * 0.64, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
                         </div>
                     </div>
                 </div>
             );
+
         } else {
+
             return (
-              <div>
-                <div style={{display:'flex',height:this.state.height}}>
-                    <div style={{display:'flex',justifyContent:'center',width:'100%',backgroundImage:`url(${Background})`,backgroundSize:'cover'}}>
-                            <Grid item xs={12} sm={12} md={12} style={{ width: '100%', height: '100%',   padding: '2%', marginTop: '2%', marginBottom: '2%', position: 'absolute' }}>
-                            <img style={{ width: 350, height: 200*0.86, marginTop:'10%', }} src={LogoTop}></img>
+                <div>
+                    <div style={{ display: 'flex', height: this.state.height }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', width: '100%', backgroundImage: `url(${Background})`, backgroundSize: 'cover' }}>
+                            <Grid item xs={12} sm={12} md={12} style={{ width: '100%', height: '100%', padding: '2%', marginTop: '2%', marginBottom: '2%', position: 'absolute' }}>
+                                <img style={{ width: 350, height: 200 * 0.86, marginTop: '10%', }} src={LogoTop}></img>
 
-                                <div style={{marginTop: '10%', padding: 25, backgroundImage: `url(${backgroundCheck})`, backgroundSize: '100% 100%' }} >
+                                <div style={{ marginTop: '10%', padding: 25, backgroundImage: `url(${backgroundCheck})`, backgroundSize: '100% 100%' }} >
 
-                                  <div style={{ marginTop:'10%', width:'auto', display:'flex',flexDirection:'row'}}>
+                                    <div style={{ marginTop: '10%', width: 'auto', display: 'flex', flexDirection: 'row' }}>
 
-                                            <p style={{ fontFamily:'Montserrat-SemiBold',fontSize:18,color:'white',margin:0,lineHeight:1.2}}>Usuario (e-mail): </p>
+                                        <p style={{ fontFamily: 'Montserrat-SemiBold', fontSize: 18, color: 'white', margin: 0, lineHeight: 1.2 }}>Usuario (e-mail): </p>
 
-                                            <input
+                                        <input
                                             className='no-outline'
                                             type='email'
                                             placeholder={'ej.: ejemplo@gmail.com'}
-                                            style={{marginLeft: 5, paddingTop: 5, paddingBottom: 5, width:'100%',height:'80%',borderStyle:'none',borderRadius:5}}
-                                            onChange={(event)=> this.setState({ loading:true, email : event.target.value})}>
-                                                </input>
+                                            style={{ marginLeft: 5, paddingTop: 5, paddingBottom: 5, width: '100%', height: '80%', borderStyle: 'none', borderRadius: 5 }}
+                                            onChange={(event) => this.setState({ loading: true, email: event.target.value })}>
+                                        </input>
 
-                                  </div>
-                                  <div style={{ width:'auto', display:'flex',flexDirection:'row',marginTop:30}}>
+                                    </div>
+                                    <div style={{ width: 'auto', display: 'flex', flexDirection: 'row', marginTop: 30 }}>
 
-                                            <p style={{ fontFamily:'Montserrat-SemiBold',fontSize:18,color:'white',margin:0,lineHeight:1.2}}>Contraseña:</p>
+                                        <p style={{ fontFamily: 'Montserrat-SemiBold', fontSize: 18, color: 'white', margin: 0, lineHeight: 1.2 }}>Contraseña:</p>
 
-                                            <input
-                                             className='no-outline'
+                                        <input
+                                            className='no-outline'
                                             type='password'
                                             placeholder={'xxxxxx'}
-                                            style={{marginLeft: 5, paddingTop: 5, paddingBottom: 5, width:'100%',height:'100%',borderStyle:'none',borderRadius:5}}
-                                            onChange={(event)=> this.setState({ loading:true, pass : event.target.value})}>
-                                            </input>
+                                            style={{ marginLeft: 5, paddingTop: 5, paddingBottom: 5, width: '100%', height: '100%', borderStyle: 'none', borderRadius: 5 }}
+                                            onChange={(event) => this.setState({ loading: true, pass: event.target.value })}>
+                                        </input>
 
 
-                                  </div>
+                                    </div>
 
-                                     <button onClick={() => this.login()} type='submit' style={{marginTop: 30,  padding:0,cursor:'pointer',border:'none',background:'transparent'}}>
-                                                    <img width='140px' height='auto' src={Ingresar} ></img>
+                                    <button onClick={() => this.login()} type='submit' style={{ marginTop: 30, padding: 0, cursor: 'pointer', border: 'none', background: 'transparent' }}>
+                                        <img width='140px' height='auto' src={Ingresar} ></img>
                                     </button>
 
-                              </div>
-                                <div style={{ width:'95%',display:'flex',justifyContent:'center', marginTop:'10%'}}>
-                                    <p className="titleForm" style={{ textAlign:'center', padding: 10, fontSize:18,color:"white",margin:0}}>* Si aun no está registrado <a href={'/Register'} style={{textDecoration:'underline #4B5E5E',color:'white'}}>HAZ CLICK AQUI</a></p>
                                 </div>
+                                <div style={{ width: '95%', display: 'flex', justifyContent: 'center', marginTop: '10%' }}>
+                                    <p className="titleForm" style={{ textAlign: 'center', padding: 10, fontSize: 18, color: "white", margin: 0 }}>* Si aun no está registrado <a href={'/Register'} style={{ textDecoration: 'underline #4B5E5E', color: 'white' }}>HAZ CLICK AQUI</a></p>
+                                </div>
+                                    <div style={{   display: 'flex', justifyContent: 'center', padding: 20 }}>
+                                        <button onClick={this.togglePopup.bind(this)} style={{ padding: 0, cursor: 'pointer', border: 'none', background: 'transparent' }}>
+                                            <p className="titleForm" style={{ paddingTop: 20, fontSize: 22, color: '#FFFFFF', margin: 0,textDecoration: 'underline #ffffff',}}>Recuperar Contraseña</p>
+                                        </button>
+                                                {this.state.showPopup ?
+                                            <Popup
+                                            closePopup={this.togglePopup.bind(this)}
+                                                />
+                                                : null
+                                                }
+                                         </div>
                                 {this.state.error &&
-                                    <div style={{ width:'95%',display:'flex',justifyContent:'center'}}>
-                                          <p style={{ borderRadius: 2, background: 'red', margin:10, marginTop: 40, color: 'white', fontFamily:'Montserrat-SemiBold',fontSize:18}}>{this.state.error}</p>
+                                    <div style={{ width: '95%', display: 'flex', justifyContent: 'center' }}>
+                                        <p style={{ borderRadius: 2, background: 'red', margin: 10, marginTop: 40, color: 'white', fontFamily: 'Montserrat-SemiBold', fontSize: 18 }}>{this.state.error}</p>
                                     </div>
                                 }
 
@@ -241,12 +286,11 @@ class Login extends React.Component {
 
 
                             <img style={{ width: 90, height: 90 * 0.64, position: 'absolute', bottom: 10, right: 10 }} src={logoNovo}></img>
+                        </div>
                     </div>
                 </div>
-            </div>
             );
         }
-
     }
 }
 

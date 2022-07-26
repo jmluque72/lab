@@ -16,6 +16,7 @@ import logoNovo from '../assets/logoZoon.svg'
 import check from '../assets/check.png'
 import { colors } from '../utils'
 
+
 import Registrarse from '../assets/buttonRegister.png'
 import './Main.css'
 import TILDE from '../assets/TILDE.png'
