@@ -186,7 +186,7 @@ input {
 }
 .textForm {
   font-family: "Montserrat-ExtraBold";
-  font-size: 16px;
+  font-size: 14px;
   color: #5d565e;
   margin: 0;
 }
@@ -212,7 +212,7 @@ input {
 }
 .titleForm {
   font-family: "Montserrat-ExtraBold";
-  font-size: 36px;
+  font-size: 30px;
   color: #5d565e;
   margin: 0;
   text-align: left;
@@ -235,4 +235,28 @@ input {
 }
 input[type="text"]:focus {
   border: none;
+}
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: -10%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+
+
+}
+.popup_open {
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+
+
+
+
 }
