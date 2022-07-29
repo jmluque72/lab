@@ -25,10 +25,10 @@ class Vivo extends React.Component {
             pause: true,
             hasResponse: false,
             question_process: null,
-            url_video_es: "https://vimeo.com/event/1183899/embed/d437fc6ef8",
-            url_video_en: "https://vimeo.com/event/1183899/embed/d437fc6ef8",
-            url_chat_es: "https://vimeo.com/event/1183899/chat/d437fc6ef8",
-            url_chat_en: "https://vimeo.com/event/1183899/chat/d437fc6ef8",
+            url_video_es: "https://vimeo.com/event/2318468/embed",
+            url_video_en: "hhttps://vimeo.com/event/2318468/embed",
+            url_chat_es: "https://vimeo.com/event/2318468/chat",
+            url_chat_en: "https://vimeo.com/event/2318468/chat",
             client: null,
             loading: false
         };
@@ -269,7 +269,7 @@ class Vivo extends React.Component {
                     <img style={{ width: '100%', minHeight: window.innerHeight, height: '100%', position: 'fixed', top: 0, left: 0, backgroundSize: 'cover' }} src={Background} />
                     <img style={{ width: 90, height: 90*0.64, position: 'absolute', top: 10, right: 10 }} src={logoNovo}></img>
 
-                    <Grid item xs={12} style={{ height: window.innerHeight, position: 'absolute', top: -40, left: 0, width: '100%', paddingBottom: 50 }}>
+                    <Grid item xs={12} style={{ height: window.innerHeight, position: 'absolute', top: -90, left: 0, width: '100%', paddingBottom: 50 }}>
                         <Grid container direction='column' justifyContent='space-between'>
                             <Grid item md={12} style={{ padding: 10 }}>
                             <Grid item md={12} container direction='row'  style={{  paddingRight: 15, paddingLeft: 15 }}>
@@ -283,14 +283,15 @@ class Vivo extends React.Component {
                                 </div>
                                 </Grid>
                              </Grid>
-                        <Grid item xs={12} className='container' style={{ width: '100%', padding: 10 }}>
+                        <Grid item xs={12} className='container' style={{ marginTop: '-4%' ,width: '100%', padding: 10 }}>
                             <Grid container justifyContent='space-between'>
-                                <div className='left' style={{ border: '10px solid #FFFFFF', marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: '450', padding: 2 }}>
+                                <div className='left' style={{ border: '10px solid #FFFFFF', marginBottom: 20, marginLeft: marginLeft, width: widthVideo, height: 500, padding: 2 }}>
                                     <div style={{ width: '100%', height: '100%' }}>
                                         <iframe src={url_video} frameBorder="0" width='100%' height='100%' allow="autoplay; fullscreen; picture-in-picture" allowFullScreen></iframe>
                                     </div>
                                 </div>
-                                <div className='left' style={{ marginLeft: marginLeft, width: widthChat, height: 500, padding: 2, backgroundColor: 'white' }}>
+                                    <div className='left' style={{ marginLeft: marginLeft, width: widthChat, height: 500, backgroundColor: 'white' }}>
+
                                     <iframe src={url_chat} width="100%" height="100%" frameBorder="0"></iframe>
                                 </div>
                             </Grid>

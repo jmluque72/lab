@@ -39,7 +39,8 @@ class Footer extends React.Component {
     constructor(props) {
         super(props);
         // we use this to make the card to appear after the page has been rendered
-        const eventDate = new Date('08/07/22 18:00');
+        const eventDate = new Date('08/07/22 22:00');
+        const finevento =  new Date('08/08/22 02:00');
 
         this.state = {
             days: 0,
@@ -49,7 +50,9 @@ class Footer extends React.Component {
             stoped: false,
             seconds: (eventDate.getTime() - new Date().getTime()) / 1000,
             eventDay: (eventDate.getDate()),
-            finEvento:(new Date().getDate())
+            finEvento: (finevento.getDate()),
+            diaActual: (new Date().getDate()),
+            evento: false
 
         }
 
@@ -70,7 +73,8 @@ class Footer extends React.Component {
             days: days,
             min: minutes,
             hours: hours,
-            sec: parseInt(remainingSeconds)
+            sec: parseInt(remainingSeconds),
+            evento: (this.state.finEvento == this.state.diaActual || this.state.diaActual  == this.state.eventDay)
         });
 
 
@@ -139,7 +143,8 @@ class Footer extends React.Component {
 
     render() {
         const countDown = this.state;
-      const min = window.innerWidth >= 1000
+        const min = window.innerWidth >= 1000
+
 
             var display = "block"
             var margin = 0
@@ -160,9 +165,9 @@ class Footer extends React.Component {
            // display = "none";
         }
 
-       // console.log(this.state.stoped, this.state.finEvento, this.state.eventDay, this.state.seconds)
 
-        if (this.state.stoped == true & this.state.finEvento > this.state.eventDay) {
+
+        if (this.state.stoped == true & this.state.finEvento > this.state.eventDay  & this.state.evento == false) {
 
                 return (
                       <div style={{ display: display, position: 'absolute', paddingTop: 5,  zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange , height: '20%'}}>
@@ -175,7 +180,7 @@ class Footer extends React.Component {
 
         }
 
-        if (this.state.stoped == true & this.state.finEvento == this.state.eventDay & this.state.seconds < 0) {
+        if (this.state.stoped == true & this.state.evento == true & this.state.seconds < 0) {
 
             return (
                 <div style={{ display: display, position: 'absolute', paddingTop: 5, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange, height: '15%' }}>
