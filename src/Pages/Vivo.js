@@ -25,10 +25,10 @@ class Vivo extends React.Component {
             pause: true,
             hasResponse: false,
             question_process: null,
-            url_video_es: "https://vimeo.com/event/2318468/embed",
-            url_video_en: "hhttps://vimeo.com/event/2318468/embed",
-            url_chat_es: "https://vimeo.com/event/2318468/chat",
-            url_chat_en: "https://vimeo.com/event/2318468/chat",
+            url_video_es: "https://vimeo.com/event/2331784/embed",
+            url_video_en: "https://vimeo.com/event/2331784/embed",
+            url_chat_es: "https://vimeo.com/event/2331784/chat/",
+            url_chat_en: "https://vimeo.com/event/2331784/chat/",
             client: null,
             loading: false
         };

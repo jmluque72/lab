@@ -39,8 +39,10 @@ class Footer extends React.Component {
     constructor(props) {
         super(props);
         // we use this to make the card to appear after the page has been rendered
+        //const eventDate = new Date('08/07/22 18:00');
         const eventDate = new Date('08/07/22 18:00');
-        const finevento =  new Date('08/08/22 02:00');
+        const finevento = new Date('08/08/22 02:00');
+
 
         this.state = {
             days: 0,
@@ -180,7 +182,7 @@ class Footer extends React.Component {
 
         }
 
-        if (this.state.stoped == true & this.state.evento == true & this.state.seconds < 0) {
+        if ((this.state.stoped == true & this.state.evento == true ) || ((this.state.seconds -2700) < 0) )  {
 
             return (
                 <div style={{ display: display, position: 'absolute', paddingTop: 5, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange, height: '15%' }}>

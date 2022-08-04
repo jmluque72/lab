@@ -63,7 +63,7 @@ class Form extends React.Component {
             question9: this.state.question9,
       }
 
-    
+
         var response = fetch("https://pom2lkx5ei.execute-api.us-east-1.amazonaws.com/production/send_form", {
             method: 'POST',
             headers: {
@@ -278,7 +278,7 @@ class Form extends React.Component {
                                 <Grid container direction='column' style={{ width: '100%', height: '100%' }}>
                                     <div style={{ width: '100%' }}>
                                         <p className='title'>5. ¿Qué te pareció el contenido artístico del evento?</p>
-                                        <p style={{ color: 'black', fontFamily: 'Montserrat-Regular', textAlign: 'left', fontSize: 14, margin: 0, marginLeft: 5 }}>(Ulises Bueno, Coki Ramirez,Cacho Buenaventura)</p>
+                                        <p style={{ color: 'black', fontFamily: 'Montserrat-Regular', textAlign: 'left', fontSize: 14, margin: 0, marginLeft: 5 }}>(Alejandra Maglietti, Los Totora, Carismagico)</p>
                                         <p style={{ color: 'black', fontFamily: 'Montserrat-Regular', textAlign: 'left', fontSize: 14, margin: 0, marginLeft: 5 }}>(De 1 a 5, donde 1 es muy malo, 2 malo, 3 bueno, 4 muy bueno y 5 excelente)</p>
                                     </div>
                                     <Grid container direction={!min ? 'column' : 'row'} >
@@ -382,7 +382,7 @@ class Form extends React.Component {
                                                     <div style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: 'black' }}></div>
                                                 )}
                                             </div>
-                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Show de Cacho</p>
+                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Show de Los Totora</p>
                                         </Grid>
                                         <Grid item sm={12} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                                             <div onClick={() => this.setState({ question8: 2 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -390,16 +390,9 @@ class Form extends React.Component {
                                                     <div style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: 'black' }}></div>
                                                 )}
                                             </div>
-                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Show de Ulises</p>
+                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Show de Carismagico</p>
                                         </Grid>
-                                        <Grid item sm={12} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                            <div onClick={() => this.setState({ question8: 3 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                {this.state.question8 == 3 && (
-                                                    <div style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: 'black' }}></div>
-                                                )}
-                                            </div>
-                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Show de Coqui</p>
-                                        </Grid>
+
                                         <Grid item sm={12} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                                             <div onClick={() => this.setState({ question8: 4 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                                 {this.state.question8 == 4 && (
