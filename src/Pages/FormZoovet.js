@@ -39,7 +39,7 @@ class Form extends React.Component {
             question7: 1,
             question8: 1,
             question8_t: "",
-            question9: 1,
+            question9: "",
 
         }
     }
@@ -161,8 +161,8 @@ class Form extends React.Component {
                             <div style={{ width: '70%', background: gray, position: 'relative', borderRadius: 12, marginTop: 20, paddingLeft: '2.5%', paddingRight: '2.5%', paddingTop: 20, paddingBottom: 20 }}>
                                 <Grid container direction='column' style={{ width: '100%', height: '100%' }}>
                                     <div style={{ width: '100%' }}>
-                                        <p className='title'>2. Calificación general del evento CON NÚMERO DE ESCALA</p>
-                                        <p style={{ color: 'black', fontFamily: 'Montserrat-Regular', textAlign: 'left', fontSize: 14, margin: 0, marginLeft: 5 }}>(De 1 a 5, donde 1 es muy malo, 2 malo, 3 bueno, 4 muy bueno y 5 excelente)</p>
+                                        <p className='title'>2. ¿Cómo calificarías el evento?</p>
+                                        <p style={{ color: 'black', fontFamily: 'Montserrat-Regular', textAlign: 'left', fontSize: 14, margin: 0, marginLeft: 5 }}>(De 1 a 5, donde 1: Malo el 5: Excelente)</p>
                                     </div>
                                     <Grid container direction={!min ? 'column' : 'row'} >
                                         <Grid item sm={1} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
@@ -212,7 +212,7 @@ class Form extends React.Component {
                                                     <div style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: 'black' }}></div>
                                                 )}
                                             </div>
-                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Radios</p>
+                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Medios del Sector</p>
                                         </Grid>
                                         <Grid item sm={3} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                                             <div onClick={() => this.setState({ question3: 3 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -236,77 +236,46 @@ class Form extends React.Component {
                                                     <div style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: 'black' }}></div>
                                                 )}
                                             </div>
-                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Medios del sector</p>
+                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Viralización Whatsapp</p>
+                                        </Grid>
+                                         <Grid item sm={3} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'start' }}>
+                                            <div onClick={() => this.setState({ question3: 6 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                                {this.state.question3 == 6 && (
+                                                    <div style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: 'black' }}></div>
+                                                )}
+                                            </div>
+                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Otro</p>
                                         </Grid>
                                     </Grid>
                                 </Grid>
                             </div>
+
                             <div style={{ width: '70%', background: gray, position: 'relative', borderRadius: 12, marginTop: 20, paddingLeft: '2.5%', paddingRight: '2.5%', paddingTop: 20, paddingBottom: 20 }}>
                                 <Grid container direction='column' style={{ width: '100%', height: '100%' }}>
                                     <div style={{ width: '100%' }}>
-                                        <p className='title'>4. ¿Te gustaron los juegos interactivos?</p>
-                                        <p style={{ color: 'black', fontFamily: 'Montserrat-Regular', textAlign: 'left', fontSize: 14, margin: 0, marginLeft: 5 }}>(De 1 a 5, donde 1 es muy malo, 2 malo, 3 bueno, 4 muy bueno y 5 excelente)</p>
+                                        <p className='title'>4. ¿Qué te pareció el contenido artístico del evento? </p>
+                                        <p style={{ color: 'black', fontFamily: 'Montserrat-Regular', textAlign: 'left', fontSize: 14, margin: 0, marginLeft: 5 }}>(Los Totora, Alejandra Maglietti, Carismagico, Emiliano Billoud - Violinista)</p>
+                                        <p style={{ color: 'black', fontFamily: 'Montserrat-Regular', textAlign: 'left', fontSize: 14, margin: 0, marginLeft: 5 }}>¡Dejanos tu comentario!</p>
                                     </div>
-                                    <Grid container direction={!min ? 'column' : 'row'} >
-                                        <Grid item sm={1} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                            <p style={{ margin: 0, fontSize: 18, color: 'black', fontFamily: 'Montserrat-Regular', marginRight: 5 }}>1</p>
-                                            <img onClick={() => this.setState({ question4: 1 })} width='25px' height='auto' src={this.state.question4 === 1 ? starSelected : star} style={{ cursor: 'pointer' }}></img>
-                                        </Grid>
-                                        <Grid item sm={1} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                            <p style={{ margin: 0, fontSize: 18, color: 'black', fontFamily: 'Montserrat-Regular', marginRight: 5 }}>2</p>
-                                            <img onClick={() => this.setState({ question4: 2 })} width='25px' height='auto' src={this.state.question4 === 2 ? starSelected : star} style={{ cursor: 'pointer' }}></img>
-                                        </Grid>
-                                        <Grid item sm={1} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                            <p style={{ margin: 0, fontSize: 18, color: 'black', fontFamily: 'Montserrat-Regular', marginRight: 5 }}>3</p>
-                                            <img onClick={() => this.setState({ question4: 3 })} width='25px' height='auto' src={this.state.question4 === 3 ? starSelected : star} style={{ cursor: 'pointer' }}></img>
-                                        </Grid>
-                                        <Grid item sm={1} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                            <p style={{ margin: 0, fontSize: 18, color: 'black', fontFamily: 'Montserrat-Regular', marginRight: 5 }}>4</p>
-                                            <img onClick={() => this.setState({ question4: 4 })} width='25px' height='auto' src={this.state.question4 === 4 ? starSelected : star} style={{ cursor: 'pointer' }}></img>
-                                        </Grid>
-                                        <Grid item sm={1} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                            <p style={{ margin: 0, fontSize: 18, color: 'black', fontFamily: 'Montserrat-Regular', marginRight: 5 }}>5</p>
-                                            <img onClick={() => this.setState({ question4: 5 })} width='25px' height='auto' src={this.state.question4 === 5 ? starSelected : star} style={{ cursor: 'pointer' }}></img>
-                                        </Grid>
+                                     <input
+                                        style={{
+                                            backgroundColor: 'transparent',
+                                            width: '100%',
+                                            height: '100%',
+                                            border: 'none',
+                                            borderBottomStyle: 'solid',
+                                            borderWidth: 1,
+                                            borderColor: 'gray',
+                                            marginTop: 5,
+                                            padding: 5
+                                        }}
+                                        placeholder='Su respuesta'
+                                        className='no-outline'
+                                        required={true}
+                                        onChange={(event) => this.setState({ question4: event.target.value })}
 
-                                    </Grid>
-                                </Grid>
-                                <div style={{ height: '100%', width: 12, position: 'absolute', top: 0, left: 0, background: azul, borderTopLeftRadius: 10, borderBottomLeftRadius: 12 }}></div>
-
-                            </div>
-                            <div style={{ width: '70%', background: gray, position: 'relative', borderRadius: 12, marginTop: 20, paddingLeft: '2.5%', paddingRight: '2.5%', paddingTop: 20, paddingBottom: 20 }}>
-                                <Grid container direction='column' style={{ width: '100%', height: '100%' }}>
-                                    <div style={{ width: '100%' }}>
-                                        <p className='title'>5. ¿Qué te pareció el contenido artístico del evento?</p>
-                                        <p style={{ color: 'black', fontFamily: 'Montserrat-Regular', textAlign: 'left', fontSize: 14, margin: 0, marginLeft: 5 }}>(Alejandra Maglietti, Los Totora, Carismagico)</p>
-                                        <p style={{ color: 'black', fontFamily: 'Montserrat-Regular', textAlign: 'left', fontSize: 14, margin: 0, marginLeft: 5 }}>(De 1 a 5, donde 1 es muy malo, 2 malo, 3 bueno, 4 muy bueno y 5 excelente)</p>
-                                    </div>
-                                    <Grid container direction={!min ? 'column' : 'row'} >
-                                        <Grid item sm={1} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                            <p style={{ margin: 0, fontSize: 18, color: 'black', fontFamily: 'Montserrat-Regular', marginRight: 5 }}>1</p>
-                                            <img onClick={() => this.setState({ question5: 1 })} width='25px' height='auto' src={this.state.question5 === 1 ? starSelected : star} style={{ cursor: 'pointer' }}></img>
-                                        </Grid>
-                                        <Grid item sm={1} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                            <p style={{ margin: 0, fontSize: 18, color: 'black', fontFamily: 'Montserrat-Regular', marginRight: 5 }}>2</p>
-                                            <img onClick={() => this.setState({ question5: 2 })} width='25px' height='auto' src={this.state.question5 === 2 ? starSelected : star} style={{ cursor: 'pointer' }}></img>
-                                        </Grid>
-                                        <Grid item sm={1} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                            <p style={{ margin: 0, fontSize: 18, color: 'black', fontFamily: 'Montserrat-Regular', marginRight: 5 }}>3</p>
-                                            <img onClick={() => this.setState({ question5: 3 })} width='25px' height='auto' src={this.state.question5 === 3 ? starSelected : star} style={{ cursor: 'pointer' }}></img>
-                                        </Grid>
-                                        <Grid item sm={1} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                            <p style={{ margin: 0, fontSize: 18, color: 'black', fontFamily: 'Montserrat-Regular', marginRight: 5 }}>4</p>
-                                            <img onClick={() => this.setState({ question5: 4 })} width='25px' height='auto' src={this.state.question5 === 4 ? starSelected : star} style={{ cursor: 'pointer' }}></img>
-                                        </Grid>
-                                        <Grid item sm={1} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                                            <p style={{ margin: 0, fontSize: 18, color: 'black', fontFamily: 'Montserrat-Regular', marginRight: 5 }}>5</p>
-                                            <img onClick={() => this.setState({ question5: 5 })} width='25px' height='auto' src={this.state.question5 === 5 ? starSelected : star} style={{ cursor: 'pointer' }}></img>
-                                        </Grid>
-                                        <div style={{ width: '100%', marginTop: 20 }}>
-                                            <p style={{ color: 'black', fontFamily: 'Montserrat-SemiBold', textAlign: 'left', fontSize: 16, margin: 0, marginLeft: 5 }}>¿Qué mejoraría?</p>
-                                        </div>
-
-                                    </Grid>
+                                    >
+                                    </input>
                                 </Grid>
                                 <div style={{ height: '100%', width: 12, position: 'absolute', top: 0, left: 0, background: azul, borderTopLeftRadius: 10, borderBottomLeftRadius: 12 }}></div>
 
@@ -316,37 +285,76 @@ class Form extends React.Component {
                                 <div style={{ height: '100%', width: 12, position: 'absolute', top: 0, left: 0, background: azul, borderTopLeftRadius: 10, borderBottomLeftRadius: 12 }}></div>
                                 <Grid container direction='column' style={{ width: '100%', height: '100%' }}>
                                     <div style={{ width: '100%' }}>
-                                        <p className='title'>6. ¿Te sentiste representado con el contenido del evento?</p>
+                                        <p className='title'>5. ¿Te sentiste representado con el contenido del evento?</p>
                                     </div>
                                     <Grid container direction={'column'} style={{ marginLeft: 5 }}>
                                         <Grid item sm={12} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                            <div onClick={() => this.setState({ question6: 1 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                {this.state.question6 == 1 && (
+                                            <div onClick={() => this.setState({ question5: 1 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                                {this.state.question5 == 1 && (
                                                     <div style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: 'black' }}></div>
                                                 )}
                                             </div>
                                             <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Si</p>
                                         </Grid>
                                         <Grid item sm={12} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                            <div onClick={() => this.setState({ question6: 2 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                {this.state.question6 == 2 && (
+                                            <div onClick={() => this.setState({ question5: 2 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                                {this.state.question5 == 2 && (
                                                     <div style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: 'black' }}></div>
                                                 )}
                                             </div>
                                             <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>No</p>
                                         </Grid>
-
+                                        <Grid item sm={12} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                                            <div onClick={() => this.setState({ question5: 3 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                                {this.state.question5 == 3 && (
+                                                    <div style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: 'black' }}></div>
+                                                )}
+                                            </div>
+                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Regular</p>
+                                        </Grid>
                                     </Grid>
                                 </Grid>
                             </div>
                             <div style={{ width: '70%', background: gray, position: 'relative', borderRadius: 12, marginTop: 20, paddingLeft: '2.5%', paddingRight: '2.5%', paddingTop: 20, paddingBottom: 20 }}>
                                 <Grid container direction='column' style={{ width: '100%', height: '100%' }}>
                                     <div style={{ width: '100%' }}>
-                                        <p className='title'>7. ¿Con quién compartiste la fiesta?</p>
-                                        <p style={{ color: 'black', fontFamily: 'Montserrat-Regular', textAlign: 'left', fontSize: 14, margin: 0, marginLeft: 5 }}>(De 1 a 5, donde 1 es muy malo, 2 malo, 3 bueno, 4 muy bueno y 5 excelente)</p>
+                                        <p className='title'>6. ¿Con quién compartiste la fiesta?</p>
+                                        <p style={{ color: 'black', fontFamily: 'Montserrat-Regular', textAlign: 'left', fontSize: 14, margin: 0, marginLeft: 5 }}></p>
                                     </div>
+
+                                    <input
+                                        style={{
+                                            backgroundColor: 'transparent',
+                                            width: '100%',
+                                            height: '100%',
+                                            border: 'none',
+                                            borderBottomStyle: 'solid',
+                                            borderWidth: 1,
+                                            borderColor: 'gray',
+                                            marginTop: 5,
+                                            padding: 5
+                                        }}
+                                        placeholder='Su respuesta'
+                                        className='no-outline'
+                                        required={true}
+                                        onChange={(event) => this.setState({ question6: event.target.value })}
+
+                                    >
+                                    </input>
+                                </Grid>
+                                <div style={{ height: '100%', width: 12, position: 'absolute', top: 0, left: 0, background: azul, borderTopLeftRadius: 10, borderBottomLeftRadius: 12 }}></div>
+                            </div>
+                            <div style={{ width: '70%', background: gray, position: 'relative', borderRadius: 12, marginTop: 20, paddingLeft: '2.5%', paddingRight: '2.5%', paddingTop: 20, paddingBottom: 20 }}>
+                                <Grid container direction='column' style={{ width: '100%', height: '100%' }}>
+                                    <div style={{ width: '100%' }}>
+                                        <p className='title'>7.¿Cuál fue tu parte preferida del Día del Veterinario Zoovet 3ra edición? </p>
+                                        <p> EL SHOW DE LOS TOTORA - LA CONDUCCIÓN DEL EVENTO - LA MAGIA DE CARISMAGICO - EL SHOW DEL VIOLINISTA</p>
+                                    </div>
+                                    <Grid container direction={'column'} style={{ marginLeft: 5 }}>
+
+                                    </Grid>
                                     <div style={{ width: '100%', marginTop: 20 }}>
-                                        <p className='title'>Dejanos tu comentario</p>
+                                        <p className='title'>Por qué?</p>
                                     </div>
                                     <input
                                         style={{
@@ -363,6 +371,7 @@ class Form extends React.Component {
                                         placeholder='Su respuesta'
                                         className='no-outline'
                                         required={true}
+
                                         onChange={(event) => this.setState({ question7: event.target.value })}
 
                                     >
@@ -371,49 +380,13 @@ class Form extends React.Component {
                                 <div style={{ height: '100%', width: 12, position: 'absolute', top: 0, left: 0, background: azul, borderTopLeftRadius: 10, borderBottomLeftRadius: 12 }}></div>
                             </div>
                             <div style={{ width: '70%', background: gray, position: 'relative', borderRadius: 12, marginTop: 20, paddingLeft: '2.5%', paddingRight: '2.5%', paddingTop: 20, paddingBottom: 20 }}>
+                                <div style={{ height: '100%', width: 12, position: 'absolute', top: 0, left: 0, background: azul, borderTopLeftRadius: 10, borderBottomLeftRadius: 12 }}></div>
                                 <Grid container direction='column' style={{ width: '100%', height: '100%' }}>
                                     <div style={{ width: '100%' }}>
-                                        <p className='title'>8. ¿Cuál fue tu parte preferida del Día del Veterinario Zoovet?</p>
+                                        <p className='title'> 8. ¿Recomendarías a tus compañeros y colegas el Día del Veterinario Zoovet el próximo año? ¿Por qué? </p>
                                     </div>
                                     <Grid container direction={'column'} style={{ marginLeft: 5 }}>
-                                        <Grid item sm={12} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                            <div onClick={() => this.setState({ question8: 1 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                {this.state.question8 == 1 && (
-                                                    <div style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: 'black' }}></div>
-                                                )}
-                                            </div>
-                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Show de Los Totora</p>
-                                        </Grid>
-                                        <Grid item sm={12} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                            <div onClick={() => this.setState({ question8: 2 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                {this.state.question8 == 2 && (
-                                                    <div style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: 'black' }}></div>
-                                                )}
-                                            </div>
-                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Show de Carismagico</p>
-                                        </Grid>
-
-                                        <Grid item sm={12} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                            <div onClick={() => this.setState({ question8: 4 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                {this.state.question8 == 4 && (
-                                                    <div style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: 'black' }}></div>
-                                                )}
-                                            </div>
-                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>La conduccion</p>
-                                        </Grid>
-                                        <Grid item sm={12} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                            <div onClick={() => this.setState({ question8: 5 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                {this.state.question8 == 5 && (
-                                                    <div style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: 'black' }}></div>
-                                                )}
-                                            </div>
-                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Bloque emotivo</p>
-                                        </Grid>
-                                    </Grid>
-                                    <div style={{ width: '100%', marginTop: 20 }}>
-                                        <p className='title'>Por que?</p>
-                                    </div>
-                                    <input
+                                         <input
                                         style={{
                                             backgroundColor: 'transparent',
                                             width: '100%',
@@ -429,36 +402,10 @@ class Form extends React.Component {
                                         className='no-outline'
                                         required={true}
 
-                                        onChange={(event) => this.setState({ question8_t: event.target.value })}
+                                        onChange={(event) => this.setState({ question8: event.target.value })}
 
                                     >
                                     </input>
-                                </Grid>
-                                <div style={{ height: '100%', width: 12, position: 'absolute', top: 0, left: 0, background: azul, borderTopLeftRadius: 10, borderBottomLeftRadius: 12 }}></div>
-                            </div>
-                            <div style={{ width: '70%', background: gray, position: 'relative', borderRadius: 12, marginTop: 20, paddingLeft: '2.5%', paddingRight: '2.5%', paddingTop: 20, paddingBottom: 20 }}>
-                                <div style={{ height: '100%', width: 12, position: 'absolute', top: 0, left: 0, background: azul, borderTopLeftRadius: 10, borderBottomLeftRadius: 12 }}></div>
-                                <Grid container direction='column' style={{ width: '100%', height: '100%' }}>
-                                    <div style={{ width: '100%' }}>
-                                        <p className='title'> 9. Luego de lo vivido, ¿recomendarías a tus compañeros y colegas el Día del Veterinario Zoovet el próximo año?</p>
-                                    </div>
-                                    <Grid container direction={'column'} style={{ marginLeft: 5 }}>
-                                        <Grid item sm={12} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                            <div onClick={() => this.setState({ question9: 1 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                {this.state.question9 == 1 && (
-                                                    <div style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: 'black' }}></div>
-                                                )}
-                                            </div>
-                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>Si</p>
-                                        </Grid>
-                                        <Grid item sm={12} style={{ marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                            <div onClick={() => this.setState({ question9: 2 })} style={{ width: 15, boxShadow: ' 0 1px 2px 0 black', height: 15, borderStyle: 'solid', borderColor: 'black', borderWidth: 1, borderRadius: 7.5, backgroundColor: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                {this.state.question9 == 2 && (
-                                                    <div style={{ width: 7, height: 7, borderRadius: 3.5, backgroundColor: 'black' }}></div>
-                                                )}
-                                            </div>
-                                            <p style={{ margin: 0, fontSize: 16, color: 'black', fontFamily: 'Montserrat-SemiBold', marginLeft: 10 }}>No</p>
-                                        </Grid>
                                     </Grid>
                                 </Grid>
                             </div>
