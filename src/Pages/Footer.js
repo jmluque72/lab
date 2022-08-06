@@ -40,9 +40,9 @@ class Footer extends React.Component {
         super(props);
         // we use this to make the card to appear after the page has been rendered
         //const eventDate = new Date('08/07/22 18:00');
-        const eventDate = new Date('08/07/22 06:00 PM');
+        const eventDate = new Date('08/07/22 05:30 PM');
         const finevento = new Date('08/08/22 02:00 AM');
-        const todayDate = new Date()
+        const diaActual = new Date()
 
 
         this.state = {
@@ -54,7 +54,7 @@ class Footer extends React.Component {
             seconds: (eventDate.getTime() - new Date().getTime()) / 1000,
             eventDay:eventDate,
             finEvento: finevento,
-            diaActual:todayDate,
+            diaActual:diaActual,
             evento: false
 
         }
@@ -81,7 +81,7 @@ class Footer extends React.Component {
         });
 
 
-        if (seconds < 1200  ) {
+        if (seconds <=0  ) {
             this.setState({
                 stoped: true
             })
@@ -105,7 +105,8 @@ class Footer extends React.Component {
         this.interval = setInterval(() => {
             const date = this.timer();
         }, 1000);
-          if (this.state.finEvento >= this.state.eventDay  & this.state.seconds < 0) {
+        console.log(this.state.stope, this.state.seconds)
+          if ( this.state.seconds < 0) {
             this.setState({
                 stoped: true
             })
@@ -169,7 +170,8 @@ class Footer extends React.Component {
         }
 
 
-
+        console.log(this.state.stoped, this.state.seconds)
+        console.log( this.state.diaActual, this.state.eventDay)
 
         if (this.state.stoped == true & this.state.diaActual > this.state.finEvento ) {
 
@@ -184,7 +186,7 @@ class Footer extends React.Component {
 
         } else {
 
-        if (this.state.stoped == true || this.state.seconds < 2700  & this.state.diaActual == this.state.eventDay)  {
+        if (this.state.stoped == true &  this.state.seconds <= 0  )  {
 
             return (
                 <div style={{ display: display, position: 'absolute', paddingTop: 5, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange, height: '15%' }}>
