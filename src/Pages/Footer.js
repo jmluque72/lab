@@ -40,8 +40,9 @@ class Footer extends React.Component {
         super(props);
         // we use this to make the card to appear after the page has been rendered
         //const eventDate = new Date('08/07/22 18:00');
-        const eventDate = new Date('08/07/22 18:00');
-        const finevento = new Date('08/08/22 02:00');
+        const eventDate = new Date('08/07/22 06:00 PM');
+        const finevento = new Date('08/08/22 02:00 AM');
+        const todayDate = new Date()
 
 
         this.state = {
@@ -51,9 +52,9 @@ class Footer extends React.Component {
             sec: 0,
             stoped: false,
             seconds: (eventDate.getTime() - new Date().getTime()) / 1000,
-            eventDay: (eventDate.getDate()),
-            finEvento: (finevento.getDate()),
-            diaActual: (new Date().getDate()),
+            eventDay:eventDate,
+            finEvento: finevento,
+            diaActual:todayDate,
             evento: false
 
         }
@@ -169,20 +170,21 @@ class Footer extends React.Component {
 
 
 
-        if (this.state.stoped == true & this.state.finEvento > this.state.eventDay  & this.state.evento == false) {
+
+        if (this.state.stoped == true & this.state.diaActual > this.state.finEvento ) {
 
                 return (
                       <div style={{ display: display, position: 'absolute', paddingTop: 5,  zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange , height: '20%'}}>
-                        <p className={vtimeTitle} style={{ fontFamily: 'Montserrat-SemiBold' }} >Gracias por participar</p>
-                        <p className={vtimeTitle} style={{ cursor: 'pointer'}} onClick={this.goToForm}>Por favor complete la encuenta</p>
+
+                        <p className={vtimeTitle} style={{ paddingTop: 20, cursor: 'pointer'}} onClick={this.goToForm}>Por favor complete la encuenta</p>
 
                     </div>
                 )
 
 
-        }
+        } else {
 
-        if ((this.state.stoped == true & this.state.evento == true ) || ((this.state.seconds -2700) < 0) )  {
+        if (this.state.stoped == true || this.state.seconds < 2700  & this.state.diaActual == this.state.eventDay)  {
 
             return (
                 <div style={{ display: display, position: 'absolute', paddingTop: 5, zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange, height: '15%' }}>
@@ -234,7 +236,7 @@ class Footer extends React.Component {
 
 
             }
-        }
+        }}
 
 }
 

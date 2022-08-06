@@ -14,10 +14,16 @@ import image_2_responsiveM from '../assets/CarouselHome/image_2.jpg'
 import logoHeader from '../assets/logoHeader.png'
 import Background from '../assets/backgroundZoonvetAllliso-01.jpg'
 import BackgroundR from '../assets/backgroundZoonvetAllliso-01.jpg'
+import BackgroundF from '../assets/backgroundZoonvetAll.jpg'
 
+import gracias from '../assets/Gracias.png'
+import esperamos from '../assets/Esperamos volver a verte.png'
 import Footer from './Footer.js'
 import next from '../assets/next.png'
 import prev from '../assets/prev.svg'
+import { colors } from '../utils'
+
+
 
 class SliderHome extends React.Component {
 
@@ -38,7 +44,34 @@ class SliderHome extends React.Component {
     }
 
     render() {
+
+          const countDown = this.state;
         const min = window.innerWidth >= 1000
+
+        const eventDate = new Date('08/07/22 06:00 PM');
+        const finevento = new Date('08/08/22 02:00 AM');
+        const todayDate = new Date()
+
+
+            var display = "block"
+            var margin = 0
+            var vtimeTitle = 'timeTitle'
+            var vtimeValue = 'timeValue'
+            var vtimeValueB = 'timeValueB'
+            var vtimeValueLabel = 'timeValueLabel'
+
+
+        if (!min) {
+            var vtimeTitle = 'timeTitleR'
+            var vtimeValue = 'timeValueR'
+            var vtimeValueB = 'timeValueRB'
+            var vtimeValueLabel = 'timeValueLabelR'
+        }
+
+        if (window.scrollY > 0) {
+           // display = "none";
+        }
+
         var back = Background;
         var img_1 = image_1;
         var img_2 = image_2;
@@ -52,7 +85,43 @@ class SliderHome extends React.Component {
 
         }
 const mid = (window.innerWidth > 1000 & window.innerWidth<1400)
-console.log()
+          if (todayDate > eventDate & todayDate > finevento )  {
+
+                return (
+                        <div style={{ width: '100%',  flexDirection: 'row',marginTop: min? 0 : 100, height:window.innerHeight,backgroundImage:`url(${BackgroundF})`,backgroundSize:'cover'}}>
+
+                    <Grid item xs={12} sm={12} >
+                                        <Grid container justify='center' alignItems='center'>
+                                            <div style={{ marginTop: min?140: 70 }}>
+                                                <img src={logoHeader} style={{width: min?'20%': '50%'}}></img>
+                                            </div>
+
+                                        </Grid>
+
+                    </Grid>
+                     <Grid item xs={12} sm={12} >
+                                        <Grid container justify='center' alignItems='center'>
+                                            <div style={{ marginTop: min?-18 : 30 }}>
+                                            <img src={gracias} style={{width: min?'50%': '90%'}}></img>
+                                            </div>
+
+                                        </Grid>
+
+                    </Grid>
+                     <Grid item xs={12} sm={12} >
+                                        <Grid container justify='center' alignItems='center'>
+                                            <div style={{ marginTop: min? -25 :10 }}>
+                                                  <img src={esperamos} style={{width: min?'60%': '80%'}}></img>
+                                            </div>
+
+                                        </Grid>
+                    </Grid>
+                    <Footer />
+                </div>
+                )
+
+
+        } else {
 
             return (
                 <div style={{ width: '100%', minHeight: '100vh', justifyContent: 'center', alignItems: 'center', display: 'flex', padding: 0, }}>
@@ -92,7 +161,7 @@ console.log()
                     <Footer />
                 </div>
             );
-
+            }
     }
 }
 
