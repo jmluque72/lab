@@ -39,9 +39,9 @@ class Footer extends React.Component {
     constructor(props) {
         super(props);
         // we use this to make the card to appear after the page has been rendered
-      
+        //const eventDate = new Date('08/07/22 18:00');
         const eventDate = new Date('08/07/22 05:15 PM');
-        const finevento = new Date('08/08/22 02:00 AM');
+        const finevento = new Date('08/07/22 08:05 PM');
         const diaActual = new Date()
 
 

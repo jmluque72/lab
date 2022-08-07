@@ -48,8 +48,8 @@ class SliderHome extends React.Component {
           const countDown = this.state;
         const min = window.innerWidth >= 1000
 
-        const eventDate = new Date('08/07/22 06:00 PM');
-        const finevento = new Date('08/08/22 02:00 AM');
+        const eventDate = new Date('08/07/22 05:15 PM');
+        const finevento = new Date('08/07/22 08:05 PM');
         const todayDate = new Date()
 
 
@@ -85,6 +85,7 @@ class SliderHome extends React.Component {
 
         }
 const mid = (window.innerWidth > 1000 & window.innerWidth<1400)
+
           if (todayDate > eventDate & todayDate > finevento )  {
 
                 return (
