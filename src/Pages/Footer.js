@@ -178,7 +178,7 @@ class Footer extends React.Component {
                 return (
                       <div style={{ display: display, position: 'absolute', paddingTop: 5,  zIndex: 100, left: 0, bottom: 0, right: 0, background: colors.degrade_orange , height: '20%'}}>
 
-                        <p className={vtimeTitle} style={{ paddingTop: 20, cursor: 'pointer'}} onClick={this.goToForm}>Por favor complete la encuenta</p>
+                        <p className={vtimeTitle} style={{ paddingTop: 20, cursor: 'pointer'}} onClick={this.goToForm}>Por favor complete la Encuesta</p>
 
                     </div>
                 )
