@@ -10,7 +10,6 @@ import Form from './Pages/Form.js'
 import FormGrido from './Pages/FormGrido.js'
 import Home from './Pages/HomeView.js'
 import Vivo from './Pages/Vivo.js'
-
 import React from 'react'
 import { Cookies } from 'react-cookie';
 
